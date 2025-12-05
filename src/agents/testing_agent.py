@@ -165,6 +165,26 @@ class TestingAgent:
             response = self.llm.invoke(prompt)
             result_text = response.content
 
+            # Normalize different response shapes (string | list | dict)
+            if isinstance(result_text, list):
+                parts = []
+                for it in result_text:
+                    if isinstance(it, dict) and "text" in it:
+                        parts.append(it["text"])
+                    else:
+                        parts.append(str(it))
+                result_text = "\n".join(parts)
+            elif isinstance(result_text, dict):
+                # Common keys: 'text', 'content'
+                if "text" in result_text:
+                    result_text = str(result_text["text"])
+                elif "content" in result_text:
+                    result_text = str(result_text["content"])
+                else:
+                    result_text = str(result_text)
+            else:
+                result_text = str(result_text)
+
             # Try to extract JSON from response
             result_data = self._extract_json_from_response(result_text)
 

@@ -417,3 +417,38 @@ Target 10 not found.
 2025-12-05 12:45:18 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['numpy', 'logging', 'typing']
 2025-12-05 12:45:19 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
 2025-12-05 12:45:19 | src.tools.code_executor | [31mERROR[0m | Python execution error: 'charmap' codec can't encode character '\u03bb' in position 1413: character maps to <undefined>
+2025-12-05 12:47:47 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'typing']
+2025-12-05 12:47:47 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['logging', 'typing']
+2025-12-05 12:47:47 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
+
+2025-12-05 12:48:05 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'typing', 'standard python libraries only (logging', 'typing)']
+2025-12-05 12:48:05 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['logging', 'typing', 'standard python libraries only (logging', 'typing)']
+2025-12-05 12:48:05 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
+
+2025-12-05 12:48:20 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'typing', 'None (Standard Python library only)']
+2025-12-05 12:48:20 | src.tools.code_executor | [33mWARNING[0m | Removed invalid dependency entries before install: ['None (Standard Python library only)']
+2025-12-05 12:48:20 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['logging', 'typing']
+2025-12-05 12:48:20 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
+
+2025-12-05 12:48:46 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'typing', 'None']
+2025-12-05 12:48:46 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['logging', 'typing', 'None']
+2025-12-05 12:48:46 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
+
+2025-12-05 12:48:54 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['typing']
+2025-12-05 12:48:54 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['typing']
+2025-12-05 12:48:54 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
+
+2025-12-05 12:49:06 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'typing']
+2025-12-05 12:49:06 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['logging', 'typing']
+2025-12-05 12:49:06 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
+
+2025-12-05 12:49:15 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['typing']
+2025-12-05 12:49:15 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['typing']
+2025-12-05 12:49:15 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
+
+2025-12-05 12:49:25 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpr0msg6rl.py
+2025-12-05 12:49:25 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:50:28 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['requests', 'logging', 'beautifulsoup4', 'typing']
+2025-12-05 12:50:28 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['requests', 'logging', 'beautifulsoup4', 'typing']
+2025-12-05 12:50:28 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
+

@@ -409,6 +409,36 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
 
         success = result.returncode == 0
 
+        # If pip module is missing in this Python installation, attempt to bootstrap it
+        if not success and "No module named pip" in (result.stderr or ""):
+            logger.warning("pip module missing; attempting to bootstrap pip via ensurepip")
+            try:
+                ensure = subprocess.run(
+                    [sys.executable, "-m", "ensurepip", "--upgrade"],
+                    capture_output=True,
+                    text=True,
+                    timeout=120,
+                )
+                logger.info(f"ensurepip stdout: {ensure.stdout}")
+                logger.info(f"ensurepip stderr: {ensure.stderr}")
+            except Exception as e:
+                logger.error(f"ensurepip failed: {e}")
+
+            # Retry pip install once
+            retry = subprocess.run(
+                [sys.executable, "-m", "pip", "install"] + final_packages,
+                capture_output=True,
+                text=True,
+                timeout=300,
+            )
+            success = retry.returncode == 0
+            if success:
+                logger.info("Dependencies installed successfully after ensurepip")
+                return {"success": True, "stdout": retry.stdout, "stderr": retry.stderr}
+            else:
+                logger.error(f"Dependency installation still failed after ensurepip: {retry.stderr}")
+                return {"success": False, "stdout": retry.stdout, "stderr": retry.stderr}
+
         if success:
             logger.info("Dependencies installed successfully")
         else:

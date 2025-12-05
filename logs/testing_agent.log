@@ -93,3 +93,7 @@
 2025-12-05 12:45:19 | testing_agent | [32mINFO[0m | Testing python code
 2025-12-05 12:45:19 | testing_agent | [31mERROR[0m | Code execution failed
 2025-12-05 12:45:19 | testing_agent | [31mERROR[0m | Execution result: {'success': False, 'error': "'charmap' codec can't encode character '\\u03bb' in position 1413: character maps to <undefined>", 'stdout': '', 'stderr': ''}
+2025-12-05 12:46:57 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-05 12:49:25 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 12:49:25 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 12:49:43 | testing_agent | [31mERROR[0m | LLM validation failed: expected string or bytes-like object, got 'list'

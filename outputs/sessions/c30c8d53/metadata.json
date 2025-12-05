@@ -1,0 +1,145 @@
+{
+  "session_id": "c30c8d53",
+  "requirements": "Write a function that sorts a list using quicksort and include unit-test-like assertions.",
+  "language": "python",
+  "created_at": "2025-12-05T12:48:20.464104",
+  "updated_at": "2025-12-05T12:49:15.781093",
+  "status": "failed",
+  "current_iteration": 5,
+  "max_iterations": 5,
+  "iterations": [
+    {
+      "iteration_number": 1,
+      "timestamp": "2025-12-05T12:48:20.465108",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# FILE: quicksort_implementation.py\n\n\"\"\"\nImplementation of the Quicksort algorithm in Python, including unit-test-like assertions\nto verify correctness.\n\"\"\"\n\nfrom typing import List, Any\nimport random\nimport time\n\n# --- Quicksort Implementation ---\n\ndef _partition(arr: List[Any], low: int, high: int) -> int:\n    \"\"\"\n    Partitions the array segment arr[low..high] around a pivot (chosen as arr[high]).\n    Returns the index of the pivot element after partitioning.\n    \"\"\"\n    # Choose the rightmost element as the pivot\n    pivot = arr[high]\n    \n    # Index of smaller element\n    i = low - 1\n    \n    # Traverse through all elements, comparing each with the pivot\n    for j in range(low, high):\n        if arr[j] <= pivot:\n            # If element smaller than pivot is found, increment index i\n            i += 1\n            # Swap arr[i] and arr[j]\n            arr[i], arr[j] = arr[j], arr[i]\n            \n    # Swap the pivot element (arr[high]) with the element at i + 1\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    \n    # Return the partitioning index\n    return i + 1\n\ndef _quicksort_recursive(arr: List[Any], low: int, high: int) -> None:\n    \"\"\"\n    Recursive function to perform Quicksort on the array segment arr[low..high].\n    \"\"\"\n    if low < high:\n        # pi is the partitioning index, arr[pi] is now at the right place\n        pi = _partition(arr, low, high)\n        \n        # Separately sort elements before partition and after partition\n        _quicksort_recursive(arr, low, pi - 1)\n        _quicksort_recursive(arr, pi + 1, high)\n\ndef quicksort(data: List[Any]) -> List[Any]:\n    \"\"\"\n    Public wrapper function for the Quicksort algorithm. Sorts the list in-place.\n    \n    Args:\n        data: The list to be sorted.\n        \n    Returns:\n        The sorted list (the input list modified in-place).\n    \"\"\"\n    if not data or len(data) < 2:\n        return data\n    \n    # Create a copy if we want to avoid modifying the original list passed by the caller,\n    # but since quicksort is typically defined as in-place, we will modify the input list\n    # and return it.\n    \n    try:\n        _quicksort_recursive(data, 0, len(data) - 1)\n        return data\n    except Exception as e:\n        print(f\"Error during quicksort execution: {e}\")\n        # Re-raise or handle specific sorting errors if necessary\n        raise\n\n# --- Unit Test Assertions ---\n\ndef test_quicksort() -> None:\n    \"\"\"\n    Runs various test cases using assertions to verify the quicksort implementation.\n    \"\"\"\n    print(\"--- Running Quicksort Tests ---\")\n    \n    test_cases = [\n        (\"Empty List\", [], []),\n        (\"Single Element\", [5], [5]),\n        (\"Already Sorted\", [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]),\n        (\"Reverse Sorted\", [5, 4, 3, 2, 1], [1, 2, 3, 4, 5]),\n        (\"Duplicates\", [4, 1, 3, 4, 2, 1], [1, 1, 2, 3, 4, 4]),\n        (\"Negative Numbers\", [-5, 0, 3, -10, 1], [-10, -5, 0, 1, 3]),\n        (\"Mixed Types (Requires comparable types)\", [3, 1, 2], [1, 2, 3]),\n    ]\n\n    all_passed = True\n    \n    for name, input_list, expected_output in test_cases:\n        # We must copy the input list because quicksort modifies it in-place\n        data_copy = input_list[:]\n        \n        try:\n            result = quicksort(data_copy)\n            \n            # Assertion 1: Check if the result matches the expected sorted list\n            assert result == expected_output, (\n                f\"FAIL: {name}\\n\"\n                f\"Input: {input_list}\\n\"\n                f\"Expected: {expected_output}\\n\"\n                f\"Got: {result}\"\n            )\n            \n            # Assertion 2: Check if the length remains the same\n            assert len(result) == len(input_list), (\n                f\"FAIL: {name} - Length mismatch.\"\n            )\n            \n            print(f\"PASS: {name}\")\n            \n        except AssertionError as e:\n            print(e)\n            all_passed = False\n        except Exception as e:\n            print(f\"ERROR during test '{name}': {e}\")\n            all_passed = False\n\n    # Large Random Data Test\n    print(\"\\n--- Testing Large Random Data ---\")\n    N = 1000\n    random_data = [random.randint(1, 10000) for _ in range(N)]\n    \n    # Use Python's built-in sort for the ground truth\n    expected_sorted = sorted(random_data)\n    \n    # Test our quicksort implementation\n    test_data = random_data[:]\n    start_time = time.perf_counter()\n    result_sorted = quicksort(test_data)\n    end_time = time.perf_counter()\n    \n    try:\n        assert result_sorted == expected_sorted, \"FAIL: Large Random Data Test - Output mismatch.\"\n        print(f\"PASS: Large Random Data ({N} elements). Time taken: {end_time - start_time:.6f}s\")\n    except AssertionError as e:\n        print(e)\n        all_passed = False\n\n    print(\"\\n--- Test Summary ---\")\n    if all_passed:\n        print(\"All quicksort tests passed successfully!\")\n    else:\n        print(\"One or more quicksort tests failed.\")\n\n\nif __name__ == \"__main__\":\n    test_quicksort()\n```",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "typing"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 155: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 155: invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 2,
+      "timestamp": "2025-12-05T12:48:30.903040",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: None\n\nimport logging\nfrom typing import List\n\n# Setup basic logging configuration. We set it to WARNING initially \n# so that only test failures are prominent, but allow internal functions \n# to use DEBUG/INFO if needed for debugging purposes.\nlogging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')\n\ndef _partition(arr: List[int], low: int, high: int) -> int:\n    \"\"\"\n    Partitions the array segment arr[low...high] around a pivot (arr[high]).\n    This implementation uses the last element as the pivot.\n    Returns the index of the pivot element after partitioning.\n    \"\"\"\n    pivot = arr[high]\n    i = low - 1  # Index of the smaller element\n\n    logging.debug(f\"Partitioning segment [{low}, {high}]. Pivot: {pivot}\")\n\n    # Iterate through all elements except the pivot (arr[high])\n    for j in range(low, high):\n        # If current element is smaller than or equal to pivot\n        if arr[j] <= pivot:\n            i = i + 1\n            # Swap arr[i] and arr[j]\n            arr[i], arr[j] = arr[j], arr[i]\n            logging.debug(f\"Swap: {arr}\")\n\n    # Swap the pivot element (arr[high]) with the element at i + 1\n    # This places the pivot in its correct sorted position\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    \n    pivot_index = i + 1\n    logging.debug(f\"Partition complete. Pivot placed at index {pivot_index}. Array: {arr}\")\n    return pivot_index\n\ndef _quicksort_recursive(arr: List[int], low: int, high: int) -> None:\n    \"\"\"\n    Recursive helper function for Quicksort (in-place).\n    \"\"\"\n    if low < high:\n        # pi is the partitioning index, arr[pi] is now at its correct place\n        pi = _partition(arr, low, high)\n\n        # Recursively sort the sub-arrays before and after the partition index\n        _quicksort_recursive(arr, low, pi - 1)\n        _quicksort_recursive(arr, pi + 1, high)\n\ndef quicksort(arr: List[int]) -> List[int]:\n    \"\"\"\n    Sorts a list of integers using the Quicksort algorithm.\n    \n    Args:\n        arr: The list to be sorted.\n        \n    Returns:\n        A new list containing the sorted elements.\n    \"\"\"\n    if not arr:\n        return []\n        \n    # Create a copy of the input list because Quicksort is implemented in-place,\n    # and we generally want the public function interface to be non-mutating \n    # unless explicitly stated.\n    temp_arr = arr[:] \n    \n    logging.info(f\"Starting Quicksort on list of size {len(temp_arr)}\")\n    _quicksort_recursive(temp_arr, 0, len(temp_arr) - 1)\n    logging.info(\"Quicksort finished.\")\n    \n    return temp_arr\n\ndef run_tests():\n    \"\"\"\n    Runs unit-test-like assertions to verify the quicksort implementation \n    across various edge cases.\n    \"\"\"\n    print(\"\\n--- Running Quicksort Tests ---\")\n    \n    test_cases = [\n        ([10, 7, 8, 9, 1, 5], [1, 5, 7, 8, 9, 10], \"Standard list\"),\n        ([1, 2, 3, 4, 5], [1, 2, 3, 4, 5], \"Already sorted list\"),\n        ([5, 4, 3, 2, 1], [1, 2, 3, 4, 5], \"Reverse sorted list\"),\n        ([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5], [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9], \"List with duplicates\"),\n        ([], [], \"Empty list\"),\n        ([42], [42], \"Single element list\"),\n        ([1, 0, -5, 100, 50], [-5, 0, 1, 50, 100], \"List with negative numbers\")\n    ]\n    \n    all_passed = True\n    \n    for i, (input_list, expected, description) in enumerate(test_cases):\n        test_name = f\"Test {i+1}: {description}\"\n        \n        # We use a copy of the input list for printing purposes, \n        # although quicksort already copies it internally.\n        input_copy = input_list[:] \n        result = quicksort(input_list)\n        \n        print(f\"\\n{test_name}\")\n        print(f\"  Input: {input_copy}\")\n        print(f\"  Result: {result}\")\n        \n        try:\n            assert result == expected\n            print(f\"  Status: PASSED\")\n        except AssertionError:\n            logging.error(f\"  Status: FAILED. Expected: {expected}, Got: {result}\")\n            all_passed = False\n            \n    print(\"\\n--- Quicksort Tests Complete ---\")\n    if all_passed:\n        print(\"All quicksort tests passed successfully.\")\n    else:\n        print(\"One or more quicksort tests failed.\")\n\n\nif __name__ == \"__main__\":\n    # Run the tests\n    run_tests()",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "logging",
+          "typing",
+          "None"
+        ],
+        "build_instructions": "Resolve dependency installation issues",
+        "errors": [
+          "Failed to install dependencies: C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Scripts\\python.exe: No module named pip\n"
+        ],
+        "suggested_fixes": [
+          "Check package names and network connectivity"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Failed to install dependencies: C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Scripts\\python.exe: No module named pip",
+      "error_context": null
+    },
+    {
+      "iteration_number": 3,
+      "timestamp": "2025-12-05T12:48:46.496572",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# No external dependencies required for this implementation.\n\nfrom typing import List\n\ndef quicksort(arr: List[int]) -> List[int]:\n    \"\"\"\n    Sorts a list of integers using the Quicksort algorithm.\n\n    This implementation uses a non-in-place, recursive approach suitable\n    for Python's list handling, partitioning the list into three parts:\n    elements less than the pivot, elements equal to the pivot, and\n    elements greater than the pivot.\n    \"\"\"\n    # Base case: lists with 0 or 1 element are already sorted\n    if len(arr) <= 1:\n        return arr\n\n    # Choose the pivot (using the middle element for simplicity)\n    pivot = arr[len(arr) // 2]\n\n    # Partition the list\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n\n    # Recursively sort the sub-lists and combine the results\n    return quicksort(left) + middle + quicksort(right)\n\ndef run_tests():\n    \"\"\"\n    Runs unit-test-like assertions to verify the quicksort implementation.\n    \"\"\"\n    print(\"--- Running Quicksort Verification Tests ---\")\n\n    test_cases = [\n        ([], []),                                       # Empty list\n        ([1], [1]),                                     # Single element\n        ([3, 1, 4, 1, 5, 9, 2, 6], [1, 1, 2, 3, 4, 5, 6, 9]), # Standard case\n        ([5, 4, 3, 2, 1], [1, 2, 3, 4, 5]),             # Reverse sorted\n        ([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]),             # Already sorted\n        ([10, -5, 0, 3, -100], [-100, -5, 0, 3, 10]),   # Negative numbers\n        ([7, 7, 7, 7], [7, 7, 7, 7]),                   # Duplicates only\n    ]\n\n    success_count = 0\n    total_count = len(test_cases)\n\n    for i, (input_list, expected_output) in enumerate(test_cases):\n        # Create a copy of the input list for sorting, as quicksort might modify it\n        # (though this specific implementation returns a new list, it's good practice)\n        list_to_sort = list(input_list)\n        \n        try:\n            # Execute the quicksort function\n            result = quicksort(list_to_sort)\n\n            # Assertion check\n            assert result == expected_output, (\n                f\"Test {i+1} Failed: Input: {input_list}, \"\n                f\"Expected: {expected_output}, Got: {result}\"\n            )\n\n            print(f\"Test {i+1} Passed.\")\n            print(f\"  Input: {input_list}\")\n            print(f\"  Output: {result}\\n\")\n            success_count += 1\n\n        except AssertionError as e:\n            print(f\"Test {i+1} FAILED: {e}\")\n            print(f\"  Input: {input_list}\")\n            print(f\"  Expected: {expected_output}\\n\")\n        except Exception as e:\n            print(f\"Test {i+1} FAILED due to unexpected error: {e}\")\n            print(f\"  Input: {input_list}\\n\")\n\n\n    print(f\"--- Test Summary: {success_count}/{total_count} tests passed ---\")\n    if success_count != total_count:\n        print(\"WARNING: Some tests failed.\")\n    else:\n        print(\"SUCCESS: All quicksort tests passed.\")\n\n\nif __name__ == \"__main__\":\n    run_tests()",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "typing"
+        ],
+        "build_instructions": "Resolve dependency installation issues",
+        "errors": [
+          "Failed to install dependencies: C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Scripts\\python.exe: No module named pip\n"
+        ],
+        "suggested_fixes": [
+          "Check package names and network connectivity"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Failed to install dependencies: C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Scripts\\python.exe: No module named pip",
+      "error_context": null
+    },
+    {
+      "iteration_number": 4,
+      "timestamp": "2025-12-05T12:48:54.437891",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "import logging\nfrom typing import List, Any\n\n# Configure basic logging\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')\n\n# No external dependencies required for this implementation.\n\ndef _partition(arr: List[Any], low: int, high: int) -> int:\n    \"\"\"\n    Partitions the array segment arr[low..high] around a pivot (chosen as arr[high]).\n    Returns the index of the pivot element after partitioning.\n    \"\"\"\n    # Choose the rightmost element as the pivot\n    pivot = arr[high]\n    \n    # Index of smaller element, indicating the correct position of the pivot found so far\n    i = low - 1\n    \n    # Iterate through all elements from low to high-1\n    for j in range(low, high):\n        # If current element is smaller than or equal to the pivot\n        if arr[j] <= pivot:\n            # Increment index of smaller element\n            i += 1\n            # Swap arr[i] and arr[j]\n            arr[i], arr[j] = arr[j], arr[i]\n            \n    # Place the pivot element in its correct position (i + 1)\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    \n    # Return the partitioning index\n    return i + 1\n\ndef _quicksort_recursive(arr: List[Any], low: int, high: int):\n    \"\"\"\n    Recursive helper function to perform quicksort in-place.\n    \"\"\"\n    if low < high:\n        # pi is the partitioning index, arr[pi] is now in the correct place\n        pi = _partition(arr, low, high)\n        \n        # Recursively sort elements before partition and after partition\n        _quicksort_recursive(arr, low, pi - 1)\n        _quicksort_recursive(arr, pi + 1, high)\n\ndef quicksort(arr: List[Any]) -> List[Any]:\n    \"\"\"\n    Sorts a list using the Quicksort algorithm (in-place modification).\n    \n    Args:\n        arr: The list to be sorted.\n        \n    Returns:\n        The sorted list (the same list object passed as input).\n    \"\"\"\n    if not arr or len(arr) < 2:\n        return arr\n    \n    # Create a copy if we wanted to guarantee immutability, but standard quicksort \n    # is often implemented in-place for efficiency. We will modify the input list.\n    \n    logging.debug(f\"Starting quicksort on list of size {len(arr)}\")\n    _quicksort_recursive(arr, 0, len(arr) - 1)\n    logging.debug(\"Quicksort finished.\")\n    return arr\n\ndef test_quicksort():\n    \"\"\"\n    Runs unit-test-like assertions to verify the quicksort implementation.\n    \"\"\"\n    print(\"--- Running Quicksort Tests ---\")\n    \n    # Test Case 1: Standard list of integers\n    data1 = [10, 7, 8, 9, 1, 5]\n    expected1 = [1, 5, 7, 8, 9, 10]\n    result1 = quicksort(data1)\n    assert result1 == expected1, f\"Test 1 Failed: Expected {expected1}, Got {result1}\"\n    print(f\"Test 1 Passed: {result1}\")\n\n    # Test Case 2: Already sorted list\n    data2 = [1, 2, 3, 4, 5]\n    expected2 = [1, 2, 3, 4, 5]\n    result2 = quicksort(data2)\n    assert result2 == expected2, f\"Test 2 Failed: Expected {expected2}, Got {result2}\"\n    print(f\"Test 2 Passed: {result2}\")\n\n    # Test Case 3: Reverse sorted list\n    data3 = [5, 4, 3, 2, 1]\n    expected3 = [1, 2, 3, 4, 5]\n    result3 = quicksort(data3)\n    assert result3 == expected3, f\"Test 3 Failed: Expected {expected3}, Got {result3}\"\n    print(f\"Test 3 Passed: {result3}\")\n\n    # Test Case 4: List with duplicates\n    data4 = [4, 2, 4, 1, 3, 2, 5]\n    expected4 = [1, 2, 2, 3, 4, 4, 5]\n    result4 = quicksort(data4)\n    assert result4 == expected4, f\"Test 4 Failed: Expected {expected4}, Got {result4}\"\n    print(f\"Test 4 Passed: {result4}\")\n\n    # Test Case 5: Empty list\n    data5: List[int] = []\n    expected5: List[int] = []\n    result5 = quicksort(data5)\n    assert result5 == expected5, f\"Test 5 Failed: Expected {expected5}, Got {result5}\"\n    print(f\"Test 5 Passed: {result5}\")\n\n    # Test Case 6: Single element list\n    data6 = [42]\n    expected6 = [42]\n    result6 = quicksort(data6)\n    assert result6 == expected6, f\"Test 6 Failed: Expected {expected6}, Got {result6}\"\n    print(f\"Test 6 Passed: {result6}\")\n    \n    # Test Case 7: List with negative numbers\n    data7 = [-5, 0, 10, -1, 3]\n    expected7 = [-5, -1, 0, 3, 10]\n    result7 = quicksort(data7)\n    assert result7 == expected7, f\"Test 7 Failed: Expected {expected7}, Got {result7}\"\n    print(f\"Test 7 Passed: {result7}\")\n\n    print(\"\\nAll Quicksort tests passed successfully!\")\n\nif __name__ == \"__main__\":\n    try:\n        test_quicksort()\n    except AssertionError as e:\n        logging.error(f\"A test failed: {e}\")\n    except Exception as e:\n        logging.critical(f\"An unexpected error occurred during execution: {e}\")",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "logging",
+          "typing"
+        ],
+        "build_instructions": "Resolve dependency installation issues",
+        "errors": [
+          "Failed to install dependencies: C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Scripts\\python.exe: No module named pip\n"
+        ],
+        "suggested_fixes": [
+          "Check package names and network connectivity"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Failed to install dependencies: C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Scripts\\python.exe: No module named pip",
+      "error_context": null
+    },
+    {
+      "iteration_number": 5,
+      "timestamp": "2025-12-05T12:49:06.395236",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "import sys\nfrom typing import List, Tuple\n\n# No external dependencies required for this implementation.\n\ndef _partition(arr: List[int], low: int, high: int) -> int:\n    \"\"\"\n    Helper function to perform the partitioning step of Quicksort.\n    Chooses the last element as the pivot.\n    \"\"\"\n    # Choose the rightmost element as the pivot\n    pivot = arr[high]\n    \n    # Index of smaller element\n    i = low - 1\n    \n    # Traverse through all elements, comparing each with the pivot\n    for j in range(low, high):\n        if arr[j] <= pivot:\n            # If current element is smaller than or equal to pivot, increment i\n            i += 1\n            # Swap arr[i] and arr[j]\n            arr[i], arr[j] = arr[j], arr[i]\n            \n    # Swap the pivot element with the element at i + 1\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    \n    # Return the partitioning index\n    return i + 1\n\ndef _quicksort_recursive(arr: List[int], low: int, high: int) -> None:\n    \"\"\"\n    The main recursive function implementing Quicksort (in-place).\n    \"\"\"\n    if low < high:\n        # pi is the partitioning index, arr[pi] is now at the right place\n        pi = _partition(arr, low, high)\n        \n        # Separately sort elements before partition and after partition\n        _quicksort_recursive(arr, low, pi - 1)\n        _quicksort_recursive(arr, pi + 1, high)\n\ndef quicksort(data: List[int]) -> List[int]:\n    \"\"\"\n    Sorts a list of integers using the Quicksort algorithm (in-place).\n    Returns the sorted list.\n    \n    Args:\n        data: The list of integers to be sorted.\n    \n    Returns:\n        The sorted list (the input list is modified in place).\n    \"\"\"\n    if not data:\n        return data\n        \n    # Create a copy if we want to maintain the original list, \n    # but for simplicity and standard quicksort implementation, we modify in place.\n    # If a copy is needed: sorted_data = data[:]\n    \n    n = len(data)\n    _quicksort_recursive(data, 0, n - 1)\n    return data\n\ndef run_assertions() -> None:\n    \"\"\"\n    Runs unit-test-like assertions to verify the quicksort implementation.\n    \"\"\"\n    print(\"--- Running Quicksort Assertions ---\")\n    \n    test_cases: List[Tuple[List[int], List[int]]] = [\n        # Case 1: Basic unsorted list\n        ([10, 7, 8, 9, 1, 5], [1, 5, 7, 8, 9, 10]),\n        # Case 2: Already sorted list\n        ([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]),\n        # Case 3: Reverse sorted list\n        ([5, 4, 3, 2, 1], [1, 2, 3, 4, 5]),\n        # Case 4: List with duplicates\n        ([4, 2, 4, 1, 3, 2], [1, 2, 2, 3, 4, 4]),\n        # Case 5: Empty list\n        ([], []),\n        # Case 6: Single element list\n        ([42], [42]),\n        # Case 7: Negative numbers\n        ([-5, 0, -10, 3], [-10, -5, 0, 3]),\n        # Case 8: Larger random-like list\n        ([99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0], [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283])\n    ]\n    \n    all_passed = True\n    \n    for i, (input_list, expected_output) in enumerate(test_cases):\n        # We must copy the input list because quicksort modifies it in place\n        test_list = input_list[:] \n        \n        try:\n            result = quicksort(test_list)\n            \n            # Assertion check\n            assert result == expected_output, (\n                f\"Test Case {i+1} Failed: \"\n                f\"Input: {input_list}, Expected: {expected_output}, Got: {result}\"\n            )\n            print(f\"Test Case {i+1} Passed.\")\n            \n        except AssertionError as e:\n            print(f\"ERROR: {e}\", file=sys.stderr)\n            all_passed = False\n        except Exception as e:\n            print(f\"CRITICAL ERROR during Test Case {i+1}: {e}\", file=sys.stderr)\n            all_passed = False\n            \n    if all_passed:\n        print(\"\\nAll 8 Quicksort assertions passed successfully!\")\n    else:\n        print(\"\\nSome Quicksort assertions failed.\")\n\nif __name__ == \"__main__\":\n    # Example usage\n    data_to_sort = [45, 12, 88, 3, 56, 7, 91, 22]\n    print(f\"Original List: {data_to_sort}\")\n    \n    # Note: quicksort modifies data_to_sort in place\n    sorted_data = quicksort(data_to_sort)\n    print(f\"Sorted List:   {sorted_data}\")\n    \n    # Run the unit-test-like assertions\n    run_assertions()",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "typing"
+        ],
+        "build_instructions": "Resolve dependency installation issues",
+        "errors": [
+          "Failed to install dependencies: C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Scripts\\python.exe: No module named pip\n"
+        ],
+        "suggested_fixes": [
+          "Check package names and network connectivity"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Failed to install dependencies: C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Scripts\\python.exe: No module named pip",
+      "error_context": null
+    }
+  ],
+  "final_code": null,
+  "runtime_credentials": {},
+  "missing_credentials": [],
+  "total_execution_time": 55.316988945007324,
+  "success": false
+}
