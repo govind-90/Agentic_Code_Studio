@@ -452,3 +452,44 @@ Target 10 not found.
 2025-12-05 12:50:28 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['requests', 'logging', 'beautifulsoup4', 'typing']
 2025-12-05 12:50:28 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe: No module named pip
 
+2025-12-05 12:52:40 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['typing']
+2025-12-05 12:52:40 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['typing']
+2025-12-05 12:52:40 | src.tools.code_executor | [33mWARNING[0m | pip module missing; attempting to bootstrap pip via ensurepip
+2025-12-05 12:52:54 | src.tools.code_executor | [32mINFO[0m | ensurepip stdout: Looking in links: c:\Users\Govind\AppData\Local\Temp\tmpzs8fmvb4
+Processing c:\users\govind\appdata\local\temp\tmpzs8fmvb4\setuptools-79.0.1-py3-none-any.whl
+Processing c:\users\govind\appdata\local\temp\tmpzs8fmvb4\pip-24.0-py3-none-any.whl
+Installing collected packages: setuptools, pip
+Successfully installed pip-24.0 setuptools-79.0.1
+
+2025-12-05 12:52:54 | src.tools.code_executor | [32mINFO[0m | ensurepip stderr: 
+2025-12-05 12:53:07 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully after ensurepip
+2025-12-05 12:53:07 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpnv08tcl9.py
+2025-12-05 12:53:07 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:54:09 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'typing', 'None (Standard Python 3']
+2025-12-05 12:54:09 | src.tools.code_executor | [33mWARNING[0m | Removed invalid dependency entries before install: ['None (Standard Python 3']
+2025-12-05 12:54:09 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['logging', 'typing']
+2025-12-05 12:54:21 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 12:54:21 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpr5vp6x9n.py
+2025-12-05 12:54:21 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:54:53 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmp_1vqorx4.py
+2025-12-05 12:54:53 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:55:25 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['typing']
+2025-12-05 12:55:25 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['typing']
+2025-12-05 12:55:28 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 12:55:28 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpz2yhoydv.py
+2025-12-05 12:55:28 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:56:29 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'typing']
+2025-12-05 12:56:29 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['logging', 'typing']
+2025-12-05 12:56:31 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 12:56:31 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmp8859wf2g.py
+2025-12-05 12:56:32 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:57:13 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['requests', 'logging', 'beautifulsoup4', 'typing']
+2025-12-05 12:57:13 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['requests', 'logging', 'beautifulsoup4', 'typing']
+2025-12-05 12:57:18 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 12:57:18 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpo4vlxts4.py
+2025-12-05 12:57:20 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:57:50 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['numpy', 'logging', 'typing']
+2025-12-05 12:57:50 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['numpy', 'logging', 'typing']
+2025-12-05 12:57:52 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 12:57:52 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmplaw_iaid.py
+2025-12-05 12:57:52 | src.tools.code_executor | [32mINFO[0m | Python execution failed

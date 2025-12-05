@@ -46,7 +46,7 @@ def execute_python_code(code: str, runtime_credentials: Dict[str, str] = None) -
 
     try:
         # Create temporary file
-        with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False, encoding="utf-8") as f:
             # Inject credentials if provided
             if runtime_credentials:
                 credential_lines = "\n".join(
@@ -156,12 +156,12 @@ def execute_java_code(
 
         # Write Java file
         java_file = src_dir / f"{classname}.java"
-        java_file.write_text(code)
+        java_file.write_text(code, encoding="utf-8")
 
         # Create pom.xml
         main_class_path = f"{package_name}.{classname}" if package_name else classname
         pom_content = _generate_execution_pom(main_class_path)
-        (temp_dir / "pom.xml").write_text(pom_content)
+        (temp_dir / "pom.xml").write_text(pom_content, encoding="utf-8")
 
         logger.info(f"Compiling Java code with Maven: {classname}")
 
