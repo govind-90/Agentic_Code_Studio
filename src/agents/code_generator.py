@@ -151,8 +151,11 @@ class CodeGeneratorAgent:
                 "functools",
                 "math",
                 "random",
+                "logging",
+                "typing",
             }
-            dependencies = [d for d in dependencies if d not in builtin_modules]
+            # Filter out builtins and obvious invalid values
+            dependencies = [d for d in dependencies if d and str(d).strip() and str(d).strip() not in builtin_modules and not str(d).strip().lower().startswith("none")]
 
             # Map common module names to pip package names
             module_to_pip = {
@@ -170,6 +173,10 @@ class CodeGeneratorAgent:
                 "requests": "requests",
                 "matplotlib": "matplotlib",
                 "bs": "beautifulsoup4",
+                "scipy": "scipy",
+                "sympy": "sympy",
+                "seaborn": "seaborn",
+                "scikit": "scikit-learn",
             }
 
             normalized = []

@@ -340,7 +340,7 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
     try:
         logger.info(f"Installing dependencies: {dependencies}")
 
-        # Sanitize dependency list: remove None, empty strings, and obvious descriptions
+        # Sanitize dependency list: remove None, empty strings, obvious descriptions, and stdlib names
         sanitized = []
         removed = []
         for d in dependencies:
@@ -350,6 +350,10 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
             s = str(d).strip()
             # Skip obvious descriptions that contain parentheses or 'Standard'
             if ("(" in s and ")" in s) or "Standard" in s:
+                removed.append(s)
+                continue
+            # Skip entries that are literal 'None' or start with 'none'
+            if s.lower().startswith("none"):
                 removed.append(s)
                 continue
             sanitized.append(s)
@@ -377,6 +381,10 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
             "requests": "requests",
             "matplotlib": "matplotlib",
             "bs": "beautifulsoup4",
+            "scipy": "scipy",
+            "sympy": "sympy",
+            "seaborn": "seaborn",
+            "scikit": "scikit-learn",
         }
 
         pip_packages = []
@@ -394,6 +402,10 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
         seen = set()
         final_packages = []
         for p in pip_packages:
+            # Skip obvious stdlib modules that shouldn't be installed
+            stdlib_ignore = {"logging", "typing", "json", "math", "itertools", "collections", "datetime", "re", "sys", "os"}
+            if p in stdlib_ignore:
+                continue
             if p not in seen:
                 final_packages.append(p)
                 seen.add(p)
