@@ -1,0 +1,126 @@
+{
+  "session_id": "02785064",
+  "requirements": "Create a FastAPI REST API for a TODO application with:\n    - SQLAlchemy database models for todos and users\n    - Pydantic schemas for request/response validation\n    - CRUD endpoints for todos (create, read, update, delete)\n    - User authentication with JWT tokens\n    - Database initialization and connection pooling\n    - Unit tests with pytest\n    - Docker support with Dockerfile\n    - GitHub Actions CI/CD workflow\n    Ensure all files have proper imports, the project structure is clean, \n    and all dependencies are correctly specified.",
+  "language": "python",
+  "created_at": "2025-12-05T13:39:34.670254",
+  "updated_at": "2025-12-05T13:41:36.717382",
+  "status": "success",
+  "current_iteration": 0,
+  "max_iterations": 3,
+  "iterations": [
+    {
+      "iteration_number": 1,
+      "timestamp": "2025-12-05T13:39:34.750868",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": null,
+      "build_result": null,
+      "test_result": null,
+      "error_type": null,
+      "error_message": "generated_script_20251205_134032.py:15 - invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 2,
+      "timestamp": "2025-12-05T13:40:32.467606",
+      "code_gen_status": "success",
+      "build_status": "success",
+      "test_status": "success",
+      "generated_code": null,
+      "build_result": null,
+      "test_result": null,
+      "error_type": null,
+      "error_message": null,
+      "error_context": null
+    }
+  ],
+  "final_code": null,
+  "runtime_credentials": {},
+  "missing_credentials": [],
+  "total_execution_time": 122.04712772369385,
+  "success": true,
+  "project_template": "fastapi",
+  "project_name": "todo_app",
+  "files": [
+    {
+      "filename": "generated_script_20251205_134133.py",
+      "code": "from pydantic_settings import BaseSettings, SettingsConfigDict\nfrom typing import Optional\n\nclass Settings(BaseSettings):\n    # Database settings (Defaulting to PostgreSQL setup for Docker)\n    DATABASE_URL: str = \"postgresql+psycopg2://user:password@db:5432/todo_db\"\n    \n    # JWT settings\n    SECRET_KEY: str = \"super-secret-key-change-me-in-production\"\n    ALGORITHM: str = \"HS256\"\n    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30\n\n    # Configuration setup\n    model_config = SettingsConfigDict(env_file=\".env\", extra=\"ignore\")\n\nsettings = Settings()",
+      "language": "python",
+      "size": 548,
+      "filepath": "C:\\Users\\Govind\\Projects\\agentic-code-studio\\outputs\\generated_code\\todo_app/generated_script_20251205_134133.py"
+    }
+  ],
+  "file_tree": {
+    ".gitignore": {
+      "type": "file",
+      "size": 93,
+      "path": ".gitignore"
+    },
+    "Dockerfile": {
+      "type": "file",
+      "size": 196,
+      "path": "Dockerfile"
+    },
+    "README.md": {
+      "type": "file",
+      "size": 254,
+      "path": "README.md"
+    },
+    "requirements.txt": {
+      "type": "file",
+      "size": 148,
+      "path": "requirements.txt"
+    },
+    "src": {
+      "config.py": {
+        "type": "file",
+        "size": 15,
+        "path": "config.py"
+      },
+      "crud.py": {
+        "type": "file",
+        "size": 17,
+        "path": "crud.py"
+      },
+      "database.py": {
+        "type": "file",
+        "size": 17,
+        "path": "database.py"
+      },
+      "main.py": {
+        "type": "file",
+        "size": 18,
+        "path": "main.py"
+      },
+      "models.py": {
+        "type": "file",
+        "size": 19,
+        "path": "models.py"
+      },
+      "schemas.py": {
+        "type": "file",
+        "size": 18,
+        "path": "schemas.py"
+      }
+    },
+    "tests": {
+      "conftest.py": {
+        "type": "file",
+        "size": 17,
+        "path": "conftest.py"
+      },
+      "test_main.py": {
+        "type": "file",
+        "size": 16,
+        "path": "test_main.py"
+      }
+    }
+  },
+  "root_dir": "C:\\Users\\Govind\\Projects\\agentic-code-studio\\outputs\\generated_code\\todo_app",
+  "has_dockerfile": false,
+  "has_ci_config": false,
+  "all_dependencies": [
+    "pydantic_settings"
+  ]
+}

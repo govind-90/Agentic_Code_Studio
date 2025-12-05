@@ -43,6 +43,13 @@ class ProjectScaffoldAgent:
                     "error": f"Template '{template_name}' not found",
                 }
 
+            # Handle None root_dir
+            if root_dir is None:
+                from src.config.settings import settings
+                root_dir = Path(settings.get_project_root()) / "outputs" / "generated_code"
+            else:
+                root_dir = Path(root_dir)
+
             project_root = root_dir / project_name
             project_root.mkdir(parents=True, exist_ok=True)
 
@@ -192,6 +199,13 @@ class ProjectScaffoldAgent:
         template = get_template(template_name)
         if not template:
             return {"success": False, "error": f"Template '{template_name}' not found"}
+            # Use provided root_dir or default to outputs/generated_code
+            if root_dir is None:
+                from src.config.settings import settings
+                root_dir = str(Path(settings.session_storage_path).parent / "generated_code")
+
+            project_root = Path(root_dir) / project_name
+            project_root.mkdir(parents=True, exist_ok=True)
 
         return {
             "success": True,

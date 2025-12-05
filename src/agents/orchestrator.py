@@ -362,7 +362,7 @@ class OrchestratorAgent:
             scaffold_result = self.project_scaffold.scaffold_project(
                 project_name=project_name,
                 template_name=project_template,
-                root_dir=settings.project_output_path,
+                root_dir=None,
             )
 
             if not scaffold_result.get("success"):
@@ -386,7 +386,7 @@ class OrchestratorAgent:
 
         # STEP 2: Iterative code generation, validation, and build
         for iteration in range(1, session.max_iterations + 1):
-            iteration_log = IterationLog(iteration=iteration)
+            iteration_log = IterationLog(iteration_number=iteration)
             logger.info(f"\n{'='*60}")
             logger.info(f"Iteration {iteration}/{session.max_iterations}")
             logger.info(f"{'='*60}")
@@ -398,7 +398,7 @@ class OrchestratorAgent:
                 )
 
             logger.info("Step 2: Multi-file Code Generation")
-            iteration_log.generation_status = AgentStatus.RUNNING
+            iteration_log.code_gen_status = AgentStatus.RUNNING
 
             code_result = self.code_generator.generate_code(
                 requirements=requirements,
@@ -411,7 +411,7 @@ class OrchestratorAgent:
 
             if not generated_files:
                 logger.warning("No files generated")
-                iteration_log.generation_status = AgentStatus.FAILED
+                iteration_log.code_gen_status = AgentStatus.FAILED
                 session.iterations.append(iteration_log)
                 continue
 
@@ -430,7 +430,7 @@ class OrchestratorAgent:
             session.files = files_to_validate
             session.all_dependencies = dependencies
 
-            iteration_log.generation_status = AgentStatus.SUCCESS
+            iteration_log.code_gen_status = AgentStatus.SUCCESS
             logger.info(
                 f"Generated {len(files_to_validate)} files with {len(dependencies)} dependencies"
             )

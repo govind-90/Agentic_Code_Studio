@@ -504,3 +504,901 @@ Successfully installed pip-24.0 setuptools-79.0.1
 2025-12-05 13:04:34 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
 2025-12-05 13:04:53 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmp2y7345dk.py
 2025-12-05 13:04:53 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 13:10:44 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmp7cpwymvb.py
+2025-12-05 13:10:44 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 13:11:25 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmppn12oz8x.py
+2025-12-05 13:11:26 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 13:14:27 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: KnapsackDP
+2025-12-05 13:14:31 | src.tools.code_executor | [32mINFO[0m | Java compilation succeeded, executing...
+2025-12-05 13:14:35 | src.tools.code_executor | [32mINFO[0m | Maven exec result: returncode=0
+2025-12-05 13:14:35 | src.tools.code_executor | [32mINFO[0m | Exec stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.agenticcode:execution >----------------------
+[INFO] Building execution 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.1.1:java (default-cli) @ execution ---
+Knapsack Capacity: 50
+Items available:
+Item 1: Value=60, Weight=10
+Item 2: Value=100, Weight=20
+Item 3: Value=120, Weight=30
+
+--- DP Table (Max Value at dp[i][w]) ---
+W\I | I0 | I1 | I2 | I3 |
+----+----------------
+  0 |  0 |  0 |  0 |  0 |
+  1 |  0 |  0 |  0 |  0 |
+  2 |  0 |  0 |  0 |  0 |
+  3 |  0 |  0 |  0 |  0 |
+  4 |  0 |  0 |  0 |  0 |
+  5 |  0 |  0 |  0 |  0 |
+  6 |  0 |  0 |  0 |  0 |
+  7 |  0 |  0 |  0 |  0 |
+  8 |  0 |  0 |  0 |  0 |
+  9 |  0 |  0 |  0 |  0 |
+ 10 |  0 | 60 | 60 | 60 |
+ 11 |  0 | 60 | 60 | 60 |
+ 12 |  0 | 60 | 60 | 60 |
+ 13 |  0 | 60 | 60 | 60 |
+ 14 |  0 | 60 | 60 | 60 |
+ 15 |  0 | 60 | 60 | 60 |
+ 16 |  0 | 60 | 60 | 60 |
+ 17 |  0 | 60 | 60 | 60 |
+ 18 |  0 | 60 | 60 | 60 |
+ 19 |  0 | 60 | 60 | 60 |
+ 20 |  0 | 60 | 100 | 100 |
+ 21 |  0 | 60 | 100 | 100 |
+ 22 |  0 | 60 | 100 | 100 |
+ 23 |  0 | 60 | 100 | 100 |
+ 24 |  0 | 60 | 100 | 100 |
+ 25 |  0 | 60 | 100 | 100 |
+ 26 |  0 | 60 | 100 | 100 |
+ 27 |  0 | 60 | 100 | 100 |
+ 28 |  0 | 60 | 100 | 100 |
+ 29 |  0 | 60 | 100 | 100 |
+ 30 |  0 | 60 | 160 | 160 |
+ 31 |  0 | 60 | 160 | 160 |
+ 32 |  0 | 60 | 160 | 160 |
+ 33 |  0 | 60 | 160 | 160 |
+ 34 |  0 | 60 | 160 | 160 |
+ 35 |  0 | 60 | 160 | 160 |
+ 36 |  0 | 60 | 160 | 160 |
+ 37 |  0 | 60 | 160 | 160 |
+ 38 |  0 | 60 | 160 | 160 |
+ 39 |  0 | 60 | 160 | 160 |
+ 40 |  0 | 60 | 160 | 180 |
+ 41 |  0 | 60 | 160 | 180 |
+ 42 |  0 | 60 | 160 | 180 |
+ 43 |  0 | 60 | 160 | 180 |
+ 44 |  0 | 60 | 160 | 180 |
+ 45 |  0 | 60 | 160 | 180 |
+ 46 |  0 | 60 | 160 | 180 |
+ 47 |  0 | 60 | 160 | 180 |
+ 48 |  0 | 60 | 160 | 180 |
+ 49 |  0 | 60 | 160 | 180 |
+ 50 |  0 | 60 | 160 | 220 |
+
+--- Items Chosen ---
+Item 3: Value=120, Weight=30
+Item 2: Value=100, Weight=20
+Total Weight Used: 50 / 50
+
+========================================
+Maximum Achievable Value: 220
+Execution Time: 40.993 ms
+========================================
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.665 s
+[INFO] Finished at: 2025-12-05T13:14:34Z
+[INFO] ------------------------------------------------------------------------
+
+2025-12-05 13:14:35 | src.tools.code_executor | [32mINFO[0m | Exec stderr: 
+2025-12-05 13:14:35 | src.tools.code_executor | [32mINFO[0m | Java execution succeeded
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | Timestamp: 2025-12-05T13:33:05.087955
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:33:05 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:33:05 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+FastAPI Project Generation Results:
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Iterations: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Files Generated: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Duration: 0.00s
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:33:05 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:33:05 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+Spring Boot Project Generation Results:
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Iterations: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Files Generated: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Duration: 0.00s
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | TEST 3: Python ML Pipeline Package Generation
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:33:05 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:33:05 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+ML Pipeline Package Generation Results:
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Iterations: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Files Generated: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Duration: 0.00s
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | INTEGRATION TEST SUMMARY
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+Total Tests: 3
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | Passed: ✅ 0
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | Failed: ❌ 3
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | Success Rate: 0.0%
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+Detailed Results:
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   FastAPI TODO API: ❌ FAILED
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Spring Boot Auth Microservice: ❌ FAILED
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m |   Python ML Pipeline: ❌ FAILED
+2025-12-05 13:33:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | Timestamp: 2025-12-05T13:33:59.054720
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:33:59 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:33:59 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:33:59 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-05 13:33:59 | src.agents.project_scaffold | [31mERROR[0m | Project scaffolding failed: unsupported operand type(s) for /: 'NoneType' and 'str'
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+FastAPI Project Generation Results:
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Iterations: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Files Generated: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Duration: 0.00s
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:33:59 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:33:59 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:33:59 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'auth_service' with template 'spring_boot'
+2025-12-05 13:33:59 | src.agents.project_scaffold | [31mERROR[0m | Project scaffolding failed: unsupported operand type(s) for /: 'NoneType' and 'str'
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+Spring Boot Project Generation Results:
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Iterations: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Files Generated: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Duration: 0.00s
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | TEST 3: Python ML Pipeline Package Generation
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:33:59 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:33:59 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:33:59 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'ml_pipeline' with template 'python_package'
+2025-12-05 13:33:59 | src.agents.project_scaffold | [31mERROR[0m | Project scaffolding failed: unsupported operand type(s) for /: 'NoneType' and 'str'
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+ML Pipeline Package Generation Results:
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Iterations: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Files Generated: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Duration: 0.00s
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | INTEGRATION TEST SUMMARY
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+Total Tests: 3
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | Passed: ✅ 0
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | Failed: ❌ 3
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | Success Rate: 0.0%
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+Detailed Results:
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   FastAPI TODO API: ❌ FAILED
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Spring Boot Auth Microservice: ❌ FAILED
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m |   Python ML Pipeline: ❌ FAILED
+2025-12-05 13:33:59 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | Timestamp: 2025-12-05T13:34:31.543380
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:34:31 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\models.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\schemas.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\database.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\crud.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\config.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .github/workflows/ci.yml
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:34:31 | __main__ | [31mERROR[0m | FastAPI test failed: 1 validation error for IterationLog
+iteration_number
+  Field required [type=missing, input_value={'iteration': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 45, in test_fastapi_todo_api
+    session = orchestrator.generate_project(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\src\agents\orchestrator.py", line 389, in generate_project
+    iteration_log = IterationLog(iteration=iteration)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for IterationLog
+iteration_number
+  Field required [type=missing, input_value={'iteration': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:34:31 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'auth_service' with template 'spring_boot'
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\java\com\example
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\controller
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\service
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\model
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\repository
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\security
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\config
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\resources
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\resources\application.yml
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\test\java\com\example
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\controller
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\service
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pom.xml
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: docker-compose.yml
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 17 files.
+2025-12-05 13:34:31 | __main__ | [31mERROR[0m | Spring Boot test failed: 1 validation error for IterationLog
+iteration_number
+  Field required [type=missing, input_value={'iteration': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 117, in test_spring_boot_auth
+    session = orchestrator.generate_project(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\src\agents\orchestrator.py", line 389, in generate_project
+    iteration_log = IterationLog(iteration=iteration)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for IterationLog
+iteration_number
+  Field required [type=missing, input_value={'iteration': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | TEST 3: Python ML Pipeline Package Generation
+2025-12-05 13:34:31 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:34:31 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'ml_pipeline' with template 'python_package'
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\utils.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\__init__.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:34:31 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\__init__.py
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Created directory: docs
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Created file: docs\index.md
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Created config file: setup.py
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pyproject.toml
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:34:32 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:34:32 | __main__ | [31mERROR[0m | ML Pipeline test failed: 1 validation error for IterationLog
+iteration_number
+  Field required [type=missing, input_value={'iteration': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 190, in test_python_ml_pipeline
+    session = orchestrator.generate_project(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\src\agents\orchestrator.py", line 389, in generate_project
+    iteration_log = IterationLog(iteration=iteration)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for IterationLog
+iteration_number
+  Field required [type=missing, input_value={'iteration': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | INTEGRATION TEST SUMMARY
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | 
+Total Tests: 3
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | Passed: ✅ 0
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | Failed: ❌ 3
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | Success Rate: 0.0%
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | 
+Detailed Results:
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m |   FastAPI TODO API: ❌ FAILED
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m |   Spring Boot Auth Microservice: ❌ FAILED
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m |   Python ML Pipeline: ❌ FAILED
+2025-12-05 13:34:32 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:35:04 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-05 13:35:04 | __main__ | [32mINFO[0m | Timestamp: 2025-12-05T13:35:04.627664
+2025-12-05 13:35:04 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:35:04 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-05 13:35:04 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:35:04 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\models.py
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\schemas.py
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\database.py
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\crud.py
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\config.py
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .github/workflows/ci.yml
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:35:04 | __main__ | [31mERROR[0m | FastAPI test failed: "IterationLog" object has no field "generation_status"
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 45, in test_fastapi_todo_api
+    session = orchestrator.generate_project(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\src\agents\orchestrator.py", line 401, in generate_project
+    iteration_log.generation_status = AgentStatus.RUNNING
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1032, in __setattr__
+    elif (setattr_handler := self._setattr_handler(name, value)) is not None:
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1079, in _setattr_handler
+    raise ValueError(f'"{cls.__name__}" object has no field "{name}"')
+ValueError: "IterationLog" object has no field "generation_status"
+2025-12-05 13:35:04 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:35:04 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-05 13:35:04 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:35:04 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'auth_service' with template 'spring_boot'
+2025-12-05 13:35:04 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\java\com\example
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\controller
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\service
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\model
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\repository
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\security
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\config
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\resources
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\resources\application.yml
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\test\java\com\example
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\controller
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\service
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pom.xml
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: docker-compose.yml
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 17 files.
+2025-12-05 13:35:05 | __main__ | [31mERROR[0m | Spring Boot test failed: "IterationLog" object has no field "generation_status"
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 117, in test_spring_boot_auth
+    session = orchestrator.generate_project(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\src\agents\orchestrator.py", line 401, in generate_project
+    iteration_log.generation_status = AgentStatus.RUNNING
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1032, in __setattr__
+    elif (setattr_handler := self._setattr_handler(name, value)) is not None:
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1079, in _setattr_handler
+    raise ValueError(f'"{cls.__name__}" object has no field "{name}"')
+ValueError: "IterationLog" object has no field "generation_status"
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | TEST 3: Python ML Pipeline Package Generation
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:35:05 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'ml_pipeline' with template 'python_package'
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\utils.py
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\__init__.py
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\__init__.py
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created directory: docs
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: docs\index.md
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: setup.py
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pyproject.toml
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:35:05 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:35:05 | __main__ | [31mERROR[0m | ML Pipeline test failed: "IterationLog" object has no field "generation_status"
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 190, in test_python_ml_pipeline
+    session = orchestrator.generate_project(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\src\agents\orchestrator.py", line 401, in generate_project
+    iteration_log.generation_status = AgentStatus.RUNNING
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1032, in __setattr__
+    elif (setattr_handler := self._setattr_handler(name, value)) is not None:
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1079, in _setattr_handler
+    raise ValueError(f'"{cls.__name__}" object has no field "{name}"')
+ValueError: "IterationLog" object has no field "generation_status"
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | INTEGRATION TEST SUMMARY
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | 
+Total Tests: 3
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | Passed: ✅ 0
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | Failed: ❌ 3
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | Success Rate: 0.0%
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | 
+Detailed Results:
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m |   FastAPI TODO API: ❌ FAILED
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m |   Spring Boot Auth Microservice: ❌ FAILED
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m |   Python ML Pipeline: ❌ FAILED
+2025-12-05 13:35:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:35:50 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-05 13:35:50 | __main__ | [32mINFO[0m | Timestamp: 2025-12-05T13:35:50.786504
+2025-12-05 13:35:50 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:35:50 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-05 13:35:50 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:35:50 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\models.py
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\schemas.py
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\database.py
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\crud.py
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\config.py
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .github/workflows/ci.yml
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:35:50 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:39:34 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-05 13:39:34 | __main__ | [32mINFO[0m | Timestamp: 2025-12-05T13:39:34.646657
+2025-12-05 13:39:34 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:39:34 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-05 13:39:34 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:39:34 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\models.py
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\schemas.py
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\database.py
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\crud.py
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\config.py
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .github/workflows/ci.yml
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:39:34 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:40:32 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-05 13:40:32 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-05 13:41:33 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-05 13:41:33 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-05 13:41:33 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['pydantic_settings']
+2025-12-05 13:41:33 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['pydantic_settings']
+2025-12-05 13:41:36 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m | 
+FastAPI Project Generation Results:
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m |   Status: ✅ SUCCESS
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m |   Iterations: 2
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m |   Dependencies: 1
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m |   Duration: 122.06s
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m |     - generated_script_20251205_134133.py (548 bytes)
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m |     - pydantic_settings
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-05 13:41:36 | __main__ | [31mERROR[0m | FastAPI test failed: 'IterationLog' object has no attribute 'generation_status'
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 76, in test_fastapi_todo_api
+    logger.info(f"    Generation: {iter_log.generation_status}")
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'IterationLog' object has no attribute 'generation_status'
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-05 13:41:36 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:41:36 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'auth_service' with template 'spring_boot'
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\java\com\example
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\controller
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\service
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\model
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\repository
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\security
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\config
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\resources
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\resources\application.yml
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\test\java\com\example
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\controller
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\service
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pom.xml
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created config file: docker-compose.yml
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:41:36 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 17 files.
+2025-12-05 13:42:18 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-05 13:42:18 | src.agents.project_validator | [33mWARNING[0m | Java files should be in src/main/java/ directory
+2025-12-05 13:42:18 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 13:42:57 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-05 13:42:57 | src.agents.project_validator | [33mWARNING[0m | Java files should be in src/main/java/ directory
+2025-12-05 13:42:57 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 13:43:41 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-05 13:43:41 | src.agents.project_validator | [33mWARNING[0m | Java files should be in src/main/java/ directory
+2025-12-05 13:43:41 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m | 
+Spring Boot Project Generation Results:
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m |   Iterations: 3
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m |   Duration: 124.37s
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m |     - AuthApplication.java (437 bytes)
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-05 13:43:41 | __main__ | [31mERROR[0m | Spring Boot test failed: 'IterationLog' object has no attribute 'generation_status'
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 148, in test_spring_boot_auth
+    logger.info(f"    Generation: {iter_log.generation_status}")
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'IterationLog' object has no attribute 'generation_status'
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m | TEST 3: Python ML Pipeline Package Generation
+2025-12-05 13:43:41 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:43:41 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'ml_pipeline' with template 'python_package'
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\utils.py
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\__init__.py
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\__init__.py
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created directory: docs
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created file: docs\index.md
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created config file: setup.py
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pyproject.toml
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:43:41 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:44:55 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-05 13:44:55 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-05 13:44:55 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['pandas', 'numpy', 'ml_workflow_package']
+2025-12-05 13:44:55 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['pandas', 'numpy', 'ml_workflow_package']
+2025-12-05 13:44:57 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: ERROR: Could not find a version that satisfies the requirement ml_workflow_package (from versions: none)
+ERROR: No matching distribution found for ml_workflow_package
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe -m pip install --upgrade pip
+
+2025-12-05 13:46:13 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-05 13:46:13 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-05 13:46:13 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['pandas', 'ml_workflow']
+2025-12-05 13:46:13 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['pandas', 'ml_workflow']
+2025-12-05 13:49:24 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | 
+ML Pipeline Package Generation Results:
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |   Status: ✅ SUCCESS
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |   Iterations: 2
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |   Dependencies: 2
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |   Duration: 343.50s
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |     - generated_script_20251205_134613.py (1591 bytes)
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |     - pandas
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |     - ml_workflow
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-05 13:49:24 | __main__ | [31mERROR[0m | ML Pipeline test failed: 'IterationLog' object has no attribute 'generation_status'
+Traceback (most recent call last):
+  File "C:\Users\Govind\Projects\agentic-code-studio\scripts\integration_tests.py", line 221, in test_python_ml_pipeline
+    logger.info(f"    Generation: {iter_log.generation_status}")
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Govind\Projects\agentic-code-studio\.venv\Lib\site-packages\pydantic\main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'IterationLog' object has no attribute 'generation_status'
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | INTEGRATION TEST SUMMARY
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | 
+Total Tests: 3
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | Passed: ✅ 0
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | Failed: ❌ 3
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | Success Rate: 0.0%
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | 
+Detailed Results:
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |   FastAPI TODO API: ❌ FAILED
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |   Spring Boot Auth Microservice: ❌ FAILED
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m |   Python ML Pipeline: ❌ FAILED
+2025-12-05 13:49:24 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:53:37 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-05 13:53:37 | __main__ | [32mINFO[0m | Timestamp: 2025-12-05T13:53:37.388464
+2025-12-05 13:53:37 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:53:37 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-05 13:53:37 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:53:37 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\models.py
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\schemas.py
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\database.py
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\crud.py
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\config.py
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .github/workflows/ci.yml
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:53:37 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:55:28 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-05 13:55:28 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | 
+FastAPI Project Generation Results:
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |   Iterations: 3
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |   Dependencies: 16
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |   Duration: 148.12s
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - generated_script_20251205_135528.py (23656 bytes)
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - uvicorn
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - pytest
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - httpx
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - asyncio
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - pydantic_settings
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - sqlalchemy
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - app
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - pydantic
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - fastapi
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - jose
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - passlib
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - contextlib
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - pydantic-settings
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - python-jose
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - aiosqlite
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     - python-multipart
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Generation: AgentStatus.FAILED
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Build: AgentStatus.PENDING
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | 
+  Iteration 2:
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 13:56:05 | __main__ | [33mWARNING[0m |     Error: generated_script_20251205_135528.py:4 - invalid syntax
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | 
+  Iteration 3:
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Generation: AgentStatus.FAILED
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Build: AgentStatus.PENDING
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-05 13:56:05 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:56:05 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'auth_service' with template 'spring_boot'
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\java\com\example
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\controller
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\service
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\model
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\repository
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\security
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\config
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\resources
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\resources\application.yml
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\test\java\com\example
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\controller
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\service
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pom.xml
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: docker-compose.yml
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:56:05 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 17 files.
+2025-12-05 13:56:51 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-05 13:56:51 | src.agents.project_validator | [33mWARNING[0m | Java files should be in src/main/java/ directory
+2025-12-05 13:56:51 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 13:57:42 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-05 13:57:42 | src.agents.project_validator | [33mWARNING[0m | Java files should be in src/main/java/ directory
+2025-12-05 13:57:42 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 13:58:26 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-05 13:58:26 | src.agents.project_validator | [33mWARNING[0m | Java files should be in src/main/java/ directory
+2025-12-05 13:58:26 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | 
+Spring Boot Project Generation Results:
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |   Iterations: 3
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |   Dependencies: 1
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |   Duration: 140.66s
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     - AuthApplication.java (34202 bytes)
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     - {'groupId': 'com.fasterxml.jackson.core', 'artifactId': 'jackson-databind', 'version': '2.16.0'}
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 13:58:26 | __main__ | [33mWARNING[0m |     Error: Java file AuthApplication.java package 'com.example.auth' doesn't match path
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | 
+  Iteration 2:
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 13:58:26 | __main__ | [33mWARNING[0m |     Error: Java file AuthApplication.java package 'com.example.auth' doesn't match path
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | 
+  Iteration 3:
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 13:58:26 | __main__ | [33mWARNING[0m |     Error: Java file AuthApplication.java package 'com.example.auth' doesn't match path
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | TEST 3: Python ML Pipeline Package Generation
+2025-12-05 13:58:26 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 13:58:26 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'ml_pipeline' with template 'python_package'
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\utils.py
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\__init__.py
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\__init__.py
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created directory: docs
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: docs\index.md
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: setup.py
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pyproject.toml
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 13:58:26 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 13:59:43 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-05 13:59:43 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-05 13:59:43 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['setuptools']
+2025-12-05 13:59:43 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['setuptools']
+2025-12-05 13:59:46 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
+ML Pipeline Package Generation Results:
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   Status: ✅ SUCCESS
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   Iterations: 1
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   Dependencies: 1
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   Duration: 80.54s
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |     - generated_script_20251205_135943.py (704 bytes)
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |     - setuptools
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |     Build: AgentStatus.SUCCESS
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |     Test: AgentStatus.SUCCESS
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | INTEGRATION TEST SUMMARY
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
+Total Tests: 3
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | Passed: ✅ 1
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | Failed: ❌ 2
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | Success Rate: 33.3%
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
+Detailed Results:
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   FastAPI TODO API: ❌ FAILED
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   Spring Boot Auth Microservice: ❌ FAILED
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   Python ML Pipeline: ✅ PASSED
+2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
+================================================================================

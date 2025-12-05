@@ -97,23 +97,32 @@ class ProjectValidatorAgent:
         errors = []
 
         # Check Java files are in proper package structure
-        java_files = [f for f in files if f.language == "java"]
+        java_files = [f for f in files if f.language == "java" or f.filename.endswith(".java")]
+
+        # Warn if no files are under src/main/java but don't error if there are any Java files
+        src_main_java_files = [f for f in java_files if "/src/main/java/" in f.filename]
+        
+        if java_files and not src_main_java_files:
+            logger.warning(
+                "Note: Java files should ideally be in src/main/java/ directory for Maven compatibility. "
+                "However, proceeding with validation."
+            )
 
         for file in java_files:
             # Extract package declaration
             package_match = re.search(r"package\s+([\w.]+);", file.code)
-            if package_match:
-                package_name = package_match.group(1)
-                # Check if file path matches package structure
-                expected_path = package_name.replace(".", "/") + ".java"
-                if not file.filename.endswith(expected_path):
+            if not package_match:
+                logger.warning(f"Java file {file.filename} has no package declaration")
+                continue
+            
+            package_name = package_match.group(1)
+            # Only validate path match if the file is under src/main/java
+            if "/src/main/java/" in file.filename:
+                expected_path_suffix = package_name.replace(".", "/")
+                if not expected_path_suffix in file.filename:
                     errors.append(
                         f"Java file {file.filename} package '{package_name}' doesn't match path"
                     )
-
-        # Check for common package structure
-        if not any("/src/main/java/" in f.filename for f in java_files):
-            logger.warning("Java files should be in src/main/java/ directory")
 
         return errors
 

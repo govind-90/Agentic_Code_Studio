@@ -76,14 +76,65 @@ class CodeGeneratorAgent:
             # Extract dependencies
             dependencies = self._extract_dependencies(generated_code, language)
 
+            # Attempt to split the generated text into multiple file artifacts
+            import re
+
+            files = []
+
+            # First, detect explicit file markers like '# FILE: path/to/file' or '// FILE: path/to/file'
+            file_marker_pattern = re.compile(r"(?m)^(?:#|//)\s*FILE:\s*(.+)$")
+            markers = list(file_marker_pattern.finditer(generated_code))
+
+            if markers:
+                for i, m in enumerate(markers):
+                    filename = m.group(1).strip()
+                    start = m.end()
+                    end = markers[i + 1].start() if i + 1 < len(markers) else len(generated_code)
+                    content = generated_code[start:end].strip()
+                    # Normalize leading/trailing code fences inside content
+                    if content.startswith("```") and content.endswith("```"):
+                        content = re.sub(r"^```[\w]*\n", "", content)
+                        content = re.sub(r"\n```$", "", content)
+                    files.append({"filename": filename, "code": content})
+
+            elif code_blocks := re.findall(r"```(?:\\w+)?\\n(.+?)```", generated_code, re.DOTALL):
+                # 1) Find fenced code blocks and treat each as a file
+                for idx, block in enumerate(code_blocks):
+                    # Try to infer filename from a leading comment like '# filename: src/main.py' or '// filename: src/Main.java'
+                    filename = None
+                    first_lines = "\n".join(block.splitlines()[:5])
+                    m = re.search(r"(?:#|//)\s*(?:filename|file|path)[:=]\s*(.+)", first_lines, re.IGNORECASE)
+                    if m:
+                        filename = m.group(1).strip()
+
+                    # If Java, try to infer from public class name
+                    if not filename and language == ProgrammingLanguage.JAVA:
+                        cm = re.search(r"public\s+class\s+(\w+)", block)
+                        if cm:
+                            filename = f"{cm.group(1)}.java"
+
+                    # Default filename
+                    ext = "py" if language == ProgrammingLanguage.PYTHON else "java"
+                    if not filename:
+                        filename = f"generated_{idx + 1}.{ext}"
+
+                    files.append({"filename": filename, "code": block.strip()})
+
+            else:
+                # 2) No fenced blocks: if the whole text looks like one file, return it
+                if generated_code.strip():
+                    files.append({
+                        "filename": self._generate_filename(language, generated_code),
+                        "code": generated_code.strip(),
+                    })
+
             logger.info(f"Code generation completed. Dependencies: {dependencies}")
 
             return {
                 "success": True,
-                "code": generated_code,
+                "files": files,
                 "language": language.value,
                 "dependencies": dependencies,
-                "filename": self._generate_filename(language, generated_code),
             }
 
         except Exception as e:
