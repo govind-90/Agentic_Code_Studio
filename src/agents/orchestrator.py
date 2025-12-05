@@ -230,12 +230,12 @@ class OrchestratorAgent:
 
             # Save metadata
             metadata_file = session_dir / "metadata.json"
-            metadata_file.write_text(session.model_dump_json(indent=2))
+            metadata_file.write_text(session.model_dump_json(indent=2), encoding="utf-8")
 
             # Save final code if successful
             if session.final_code:
                 code_file = session_dir / session.final_code.filename
-                code_file.write_text(session.final_code.code)
+                code_file.write_text(session.final_code.code, encoding="utf-8")
 
             logger.info(f"Session saved to {session_dir}")
 

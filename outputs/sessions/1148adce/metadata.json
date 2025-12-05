@@ -1,0 +1,159 @@
+{
+  "session_id": "1148adce",
+  "requirements": "Write a function that sorts a list using quicksort and include unit-test-like assertions.",
+  "language": "python",
+  "created_at": "2025-12-05T12:41:58.425429",
+  "updated_at": "2025-12-05T12:43:32.224983",
+  "status": "failed",
+  "current_iteration": 5,
+  "max_iterations": 5,
+  "iterations": [
+    {
+      "iteration_number": 1,
+      "timestamp": "2025-12-05T12:41:58.426428",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# FILE: quicksort_implementation.py\n\nfrom typing import List, Any\n\ndef quicksort(data: List[Any]) -> List[Any]:\n    \"\"\"\n    Sorts a list using the Quicksort algorithm.\n\n    This implementation uses a functional approach with list comprehensions \n    for partitioning, which is highly readable in Python, though it is \n    not strictly in-place and uses additional memory.\n\n    Args:\n        data: The list of comparable elements to be sorted.\n\n    Returns:\n        A new list containing the sorted elements.\n    \"\"\"\n    # Base case: lists with 0 or 1 element are already sorted\n    if len(data) <= 1:\n        return data\n\n    # Choose the pivot (using the middle element for robustness against \n    # already sorted or reverse sorted lists)\n    pivot_index = len(data) // 2\n    pivot = data[pivot_index]\n\n    # Partitioning: Create three sub-lists\n    # 1. Elements less than the pivot\n    less = [x for x in data if x < pivot]\n    # 2. Elements equal to the pivot\n    equal = [x for x in data if x == pivot]\n    # 3. Elements greater than the pivot\n    greater = [x for x in data if x > pivot]\n\n    # Recursively sort the sub-lists and combine the results\n    return quicksort(less) + equal + quicksort(greater)\n\ndef run_tests():\n    \"\"\"\n    Runs unit-test-like assertions to verify the quicksort implementation.\n    \"\"\"\n    print(\"--- Running Quicksort Tests ---\")\n    \n    test_cases = [\n        ([], []),\n        ([5], [5]),\n        ([3, 1, 4, 1, 5, 9, 2, 6], [1, 1, 2, 3, 4, 5, 6, 9]),\n        ([10, 9, 8, 7, 6, 5], [5, 6, 7, 8, 9, 10]), # Reverse sorted\n        ([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]),         # Already sorted\n        ([5, 5, 1, 1, 5, 0], [0, 1, 1, 5, 5, 5]),   # Duplicates and zero\n        ([-5, 0, 5, -10], [-10, -5, 0, 5]),         # Negative numbers\n        ([1.5, 0.5, 2.0, 1.0], [0.5, 1.0, 1.5, 2.0]) # Floats\n    ]\n\n    all_passed = True\n    \n    for i, (input_list, expected_output) in enumerate(test_cases):\n        try:\n            result = quicksort(input_list.copy()) # Use copy to ensure original list is untouched\n            \n            # Assertion check\n            assert result == expected_output, (\n                f\"Test {i+1} Failed:\\n\"\n                f\"  Input: {input_list}\\n\"\n                f\"  Expected: {expected_output}\\n\"\n                f\"  Got: {result}\"\n            )\n            print(f\"Test {i+1} Passed: Input {input_list} -> Output {result}\")\n\n        except AssertionError as e:\n            print(f\"\\n!!! ASSERTION ERROR !!!\\n{e}\\n\")\n            all_passed = False\n        except Exception as e:\n            print(f\"\\n!!! UNEXPECTED ERROR in Test {i+1} !!!\\nError: {e}\\n\")\n            all_passed = False\n\n    if all_passed:\n        print(\"\\nAll Quicksort tests completed successfully.\")\n    else:\n        print(\"\\nSome Quicksort tests failed.\")\n\n\nif __name__ == \"__main__\":\n    run_tests()\n    \n    # Example usage demonstration\n    data_to_sort = [45, 12, 88, 3, 90, 1, 55]\n    print(\"\\n--- Demonstration ---\")\n    print(f\"Original List: {data_to_sort}\")\n    \n    sorted_data = quicksort(data_to_sort)\n    print(f\"Sorted List:   {sorted_data}\")\n    \n    # Final check using Python's built-in sort for verification\n    assert sorted_data == sorted(data_to_sort), \"Verification against built-in sort failed.\"\n    print(\"Verification successful.\")\n```",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "typing"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 98: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 98: invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 2,
+      "timestamp": "2025-12-05T12:42:08.709929",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: None\n\nimport logging\nfrom typing import list\n\n# Setup basic logging configuration\n# We use INFO level to show test results and execution flow\nlogging.basicConfig(level=logging.INFO, format='[%(levelname)s] %(message)s')\nlogger = logging.getLogger(__name__)\n\ndef partition(data: list[int], low: int, high: int) -> int:\n    \"\"\"\n    This function takes the last element as pivot, places the pivot element \n    at its correct position in sorted array, and places all smaller (left) \n    elements before it and all greater elements (right) after it.\n    \n    Args:\n        data: The list being sorted.\n        low: Starting index.\n        high: Ending index (pivot index).\n    \n    Returns:\n        The index of the pivot element after partitioning.\n    \"\"\"\n    \n    # 1. Choose the pivot (rightmost element)\n    pivot = data[high]\n    \n    # Index of smaller element\n    i = low - 1\n    \n    # 2. Iterate through the subarray\n    for j in range(low, high):\n        # If current element is smaller than or equal to the pivot\n        if data[j] <= pivot:\n            # Increment index of smaller element\n            i = i + 1\n            \n            # Swap data[i] and data[j]\n            data[i], data[j] = data[j], data[i]\n            \n    # 3. Swap the pivot element (data[high]) with the element at i + 1\n    # This places the pivot in its correct sorted position\n    data[i + 1], data[high] = data[high], data[i + 1]\n    \n    # Return the partitioning index\n    return i + 1\n\ndef _quicksort_recursive(data: list[int], low: int, high: int) -> None:\n    \"\"\"\n    The main recursive function implementing Quicksort.\n    \n    Args:\n        data: The list being sorted (modified in place).\n        low: Starting index of the subarray.\n        high: Ending index of the subarray.\n    \"\"\"\n    if low < high:\n        try:\n            # pi is partitioning index, data[pi] is now at the right place\n            pi = partition(data, low, high)\n            \n            # Recursively sort the elements before partition and after partition\n            _quicksort_recursive(data, low, pi - 1)\n            _quicksort_recursive(data, pi + 1, high)\n            \n        except IndexError as e:\n            logger.error(f\"Index error during quicksort: {e}\")\n            # Re-raise the exception if it cannot be handled gracefully\n            raise\n        except Exception as e:\n            logger.error(f\"An unexpected error occurred during quicksort: {e}\")\n            raise\n\ndef sort_list(data: list[int]) -> None:\n    \"\"\"\n    Wrapper function to initiate the quicksort process.\n    Sorts the list in place.\n    \n    Args:\n        data: The list to be sorted.\n    \"\"\"\n    n = len(data)\n    if n > 1:\n        _quicksort_recursive(data, 0, n - 1)\n\ndef run_tests():\n    \"\"\"\n    Runs unit-test-like assertions to verify the quicksort implementation.\n    \"\"\"\n    print(\"\\n--- Running Quicksort Verification Tests ---\")\n    \n    test_cases = [\n        ([10, 7, 8, 9, 1, 5], \"Standard unsorted list\"),\n        ([1, 2, 3, 4, 5], \"Already sorted list\"),\n        ([5, 4, 3, 2, 1], \"Reverse sorted list\"),\n        ([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5], \"List with duplicates\"),\n        ([], \"Empty list\"),\n        ([42], \"Single element list\"),\n        ([-5, 0, 100, -10], \"List with negative numbers\")\n    ]\n    \n    all_passed = True\n    \n    for i, (data_input, description) in enumerate(test_cases):\n        # Create a copy for sorting, as quicksort modifies in place\n        data_to_sort = list(data_input)\n        expected_output = sorted(data_input)\n        \n        test_name = f\"Test {i+1}: {description}\"\n        \n        logger.info(f\"\\n{test_name}\")\n        logger.info(f\"Input: {data_to_sort}\")\n        \n        try:\n            # Execute the sort function\n            sort_list(data_to_sort)\n            \n            logger.info(f\"Output: {data_to_sort}\")\n            \n            # Assertion check\n            assert data_to_sort == expected_output\n            print(f\"SUCCESS: {test_name}\")\n            \n        except AssertionError:\n            logger.error(f\"FAILURE: {test_name}\")\n            logger.error(f\"Expected: {expected_output}\")\n            logger.error(f\"Actual: {data_to_sort}\")\n            all_passed = False\n        except Exception as e:\n            logger.critical(f\"CRITICAL ERROR during {test_name}: {e}\")\n            all_passed = False\n            \n    print(\"\\n--- Test Summary ---\")\n    if all_passed:\n        logger.info(\"All quicksort tests passed successfully.\")\n    else:\n        logger.error(\"One or more quicksort tests failed.\")\n\nif __name__ == \"__main__\":\n    run_tests()\n    \n    # Example usage demonstration\n    my_list = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]\n    print(f\"\\n--- Demonstration ---\")\n    print(f\"Original List: {my_list}\")\n    \n    sort_list(my_list)\n    \n    print(f\"Sorted List:   {my_list}\")\n    \n    # Final verification check\n    assert my_list == sorted([99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0])\n    print(\"Demonstration list verified.\")\n<ctrl63>",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "logging",
+          "typing",
+          "None"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 155: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 155: invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 3,
+      "timestamp": "2025-12-05T12:42:22.417735",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# FILE: quicksort_implementation.py\n\nimport logging\nfrom typing import List, Optional\nimport random\nimport time\n\n# Configure basic logging\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')\n\ndef _partition(arr: List[int], low: int, high: int) -> int:\n    \"\"\"\n    Helper function implementing the Lomuto partition scheme.\n    Chooses the rightmost element as the pivot.\n    Partitions the subarray arr[low..high] around the pivot.\n    Returns the index of the pivot element after partitioning.\n    \"\"\"\n    # Choose the pivot (rightmost element)\n    pivot = arr[high]\n    i = low - 1  # Index of the smaller element\n\n    # Iterate through elements from low to high-1\n    for j in range(low, high):\n        # If current element is smaller than or equal to the pivot\n        if arr[j] <= pivot:\n            i = i + 1\n            # Swap arr[i] and arr[j]\n            arr[i], arr[j] = arr[j], arr[i]\n\n    # Swap the pivot element (arr[high]) with the element at i + 1\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    \n    # Return the partition index\n    return i + 1\n\ndef _quicksort_recursive(arr: List[int], low: int, high: int):\n    \"\"\"\n    Recursive helper function for Quicksort.\n    Sorts the subarray arr[low..high] in place.\n    \"\"\"\n    if low < high:\n        # pi is partitioning index, arr[pi] is now at the correct position\n        try:\n            pi = _partition(arr, low, high)\n        except IndexError as e:\n            logging.error(f\"Index error during partition: {e}\")\n            return\n\n        # Recursively sort the elements before partition and after partition\n        _quicksort_recursive(arr, low, pi - 1)\n        _quicksort_recursive(arr, pi + 1, high)\n\ndef quicksort(arr: List[int]) -> None:\n    \"\"\"\n    Sorts the list in place using the Quicksort algorithm.\n    \n    Args:\n        arr: The list of integers to be sorted. Modified in place.\n    \"\"\"\n    if not arr:\n        logging.warning(\"Attempted to quicksort an empty list.\")\n        return\n    \n    try:\n        _quicksort_recursive(arr, 0, len(arr) - 1)\n    except Exception as e:\n        logging.error(f\"An unexpected error occurred during quicksort: {e}\")\n\n\ndef run_tests():\n    \"\"\"\n    Runs unit-test-like assertions to verify the quicksort implementation.\n    \"\"\"\n    logging.info(\"--- Starting Quicksort Verification Tests ---\")\n    \n    test_cases = [\n        (\"Empty List\", [], []),\n        (\"Single Element\", [5], [5]),\n        (\"Already Sorted\", [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]),\n        (\"Reverse Sorted\", [5, 4, 3, 2, 1], [1, 2, 3, 4, 5]),\n        (\"With Duplicates\", [4, 1, 4, 2, 3, 1], [1, 1, 2, 3, 4, 4]),\n        (\"Mixed Signs\", [-5, 0, 10, -1, 5], [-5, -1, 0, 5, 10]),\n        (\"Large Random List\", [random.randint(0, 1000) for _ in range(100)], None) # Expected calculated later\n    ]\n\n    all_passed = True\n\n    for name, input_list_original, expected_output in test_cases:\n        # Create a copy since quicksort modifies in place\n        test_list = list(input_list_original)\n        \n        if expected_output is None:\n            # Handle the large random list case\n            expected_output = sorted(input_list_original)\n        \n        logging.info(f\"Running test: {name}\")\n        \n        try:\n            start_time = time.perf_counter()\n            quicksort(test_list)\n            end_time = time.perf_counter()\n            \n            # Assertion check\n            assert test_list == expected_output, (\n                f\"Test Failed: {name}\\n\"\n                f\"Input: {input_list_original}\\n\"\n                f\"Expected: {expected_output}\\n\"\n                f\"Actual: {test_list}\"\n            )\n            \n            logging.info(f\"Test Passed: {name} (Time taken: {end_time - start_time:.6f}s)\")\n\n        except AssertionError as e:\n            logging.error(f\"Assertion Failed: {e}\")\n            all_passed = False\n        except Exception as e:\n            logging.error(f\"Test Error for {name}: {e}\")\n            all_passed = False\n\n    if all_passed:\n        logging.info(\"--- All Quicksort tests passed successfully! ---\")\n    else:\n        logging.error(\"--- One or more Quicksort tests failed. ---\")\n\n\nif __name__ == \"__main__\":\n    run_tests()\n<ctrl63>",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "logging",
+          "typing"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 128: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 128: invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 4,
+      "timestamp": "2025-12-05T12:42:33.929354",
+      "code_gen_status": "success",
+      "build_status": "success",
+      "test_status": "failed",
+      "generated_code": "",
+      "build_result": {
+        "status": "success",
+        "dependencies": [],
+        "build_instructions": "Code is ready for execution",
+        "errors": [],
+        "suggested_fixes": []
+      },
+      "test_result": {
+        "status": "fail",
+        "test_cases": [
+          {
+            "name": "Basic Execution",
+            "status": "fail",
+            "description": "Code execution test",
+            "error": null
+          }
+        ],
+        "execution_logs": "\n",
+        "performance": null,
+        "issues_found": [
+          "No output generated"
+        ],
+        "recommendations": [
+          "Verify code logic and expected output"
+        ]
+      },
+      "error_type": "logic",
+      "error_message": "No output generated",
+      "error_context": null
+    },
+    {
+      "iteration_number": 5,
+      "timestamp": "2025-12-05T12:43:17.006778",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: None (Standard Python library only)\n\nimport logging\nimport random\nimport sys\nfrom typing import List\n\n# --- Configuration and Setup ---\n\n# Configure basic logging. We use DEBUG level internally for tracing the sort process,\n# but set the root level to INFO initially for clean output.\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')\nlogger = logging.getLogger(__name__)\n\n# Increase recursion limit for potentially deep quicksort calls, especially important\n# for worst-case scenarios (already sorted or reverse sorted lists).\nsys.setrecursionlimit(2000)\n\n# --- Quicksort Implementation ---\n\ndef partition(arr: List[int], low: int, high: int) -> int:\n    \"\"\"\n    Partitions the array segment arr[low..high] using the pivot (chosen as arr[high]).\n    Returns the index of the pivot element after partitioning (Lomuto scheme).\n    \"\"\"\n    pivot = arr[high]\n    i = low - 1  # Index of the smaller element\n\n    logger.debug(f\"Partitioning segment [{low}:{high}], Pivot: {pivot}\")\n\n    for j in range(low, high):\n        # If current element is smaller than or equal to pivot\n        if arr[j] <= pivot:\n            i += 1\n            # Swap arr[i] and arr[j]\n            arr[i], arr[j] = arr[j], arr[i]\n            logger.debug(f\"Swap: {arr[i]} <-> {arr[j]} at indices {i}, {j}. Current array: {arr[low:high+1]}\")\n\n    # Swap the pivot element (arr[high]) with the element at i + 1\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    pivot_index = i + 1\n    logger.debug(f\"Pivot placed at index {pivot_index}. Array state: {arr[low:high+1]}\")\n    return pivot_index\n\ndef _quicksort_recursive(arr: List[int], low: int, high: int):\n    \"\"\"\n    Recursive helper function for Quicksort.\n    \"\"\"\n    if low < high:\n        try:\n            # pi is partitioning index, arr[pi] is now at the correct place\n            pi = partition(arr, low, high)\n\n            # Separately sort elements before partition and after partition\n            _quicksort_recursive(arr, low, pi - 1)\n            _quicksort_recursive(arr, pi + 1, high)\n        except RecursionError:\n            logger.error(\"Recursion limit reached. Increase sys.setrecursionlimit.\")\n            # Re-raise the error to stop execution gracefully\n            raise\n\ndef quicksort(data: List[int]) -> List[int]:\n    \"\"\"\n    Sorts a list using the Quicksort algorithm.\n    Works on a copy of the input list and returns the sorted copy.\n    \"\"\"\n    if not data:\n        return []\n\n    # Create a shallow copy to ensure the original list is not modified\n    arr = data[:]\n\n    logger.info(f\"Starting Quicksort on list of size {len(arr)}\")\n    _quicksort_recursive(arr, 0, len(arr) - 1)\n    logger.info(\"Quicksort completed.\")\n    return arr\n\n# --- Unit Test Assertions ---\n\ndef run_tests():\n    \"\"\"\n    Runs unit-test-like assertions to verify the quicksort implementation\n    across various edge and standard cases.\n    \"\"\"\n    logger.info(\"\\n--- Starting Quicksort Verification Tests ---\")\n\n    test_cases = [\n        (\"Empty List\", [], []),\n        (\"Single Element\", [5], [5]),\n        (\"Already Sorted\", [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]),\n        (\"Reverse Sorted\", [5, 4, 3, 2, 1], [1, 2, 3, 4, 5]),\n        (\"Duplicates\", [4, 1, 3, 4, 2, 1, 0, 3], [0, 1, 1, 2, 3, 3, 4, 4]),\n        (\"Random Small\", [9, 2, 7, 1, 5, 8, 3, 6, 4], [1, 2, 3, 4, 5, 6, 7, 8, 9]),\n    ]\n\n    # Large random test case (100 elements)\n    large_list = [random.randint(0, 1000) for _ in range(100)]\n    expected_large = sorted(large_list)\n    test_cases.append((\"Large Random List (100 elements)\", large_list, expected_large))\n\n    all_passed = True\n\n    for name, input_list, expected_output in test_cases:\n        # Create a copy of the input list for the sorting function\n        data_to_sort = input_list[:]\n\n        try:\n            logger.info(f\"\\nRunning Test Case: {name}\")\n\n            # Adjust logging level: use DEBUG for small lists to trace execution,\n            # use INFO/WARNING for large lists to avoid excessive output.\n            if len(data_to_sort) <= 10:\n                logging.getLogger().setLevel(logging.DEBUG)\n            else:\n                logging.getLogger().setLevel(logging.INFO)\n\n            actual_output = quicksort(data_to_sort)\n\n            # Reset logging level for assertion reporting\n            logging.getLogger().setLevel(logging.INFO)\n\n            # Assertion check\n            assert actual_output == expected_output, (\n                f\"Test Failed: {name}\\n\"\n                f\"Input:    {input_list}\\n\"\n                f\"Expected: {expected_output}\\n\"\n                f\"Actual:   {actual_output}\"\n            )\n            logger.info(f\"Test Passed: {name}\")\n\n        except AssertionError as e:\n            logger.error(f\"Assertion Error: {e}\")\n            all_passed = False\n        except Exception as e:\n            logger.error(f\"Unexpected Error during test {name}: {e}\")\n            all_passed = False\n\n    logger.info(\"\\n--- Test Summary ---\")\n    if all_passed:\n        logger.info(\"SUCCESS: All quicksort tests passed.\")\n    else:\n        logger.error(\"FAILURE: One or more quicksort tests failed.\")\n\nif __name__ == \"__main__\":\n    # Ensure the root logger is set to INFO for the overall test runner output\n    logging.getLogger().setLevel(logging.INFO)\n    run_tests()\n    # Reset recursion limit (optional, but good practice)\n    sys.setrecursionlimit(1000)\n```",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "logging",
+          "typing",
+          "None (Standard Python library only)"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 150: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 150: invalid syntax",
+      "error_context": null
+    }
+  ],
+  "final_code": null,
+  "runtime_credentials": {},
+  "missing_credentials": [],
+  "total_execution_time": 93.79855465888977,
+  "success": false
+}

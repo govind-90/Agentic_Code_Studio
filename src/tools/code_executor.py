@@ -1,6 +1,7 @@
 """Safe code execution tools."""
 
 import os
+import sys
 
 # import resource
 import signal
@@ -69,7 +70,7 @@ def execute_python_code(code: str, runtime_credentials: Dict[str, str] = None) -
         preexec_fn = set_limits if os.name != "nt" else None
 
         result = subprocess.run(
-            ["python", temp_file],
+            [sys.executable, temp_file],
             capture_output=True,
             text=True,
             timeout=settings.execution_timeout,
@@ -400,7 +401,7 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
         logger.info(f"Final pip packages to install: {final_packages}")
 
         result = subprocess.run(
-            ["pip", "install"] + final_packages,
+            [sys.executable, "-m", "pip", "install"] + final_packages,
             capture_output=True,
             text=True,
             timeout=300,  # 5 minutes for installations

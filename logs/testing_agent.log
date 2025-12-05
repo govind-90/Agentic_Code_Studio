@@ -72,3 +72,24 @@
 2025-12-05 12:28:08 | testing_agent | [31mERROR[0m | LLM validation failed: expected string or bytes-like object, got 'list'
 2025-12-05 12:28:27 | testing_agent | [32mINFO[0m | Testing python code
 2025-12-05 12:28:27 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 12:39:33 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-05 12:39:45 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 12:39:45 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 12:40:09 | testing_agent | [31mERROR[0m | LLM validation failed: expected string or bytes-like object, got 'list'
+2025-12-05 12:41:30 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 12:41:30 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 12:42:53 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 12:42:53 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 12:43:17 | testing_agent | [31mERROR[0m | LLM validation failed: expected string or bytes-like object, got 'list'
+2025-12-05 12:43:39 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 12:43:39 | testing_agent | [31mERROR[0m | Code execution failed
+2025-12-05 12:43:39 | testing_agent | [31mERROR[0m | Execution result: {'success': False, 'stdout': '', 'stderr': 'Traceback (most recent call last):\n  File "C:\\Users\\Govind\\AppData\\Local\\Temp\\tmpfo0k6agr.py", line 2, in <module>\n    import requests\nModuleNotFoundError: No module named \'requests\'\n', 'returncode': 1}
+2025-12-05 12:44:17 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 12:44:17 | testing_agent | [31mERROR[0m | Code execution failed
+2025-12-05 12:44:17 | testing_agent | [31mERROR[0m | Execution result: {'success': False, 'stdout': '', 'stderr': 'Traceback (most recent call last):\n  File "C:\\Users\\Govind\\AppData\\Local\\Temp\\tmpn7rqqq44.py", line 3, in <module>\n    import requests\nModuleNotFoundError: No module named \'requests\'\n', 'returncode': 1}
+2025-12-05 12:44:34 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 12:44:34 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 12:45:00 | testing_agent | [31mERROR[0m | LLM validation failed: expected string or bytes-like object, got 'list'
+2025-12-05 12:45:19 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 12:45:19 | testing_agent | [31mERROR[0m | Code execution failed
+2025-12-05 12:45:19 | testing_agent | [31mERROR[0m | Execution result: {'success': False, 'error': "'charmap' codec can't encode character '\\u03bb' in position 1413: character maps to <undefined>", 'stdout': '', 'stderr': ''}
