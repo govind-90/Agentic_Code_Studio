@@ -1,0 +1,393 @@
+2025-12-05 07:05:10 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'None']
+2025-12-05 07:05:34 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 07:05:34 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpm3p_dl3_.py
+2025-12-05 07:05:34 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 11:53:23 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: SimplePrinter
+2025-12-05 11:53:30 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: SimplePrinter
+2025-12-05 11:53:38 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: SimplePrinter
+2025-12-05 11:53:53 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: SimplePrinter
+2025-12-05 11:54:00 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: CodeConfirmation
+2025-12-05 11:54:07 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: SimpleTest
+2025-12-05 11:54:17 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: SimplePrinter
+2025-12-05 11:54:25 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: SimplePrinter
+2025-12-05 11:58:18 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: SimpleTest
+2025-12-05 11:58:25 | src.tools.code_executor | [32mINFO[0m | Java compilation succeeded, executing...
+2025-12-05 11:58:30 | src.tools.code_executor | [32mINFO[0m | Maven exec result: returncode=0
+2025-12-05 11:58:30 | src.tools.code_executor | [32mINFO[0m | Exec stdout: [INFO] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/3.1.1/exec-maven-plugin-3.1.1.pom
+Progress (1): 1.0 kB
+Progress (1): 3.5 kB
+Progress (1): 5.3 kB
+Progress (1): 8.7 kB
+Progress (1): 12 kB 
+Progress (1): 13 kB
+Progress (1): 15 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/3.1.1/exec-maven-plugin-3.1.1.pom (15 kB at 27 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/77/mojo-parent-77.pom
+Progress (1): 707 B
+Progress (1): 2.4 kB
+Progress (1): 5.0 kB
+Progress (1): 7.6 kB
+Progress (1): 9.9 kB
+Progress (1): 12 kB 
+Progress (1): 14 kB
+Progress (1): 20 kB
+Progress (1): 24 kB
+Progress (1): 27 kB
+Progress (1): 29 kB
+Progress (1): 31 kB
+Progress (1): 36 kB
+Progress (1): 36 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/77/mojo-parent-77.pom (36 kB at 526 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/3.1.1/exec-maven-plugin-3.1.1.jar
+Progress (1): 0.9/77 kB
+Progress (1): 2.3/77 kB
+Progress (1): 3.6/77 kB
+Progress (1): 5.0/77 kB
+Progress (1): 6.4/77 kB
+Progress (1): 7.7/77 kB
+Progress (1): 9.1/77 kB
+Progress (1): 10/77 kB 
+Progress (1): 12/77 kB
+Progress (1): 13/77 kB
+Progress (1): 15/77 kB
+Progress (1): 16/77 kB
+Progress (1): 17/77 kB
+Progress (1): 19/77 kB
+Progress (1): 20/77 kB
+Progress (1): 20/77 kB
+Progress (1): 21/77 kB
+Progress (1): 23/77 kB
+Progress (1): 24/77 kB
+Progress (1): 26/77 kB
+Progress (1): 27/77 kB
+Progress (1): 28/77 kB
+Progress (1): 30/77 kB
+Progress (1): 31/77 kB
+Progress (1): 32/77 kB
+Progress (1): 34/77 kB
+Progress (1): 35/77 kB
+Progress (1): 37/77 kB
+Progress (1): 41/77 kB
+Progress (1): 45/77 kB
+Progress (1): 49/77 kB
+Progress (1): 53/77 kB
+Progress (1): 58/77 kB
+Progress (1): 62/77 kB
+Progress (1): 66/77 kB
+Progress (1): 70/77 kB
+Progress (1): 75/77 kB
+Progress (1): 77 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/3.1.1/exec-maven-plugin-3.1.1.jar (77 kB at 1.2 MB/s)
+[INFO] 
+[INFO] ---------------------< com.agenticcode:execution >----------------------
+[INFO] Building execution 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.1.1:java (default-cli) @ execution ---
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.4.1/maven-resolver-util-1.4.1.pom
+Progress (1): 815 B
+Progress (1): 2.8 kB
+Progress (1): 2.8 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.4.1/maven-resolver-util-1.4.1.pom (2.8 kB at 57 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver/1.4.1/maven-resolver-1.4.1.pom
+Progress (1): 769 B
+Progress (1): 2.2 kB
+Progress (1): 5.9 kB
+Progress (1): 9.6 kB
+Progress (1): 13 kB 
+Progress (1): 16 kB
+Progress (1): 18 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver/1.4.1/maven-resolver-1.4.1.pom (18 kB at 466 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom
+Progress (1): 721 B
+Progress (1): 1.9 kB
+Progress (1): 5.4 kB
+Progress (1): 10 kB 
+Progress (1): 15 kB
+Progress (1): 19 kB
+Progress (1): 24 kB
+Progress (1): 26 kB
+Progress (1): 26 kB
+Progress (1): 28 kB
+Progress (1): 32 kB
+Progress (1): 35 kB
+Progress (1): 38 kB
+Progress (1): 41 kB
+Progress (1): 44 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom (44 kB at 1.0 MB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/21/apache-21.pom
+Progress (1): 753 B
+Progress (1): 2.1 kB
+Progress (1): 3.9 kB
+Progress (1): 8.3 kB
+Progress (1): 13 kB 
+Progress (1): 16 kB
+Progress (1): 17 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/21/apache-21.pom (17 kB at 335 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.4.1/maven-resolver-api-1.4.1.pom
+Progress (1): 843 B
+Progress (1): 2.6 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.4.1/maven-resolver-api-1.4.1.pom (2.6 kB at 71 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.3/commons-exec-1.3.pom
+Progress (1): 786 B
+Progress (1): 2.3 kB
+Progress (1): 5.3 kB
+Progress (1): 7.9 kB
+Progress (1): 11 kB 
+Progress (1): 11 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.3/commons-exec-1.3.pom (11 kB at 282 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/35/commons-parent-35.pom
+Progress (1): 725 B
+Progress (1): 2.0 kB
+Progress (1): 3.4 kB
+Progress (1): 4.9 kB
+Progress (1): 8.5 kB
+Progress (1): 11 kB 
+Progress (1): 15 kB
+Progress (1): 18 kB
+Progress (1): 19 kB
+Progress (1): 22 kB
+Progress (1): 25 kB
+Progress (1): 27 kB
+Progress (1): 31 kB
+Progress (1): 34 kB
+Progress (1): 38 kB
+Progress (1): 44 kB
+Progress (1): 46 kB
+Progress (1): 48 kB
+Progress (1): 51 kB
+Progress (1): 53 kB
+Progress (1): 56 kB
+Progress (1): 57 kB
+Progress (1): 58 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/35/commons-parent-35.pom (58 kB at 1.1 MB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/15/apache-15.pom
+Progress (1): 759 B
+Progress (1): 2.1 kB
+Progress (1): 4.0 kB
+Progress (1): 7.9 kB
+Progress (1): 11 kB 
+Progress (1): 14 kB
+Progress (1): 15 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/15/apache-15.pom (15 kB at 401 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.4.1/maven-resolver-util-1.4.1.jar
+Progress (1): 3.8/168 kB
+Progress (1): 8.0/168 kB
+Progress (1): 12/168 kB 
+Progress (1): 20/168 kB
+Progress (1): 37/168 kB
+Progress (1): 53/168 kB
+Progress (1): 69/168 kB
+Progress (1): 86/168 kB
+Progress (1): 102/168 kB
+Progress (1): 118/168 kB
+Progress (1): 135/168 kB
+Progress (1): 151/168 kB
+Progress (1): 168 kB    
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.4.1/maven-resolver-util-1.4.1.jar (168 kB at 2.2 MB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.4.1/maven-resolver-api-1.4.1.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/2.1.1/plexus-component-annotations-2.1.1.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar
+Progress (1): 4.1 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/2.1.1/plexus-component-annotations-2.1.1.jar (4.1 kB at 84 kB/s)
+Progress (1): 0.9/54 kB
+Progress (1): 2.3/54 kB
+Progress (1): 3.6/54 kB
+Progress (1): 3.7/54 kB
+Progress (1): 5.1/54 kB
+Progress (2): 5.1/54 kB | 0.9/149 kB
+Progress (2): 6.5/54 kB | 0.9/149 kB
+Progress (2): 6.5/54 kB | 2.3/149 kB
+Progress (2): 7.8/54 kB | 2.3/149 kB
+Progress (2): 7.8/54 kB | 3.6/149 kB
+Progress (2): 9.2/54 kB | 3.6/149 kB
+Progress (2): 11/54 kB | 3.6/149 kB 
+Progress (2): 11/54 kB | 5.0/149 kB
+Progress (2): 12/54 kB | 5.0/149 kB
+Progress (2): 12/54 kB | 6.4/149 kB
+Progress (2): 13/54 kB | 6.4/149 kB
+Progress (2): 13/54 kB | 7.7/149 kB
+Progress (2): 15/54 kB | 7.7/149 kB
+Progress (2): 15/54 kB | 8.2/149 kB
+Progress (2): 16/54 kB | 8.2/149 kB
+Progress (2): 16/54 kB | 9.6/149 kB
+Progress (2): 16/54 kB | 11/149 kB 
+Progress (2): 17/54 kB | 11/149 kB
+Progress (2): 17/54 kB | 12/149 kB
+Progress (2): 19/54 kB | 12/149 kB
+Progress (2): 19/54 kB | 14/149 kB
+Progress (2): 20/54 kB | 14/149 kB
+Progress (2): 22/54 kB | 14/149 kB
+Progress (2): 22/54 kB | 15/149 kB
+Progress (2): 23/54 kB | 15/149 kB
+Progress (2): 23/54 kB | 16/149 kB
+Progress (2): 24/54 kB | 16/149 kB
+Progress (2): 24/54 kB | 18/149 kB
+Progress (2): 26/54 kB | 18/149 kB
+Progress (2): 26/54 kB | 19/149 kB
+Progress (2): 27/54 kB | 19/149 kB
+Progress (2): 27/54 kB | 21/149 kB
+Progress (2): 28/54 kB | 21/149 kB
+Progress (2): 28/54 kB | 22/149 kB
+Progress (2): 30/54 kB | 22/149 kB
+Progress (2): 30/54 kB | 23/149 kB
+Progress (2): 31/54 kB | 23/149 kB
+Progress (2): 31/54 kB | 25/149 kB
+Progress (2): 32/54 kB | 25/149 kB
+Progress (2): 32/54 kB | 26/149 kB
+Progress (2): 34/54 kB | 26/149 kB
+Progress (2): 34/54 kB | 27/149 kB
+Progress (2): 35/54 kB | 27/149 kB
+Progress (2): 35/54 kB | 29/149 kB
+Progress (2): 37/54 kB | 29/149 kB
+Progress (2): 38/54 kB | 29/149 kB
+Progress (2): 39/54 kB | 29/149 kB
+Progress (2): 39/54 kB | 30/149 kB
+Progress (2): 41/54 kB | 30/149 kB
+Progress (2): 41/54 kB | 31/149 kB
+Progress (2): 42/54 kB | 31/149 kB
+Progress (2): 42/54 kB | 33/149 kB
+Progress (2): 43/54 kB | 33/149 kB
+Progress (2): 43/54 kB | 34/149 kB
+Progress (2): 45/54 kB | 34/149 kB
+Progress (2): 45/54 kB | 36/149 kB
+Progress (2): 46/54 kB | 36/149 kB
+Progress (2): 46/54 kB | 37/149 kB
+Progress (2): 48/54 kB | 37/149 kB
+Progress (2): 48/54 kB | 38/149 kB
+Progress (2): 49/54 kB | 38/149 kB
+Progress (2): 49/54 kB | 40/149 kB
+Progress (2): 50/54 kB | 40/149 kB
+Progress (2): 50/54 kB | 41/149 kB
+Progress (2): 52/54 kB | 41/149 kB
+Progress (2): 53/54 kB | 41/149 kB
+Progress (2): 53/54 kB | 42/149 kB
+Progress (2): 54/54 kB | 42/149 kB
+Progress (2): 54 kB | 42/149 kB   
+Progress (2): 54 kB | 44/149 kB
+Progress (2): 54 kB | 45/149 kB
+Progress (2): 54 kB | 47/149 kB
+Progress (2): 54 kB | 48/149 kB
+Progress (2): 54 kB | 49/149 kB
+Progress (2): 54 kB | 51/149 kB
+Progress (2): 54 kB | 52/149 kB
+Progress (2): 54 kB | 53/149 kB
+Progress (2): 54 kB | 55/149 kB
+Progress (2): 54 kB | 59/149 kB
+Progress (2): 54 kB | 63/149 kB
+Progress (2): 54 kB | 67/149 kB
+Progress (2): 54 kB | 72/149 kB
+Progress (2): 54 kB | 76/149 kB
+Progress (2): 54 kB | 80/149 kB
+Progress (2): 54 kB | 84/149 kB
+Progress (2): 54 kB | 89/149 kB
+Progress (2): 54 kB | 93/149 kB
+Progress (2): 54 kB | 97/149 kB
+Progress (2): 54 kB | 101/149 kB
+Progress (2): 54 kB | 105/149 kB
+Progress (2): 54 kB | 110/149 kB
+Progress (2): 54 kB | 114/149 kB
+Progress (2): 54 kB | 118/149 kB
+Progress (2): 54 kB | 122/149 kB
+Progress (2): 54 kB | 127/149 kB
+Progress (2): 54 kB | 131/149 kB
+Progress (2): 54 kB | 135/149 kB
+Progress (2): 54 kB | 139/149 kB
+Progress (2): 54 kB | 143/149 kB
+Progress (2): 54 kB | 148/149 kB
+Progress (2): 54 kB | 149 kB    
+                            
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar (54 kB at 534 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.4.1/maven-resolver-api-1.4.1.jar (149 kB at 1.4 MB/s)
+your code is working
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.330 s
+[INFO] Finished at: 2025-12-05T11:58:30Z
+[INFO] ------------------------------------------------------------------------
+
+2025-12-05 11:58:30 | src.tools.code_executor | [32mINFO[0m | Exec stderr: 
+2025-12-05 11:58:30 | src.tools.code_executor | [32mINFO[0m | Java execution succeeded
+2025-12-05 12:00:14 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmp_u39drq4.py
+2025-12-05 12:00:15 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:02:17 | src.tools.code_executor | [32mINFO[0m | Compiling Java code with Maven: BinarySearcher
+2025-12-05 12:02:21 | src.tools.code_executor | [32mINFO[0m | Java compilation succeeded, executing...
+2025-12-05 12:02:24 | src.tools.code_executor | [32mINFO[0m | Maven exec result: returncode=0
+2025-12-05 12:02:24 | src.tools.code_executor | [32mINFO[0m | Exec stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.agenticcode:execution >----------------------
+[INFO] Building execution 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.1.1:java (default-cli) @ execution ---
+--- Binary Search Demonstration ---
+Array: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
+Target 23 found at index 5 (Value: 23)
+Target 2 found at index 0 (Value: 2)
+Target 91 found at index 9 (Value: 91)
+Target 40 not found.
+Target 100 not found.
+
+Testing empty array...
+Warning: Array is null or empty.
+Target 10 not found.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.652 s
+[INFO] Finished at: 2025-12-05T12:02:24Z
+[INFO] ------------------------------------------------------------------------
+
+2025-12-05 12:02:24 | src.tools.code_executor | [32mINFO[0m | Exec stderr: 
+2025-12-05 12:02:24 | src.tools.code_executor | [32mINFO[0m | Java execution succeeded
+2025-12-05 12:05:05 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['Standard Python 3.10+', 'typing']
+2025-12-05 12:05:07 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: ERROR: Invalid requirement: 'Standard Python 3.10+': Expected end or semicolon (after name and no valid version specifier)
+    Standard Python 3.10+
+             ^
+
+2025-12-05 12:07:33 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['None', 'logging', 'typing']
+2025-12-05 12:07:43 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 12:07:43 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpr81c99xy.py
+2025-12-05 12:07:43 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:09:11 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['None (Standard Python library)', 'logging', 'typing']
+2025-12-05 12:09:12 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: ERROR: Invalid requirement: 'None (Standard Python library)': Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier
+    None (Standard Python library)
+         ~^
+
+2025-12-05 12:09:28 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['None (Standard Python library)', 'logging', 'typing']
+2025-12-05 12:09:29 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: ERROR: Invalid requirement: 'None (Standard Python library)': Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier
+    None (Standard Python library)
+         ~^
+
+2025-12-05 12:26:05 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['typing', 'None (Standard Python Library)']
+2025-12-05 12:26:05 | src.tools.code_executor | [33mWARNING[0m | Removed invalid dependency entries before install: ['None (Standard Python Library)']
+2025-12-05 12:26:05 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['typing']
+2025-12-05 12:26:06 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 12:26:06 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpu4hsne6m.py
+2025-12-05 12:26:06 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:27:03 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmp9yvz9_yz.py
+2025-12-05 12:27:03 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:27:45 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmp4nqnymyk.py
+2025-12-05 12:27:46 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded
+2025-12-05 12:28:26 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['logging', 'typing']
+2025-12-05 12:28:26 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['logging', 'typing']
+2025-12-05 12:28:27 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-05 12:28:27 | src.tools.code_executor | [32mINFO[0m | Executing Python code from C:\Users\Govind\AppData\Local\Temp\tmpyzxlz37w.py
+2025-12-05 12:28:27 | src.tools.code_executor | [32mINFO[0m | Python execution succeeded

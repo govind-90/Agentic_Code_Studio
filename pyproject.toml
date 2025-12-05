@@ -1,0 +1,57 @@
+[project]
+name = "agentic-code-studio"
+version = "0.1.0"
+description = "Multi-agent AI system for autonomous code generation, compilation, and testing"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+dependencies = [
+    "langchain>=0.1.0",
+    "langchain-google-genai>=0.0.11",
+    "langchain-community>=0.0.20",
+    "streamlit>=1.30.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.0",
+    "python-dotenv>=1.0.0",
+    "psycopg2-binary>=2.9.9",
+    "requests>=2.31.0",
+    "tenacity>=8.2.3",
+    "pandas>=2.1.0",
+    "black>=25.11.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.hatch.build.targets.wheel]
+# Since your package resides under 'src/agentic_code_studio', specify it here
+packages = ["src/agentic_code_studio"]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false

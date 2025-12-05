@@ -1,0 +1,508 @@
+2025-12-05 06:45:20 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 06:49:44 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 06:49:45 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 06:59:21 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 07:01:45 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 07:01:46 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 07:04:54 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 07:04:55 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 07:05:10 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 07:05:10 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 07:05:10 | build_agent | [32mINFO[0m | Installing Python dependencies: ['logging', 'None']
+2025-12-05 07:05:34 | build_agent | [32mINFO[0m | Python build completed successfully
+2025-12-05 07:06:56 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 07:06:57 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmp3krsv_0d
+2025-12-05 07:06:57 | build_agent | [31mERROR[0m | Java build error: [WinError 2] The system cannot find the file specified
+2025-12-05 07:07:12 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 07:07:12 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmp94banezv
+2025-12-05 07:07:12 | build_agent | [31mERROR[0m | Java build error: [WinError 2] The system cannot find the file specified
+2025-12-05 07:07:30 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 07:07:30 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpxdxckxto
+2025-12-05 07:07:30 | build_agent | [31mERROR[0m | Java build error: [WinError 2] The system cannot find the file specified
+2025-12-05 07:36:40 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 07:40:37 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 07:40:37 | build_agent | [32mINFO[0m | Detected dependencies: []
+2025-12-05 07:40:37 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpis6lsh0j
+2025-12-05 07:40:54 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 07:40:54 | build_agent | [32mINFO[0m | Detected dependencies: []
+2025-12-05 07:40:54 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpybhas4gs
+2025-12-05 07:41:11 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 07:41:11 | build_agent | [32mINFO[0m | Detected dependencies: []
+2025-12-05 07:41:11 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpkd73ik63
+2025-12-05 08:14:41 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 08:14:52 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 08:14:52 | build_agent | [32mINFO[0m | Detected dependencies: []
+2025-12-05 08:14:52 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmp5n8smu8d
+2025-12-05 08:15:10 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 08:15:10 | build_agent | [32mINFO[0m | Detected dependencies: []
+2025-12-05 08:15:10 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpoueyugzk
+2025-12-05 08:15:29 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 08:15:29 | build_agent | [32mINFO[0m | Detected dependencies: []
+2025-12-05 08:15:29 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmppv7961_8
+2025-12-05 08:19:18 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 08:19:50 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 08:19:51 | build_agent | [32mINFO[0m | Detected dependencies: []
+2025-12-05 08:19:51 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpmonzt8v5
+2025-12-05 08:58:41 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 08:59:00 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 08:59:00 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 08:59:06 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 08:59:06 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:00:01 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 09:00:13 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:00:13 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:07:02 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 09:07:13 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:07:13 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:07:17 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:07:17 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:07:20 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:07:20 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:43:37 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 09:43:50 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:43:50 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:43:55 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:43:55 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:44:37 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:44:37 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:44:40 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:44:40 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:44:43 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:44:43 | build_agent | [31mERROR[0m | Java build error: name 'detected_deps' is not defined
+2025-12-05 09:48:12 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 09:53:00 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 09:53:35 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 09:53:35 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 09:53:35 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 09:53:35 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpwj6z_0bh
+2025-12-05 09:53:35 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 10:02:57 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 10:04:10 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 10:04:10 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 10:04:10 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 10:04:10 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpicstltbm
+2025-12-05 10:08:21 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 10:09:12 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 10:09:12 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 10:09:12 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 10:09:12 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmp_chfgb8v
+2025-12-05 10:13:02 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 10:13:20 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 10:13:20 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 10:13:20 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 10:13:20 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmprb0dr7gz
+2025-12-05 10:13:24 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 10:13:24 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 10:13:24 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 10:13:24 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmplx0j3m5p
+2025-12-05 10:13:28 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 10:13:28 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 10:13:28 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 10:13:28 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpjffzaleb
+2025-12-05 11:35:30 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 11:35:33 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:35:33 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:35:33 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:35:33 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpx0k31h7r
+2025-12-05 11:35:36 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:35:36 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:35:36 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:35:36 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpabj24tg4
+2025-12-05 11:35:39 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:35:39 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:35:39 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:35:39 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpgh8ohnzc
+2025-12-05 11:40:42 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 11:42:06 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:42:06 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:42:06 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:42:06 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpkv_ymiog
+2025-12-05 11:42:16 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 11:42:19 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:42:19 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:42:19 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:42:19 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmp5op_smhy
+2025-12-05 11:42:22 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 11:42:25 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:42:25 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:42:25 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:42:25 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpqkn_x5at
+2025-12-05 11:42:29 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 11:49:49 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 11:50:01 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:50:01 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:50:01 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:50:01 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmp8qh5d1el
+2025-12-05 11:50:06 | build_agent | [31mERROR[0m | Maven compilation failed with return code 1
+2025-12-05 11:50:06 | build_agent | [31mERROR[0m | Maven stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ generated-project ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ generated-project ---
+[INFO] skip non existing resourceDirectory C:\Users\Govind\AppData\Local\Temp\tmp8qh5d1el\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ generated-project ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug target 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 11
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,1] class, interface, or enum expected
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,2] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,7] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,10] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,15] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,18] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,23] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,26] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,28] illegal character: '`'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,29] illegal character: '`'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,34] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,64] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,66] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,207] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,235] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,237] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,362] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,408] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,409] not a statement
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,410] reached end of file while parsing
+[INFO] 20 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.568 s
+[INFO] Finished at: 2025-12-05T11:50:06Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project generated-project: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,1] class, interface, or enum expected
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,2] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,7] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,10] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,15] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,18] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,23] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,26] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,28] illegal character: '`'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,29] illegal character: '`'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,34] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,64] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,66] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,207] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,235] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,237] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,362] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,408] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,409] not a statement
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp8qh5d1el/src/main/java/com/example/utility/CodeChecker.java:[1,410] reached end of file while parsing
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-12-05 11:50:06 | build_agent | [31mERROR[0m | Maven stderr: 
+2025-12-05 11:50:06 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 11:50:08 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:50:08 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:50:08 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:50:08 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpoedu058j
+2025-12-05 11:50:12 | build_agent | [31mERROR[0m | Maven compilation failed with return code 1
+2025-12-05 11:50:12 | build_agent | [31mERROR[0m | Maven stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ generated-project ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ generated-project ---
+[INFO] skip non existing resourceDirectory C:\Users\Govind\AppData\Local\Temp\tmpoedu058j\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ generated-project ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug target 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 11
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,1] class, interface, or enum expected
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,2] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,7] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,10] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,15] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,18] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,23] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,26] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,28] illegal character: '`'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,29] illegal character: '`'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,34] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,226] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,256] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,258] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,286] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,288] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,427] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,473] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,474] not a statement
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,475] reached end of file while parsing
+[INFO] 20 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.218 s
+[INFO] Finished at: 2025-12-05T11:50:12Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project generated-project: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,1] class, interface, or enum expected
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,2] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,7] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,10] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,15] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,18] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,23] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,26] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,28] illegal character: '`'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,29] illegal character: '`'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,34] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,226] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,256] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,258] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,286] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,288] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,427] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,473] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,474] not a statement
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpoedu058j/src/main/java/com/example/utility/CodeChecker.java:[1,475] reached end of file while parsing
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-12-05 11:50:12 | build_agent | [31mERROR[0m | Maven stderr: 
+2025-12-05 11:50:12 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 11:50:15 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:50:15 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:50:15 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:50:15 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmptrot5wyc
+2025-12-05 11:50:19 | build_agent | [31mERROR[0m | Maven compilation failed with return code 1
+2025-12-05 11:50:19 | build_agent | [31mERROR[0m | Maven stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ generated-project ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ generated-project ---
+[INFO] skip non existing resourceDirectory C:\Users\Govind\AppData\Local\Temp\tmptrot5wyc\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ generated-project ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug target 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 11
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,1] class, interface, or enum expected
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,2] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,7] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,10] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,15] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,18] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,23] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,26] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,68] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,94] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,96] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,289] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,317] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,319] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,532] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,578] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,579] not a statement
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,580] reached end of file while parsing
+[INFO] 18 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.185 s
+[INFO] Finished at: 2025-12-05T11:50:19Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project generated-project: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,1] class, interface, or enum expected
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,2] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,7] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,10] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,15] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,18] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,23] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,26] unclosed character literal
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,68] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,94] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,96] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,289] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,317] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,319] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,532] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,578] illegal character: '\'
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,579] not a statement
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmptrot5wyc/src/main/java/com/example/app/CodeChecker.java:[1,580] reached end of file while parsing
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-12-05 11:50:19 | build_agent | [31mERROR[0m | Maven stderr: 
+2025-12-05 11:50:19 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 11:52:50 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 11:53:18 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:53:18 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:53:18 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:53:18 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpvvrhakkf
+2025-12-05 11:53:23 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:53:26 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:53:26 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:53:26 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:53:26 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmp0ymbfymg
+2025-12-05 11:53:30 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:53:34 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:53:34 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:53:34 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:53:34 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmplz04oa77
+2025-12-05 11:53:38 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:53:49 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:53:49 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:53:49 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:53:49 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpet06ns_s
+2025-12-05 11:53:53 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:53:56 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:53:56 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:53:56 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:53:56 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpj9bmo0u7
+2025-12-05 11:54:00 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:54:03 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:54:03 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:54:03 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:54:03 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpzng5l_cl
+2025-12-05 11:54:07 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:54:11 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:54:11 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:54:11 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:54:11 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmp44r2h3x2
+2025-12-05 11:54:17 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:54:21 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:54:21 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:54:21 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:54:21 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpb_70hpxf
+2025-12-05 11:54:25 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:56:24 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 11:57:21 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 11:57:21 | build_agent | [31mERROR[0m | Syntax error at line 23: invalid syntax
+2025-12-05 11:57:24 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 11:57:24 | build_agent | [31mERROR[0m | Syntax error at line 21: invalid syntax
+2025-12-05 11:57:27 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 11:57:27 | build_agent | [31mERROR[0m | Syntax error at line 13: invalid syntax
+2025-12-05 11:58:14 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 11:58:14 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 11:58:14 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 11:58:14 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmpr6lk2kmj
+2025-12-05 11:58:18 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 11:59:00 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 11:59:00 | build_agent | [31mERROR[0m | Syntax error at line 13: invalid syntax
+2025-12-05 11:59:10 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 11:59:10 | build_agent | [31mERROR[0m | Syntax error at line 18: invalid syntax
+2025-12-05 11:59:13 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 11:59:13 | build_agent | [31mERROR[0m | Syntax error at line 19: invalid syntax
+2025-12-05 12:00:08 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:00:08 | build_agent | [31mERROR[0m | Syntax error at line 13: invalid syntax
+2025-12-05 12:00:11 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:00:11 | build_agent | [31mERROR[0m | Syntax error at line 14: invalid syntax
+2025-12-05 12:00:14 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:00:14 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:00:14 | build_agent | [32mINFO[0m | Python build completed successfully
+2025-12-05 12:02:13 | build_agent | [32mINFO[0m | Analyzing java code for build
+2025-12-05 12:02:13 | build_agent | [32mINFO[0m | Detected dependencies (pom): []
+2025-12-05 12:02:13 | build_agent | [32mINFO[0m | Dependencies (result): []
+2025-12-05 12:02:13 | build_agent | [32mINFO[0m | Created Maven project in C:\Users\Govind\AppData\Local\Temp\tmph55yu9re
+2025-12-05 12:02:17 | build_agent | [32mINFO[0m | Java build completed successfully
+2025-12-05 12:04:10 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:04:10 | build_agent | [31mERROR[0m | Syntax error at line 154: invalid syntax
+2025-12-05 12:04:30 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:04:30 | build_agent | [31mERROR[0m | Syntax error at line 166: invalid syntax
+2025-12-05 12:04:49 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:04:49 | build_agent | [31mERROR[0m | Syntax error at line 176: invalid syntax
+2025-12-05 12:05:05 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:05:05 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:05:05 | build_agent | [32mINFO[0m | Installing Python dependencies: ['Standard Python 3.10+', 'typing']
+2025-12-05 12:05:26 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:05:26 | build_agent | [31mERROR[0m | Syntax error at line 185: invalid syntax
+2025-12-05 12:07:17 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:07:17 | build_agent | [31mERROR[0m | Syntax error at line 152: invalid syntax
+2025-12-05 12:07:33 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:07:33 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:07:33 | build_agent | [32mINFO[0m | Installing Python dependencies: ['None', 'logging', 'typing']
+2025-12-05 12:07:43 | build_agent | [32mINFO[0m | Python build completed successfully
+2025-12-05 12:08:18 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:08:18 | build_agent | [31mERROR[0m | Syntax error at line 172: invalid syntax
+2025-12-05 12:08:35 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:08:35 | build_agent | [31mERROR[0m | Syntax error at line 153: invalid syntax
+2025-12-05 12:08:53 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:08:53 | build_agent | [31mERROR[0m | Syntax error at line 163: invalid syntax
+2025-12-05 12:09:11 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:09:11 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:09:11 | build_agent | [32mINFO[0m | Installing Python dependencies: ['None (Standard Python library)', 'logging', 'typing']
+2025-12-05 12:09:28 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:09:28 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:09:28 | build_agent | [32mINFO[0m | Installing Python dependencies: ['None (Standard Python library)', 'logging', 'typing']
+2025-12-05 12:25:29 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 12:26:05 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:26:05 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:26:05 | build_agent | [32mINFO[0m | Installing Python dependencies: ['typing', 'None (Standard Python Library)']
+2025-12-05 12:26:06 | build_agent | [32mINFO[0m | Python build completed successfully
+2025-12-05 12:26:43 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:26:43 | build_agent | [31mERROR[0m | Syntax error at line 207: invalid syntax
+2025-12-05 12:27:03 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:27:03 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:27:03 | build_agent | [32mINFO[0m | Python build completed successfully
+2025-12-05 12:27:45 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:27:45 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:27:45 | build_agent | [32mINFO[0m | Python build completed successfully
+2025-12-05 12:28:26 | build_agent | [32mINFO[0m | Analyzing python code for build
+2025-12-05 12:28:26 | build_agent | [32mINFO[0m | Python syntax validation passed
+2025-12-05 12:28:26 | build_agent | [32mINFO[0m | Installing Python dependencies: ['logging', 'typing']
+2025-12-05 12:28:27 | build_agent | [32mINFO[0m | Python build completed successfully

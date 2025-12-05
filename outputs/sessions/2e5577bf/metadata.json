@@ -1,0 +1,277 @@
+{
+  "session_id": "2e5577bf",
+  "requirements": "write the code to implement knapsac problem using dynamic programming",
+  "language": "python",
+  "created_at": "2025-12-05T12:07:01.488336",
+  "updated_at": "2025-12-05T12:09:29.996674",
+  "status": "failed",
+  "current_iteration": 7,
+  "max_iterations": 7,
+  "iterations": [
+    {
+      "iteration_number": 1,
+      "timestamp": "2025-12-05T12:07:01.490334",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: None (Standard Python Library)\n\nimport logging\nfrom typing import List, Tuple\n\n# Configure basic logging\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')\n\ndef knapsack_dp(capacity: int, weights: List[int], values: List[int]) -> Tuple[int, List[int]]:\n    \"\"\"\n    Solves the 0/1 Knapsack problem using dynamic programming.\n\n    Args:\n        capacity: The maximum weight the knapsack can hold.\n        weights: A list of weights for each item.\n        values: A list of values corresponding to each item.\n\n    Returns:\n        A tuple containing:\n        1. The maximum total value achievable.\n        2. A list of 0-based indices of the chosen items.\n    \"\"\"\n    n = len(weights)\n    \n    # Input validation\n    if n != len(values):\n        raise ValueError(\"Weights and values lists must have the same length.\")\n    if capacity < 0:\n        raise ValueError(\"Capacity must be non-negative.\")\n    \n    # 1. Initialize DP table\n    # dp[i][w] stores the maximum value achievable using the first 'i' items \n    # with a maximum capacity of 'w'.\n    # Dimensions: (n + 1) rows, (capacity + 1) columns\n    dp = [[0] * (capacity + 1) for _ in range(n + 1)]\n\n    # 2. Fill the DP table\n    for i in range(1, n + 1):\n        # Current item index in input lists is i - 1\n        w_i = weights[i - 1]\n        v_i = values[i - 1]\n        \n        for w in range(capacity + 1):\n            \n            # Case 1: Item i is too heavy for the current capacity w\n            if w_i > w:\n                # We must exclude item i, so the value is the same as the previous row (i-1)\n                dp[i][w] = dp[i - 1][w]\n            \n            # Case 2: We can potentially include item i\n            else:\n                # Option A: Exclude item i (value from previous row)\n                value_excluding = dp[i - 1][w]\n                \n                # Option B: Include item i (value of item + max value from remaining capacity)\n                value_including = v_i + dp[i - 1][w - w_i]\n                \n                # Choose the maximum of the two options\n                dp[i][w] = max(value_excluding, value_including)\n\n    max_value = dp[n][capacity]\n    \n    # 3. Reconstruct the chosen items (Backtracking)\n    chosen_items: List[int] = []\n    current_w = capacity\n    \n    # Iterate backwards from the last item (n)\n    for i in range(n, 0, -1):\n        \n        # If dp[i][current_w] is greater than dp[i-1][current_w], \n        # it means the value increased at this step, implying item i was included.\n        if dp[i][current_w] != dp[i - 1][current_w]:\n            \n            # Item index is i - 1\n            item_index = i - 1\n            chosen_items.append(item_index)\n            \n            # Reduce the remaining capacity by the weight of the chosen item\n            current_w -= weights[item_index]\n            \n    # The items are found in reverse order of processing; reverse for natural order\n    chosen_items.reverse()\n    \n    return max_value, chosen_items\n\ndef main():\n    \"\"\"\n    Main function to demonstrate the Knapsack DP solution with sample data.\n    \"\"\"\n    \n    # --- Sample Data 1 ---\n    weights1 = [10, 20, 30]\n    values1 = [60, 100, 120]\n    capacity1 = 50\n    \n    logging.info(f\"--- Knapsack Problem (Sample 1) ---\")\n    logging.info(f\"Capacity: {capacity1}\")\n    logging.info(f\"Items (Weight, Value): {list(zip(weights1, values1))}\")\n    \n    try:\n        max_val1, items1 = knapsack_dp(capacity1, weights1, values1)\n        \n        logging.info(f\"Maximum Value Achieved: {max_val1}\")\n        \n        # Verification\n        chosen_weights = [weights1[i] for i in items1]\n        chosen_values = [values1[i] for i in items1]\n        \n        logging.info(f\"Chosen Item Indices (0-based): {items1}\")\n        logging.info(f\"Chosen Items (W, V): {list(zip(chosen_weights, chosen_values))}\")\n        logging.info(f\"Total Weight: {sum(chosen_weights)} (<= {capacity1})\")\n        logging.info(f\"Total Value: {sum(chosen_values)}\")\n        \n    except ValueError as e:\n        logging.error(f\"Input Error: {e}\")\n    except Exception as e:\n        logging.error(f\"An unexpected error occurred: {e}\")\n\n    print(\"\\n\" + \"=\"*60 + \"\\n\")\n\n    # --- Sample Data 2 (More items) ---\n    weights2 = [2, 3, 4, 5, 9]\n    values2 = [3, 4, 5, 8, 10]\n    capacity2 = 10\n    \n    logging.info(f\"--- Knapsack Problem (Sample 2) ---\")\n    logging.info(f\"Capacity: {capacity2}\")\n    logging.info(f\"Items (Weight, Value): {list(zip(weights2, values2))}\")\n    \n    try:\n        max_val2, items2 = knapsack_dp(capacity2, weights2, values2)\n        \n        logging.info(f\"Maximum Value Achieved: {max_val2}\")\n        \n        # Verification\n        chosen_weights = [weights2[i] for i in items2]\n        chosen_values = [values2[i] for i in items2]\n        \n        logging.info(f\"Chosen Item Indices (0-based): {items2}\")\n        logging.info(f\"Chosen Items (W, V): {list(zip(chosen_weights, chosen_values))}\")\n        logging.info(f\"Total Weight: {sum(chosen_weights)} (<= {capacity2})\")\n        logging.info(f\"Total Value: {sum(chosen_values)}\")\n        \n    except ValueError as e:\n        logging.error(f\"Input Error: {e}\")\n    except Exception as e:\n        logging.error(f\"An unexpected error occurred: {e}\")\n\n\nif __name__ == \"__main__\":\n    main()\n```",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "logging",
+          "typing",
+          "None (Standard Python Library)"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 152: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 152: invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 2,
+      "timestamp": "2025-12-05T12:07:17.481032",
+      "code_gen_status": "success",
+      "build_status": "success",
+      "test_status": "failed",
+      "generated_code": "# REQUIRES: None\n\nimport logging\nfrom typing import List, Tuple\n\n# Set up basic logging configuration\n# We set the level to WARNING initially, but adjust it in main() for demonstration output.\nlogging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')\nlogger = logging.getLogger(__name__)\n\ndef knapsack_dp(capacity: int, weights: List[int], values: List[int]) -> Tuple[int, List[int]]:\n    \"\"\"\n    Solves the 0/1 Knapsack problem using dynamic programming.\n\n    The DP table dp[i][w] stores the maximum value achievable using the first i items \n    (items 0 to i-1) with a capacity of w.\n\n    Args:\n        capacity: The maximum weight capacity of the knapsack (W).\n        weights: A list of weights for each item.\n        values: A list of values for each item.\n\n    Returns:\n        A tuple containing:\n        1. The maximum total value achievable.\n        2. A list of indices (0-based) of the items selected.\n    \"\"\"\n    N = len(weights)\n    \n    # Input validation\n    if N != len(values):\n        logger.error(\"Weights and values lists must have the same length.\")\n        raise ValueError(\"Input lists must be of equal length.\")\n    \n    if capacity < 0:\n        logger.error(\"Capacity must be non-negative.\")\n        raise ValueError(\"Capacity must be non-negative.\")\n\n    # 1. Initialize the DP table\n    # Dimensions: (N + 1) rows x (capacity + 1) columns\n    # All initialized to 0\n    dp = [[0] * (capacity + 1) for _ in range(N + 1)]\n\n    logger.debug(f\"Starting DP calculation for N={N}, W={capacity}\")\n\n    # 2. Fill the DP table\n    # i iterates over items (1 to N, representing items 0 to N-1)\n    for i in range(1, N + 1):\n        # Get the weight and value of the current item (item index i-1)\n        w_i = weights[i - 1]\n        v_i = values[i - 1]\n        \n        # w iterates over current capacity (1 to capacity)\n        for w in range(1, capacity + 1):\n            \n            # Case 1: Current item weight exceeds current capacity w\n            if w_i > w:\n                # Cannot include item i. Value is the same as without item i.\n                dp[i][w] = dp[i - 1][w]\n            \n            # Case 2: Current item can potentially be included\n            else:\n                # Option A: Exclude item i (Value from previous row)\n                value_excluding = dp[i - 1][w]\n                \n                # Option B: Include item i \n                # (Value of item i + max value from remaining capacity using previous items)\n                value_including = v_i + dp[i - 1][w - w_i]\n                \n                # Choose the maximum value\n                dp[i][w] = max(value_excluding, value_including)\n\n    max_value = dp[N][capacity]\n    \n    # 3. Traceback to find the selected items\n    selected_items_indices = []\n    current_w = capacity\n    \n    # Iterate backwards through the items (from N down to 1)\n    for i in range(N, 0, -1):\n        # If dp[i][current_w] > dp[i-1][current_w], it means the value increased \n        # when considering item i, so item i must have been included.\n        if dp[i][current_w] != dp[i - 1][current_w]:\n            # Item i-1 (0-based index) was selected\n            item_index = i - 1\n            selected_items_indices.append(item_index)\n            \n            # Reduce the remaining capacity by the weight of the selected item\n            current_w -= weights[item_index]\n            \n            # Optimization: If capacity is 0, we can stop tracing\n            if current_w <= 0:\n                break\n    \n    # The indices are found in reverse order of processing, so reverse the list\n    selected_items_indices.reverse()\n    \n    return max_value, selected_items_indices\n\ndef main():\n    \"\"\"\n    Main function to demonstrate the Knapsack DP solution.\n    \"\"\"\n    print(\"--- 0/1 Knapsack Problem using Dynamic Programming ---\")\n    \n    # Sample Data\n    weights = [2, 3, 4, 5, 9]\n    values = [3, 4, 5, 8, 10]\n    capacity = 10\n    \n    item_names = [f\"Item {i}\" for i in range(len(weights))]\n\n    print(f\"\\nKnapsack Capacity: {capacity}\")\n    print(\"Available Items:\")\n    for i, (w, v, name) in enumerate(zip(weights, values, item_names)):\n        print(f\"  {name} (Index {i}): Weight={w}, Value={v}\")\n\n    try:\n        max_value, selected_indices = knapsack_dp(capacity, weights, values)\n        \n        print(\"\\n--- Results ---\")\n        print(f\"Maximum achievable value: {max_value}\")\n        \n        if selected_indices:\n            print(\"Selected Items:\")\n            total_weight = 0\n            total_value_check = 0\n            for index in selected_indices:\n                w = weights[index]\n                v = values[index]\n                name = item_names[index]\n                print(f\"  - {name} (W={w}, V={v})\")\n                total_weight += w\n                total_value_check += v\n            \n            print(f\"\\nTotal Weight Used: {total_weight} (Max allowed: {capacity})\")\n            print(f\"Total Value Achieved: {total_value_check} (Matches Max Value: {max_value})\")\n        else:\n            print(\"No items were selected.\")\n\n    except ValueError as e:\n        logger.error(f\"Execution failed due to input error: {e}\")\n    except Exception as e:\n        logger.critical(f\"An unexpected error occurred: {e}\")\n\nif __name__ == \"__main__\":\n    # Set logging level to INFO for cleaner output in the final run.\n    logger.setLevel(logging.INFO)\n    main()",
+      "build_result": {
+        "status": "success",
+        "dependencies": [
+          "None",
+          "logging",
+          "typing"
+        ],
+        "build_instructions": "Code is ready for execution",
+        "errors": [],
+        "suggested_fixes": []
+      },
+      "test_result": {
+        "status": "fail",
+        "test_cases": [
+          {
+            "name": "T1.1: Basic Optimal Solution (Standard Case)",
+            "status": "pass",
+            "description": "Test with standard inputs (C=10, W=[2, 3, 4, 5, 9], V=[3, 4, 5, 8, 10]). Expected max value 15.",
+            "error": ""
+          },
+          {
+            "name": "T1.2: Single Item Dominates",
+            "status": "pass",
+            "description": "Test where only small items fit, but the optimal choice is clear (C=5, W=[10, 1, 1], V=[100, 1, 1]). Expected max value 1.",
+            "error": ""
+          },
+          {
+            "name": "T1.3: All Items Fit",
+            "status": "pass",
+            "description": "Test where capacity is large enough to include all items (C=10, W=[1, 2, 3], V=[10, 20, 30]). Expected max value 60.",
+            "error": ""
+          },
+          {
+            "name": "T2.1: Zero Capacity",
+            "status": "pass",
+            "description": "Test case where knapsack capacity is 0. Expected value 0, no items selected.",
+            "error": ""
+          },
+          {
+            "name": "T2.2: Zero Items (Empty Lists)",
+            "status": "pass",
+            "description": "Test case with empty weights and values lists. Expected value 0.",
+            "error": ""
+          },
+          {
+            "name": "T2.3: Item with Zero Weight",
+            "status": "pass",
+            "description": "Test case including an item with zero weight (C=5, W=[0, 5], V=[10, 5]). Expected value 15.",
+            "error": ""
+          },
+          {
+            "name": "T2.4: Capacity less than all weights",
+            "status": "pass",
+            "description": "Test case where no item fits (C=4, W=[5, 6, 7]). Expected value 0.",
+            "error": ""
+          },
+          {
+            "name": "T3.1: Error Handling - Mismatched Input Lengths",
+            "status": "pass",
+            "description": "Test input validation for unequal lengths of weights and values lists. Expected ValueError.",
+            "error": ""
+          },
+          {
+            "name": "T3.2: Error Handling - Negative Capacity",
+            "status": "pass",
+            "description": "Test input validation for negative capacity. Expected ValueError.",
+            "error": ""
+          },
+          {
+            "name": "T3.3: Edge Case - Negative Weight Input",
+            "status": "fail",
+            "description": "Test behavior when an item has a negative weight (C=5, W=[1, -2], V=[10, 20]). The DP logic produces a result (Value 30) that implies a negative total weight (-1), violating standard Knapsack constraints, due to missing input validation.",
+            "error": "Code accepted negative weight input, leading to a non-physical result (Max Value: 30, Total Weight Used: -1). Input validation for non-negative weights is missing."
+          }
+        ],
+        "execution_logs": "--- 0/1 Knapsack Problem using Dynamic Programming ---\n\nKnapsack Capacity: 10\nAvailable Items:\n  Item 0 (Index 0): Weight=2, Value=3\n  Item 1 (Index 1): Weight=3, Value=4\n  Item 2 (Index 2): Weight=4, Value=5\n  Item 3 (Index 3): Weight=5, Value=8\n  Item 4 (Index 4): Weight=9, Value=10\n\n--- Results ---\nMaximum achievable value: 15\nSelected Items:\n  - Item 0 (W=2, V=3)\n  - Item 1 (W=3, V=4)\n  - Item 3 (W=5, V=8)\n\nTotal Weight Used: 10 (Max allowed: 10)\nTotal Value Achieved: 15 (Matches Max Value: 15)\n\n",
+        "performance": {
+          "execution_time_seconds": 0.005,
+          "memory_used_mb": 0.1
+        },
+        "issues_found": [
+          "Missing input validation for non-negative weights and values. Allowing negative weights leads to mathematically correct but physically nonsensical results (e.g., negative total weight used) in the context of the 0/1 Knapsack problem (T3.3)."
+        ],
+        "recommendations": [
+          "Implement explicit checks within `knapsack_dp` to ensure all elements in the `weights` and `values` lists are non-negative (>= 0). If negative values are found, raise a `ValueError`.",
+          "For clarity and robustness, consider adding type hints for list elements (e.g., `List[int]`) in the function signature."
+        ]
+      },
+      "error_type": "logic",
+      "error_message": "Missing input validation for non-negative weights and values. Allowing negative weights leads to mathematically correct but physically nonsensical results (e.g., negative total weight used) in the con",
+      "error_context": null
+    },
+    {
+      "iteration_number": 3,
+      "timestamp": "2025-12-05T12:08:01.898461",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: typing, logging\n\nimport logging\nfrom typing import List, Tuple\n\n# Setup basic logging for error reporting\nlogging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')\n\ndef knapsack_dp(weights: List[int], values: List[int], capacity: int) -> Tuple[int, List[int]]:\n    \"\"\"\n    Solves the 0/1 Knapsack problem using dynamic programming (DP).\n\n    The DP table dp[i][w] stores the maximum value achievable using the first i items \n    with a knapsack capacity of w.\n\n    Args:\n        weights: A list of non-negative integers representing item weights.\n        values: A list of non-negative integers representing item values.\n        capacity: The maximum weight capacity of the knapsack (non-negative integer).\n\n    Returns:\n        A tuple containing:\n        1. The maximum total value achievable.\n        2. A list of indices (0-indexed) of the items included in the optimal solution.\n    \n    Raises:\n        ValueError: If inputs are invalid (mismatched lengths, negative capacity, \n                    or negative weights/values).\n    \"\"\"\n    n = len(weights)\n\n    # --- Input Validation (Addressing previous failure mode) ---\n    if n != len(values):\n        logging.error(\"Weights and values lists must have the same length.\")\n        raise ValueError(\"Input lists must be of equal length.\")\n\n    if capacity < 0:\n        logging.error(f\"Capacity must be non-negative. Received: {capacity}\")\n        raise ValueError(\"Capacity must be non-negative.\")\n\n    if any(w < 0 for w in weights) or any(v < 0 for v in values):\n        logging.error(\"All weights and values must be non-negative for a physical knapsack model.\")\n        raise ValueError(\"Weights and values must be non-negative.\")\n    \n    if capacity == 0 or n == 0:\n        return 0, []\n\n    # --- Dynamic Programming Table Initialization ---\n    # Dimensions: (n + 1) rows, (capacity + 1) columns\n    # Initialize all cells to 0\n    dp = [[0] * (capacity + 1) for _ in range(n + 1)]\n\n    # --- Filling the DP Table ---\n    # i iterates through items (1 to n, corresponding to weights[i-1])\n    for i in range(1, n + 1):\n        w_i = weights[i - 1]  # Weight of the current item\n        v_i = values[i - 1]  # Value of the current item\n\n        # w iterates through possible capacities (1 to capacity)\n        for w in range(1, capacity + 1):\n            \n            # Case 1: Item i is too heavy to include\n            if w_i > w:\n                # The max value is the same as without this item\n                dp[i][w] = dp[i - 1][w]\n            \n            # Case 2: Item i can be included\n            else:\n                # Option A: Exclude item i (dp[i-1][w])\n                # Option B: Include item i (v_i + dp[i-1][w - w_i])\n                dp[i][w] = max(\n                    dp[i - 1][w], \n                    v_i + dp[i - 1][w - w_i]\n                )\n                \n    max_value = dp[n][capacity]\n    \n    # --- Backtracking to find the selected items ---\n    selected_items = []\n    w = capacity\n    \n    # Start from the last item (n) and trace back\n    for i in range(n, 0, -1):\n        # If dp[i][w] > dp[i-1][w], it means item i was included \n        # because including it yielded a higher value than excluding it.\n        if dp[i][w] != dp[i - 1][w]:\n            item_index = i - 1\n            selected_items.append(item_index)\n            \n            # Reduce the remaining capacity by the weight of the included item\n            w -= weights[item_index]\n            \n            # If capacity is exhausted, we can stop tracing\n            if w <= 0:\n                break\n                \n    # Items were found in reverse order of processing, reverse for natural order\n    selected_items.sort()\n\n    return max_value, selected_items\n\nif __name__ == \"__main__\":\n    \n    print(\"--- 0/1 Knapsack Problem (Dynamic Programming) ---\")\n\n    # --- Test Case 1: Standard Example ---\n    weights1 = [2, 3, 4, 5]\n    values1 = [3, 4, 5, 6]\n    capacity1 = 5\n    \n    print(f\"\\n--- Test Case 1 ---\")\n    print(f\"Items: (W={weights1}, V={values1})\")\n    print(f\"Capacity: {capacity1}\")\n    \n    try:\n        max_val1, items1 = knapsack_dp(weights1, values1, capacity1)\n        \n        total_weight = sum(weights1[i] for i in items1)\n        total_value = sum(values1[i] for i in items1)\n        \n        print(f\"Maximum Value Achievable: {max_val1}\")\n        print(f\"Selected Item Indices (0-indexed): {items1}\")\n        print(f\"Verification: Total Weight = {total_weight} (<= {capacity1}), Total Value = {total_value}\")\n        \n    except ValueError as e:\n        print(f\"Execution failed: {e}\")\n\n\n    # --- Test Case 2: Larger Set ---\n    weights2 = [10, 20, 30]\n    values2 = [60, 100, 120]\n    capacity2 = 50\n    \n    print(f\"\\n--- Test Case 2 ---\")\n    print(f\"Items: (W={weights2}, V={values2})\")\n    print(f\"Capacity: {capacity2}\")\n    \n    try:\n        max_val2, items2 = knapsack_dp(weights2, values2, capacity2)\n        \n        total_weight = sum(weights2[i] for i in items2)\n        total_value = sum(values2[i] for i in items2)\n        \n        print(f\"Maximum Value Achievable: {max_val2}\")\n        print(f\"Selected Item Indices (0-indexed): {items2}\")\n        print(f\"Verification: Total Weight = {total_weight} (<= {capacity2}), Total Value = {total_value}\")\n        \n    except ValueError as e:\n        print(f\"Execution failed: {e}\")\n\n    # --- Test Case 3: Input Validation (Negative Weight Check) ---\n    weights3 = [1, -2, 3]\n    values3 = [10, 20, 30]\n    capacity3 = 5\n    \n    print(f\"\\n--- Test Case 3 (Validation Check: Negative Weight) ---\")\n    try:\n        knapsack_dp(weights3, values3, capacity3)\n    except ValueError as e:\n        print(f\"Successfully caught expected error: {e}\")\n        \n    # --- Test Case 4: Input Validation (Mismatched Lengths Check) ---\n    weights4 = [1, 2]\n    values4 = [10, 20, 30]\n    capacity4 = 5\n    \n    print(f\"\\n--- Test Case 4 (Validation Check: Mismatched Lengths) ---\")\n    try:\n        knapsack_dp(weights4, values4, capacity4)\n    except ValueError as e:\n        print(f\"Successfully caught expected error: {e}\")\n<ctrl63>",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "logging",
+          "typing"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 172: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 172: invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 4,
+      "timestamp": "2025-12-05T12:08:18.905419",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: None (Standard Python library)\n\nimport logging\nfrom typing import List, Tuple\n\n# Configure logging for informational messages and debugging\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')\n# Set to logging.DEBUG to see the DP table filling process\n# logging.getLogger().setLevel(logging.DEBUG) \n\ndef knapsack_dp(capacity: int, weights: List[int], values: List[int]) -> Tuple[int, List[int]]:\n    \"\"\"\n    Solves the 0/1 Knapsack problem using dynamic programming.\n\n    The function calculates the maximum value that can be achieved by selecting \n    a subset of items such that their total weight does not exceed the knapsack capacity.\n\n    Args:\n        capacity: The maximum weight capacity of the knapsack (W).\n        weights: A list of weights for each item.\n        values: A list of values for each item.\n\n    Returns:\n        A tuple containing:\n        1. The maximum total value achievable.\n        2. A list of indices (0-based) of the items included in the optimal solution.\n    \n    Raises:\n        ValueError: If input lists are inconsistent or capacity is negative.\n    \"\"\"\n    N = len(weights)\n    \n    if N != len(values):\n        raise ValueError(\"Weights and values lists must have the same length.\")\n    \n    if capacity < 0:\n        raise ValueError(\"Capacity must be non-negative.\")\n\n    # 1. Initialize the DP table\n    # dp[i][w] stores the maximum value achievable using the first i items \n    # with a capacity of w.\n    # Dimensions: (N + 1) rows, (capacity + 1) columns\n    dp = [[0] * (capacity + 1) for _ in range(N + 1)]\n\n    logging.debug(f\"Starting DP calculation for {N} items and capacity {capacity}\")\n\n    # 2. Fill the DP table\n    # i iterates over items (1 to N)\n    for i in range(1, N + 1):\n        # Current item index (0-based) is i - 1\n        item_weight = weights[i - 1]\n        item_value = values[i - 1]\n        \n        # w iterates over possible capacities (0 to capacity)\n        for w in range(capacity + 1):\n            \n            # Case 1: Cannot include the current item (weight exceeds capacity w)\n            if item_weight > w:\n                # Value is the same as the maximum value achievable without this item\n                dp[i][w] = dp[i - 1][w]\n                \n            # Case 2: Can include the current item\n            else:\n                # Option A: Exclude the item (value is dp[i-1][w])\n                value_excluding = dp[i - 1][w]\n                \n                # Option B: Include the item \n                # (value + optimal solution for remaining capacity w - item_weight)\n                value_including = item_value + dp[i - 1][w - item_weight]\n                \n                # Choose the maximum of the two options\n                dp[i][w] = max(value_excluding, value_including)\n                \n            logging.debug(f\"dp[{i}][{w}] = {dp[i][w]}\")\n\n    max_value = dp[N][capacity]\n    logging.info(f\"DP table filled. Maximum value found: {max_value}\")\n\n    # 3. Backtrack to find the items included\n    included_items: List[int] = []\n    w = capacity\n    \n    # Iterate backwards through the items (from N down to 1)\n    for i in range(N, 0, -1):\n        # If dp[i][w] > dp[i-1][w], it means item i was necessary \n        # to achieve the maximum value at this capacity w.\n        if dp[i][w] != dp[i - 1][w]:\n            # Item i (index i-1) was included\n            included_items.append(i - 1)\n            \n            # Reduce the remaining capacity by the weight of the included item\n            w -= weights[i - 1]\n            \n    # The items are found in reverse order of processing, so reverse the list\n    included_items.reverse()\n    \n    return max_value, included_items\n\nif __name__ == \"__main__\":\n    \n    # --- Example 1: Standard Test Case ---\n    C1 = 50\n    W1 = [10, 20, 30]\n    V1 = [60, 100, 120]\n    \n    logging.info(\"\\n--- Running Example 1: Optimal Value 220 ---\")\n    try:\n        max_val, items = knapsack_dp(C1, W1, V1)\n        \n        print(f\"\\nKnapsack Capacity: {C1}\")\n        print(f\"Weights: {W1}\")\n        print(f\"Values: {V1}\")\n        print(\"-\" * 30)\n        print(f\"Maximum Value Achievable: {max_val}\")\n        \n        item_descriptions = [f\"Item {i+1} (W={W1[i]}, V={V1[i]})\" for i in items]\n        print(f\"Items Included (Indices): {items}\")\n        print(f\"Items Included (Details): {item_descriptions}\")\n        \n    except Exception as e:\n        logging.error(f\"An error occurred in Example 1: {e}\")\n\n    # --- Example 2: Edge Case (Capacity constraint) ---\n    C2 = 5\n    W2 = [10, 2, 3]\n    V2 = [100, 10, 15]\n    \n    logging.info(\"\\n--- Running Example 2: Optimal Value 25 ---\")\n    try:\n        max_val, items = knapsack_dp(C2, W2, V2)\n        \n        print(f\"\\nKnapsack Capacity: {C2}\")\n        print(f\"Weights: {W2}\")\n        print(f\"Values: {V2}\")\n        print(\"-\" * 30)\n        print(f\"Maximum Value Achievable: {max_val}\")\n        \n        item_descriptions = [f\"Item {i+1} (W={W2[i]}, V={V2[i]})\" for i in items]\n        print(f\"Items Included (Indices): {items}\")\n        print(f\"Items Included (Details): {item_descriptions}\")\n        \n    except Exception as e:\n        logging.error(f\"An error occurred in Example 2: {e}\")\n\n    # --- Example 3: Error Handling ---\n    logging.info(\"\\n--- Running Example 3: Error Handling Test ---\")\n    try:\n        knapsack_dp(10, [1, 2], [10, 20, 30]) # Mismatched lengths\n    except ValueError as e:\n        print(f\"Caught expected error: {e}\")\n    except Exception as e:\n        logging.error(f\"Caught unexpected error: {e}\")\n<ctrl63>",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "None (Standard Python library)",
+          "logging",
+          "typing"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 153: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 153: invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 5,
+      "timestamp": "2025-12-05T12:08:35.874661",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: None (Standard Python libraries only)\n\nimport logging\nfrom typing import List, Tuple\n\n# Configure logging for tracing and error handling\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')\nlogger = logging.getLogger(__name__)\n\ndef knapsack_dp(weights: List[int], values: List[int], capacity: int) -> Tuple[int, List[int]]:\n    \"\"\"\n    Solves the 0/1 Knapsack problem using dynamic programming.\n\n    Args:\n        weights: List of weights for each item.\n        values: List of values for each item.\n        capacity: The maximum weight the knapsack can hold.\n\n    Returns:\n        A tuple containing:\n        1. The maximum total value achievable.\n        2. A list of indices of the selected items.\n    \"\"\"\n    N = len(weights)\n    \n    if N == 0 or capacity <= 0:\n        logger.warning(\"Empty item list or zero/negative capacity provided.\")\n        return 0, []\n\n    # Initialize the DP table: dp[i][w] stores the maximum value achievable \n    # using the first i items with a knapsack capacity of w.\n    # Size: (N + 1) rows, (capacity + 1) columns\n    dp = [[0] * (capacity + 1) for _ in range(N + 1)]\n\n    logger.info(f\"Starting DP calculation for {N} items and capacity {capacity}.\")\n\n    # Fill the DP table\n    # i iterates through items (1 to N)\n    for i in range(1, N + 1):\n        # Get the weight and value of the current item (using 0-indexed access for lists)\n        w_i = weights[i - 1]\n        v_i = values[i - 1]\n        \n        # w iterates through capacities (0 to capacity)\n        for w in range(capacity + 1):\n            \n            # Case 1: Current item weight exceeds current capacity w\n            if w_i > w:\n                # Cannot include item i. Value remains the same as without item i.\n                dp[i][w] = dp[i - 1][w]\n            \n            # Case 2: Current item can potentially be included\n            else:\n                # Option A: Exclude item i (Value from previous row)\n                value_exclude = dp[i - 1][w]\n                \n                # Option B: Include item i \n                # (Value of item i + max value achievable with remaining capacity w - w_i)\n                value_include = v_i + dp[i - 1][w - w_i]\n                \n                # Take the maximum of the two options\n                dp[i][w] = max(value_exclude, value_include)\n\n    max_value = dp[N][capacity]\n    logger.info(f\"DP table filled. Maximum value found: {max_value}\")\n\n    # Trace back to find the selected items\n    selected_items_indices = []\n    w = capacity\n    \n    # Iterate backwards through the items (from N down to 1)\n    for i in range(N, 0, -1):\n        # If dp[i][w] is greater than dp[i-1][w], it means item i was included.\n        # Note: If dp[i][w] == dp[i-1][w], it means we achieved the max value \n        # without including item i (or by including it, but we prioritize exclusion \n        # unless inclusion strictly increased the value).\n        if dp[i][w] != dp[i - 1][w]:\n            # Item i (index i-1) was included\n            selected_items_indices.append(i - 1)\n            \n            # Reduce the remaining capacity\n            w -= weights[i - 1]\n            \n            if w < 0:\n                # Should not happen if DP table is calculated correctly, but serves as a safeguard\n                break\n    \n    # Reverse the list to show items in ascending index order\n    selected_items_indices.reverse()\n    \n    return max_value, selected_items_indices\n\nif __name__ == \"__main__\":\n    # Set logging level to WARNING/ERROR for cleaner output in the final run, \n    # but keep INFO for internal function logging.\n    logging.getLogger().setLevel(logging.WARNING)\n    \n    # Sample Data 1\n    # Item indices: 0, 1, 2, 3\n    weights_1 = [2, 3, 4, 5]\n    values_1 = [3, 4, 5, 6]\n    capacity_1 = 5\n    \n    print(\"--- Knapsack Problem (0/1) using Dynamic Programming ---\")\n    print(f\"Test Case 1: Capacity {capacity_1}\")\n    print(f\"Items (Weight, Value): {list(zip(weights_1, values_1))}\")\n\n    try:\n        max_val_1, selected_indices_1 = knapsack_dp(weights_1, values_1, capacity_1)\n        \n        selected_items_info_1 = []\n        total_weight_1 = 0\n        \n        for idx in selected_indices_1:\n            selected_items_info_1.append(f\"Item {idx} (W={weights_1[idx]}, V={values_1[idx]})\")\n            total_weight_1 += weights_1[idx]\n\n        print(\"\\n--- Results (Case 1) ---\")\n        # Expected result: Items 0 (W=2, V=3) and 2 (W=3, V=4) -> Total W=5, Total V=7\n        # Wait, Item 0 (W=2, V=3) and Item 1 (W=3, V=4). Total W=5, Total V=7.\n        # Item 2 is W=4, V=5. Item 3 is W=5, V=6.\n        # Max value for capacity 5 is 7 (Items 0 and 1).\n        print(f\"Maximum Value Achieved: {max_val_1}\")\n        print(f\"Total Weight Used: {total_weight_1}\")\n        print(\"Selected Items:\")\n        if selected_items_info_1:\n            for item in selected_items_info_1:\n                print(f\"  - {item}\")\n        else:\n            print(\"  - None selected.\")\n\n        # Test Case 2 (Standard textbook example)\n        weights_2 = [10, 20, 30]\n        values_2 = [60, 100, 120]\n        capacity_2 = 50\n        \n        print(\"\\n\" + \"=\"*40)\n        print(f\"Test Case 2: Capacity {capacity_2}\")\n        print(f\"Items (Weight, Value): {list(zip(weights_2, values_2))}\")\n        \n        max_val_2, selected_indices_2 = knapsack_dp(weights_2, values_2, capacity_2)\n        \n        selected_items_info_2 = []\n        total_weight_2 = 0\n        \n        for idx in selected_indices_2:\n            selected_items_info_2.append(f\"Item {idx} (W={weights_2[idx]}, V={values_2[idx]})\")\n            total_weight_2 += weights_2[idx]\n\n        print(\"\\n--- Results (Case 2) ---\")\n        # Expected: Items 1 (W=20, V=100) and 2 (W=30, V=120). Total W=50, Total V=220.\n        print(f\"Maximum Value Achieved: {max_val_2}\") \n        print(f\"Total Weight Used: {total_weight_2}\")\n        print(\"Selected Items:\")\n        if selected_items_info_2:\n            for item in selected_items_info_2:\n                print(f\"  - {item}\")\n        else:\n            print(\"  - None selected.\")\n\n    except Exception as e:\n        logger.error(f\"An unexpected error occurred during execution: {e}\", exc_info=True)\n<ctrl63>",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "logging",
+          "None (Standard Python libraries only)",
+          "typing"
+        ],
+        "build_instructions": "Fix syntax errors before proceeding",
+        "errors": [
+          "Syntax error at line 163: invalid syntax"
+        ],
+        "suggested_fixes": [
+          "Fix syntax error: invalid syntax"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Syntax error at line 163: invalid syntax",
+      "error_context": null
+    },
+    {
+      "iteration_number": 6,
+      "timestamp": "2025-12-05T12:08:53.298458",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: None (Standard Python library)\n\nimport logging\nfrom typing import List, Tuple, Dict\n\n# Setup basic logging configuration\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')\nlogger = logging.getLogger(__name__)\n\ndef solve_knapsack(\n    capacity: int,\n    weights: List[int],\n    values: List[int]\n) -> Tuple[int, List[Dict[str, int]]]:\n    \"\"\"\n    Solves the 0/1 Knapsack problem using dynamic programming.\n\n    The DP table dp[i][w] stores the maximum value achievable using the first \n    i items with a maximum capacity of w.\n\n    Args:\n        capacity: The maximum weight capacity of the knapsack (W).\n        weights: A list of weights for each item.\n        values: A list of values for each item.\n\n    Returns:\n        A tuple containing:\n        1. The maximum total value achievable.\n        2. A list of dictionaries representing the selected items (index, weight, value).\n    \"\"\"\n    N = len(weights)\n    \n    # --- Input Validation ---\n    if N != len(values):\n        raise ValueError(\"Weights and values lists must have the same length.\")\n    \n    if capacity < 0:\n        raise ValueError(\"Capacity must be non-negative.\")\n        \n    if N == 0:\n        return 0, []\n\n    # 1. Initialize the DP table\n    # dp table size: (N + 1) rows, (capacity + 1) columns\n    # Initialize with 0s\n    dp = [[0] * (capacity + 1) for _ in range(N + 1)]\n    \n    logger.debug(f\"Starting DP calculation for N={N}, Capacity={capacity}\")\n\n    # 2. Fill the DP table\n    for i in range(1, N + 1):\n        # Current item index (0-based) is i - 1\n        item_weight = weights[i - 1]\n        item_value = values[i - 1]\n        \n        for w in range(capacity + 1):\n            \n            # If the current item is too heavy for the current capacity w\n            if item_weight > w:\n                # Exclude the item: value is the same as without item i\n                dp[i][w] = dp[i - 1][w]\n            \n            # If the item can be included\n            else:\n                # Option A: Exclude item i (value is dp[i-1][w])\n                value_excluding = dp[i - 1][w]\n                \n                # Option B: Include item i (value is item_value + value from remaining capacity)\n                # Remaining capacity is w - item_weight\n                value_including = item_value + dp[i - 1][w - item_weight]\n                \n                # Choose the maximum value\n                dp[i][w] = max(value_excluding, value_including)\n                \n    max_value = dp[N][capacity]\n    logger.debug(f\"Maximum value found: {max_value}\")\n\n    # 3. Backtrack to find the selected items\n    selected_items: List[Dict[str, int]] = []\n    w = capacity\n    \n    # Iterate backwards through the items\n    for i in range(N, 0, -1):\n        \n        # If dp[i][w] is greater than dp[i-1][w], it means item i was included \n        # because including it resulted in a higher value.\n        if dp[i][w] != dp[i - 1][w]:\n            \n            # Item i (index i-1) was included\n            item_index = i - 1\n            item_weight = weights[item_index]\n            item_value = values[item_index]\n            \n            selected_items.append({\n                \"index\": item_index,\n                \"weight\": item_weight,\n                \"value\": item_value\n            })\n            \n            # Update the remaining capacity\n            w -= item_weight\n            \n            # Optimization: If capacity is exhausted, stop\n            if w == 0:\n                break\n                \n    # The items are found from last to first, reverse the list for natural order\n    selected_items.reverse()\n    \n    return max_value, selected_items\n\ndef main():\n    \"\"\"\n    Main function to demonstrate the Knapsack solver with sample data.\n    \"\"\"\n    \n    # Set logging level to WARNING for cleaner output during standard execution\n    logger.setLevel(logging.WARNING)\n    \n    # --- Sample Data 1 ---\n    weights1 = [10, 20, 30]\n    values1 = [60, 100, 120]\n    capacity1 = 50\n    \n    print(\"--- Knapsack Problem 1 (W=50) ---\")\n    print(f\"Items (W, V): {list(zip(weights1, values1))}\")\n    \n    try:\n        max_value1, selected_items1 = solve_knapsack(capacity1, weights1, values1)\n        \n        print(f\"\\nMaximum Value Achieved: {max_value1}\")\n        print(\"Selected Items:\")\n        \n        total_weight = 0\n        for item in selected_items1:\n            print(f\"  Item {item['index']} (W={item['weight']}, V={item['value']})\")\n            total_weight += item['weight']\n            \n        print(f\"Total Weight Used: {total_weight}/{capacity1}\")\n        \n    except ValueError as e:\n        logger.error(f\"Error processing Knapsack 1: {e}\")\n        \n    print(\"\\n\" + \"=\"*50 + \"\\n\")\n\n    # --- Sample Data 2 (More complex) ---\n    weights2 = [2, 3, 4, 5]\n    values2 = [3, 4, 5, 6]\n    capacity2 = 5\n    \n    print(\"--- Knapsack Problem 2 (W=5) ---\")\n    print(f\"Items (W, V): {list(zip(weights2, values2))}\")\n    \n    try:\n        max_value2, selected_items2 = solve_knapsack(capacity2, weights2, values2)\n        \n        print(f\"\\nMaximum Value Achieved: {max_value2}\")\n        print(\"Selected Items:\")\n        \n        total_weight = 0\n        for item in selected_items2:\n            print(f\"  Item {item['index']} (W={item['weight']}, V={item['value']})\")\n            total_weight += item['weight']\n            \n        print(f\"Total Weight Used: {total_weight}/{capacity2}\")\n        \n    except ValueError as e:\n        logger.error(f\"Error processing Knapsack 2: {e}\")\n\nif __name__ == \"__main__\":\n    main()",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "None (Standard Python library)",
+          "logging",
+          "typing"
+        ],
+        "build_instructions": "Resolve dependency installation issues",
+        "errors": [
+          "Failed to install dependencies: ERROR: Invalid requirement: 'None (Standard Python library)': Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier\n    None (Standard Python library)\n         ~^\n"
+        ],
+        "suggested_fixes": [
+          "Check package names and network connectivity"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Failed to install dependencies: ERROR: Invalid requirement: 'None (Standard Python library)': Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier",
+      "error_context": null
+    },
+    {
+      "iteration_number": 7,
+      "timestamp": "2025-12-05T12:09:12.972459",
+      "code_gen_status": "success",
+      "build_status": "failed",
+      "test_status": "pending",
+      "generated_code": "# REQUIRES: None (Standard Python library)\n\nimport logging\nfrom typing import List, Tuple\n\n# Set up basic logging\nlogging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')\n\ndef knapsack_dp(capacity: int, weights: List[int], values: List[int]) -> Tuple[int, List[int]]:\n    \"\"\"\n    Solves the 0/1 Knapsack problem using dynamic programming.\n\n    The function calculates the maximum value that can be obtained by selecting \n    a subset of items such that their total weight does not exceed the knapsack capacity.\n\n    Args:\n        capacity: The maximum weight the knapsack can hold.\n        weights: A list of weights for each item.\n        values: A list of values corresponding to each item.\n\n    Returns:\n        A tuple containing:\n        1. The maximum total value achievable.\n        2. A list of indices (0-based) of the selected items.\n    \"\"\"\n    n = len(weights)\n    \n    if n == 0 or capacity <= 0:\n        return 0, []\n\n    # Initialize DP table: dp[i][w] stores the maximum value achievable \n    # using the first 'i' items with a capacity of 'w'.\n    # Dimensions: (n + 1) rows, (capacity + 1) columns\n    try:\n        dp = [[0] * (capacity + 1) for _ in range(n + 1)]\n    except MemoryError:\n        logging.error(\"Capacity or number of items is too large, resulting in MemoryError.\")\n        return 0, []\n\n    # Fill the DP table\n    for i in range(1, n + 1):\n        # Item index in weights/values lists is i - 1\n        weight_i = weights[i - 1]\n        value_i = values[i - 1]\n\n        for w in range(capacity + 1):\n            if weight_i > w:\n                # Case 1: Item i is too heavy for capacity w. \n                # Value remains the same as without item i.\n                dp[i][w] = dp[i - 1][w]\n            else:\n                # Case 2: Item i can be included. Choose the maximum of:\n                # a) Excluding item i (dp[i - 1][w])\n                # b) Including item i (value_i + dp[i - 1][w - weight_i])\n                \n                value_if_excluded = dp[i - 1][w]\n                value_if_included = value_i + dp[i - 1][w - weight_i]\n                \n                dp[i][w] = max(value_if_excluded, value_if_included)\n\n    max_value = dp[n][capacity]\n    \n    # --- Reconstruct the selected items ---\n    selected_items: List[int] = []\n    w = capacity\n    \n    # Iterate backwards through the DP table starting from the last cell\n    for i in range(n, 0, -1):\n        # If dp[i][w] > dp[i-1][w], it means the value increased at this step, \n        # implying item i (index i-1) was included.\n        if dp[i][w] != dp[i - 1][w]:\n            # Item i was included\n            item_index = i - 1\n            selected_items.append(item_index)\n            \n            # Reduce the remaining capacity by the weight of the included item\n            w -= weights[item_index]\n            \n            # Safety check: if w becomes negative, something went wrong, though \n            # the DP logic should prevent this.\n            if w < 0:\n                logging.warning(\"Capacity tracking error during reconstruction.\")\n                break\n    \n    # Reverse the list to show items in the order they appeared in the input lists\n    selected_items.reverse()\n    \n    return max_value, selected_items\n\nif __name__ == \"__main__\":\n    \n    # Sample Data\n    ITEM_NAMES = [\"A\", \"B\", \"C\", \"D\", \"E\"]\n    WEIGHTS = [2, 3, 4, 5, 1]\n    VALUES = [3, 4, 5, 8, 2]\n    CAPACITY = 7\n    \n    print(\"--- 0/1 Knapsack Problem (Dynamic Programming) ---\")\n    print(f\"Knapsack Capacity: {CAPACITY}\")\n    print(\"Available Items:\")\n    for i, (name, w, v) in enumerate(zip(ITEM_NAMES, WEIGHTS, VALUES)):\n        print(f\"  Item {i} ({name}): Weight={w}, Value={v}\")\n        \n    try:\n        max_value, selected_indices = knapsack_dp(CAPACITY, WEIGHTS, VALUES)\n        \n        selected_items_info = []\n        total_weight = 0\n        \n        for index in selected_indices:\n            name = ITEM_NAMES[index]\n            weight = WEIGHTS[index]\n            value = VALUES[index]\n            selected_items_info.append(f\"{name} (W={weight}, V={value})\")\n            total_weight += weight\n\n        print(\"\\n--- Results ---\")\n        print(f\"Maximum Value Achieved: {max_value}\")\n        print(f\"Total Weight Used: {total_weight} (Capacity Limit: {CAPACITY})\")\n        \n        if selected_items_info:\n            print(f\"Selected Items ({len(selected_items_info)}):\")\n            for item in selected_items_info:\n                print(f\"  - {item}\")\n        else:\n            print(\"No items were selected.\")\n\n    except Exception as e:\n        logging.error(f\"An unexpected error occurred during execution: {e}\")\n\n    # --- Test Case 2 ---\n    print(\"\\n--- Test Case 2 ---\")\n    CAPACITY_2 = 50\n    WEIGHTS_2 = [10, 20, 30]\n    VALUES_2 = [60, 100, 120]\n    \n    max_value_2, selected_indices_2 = knapsack_dp(CAPACITY_2, WEIGHTS_2, VALUES_2)\n    \n    selected_items_info_2 = []\n    total_weight_2 = 0\n    \n    for index in selected_indices_2:\n        weight = WEIGHTS_2[index]\n        value = VALUES_2[index]\n        selected_items_info_2.append(f\"Item {index} (W={weight}, V={value})\")\n        total_weight_2 += weight\n        \n    print(f\"Capacity: {CAPACITY_2}\")\n    print(f\"Maximum Value Achieved: {max_value_2}\") # Expected: 220 (Items 10 and 20)\n    print(f\"Total Weight Used: {total_weight_2}\")\n    print(f\"Selected Items: {selected_items_info_2}\")\n    # Expected selection: Items 1 (W=20, V=100) and 2 (W=30, V=120) -> Total V=220, W=50\n    # Wait, 10+20=30, 10+30=40, 20+30=50. \n    # 10+20: 160. 10+30: 180. 20+30: 220. Correct.\n    \n    # --- Edge Case: Zero Capacity ---\n    print(\"\\n--- Edge Case: Zero Capacity ---\")\n    max_value_3, selected_indices_3 = knapsack_dp(0, WEIGHTS, VALUES)\n    print(f\"Capacity: 0, Max Value: {max_value_3}, Selected: {selected_indices_3}\")\n    \n    # --- Edge Case: Items too heavy ---\n    print(\"\\n--- Edge Case: Items too heavy ---\")\n    max_value_4, selected_indices_4 = knapsack_dp(1, [10, 20], [100, 200])\n    print(f\"Capacity: 1, Max Value: {max_value_4}, Selected: {selected_indices_4}\")\n    # Expected: 0",
+      "build_result": {
+        "status": "error",
+        "dependencies": [
+          "None (Standard Python library)",
+          "logging",
+          "typing"
+        ],
+        "build_instructions": "Resolve dependency installation issues",
+        "errors": [
+          "Failed to install dependencies: ERROR: Invalid requirement: 'None (Standard Python library)': Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier\n    None (Standard Python library)\n         ~^\n"
+        ],
+        "suggested_fixes": [
+          "Check package names and network connectivity"
+        ]
+      },
+      "test_result": null,
+      "error_type": "logic",
+      "error_message": "Failed to install dependencies: ERROR: Invalid requirement: 'None (Standard Python library)': Expected matching RIGHT_PARENTHESIS for LEFT_PARENTHESIS, after version specifier",
+      "error_context": null
+    }
+  ],
+  "final_code": null,
+  "runtime_credentials": {},
+  "missing_credentials": [],
+  "total_execution_time": 148.507337808609,
+  "success": false
+}
