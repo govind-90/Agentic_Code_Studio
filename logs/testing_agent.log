@@ -113,3 +113,12 @@
 2025-12-05 12:57:52 | testing_agent | [32mINFO[0m | Testing python code
 2025-12-05 12:57:52 | testing_agent | [31mERROR[0m | Code execution failed
 2025-12-05 12:57:52 | testing_agent | [31mERROR[0m | Execution result: {'success': False, 'stdout': '', 'stderr': "SyntaxError: Non-UTF-8 code starting with '\\x93' in file C:\\Users\\Govind\\AppData\\Local\\Temp\\tmplaw_iaid.py on line 29, but no encoding declared; see https://peps.python.org/pep-0263/ for details\n", 'returncode': 1}
+2025-12-05 13:03:25 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-05 13:03:38 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 13:03:38 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 13:04:09 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 13:04:09 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 13:04:31 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 13:04:34 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-05 13:04:53 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-05 13:04:53 | testing_agent | [32mINFO[0m | Code executed successfully, validating output

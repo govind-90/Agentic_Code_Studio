@@ -6,15 +6,19 @@ from typing import Callable, Dict, Optional
 
 from src.agents.build_agent import BuildAgent
 from src.agents.code_generator import CodeGeneratorAgent
+from src.agents.project_scaffold import ProjectScaffoldAgent
+from src.agents.project_validator import ProjectValidatorAgent
 from src.agents.testing_agent import TestingAgent
 from src.config.settings import settings
 from src.models.schemas import (
     AgentStatus,
     CodeArtifact,
     ErrorType,
+    FileArtifact,
     GenerationSession,
     IterationLog,
     ProgrammingLanguage,
+    ProjectSession,
 )
 from src.utils.error_parser import ErrorParser
 from src.utils.logger import orchestrator_logger as logger
@@ -28,6 +32,8 @@ class OrchestratorAgent:
         self.code_generator = CodeGeneratorAgent()
         self.build_agent = BuildAgent()
         self.testing_agent = TestingAgent()
+        self.project_scaffold = ProjectScaffoldAgent()
+        self.project_validator = ProjectValidatorAgent()
         self.error_parser = ErrorParser()
 
         logger.info("Orchestrator Agent initialized")
@@ -299,3 +305,263 @@ class OrchestratorAgent:
         except Exception as e:
             logger.error(f"Failed to list sessions: {str(e)}")
             return []
+
+    def generate_project(
+        self,
+        requirements: str,
+        project_name: str,
+        project_template: str,
+        language: ProgrammingLanguage,
+        max_iterations: int = None,
+        runtime_credentials: Dict[str, str] = None,
+        progress_callback: Optional[Callable] = None,
+    ) -> ProjectSession:
+        """
+        Generate a multi-file project iteratively.
+
+        Args:
+            requirements: User's natural language requirements
+            project_name: Name of the project
+            project_template: Template to use (fastapi, spring_boot, python_package)
+            language: Target programming language
+            max_iterations: Maximum retry attempts
+            runtime_credentials: Optional runtime credentials
+            progress_callback: Callback for progress updates
+
+        Returns:
+            ProjectSession with generated files and build status
+        """
+        import uuid
+
+        session_id = str(uuid.uuid4())[:8]
+        start_time = time.time()
+
+        # Create session
+        session = ProjectSession(
+            session_id=session_id,
+            requirements=requirements,
+            language=language,
+            project_name=project_name,
+            project_template=project_template,
+            max_iterations=max_iterations or settings.max_iterations,
+            created_at=datetime.now(),
+            updated_at=datetime.now(),
+        )
+
+        logger.info(
+            f"Starting project generation (ID: {session_id}, Template: {project_template})"
+        )
+
+        # STEP 1: Scaffold project structure
+        if progress_callback:
+            progress_callback("Scaffolding project structure...", 0)
+
+        logger.info("Step 1: Scaffold Project")
+
+        try:
+            scaffold_result = self.project_scaffold.scaffold_project(
+                project_name=project_name,
+                template_name=project_template,
+                root_dir=settings.project_output_path,
+            )
+
+            if not scaffold_result.get("success"):
+                logger.error(f"Project scaffolding failed")
+                session.status = AgentStatus.FAILED
+                session.success = False
+                return session
+
+            session.root_dir = scaffold_result.get("project_root")
+            session.file_tree = scaffold_result.get("file_tree")
+
+            logger.info(
+                f"Project scaffolded successfully at {session.root_dir}"
+            )
+
+        except Exception as e:
+            logger.error(f"Scaffolding error: {str(e)}")
+            session.status = AgentStatus.FAILED
+            session.success = False
+            return session
+
+        # STEP 2: Iterative code generation, validation, and build
+        for iteration in range(1, session.max_iterations + 1):
+            iteration_log = IterationLog(iteration=iteration)
+            logger.info(f"\n{'='*60}")
+            logger.info(f"Iteration {iteration}/{session.max_iterations}")
+            logger.info(f"{'='*60}")
+
+            # Generate code for all files
+            if progress_callback:
+                progress_callback(
+                    f"Iteration {iteration}: Generating code...", iteration
+                )
+
+            logger.info("Step 2: Multi-file Code Generation")
+            iteration_log.generation_status = AgentStatus.RUNNING
+
+            code_result = self.code_generator.generate_code(
+                requirements=requirements,
+                language=language,
+                error_context=iteration_log.error_message if iteration > 1 else None,
+            )
+
+            generated_files = code_result.get("files", [])
+            dependencies = code_result.get("dependencies", [])
+
+            if not generated_files:
+                logger.warning("No files generated")
+                iteration_log.generation_status = AgentStatus.FAILED
+                session.iterations.append(iteration_log)
+                continue
+
+            # Convert generated code to FileArtifact objects
+            files_to_validate = [
+                FileArtifact(
+                    filename=f.get("filename", f"file_{i}.{language.value}"),
+                    code=f.get("code", ""),
+                    language=language.value,
+                    size=len(f.get("code", "")),
+                    filepath=f"{session.root_dir}/{f.get('filename', f'file_{i}.{language.value}')}",
+                )
+                for i, f in enumerate(generated_files)
+            ]
+
+            session.files = files_to_validate
+            session.all_dependencies = dependencies
+
+            iteration_log.generation_status = AgentStatus.SUCCESS
+            logger.info(
+                f"Generated {len(files_to_validate)} files with {len(dependencies)} dependencies"
+            )
+
+            # STEP 3: Project Validation
+            if progress_callback:
+                progress_callback(f"Iteration {iteration}: Validating project...", iteration)
+
+            logger.info("Step 3: Project Validation")
+            iteration_log.build_status = AgentStatus.RUNNING
+
+            validation_result = self.project_validator.validate_project(
+                files=files_to_validate, language=language
+            )
+
+            if not validation_result.get("success"):
+                logger.warning("Validation failed, analyzing errors...")
+                iteration_log.build_status = AgentStatus.FAILED
+                iteration_log.error_type = "VALIDATION_ERROR"
+                iteration_log.error_message = "\n".join(
+                    validation_result.get("errors", [])
+                )
+
+                session.iterations.append(iteration_log)
+                continue
+
+            iteration_log.build_status = AgentStatus.SUCCESS
+            logger.info("Project validation successful")
+
+            # STEP 4: Build Project
+            if progress_callback:
+                progress_callback(f"Iteration {iteration}: Building project...", iteration)
+
+            logger.info("Step 4: Project Build")
+
+            build_result = self.build_agent.build_project(
+                files=files_to_validate,
+                language=language,
+                dependencies=dependencies,
+                root_dir=session.root_dir,
+            )
+
+            if build_result.status != "success":
+                logger.warning("Build failed, analyzing errors...")
+                iteration_log.build_status = AgentStatus.FAILED
+                iteration_log.error_message = "\n".join(build_result.errors)
+
+                session.iterations.append(iteration_log)
+                continue
+
+            iteration_log.build_status = AgentStatus.SUCCESS
+            logger.info("Project build successful")
+
+            # STEP 5: Test Project
+            if progress_callback:
+                progress_callback(f"Iteration {iteration}: Testing project...", iteration)
+
+            logger.info("Step 5: Project Testing")
+            iteration_log.test_status = AgentStatus.RUNNING
+
+            test_result = self.testing_agent.test_project(
+                requirements=requirements,
+                files=files_to_validate,
+                language=language,
+                root_dir=session.root_dir,
+                runtime_credentials=runtime_credentials,
+            )
+
+            if test_result.status != "pass":
+                logger.warning("Tests failed")
+                iteration_log.test_status = AgentStatus.FAILED
+                iteration_log.test_result = test_result
+
+                session.iterations.append(iteration_log)
+                continue
+
+            iteration_log.test_status = AgentStatus.SUCCESS
+            logger.info("✅ All tests passed")
+
+            # Success!
+            session.success = True
+            session.status = AgentStatus.SUCCESS
+            session.iterations.append(iteration_log)
+
+            break
+
+        # Finalize session
+        session.total_execution_time = time.time() - start_time
+        session.updated_at = datetime.now()
+
+        if not session.success:
+            session.status = AgentStatus.FAILED
+            logger.warning(
+                f"Failed to generate project after {session.max_iterations} iterations"
+            )
+        else:
+            logger.info(
+                f"✅ Project generation successful in {len(session.iterations)} iteration(s)"
+            )
+
+        # Save session if persistence enabled
+        if settings.enable_session_persistence:
+            self._save_project_session(session)
+
+        return session
+
+    def _save_project_session(self, session: ProjectSession):
+        """Save project session to disk."""
+        try:
+            from pathlib import Path
+            import json
+
+            session_dir = Path(settings.session_storage_path) / session.session_id
+            session_dir.mkdir(parents=True, exist_ok=True)
+
+            # Save metadata
+            metadata_file = session_dir / "metadata.json"
+            metadata_file.write_text(
+                session.model_dump_json(indent=2), encoding="utf-8"
+            )
+
+            # Save all files
+            files_dir = session_dir / "files"
+            files_dir.mkdir(parents=True, exist_ok=True)
+
+            for file in session.files:
+                file_path = files_dir / file.filename
+                file_path.parent.mkdir(parents=True, exist_ok=True)
+                file_path.write_text(file.code, encoding="utf-8")
+
+            logger.info(f"Project session saved to {session_dir}")
+
+        except Exception as e:
+            logger.error(f"Failed to save project session: {str(e)}")

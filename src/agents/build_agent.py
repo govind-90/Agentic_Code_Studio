@@ -9,7 +9,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 from src.config.prompts import BUILD_AGENT_HUMAN_TEMPLATE, BUILD_AGENT_SYSTEM_PROMPT
 from src.config.settings import settings
-from src.models.schemas import BuildResult, ProgrammingLanguage
+from src.models.schemas import BuildResult, FileArtifact, ProgrammingLanguage
 from src.tools.code_executor import install_python_dependencies
 from src.utils.logger import build_logger as logger
 
@@ -56,6 +56,37 @@ class BuildAgent:
 
         except Exception as e:
             logger.error(f"Build analysis failed: {str(e)}")
+            return BuildResult(status="error", errors=[str(e)])
+
+    def build_project(
+        self, files: list, language: ProgrammingLanguage, dependencies: list, root_dir: str = None
+    ) -> BuildResult:
+        """
+        Build a multi-file project.
+
+        Args:
+            files: List of FileArtifact objects
+            language: Programming language
+            dependencies: List of project dependencies
+            root_dir: Root directory of the project
+
+        Returns:
+            BuildResult with status and details
+        """
+        try:
+            logger.info(f"Building multi-file {language.value} project with {len(files)} files")
+
+            if language == ProgrammingLanguage.PYTHON:
+                return self._build_python_project(files, dependencies, root_dir)
+            elif language == ProgrammingLanguage.JAVA:
+                return self._build_java_project(files, dependencies, root_dir)
+            else:
+                return BuildResult(
+                    status="error", errors=[f"Unsupported language: {language}"]
+                )
+
+        except Exception as e:
+            logger.error(f"Project build failed: {str(e)}")
             return BuildResult(status="error", errors=[str(e)])
 
     def _build_python(self, code: str, dependencies: list) -> BuildResult:
@@ -497,3 +528,248 @@ class BuildAgent:
         )
 
         return pom
+
+    def _build_python_project(
+        self, files: list, dependencies: list, root_dir: str = None
+    ) -> BuildResult:
+        """Build a multi-file Python project."""
+        import ast
+
+        errors = []
+        suggested_fixes = []
+
+        # 1. Validate syntax of all Python files
+        python_files = [f for f in files if f.language == "python"]
+        logger.info(f"Validating {len(python_files)} Python files")
+
+        for file in python_files:
+            try:
+                ast.parse(file.code)
+                logger.info(f"✓ Syntax valid: {file.filename}")
+            except SyntaxError as e:
+                error_msg = f"{file.filename}:{e.lineno} - {e.msg}"
+                errors.append(error_msg)
+                suggested_fixes.append(f"Fix syntax in {file.filename}")
+                logger.error(error_msg)
+
+        if errors:
+            return BuildResult(
+                status="error",
+                errors=errors,
+                suggested_fixes=suggested_fixes,
+                build_instructions="Fix syntax errors in all files",
+            )
+
+        # 2. Install all dependencies
+        if dependencies:
+            logger.info(f"Installing project dependencies: {dependencies}")
+            install_result = install_python_dependencies.invoke(
+                {"dependencies": dependencies}
+            )
+
+            if not install_result.get("success"):
+                errors.append(
+                    f"Failed to install dependencies: {install_result.get('stderr', '')}"
+                )
+                suggested_fixes.append("Check package names and versions")
+
+                return BuildResult(
+                    status="error",
+                    errors=errors,
+                    dependencies=dependencies,
+                    suggested_fixes=suggested_fixes,
+                    build_instructions="Resolve dependency issues",
+                )
+
+        logger.info("Python project build completed successfully")
+        return BuildResult(
+            status="success",
+            dependencies=dependencies,
+            build_instructions="All files validated and dependencies installed",
+            suggested_fixes=[],
+        )
+
+    def _build_java_project(
+        self, files: list, dependencies: list, root_dir: str = None
+    ) -> BuildResult:
+        """Build a multi-file Java project."""
+        import tempfile
+        from pathlib import Path
+        import shutil
+        import platform
+
+        errors = []
+        suggested_fixes = []
+
+        try:
+            # Create temp Maven project
+            temp_dir = Path(tempfile.mkdtemp())
+            logger.info(f"Creating Maven project in {temp_dir}")
+
+            # Find main class (class with main method)
+            main_class = None
+            main_class_file = None
+            java_files = [f for f in files if f.language == "java"]
+
+            for file in java_files:
+                if "public static void main" in file.code:
+                    import re
+
+                    match = re.search(r"public\s+class\s+(\w+)", file.code)
+                    if match:
+                        main_class = match.group(1)
+                        main_class_file = file
+                        break
+
+            if not main_class_file and java_files:
+                main_class_file = java_files[0]
+
+            if not main_class_file:
+                return BuildResult(
+                    status="error",
+                    errors=["No Java files found in project"],
+                    suggested_fixes=["Add Java source files"],
+                )
+
+            # Create source directory structure
+            src_dir = temp_dir / "src" / "main" / "java"
+
+            for file in java_files:
+                import re
+
+                # Extract package if present
+                package_match = re.search(r"package\s+([\w.]+);", file.code)
+                if package_match:
+                    package_name = package_match.group(1)
+                    package_path = package_name.replace(".", "/")
+                    file_src_dir = src_dir / package_path
+                else:
+                    file_src_dir = src_dir
+
+                file_src_dir.mkdir(parents=True, exist_ok=True)
+
+                # Extract class name
+                class_match = re.search(r"public\s+class\s+(\w+)", file.code)
+                class_name = class_match.group(1) if class_match else "Main"
+
+                # Write file with UTF-8 encoding
+                output_file = file_src_dir / f"{class_name}.java"
+                output_file.write_text(file.code, encoding="utf-8")
+                logger.info(f"Created {output_file}")
+
+            # Merge all dependencies
+            pom_deps = []
+            seen_coords = set()
+
+            for dep in dependencies or []:
+                if isinstance(dep, dict):
+                    coord = (
+                        dep.get("groupId"),
+                        dep.get("artifactId"),
+                        dep.get("version"),
+                    )
+                    if coord not in seen_coords:
+                        pom_deps.append(dep)
+                        seen_coords.add(coord)
+                elif isinstance(dep, str):
+                    parts = dep.split(":")
+                    if len(parts) == 3:
+                        coord = tuple(parts)
+                        if coord not in seen_coords:
+                            pom_deps.append(
+                                {
+                                    "groupId": parts[0],
+                                    "artifactId": parts[1],
+                                    "version": parts[2],
+                                }
+                            )
+                            seen_coords.add(coord)
+
+            # Create pom.xml
+            if main_class:
+                pom_content = self._generate_pom_xml(main_class, pom_deps)
+            else:
+                pom_content = self._generate_pom_xml("com.agenticcode.Main", pom_deps)
+
+            (temp_dir / "pom.xml").write_text(pom_content, encoding="utf-8")
+            logger.info("Created pom.xml")
+
+            # Find Maven
+            mvn_path = shutil.which("mvn")
+
+            if not mvn_path and platform.system() == "Windows":
+                common_paths = [
+                    Path("C:/Program Files/apache-maven-3.9.11/bin/mvn.cmd"),
+                    Path("C:/Program Files/apache-maven-3.9.10/bin/mvn.cmd"),
+                    Path("C:/Program Files/apache-maven-3.9.9/bin/mvn.cmd"),
+                    Path("C:/Program Files/apache-maven-3.8.8/bin/mvn.cmd"),
+                ]
+                for candidate in common_paths:
+                    if candidate.exists():
+                        mvn_path = str(candidate)
+                        logger.info(f"Found Maven at: {mvn_path}")
+                        break
+
+            if not mvn_path:
+                return BuildResult(
+                    status="error",
+                    errors=["Maven not found in system PATH"],
+                    suggested_fixes=[
+                        "Install Maven and add to PATH",
+                        "Or use Maven wrapper (mvnw)",
+                    ],
+                )
+
+            # Compile project
+            if platform.system() == "Windows":
+                run_cmd = f'"{mvn_path}" clean compile'
+            else:
+                run_cmd = f"{mvn_path} clean compile"
+
+            compile_result = subprocess.run(
+                run_cmd,
+                cwd=temp_dir,
+                capture_output=True,
+                text=True,
+                timeout=120,
+                shell=True,
+            )
+
+            if compile_result.returncode != 0:
+                logger.error(f"Maven compilation failed")
+                logger.error(f"Stdout: {compile_result.stdout}")
+                logger.error(f"Stderr: {compile_result.stderr}")
+
+                parsed_errors = self._parse_java_errors(
+                    compile_result.stderr + compile_result.stdout
+                )
+                errors.extend(parsed_errors["errors"])
+                suggested_fixes.extend(parsed_errors["fixes"])
+
+                shutil.rmtree(temp_dir, ignore_errors=True)
+
+                return BuildResult(
+                    status="error",
+                    errors=errors,
+                    dependencies=[f"{d['groupId']}:{d['artifactId']}:{d['version']}" for d in pom_deps],
+                    suggested_fixes=suggested_fixes,
+                    build_instructions="Fix compilation errors",
+                )
+
+            logger.info("Java project compiled successfully")
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
+            return BuildResult(
+                status="success",
+                dependencies=[f"{d['groupId']}:{d['artifactId']}:{d['version']}" for d in pom_deps],
+                build_instructions="Project compiled successfully",
+                suggested_fixes=[],
+            )
+
+        except Exception as e:
+            logger.error(f"Java project build error: {str(e)}")
+            return BuildResult(
+                status="error",
+                errors=[str(e)],
+                suggested_fixes=["Review project structure and dependencies"],
+            )

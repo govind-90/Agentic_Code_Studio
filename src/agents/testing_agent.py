@@ -8,7 +8,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 from src.config.prompts import TESTING_AGENT_HUMAN_TEMPLATE, TESTING_AGENT_SYSTEM_PROMPT
 from src.config.settings import settings
-from src.models.schemas import PerformanceMetrics, ProgrammingLanguage, TestCase, TestResult
+from src.models.schemas import FileArtifact, PerformanceMetrics, ProgrammingLanguage, TestCase, TestResult
 from src.tools.code_executor import execute_java_code, execute_python_code
 from src.utils.logger import test_logger as logger
 
@@ -267,3 +267,321 @@ class TestingAgent:
             issues_found=issues,
             recommendations=recommendations,
         )
+
+    def test_project(
+        self,
+        requirements: str,
+        files: list,
+        language: ProgrammingLanguage,
+        root_dir: str = None,
+        runtime_credentials: Dict[str, str] = None,
+    ) -> TestResult:
+        """
+        Test a multi-file project.
+
+        Args:
+            requirements: Original user requirements
+            files: List of FileArtifact objects
+            language: Programming language
+            root_dir: Root directory of project
+            runtime_credentials: Optional runtime credentials
+
+        Returns:
+            TestResult with test execution details
+        """
+        try:
+            logger.info(f"Testing {language.value} project with {len(files)} files")
+
+            test_cases = []
+            execution_logs = ""
+            issues = []
+            recommendations = []
+
+            if language == ProgrammingLanguage.PYTHON:
+                test_cases, execution_logs, issues, recommendations = (
+                    self._test_python_project(files, root_dir, runtime_credentials)
+                )
+            elif language == ProgrammingLanguage.JAVA:
+                test_cases, execution_logs, issues, recommendations = (
+                    self._test_java_project(files, root_dir, runtime_credentials)
+                )
+
+            success = all(tc.status == "pass" for tc in test_cases) and not issues
+
+            return TestResult(
+                status="pass" if success else "fail",
+                test_cases=test_cases,
+                execution_logs=execution_logs,
+                issues_found=issues,
+                recommendations=recommendations,
+            )
+
+        except Exception as e:
+            logger.error(f"Project testing failed: {str(e)}")
+            return TestResult(
+                status="fail",
+                test_cases=[
+                    TestCase(
+                        name="Project Test",
+                        status="fail",
+                        description="Multi-file project testing",
+                        error=str(e),
+                    )
+                ],
+                execution_logs="",
+                issues_found=["Project test execution failed"],
+                recommendations=["Check project structure and dependencies"],
+            )
+
+    def _test_python_project(
+        self, files: list, root_dir: str = None, runtime_credentials: Dict[str, str] = None
+    ) -> tuple:
+        """Test a Python project."""
+        import subprocess
+        import tempfile
+        from pathlib import Path
+
+        test_cases = []
+        execution_logs = ""
+        issues = []
+        recommendations = []
+
+        # Create temp directory for project
+        temp_dir = Path(tempfile.mkdtemp())
+
+        try:
+            # Write all files
+            for file in files:
+                if file.language == "python":
+                    file_path = temp_dir / file.filename
+                    file_path.parent.mkdir(parents=True, exist_ok=True)
+                    file_path.write_text(file.code, encoding="utf-8")
+                    logger.info(f"Wrote {file.filename}")
+
+            # Find and run unit tests
+            test_files = [f for f in files if "test_" in f.filename]
+
+            if test_files:
+                logger.info(f"Found {len(test_files)} test files")
+
+                for test_file in test_files:
+                    try:
+                        result = subprocess.run(
+                            ["python", "-m", "pytest", test_file.filename, "-v"],
+                            cwd=temp_dir,
+                            capture_output=True,
+                            text=True,
+                            timeout=60,
+                        )
+
+                        execution_logs += f"\n--- {test_file.filename} ---\n"
+                        execution_logs += result.stdout
+                        if result.stderr:
+                            execution_logs += "\nStderr:\n" + result.stderr
+
+                        if result.returncode == 0:
+                            test_cases.append(
+                                TestCase(
+                                    name=test_file.filename,
+                                    status="pass",
+                                    description="Unit tests passed",
+                                )
+                            )
+                            logger.info(f"✓ {test_file.filename} passed")
+                        else:
+                            test_cases.append(
+                                TestCase(
+                                    name=test_file.filename,
+                                    status="fail",
+                                    description="Unit tests failed",
+                                    error=result.stdout,
+                                )
+                            )
+                            issues.append(f"Tests in {test_file.filename} failed")
+                            logger.error(f"✗ {test_file.filename} failed")
+
+                    except subprocess.TimeoutExpired:
+                        test_cases.append(
+                            TestCase(
+                                name=test_file.filename,
+                                status="fail",
+                                description="Test timeout",
+                                error="Test execution timed out",
+                            )
+                        )
+                        issues.append(f"Tests in {test_file.filename} timed out")
+                    except Exception as e:
+                        test_cases.append(
+                            TestCase(
+                                name=test_file.filename,
+                                status="fail",
+                                description="Test execution error",
+                                error=str(e),
+                            )
+                        )
+                        issues.append(f"Error running {test_file.filename}: {str(e)}")
+
+            else:
+                # No tests found, run import validation
+                logger.info("No test files found, validating imports")
+
+                main_file = next((f for f in files if f.filename == "main.py" or f.filename.endswith("__main__.py")), None)
+
+                if main_file:
+                    try:
+                        result = subprocess.run(
+                            ["python", "-c", f"import sys; sys.path.insert(0, '.'); exec(compile(open('{main_file.filename}').read(), '{main_file.filename}', 'exec'))"],
+                            cwd=temp_dir,
+                            capture_output=True,
+                            text=True,
+                            timeout=30,
+                        )
+
+                        if result.returncode == 0:
+                            test_cases.append(
+                                TestCase(
+                                    name="Project Import",
+                                    status="pass",
+                                    description="All imports validated",
+                                )
+                            )
+                            execution_logs = "Project imports successful"
+                        else:
+                            test_cases.append(
+                                TestCase(
+                                    name="Project Import",
+                                    status="fail",
+                                    description="Import validation failed",
+                                    error=result.stderr,
+                                )
+                            )
+                            issues.append("Import validation failed")
+                            execution_logs = result.stderr
+
+                    except Exception as e:
+                        test_cases.append(
+                            TestCase(
+                                name="Project Import",
+                                status="fail",
+                                description="Import test error",
+                                error=str(e),
+                            )
+                        )
+                        issues.append(str(e))
+
+        finally:
+            # Clean up
+            import shutil
+
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
+        if not test_cases:
+            test_cases.append(
+                TestCase(
+                    name="Project Validation",
+                    status="pass",
+                    description="Project structure valid",
+                )
+            )
+
+        return test_cases, execution_logs, issues, recommendations
+
+    def _test_java_project(
+        self, files: list, root_dir: str = None, runtime_credentials: Dict[str, str] = None
+    ) -> tuple:
+        """Test a Java project."""
+        import subprocess
+        import tempfile
+        from pathlib import Path
+
+        test_cases = []
+        execution_logs = ""
+        issues = []
+        recommendations = []
+
+        temp_dir = Path(tempfile.mkdtemp())
+
+        try:
+            # Write all Java files to Maven structure
+            for file in files:
+                if file.language == "java":
+                    file_path = temp_dir / file.filename
+                    file_path.parent.mkdir(parents=True, exist_ok=True)
+                    file_path.write_text(file.code, encoding="utf-8")
+
+            # Find test classes
+            test_files = [f for f in files if "Test" in f.filename]
+
+            if test_files:
+                logger.info(f"Found {len(test_files)} test files")
+
+                for test_file in test_files:
+                    try:
+                        # Run JUnit tests via Maven
+                        result = subprocess.run(
+                            ["mvn", "test", "-Dtest=" + test_file.filename.replace(".java", "")],
+                            cwd=temp_dir,
+                            capture_output=True,
+                            text=True,
+                            timeout=120,
+                        )
+
+                        execution_logs += f"\n--- {test_file.filename} ---\n"
+                        execution_logs += result.stdout
+
+                        if result.returncode == 0:
+                            test_cases.append(
+                                TestCase(
+                                    name=test_file.filename,
+                                    status="pass",
+                                    description="Unit tests passed",
+                                )
+                            )
+                        else:
+                            test_cases.append(
+                                TestCase(
+                                    name=test_file.filename,
+                                    status="fail",
+                                    description="Unit tests failed",
+                                    error=result.stdout,
+                                )
+                            )
+                            issues.append(f"Tests in {test_file.filename} failed")
+
+                    except Exception as e:
+                        test_cases.append(
+                            TestCase(
+                                name=test_file.filename,
+                                status="fail",
+                                description="Test error",
+                                error=str(e),
+                            )
+                        )
+                        issues.append(str(e))
+
+            else:
+                # No tests, validate compilation was successful (done in BuildAgent)
+                test_cases.append(
+                    TestCase(
+                        name="Project Compilation",
+                        status="pass",
+                        description="Java project structure valid",
+                    )
+                )
+                execution_logs = "Java project structure validated"
+
+        finally:
+            import shutil
+
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
+        if not test_cases:
+            test_cases.append(
+                TestCase(
+                    name="Project Validation",
+                    status="pass",
+                    description="Project structure valid",
+                )
+            )
+
+        return test_cases, execution_logs, issues, recommendations

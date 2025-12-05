@@ -71,11 +71,17 @@ def initialize_session_state():
     if "current_session" not in st.session_state:
         st.session_state.current_session = None
 
+    if "current_project_session" not in st.session_state:
+        st.session_state.current_project_session = None
+
     if "runtime_credentials" not in st.session_state:
         st.session_state.runtime_credentials = {}
 
     if "generation_in_progress" not in st.session_state:
         st.session_state.generation_in_progress = False
+
+    if "generation_mode" not in st.session_state:
+        st.session_state.generation_mode = "single_file"
 
 
 def render_header():
@@ -162,6 +168,65 @@ def render_main_interface():
         st.caption("💡 Make sure PostgreSQL is running locally with these settings")
 
     return generate_button, requirements, language, max_iterations
+
+
+def render_project_interface():
+    """Render the project generation interface."""
+    from src.config.project_templates import list_templates
+
+    st.subheader("🏗️ Multi-File Project Generation")
+
+    col1, col2, col3 = st.columns([2, 1, 1])
+
+    with col1:
+        requirements = st.text_area(
+            "Describe what project you want to generate:",
+            height=150,
+            placeholder="Example: Create a FastAPI REST API for a TODO application with user authentication, database models, CRUD endpoints, and Docker support...",
+            key="project_requirements_input",
+        )
+
+    with col2:
+        project_name = st.text_input(
+            "Project Name",
+            value="my_project",
+            placeholder="my_awesome_project",
+            key="project_name_input",
+        )
+
+        templates = list_templates()
+        template_options = [t["name"] for t in templates]
+        template_name = st.selectbox(
+            "Project Template",
+            options=template_options,
+            key="template_select",
+        )
+
+    with col3:
+        language = st.selectbox(
+            "Programming Language",
+            options=[lang.value for lang in ProgrammingLanguage],
+            format_func=lambda x: x.upper(),
+            key="project_language_select",
+        )
+
+        max_iterations = st.number_input(
+            "Max Iterations",
+            min_value=1,
+            max_value=10,
+            value=settings.max_iterations,
+            key="project_max_iterations_input",
+        )
+
+        st.markdown("---")
+        generate_project_button = st.button(
+            "🚀 Generate Project",
+            type="primary",
+            use_container_width=True,
+            disabled=st.session_state.generation_in_progress,
+        )
+
+    return generate_project_button, requirements, project_name, template_name, language, max_iterations
 
 
 def render_progress_section():
@@ -311,51 +376,112 @@ def get_status_emoji(status: AgentStatus) -> str:
 
 
 def create_project_zip(session) -> bytes:
-    """Create a ZIP file with generated code and dependencies."""
+    """Create a ZIP file with all project files."""
     zip_buffer = io.BytesIO()
 
     with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
-        # Add main code file
-        zip_file.writestr(session.final_code.filename, session.final_code.code)
+        # Add all project files
+        if hasattr(session, "files") and session.files:
+            for file in session.files:
+                zip_file.writestr(file.filename, file.code)
 
         # Add README
-        readme_content = f"""# Generated Code - {session.session_id}
+        readme_content = f"""# {session.project_name}
 
-## Requirements
+## Description
 {session.requirements}
 
-## Language
-{session.language.value.upper()}
+## Project Details
+- **Template:** {session.project_template}
+- **Language:** {session.language.value.upper()}
+- **Session ID:** {session.session_id}
+- **Generated:** {session.created_at.strftime('%Y-%m-%d %H:%M:%S')}
+
+## Files
+{len(session.files) if hasattr(session, 'files') else 0} files generated
 
 ## Dependencies
-{', '.join(session.final_code.dependencies) if session.final_code.dependencies else 'None'}
+{', '.join(session.all_dependencies) if hasattr(session, 'all_dependencies') and session.all_dependencies else 'None'}
 
-## Generated On
-{session.created_at.strftime('%Y-%m-%d %H:%M:%S')}
+## Getting Started
 
-## Installation Instructions
-
-### Python
+### Installation
 ```bash
-pip install {' '.join(session.final_code.dependencies)}
-python {session.final_code.filename}
+cd {session.project_name}
+pip install -r requirements.txt  # For Python
+# or
+mvn clean install  # For Java
 ```
 
-### Java
-```bash
-mvn clean compile
-mvn exec:java
-```
+### Running
+Check individual README files in the project structure for specific instructions.
 """
         zip_file.writestr("README.md", readme_content)
 
-        # Add requirements.txt for Python
-        if session.language == ProgrammingLanguage.PYTHON and session.final_code.dependencies:
-            requirements_txt = "\n".join(session.final_code.dependencies)
+        # Add requirements.txt for Python projects
+        if session.language == ProgrammingLanguage.PYTHON and hasattr(session, "all_dependencies") and session.all_dependencies:
+            requirements_txt = "\n".join(session.all_dependencies)
             zip_file.writestr("requirements.txt", requirements_txt)
 
     zip_buffer.seek(0)
     return zip_buffer.getvalue()
+
+
+def render_project_results_section(session):
+    """Render project generation results."""
+    st.markdown("---")
+    st.subheader("📊 Project Generation Results")
+
+    # Summary metrics
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.metric("Status", "✅ Success" if session.success else "❌ Failed")
+
+    with col2:
+        st.metric("Iterations", len(session.iterations))
+
+    with col3:
+        st.metric("Files Generated", len(session.files) if hasattr(session, "files") else 0)
+
+    with col4:
+        duration = session.total_execution_time or 0
+        st.metric("Time (s)", f"{duration:.2f}")
+
+    # Project summary
+    st.info(
+        f"""
+        **Project:** {session.project_name}
+        **Template:** {session.project_template}
+        **Language:** {session.language.value.upper()}
+        """
+    )
+
+    # Generated files
+    if hasattr(session, "files") and session.files:
+        with st.expander("📁 Generated Files", expanded=True):
+            for file in session.files:
+                with st.expander(f"📄 {file.filename} ({file.language})"):
+                    st.code(file.code[:500] + "..." if len(file.code) > 500 else file.code, language=file.language)
+
+    # Dependencies
+    if hasattr(session, "all_dependencies") and session.all_dependencies:
+        st.info(f"**Dependencies:** {', '.join(session.all_dependencies)}")
+
+    # Download project
+    st.markdown("---")
+    project_zip = create_project_zip(session)
+    st.download_button(
+        label=f"⬇️ Download {session.project_name}.zip",
+        data=project_zip,
+        file_name=f"{session.project_name}_{session.session_id}.zip",
+        mime="application/zip",
+    )
+
+    # Iteration logs
+    with st.expander("📜 Iteration Logs", expanded=False):
+        for iter_log in session.iterations:
+            render_iteration_log(iter_log)
 
 
 def render_history_sidebar():
@@ -402,46 +528,107 @@ def main():
     initialize_session_state()
     render_header()
 
-    # Main interface
-    generate_button, requirements, language, max_iterations = render_main_interface()
-
-    # Handle code generation
-    if generate_button:
-        if not requirements or len(requirements.strip()) < 10:
-            st.error("Please provide detailed requirements (at least 10 characters)")
-        else:
-            st.session_state.generation_in_progress = True
+    # Mode selector
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("📝 Single File Generation", use_container_width=True):
+            st.session_state.generation_mode = "single_file"
             st.rerun()
 
-    # Progress section
-    if st.session_state.generation_in_progress:
-        render_progress_section()
-
-        # Execute generation
-        try:
-            lang_enum = ProgrammingLanguage(language)
-
-            session = st.session_state.orchestrator.generate_code(
-                requirements=requirements,
-                language=lang_enum,
-                max_iterations=max_iterations,
-                runtime_credentials=st.session_state.runtime_credentials,
-                progress_callback=progress_callback,
-            )
-
-            st.session_state.current_session = session
-            st.session_state.generation_in_progress = False
-
+    with col2:
+        if st.button("🏗️ Multi-File Project", use_container_width=True):
+            st.session_state.generation_mode = "project"
             st.rerun()
 
-        except Exception as e:
-            st.error(f"An error occurred: {str(e)}")
-            logger.error(f"Generation error: {str(e)}", exc_info=True)
-            st.session_state.generation_in_progress = False
+    st.markdown("---")
 
-    # Display results if available
-    if st.session_state.current_session and not st.session_state.generation_in_progress:
-        render_results_section(st.session_state.current_session)
+    # Single file mode
+    if st.session_state.generation_mode == "single_file":
+        generate_button, requirements, language, max_iterations = render_main_interface()
+
+        # Handle code generation
+        if generate_button:
+            if not requirements or len(requirements.strip()) < 10:
+                st.error("Please provide detailed requirements (at least 10 characters)")
+            else:
+                st.session_state.generation_in_progress = True
+                st.rerun()
+
+        # Progress section
+        if st.session_state.generation_in_progress:
+            render_progress_section()
+
+            # Execute generation
+            try:
+                lang_enum = ProgrammingLanguage(language)
+
+                session = st.session_state.orchestrator.generate_code(
+                    requirements=requirements,
+                    language=lang_enum,
+                    max_iterations=max_iterations,
+                    runtime_credentials=st.session_state.runtime_credentials,
+                    progress_callback=progress_callback,
+                )
+
+                st.session_state.current_session = session
+                st.session_state.generation_in_progress = False
+
+                st.rerun()
+
+            except Exception as e:
+                st.error(f"An error occurred: {str(e)}")
+                logger.error(f"Generation error: {str(e)}", exc_info=True)
+                st.session_state.generation_in_progress = False
+
+        # Display results if available
+        if st.session_state.current_session and not st.session_state.generation_in_progress:
+            render_results_section(st.session_state.current_session)
+
+    # Project mode
+    else:
+        generate_button, requirements, project_name, template_name, language, max_iterations = render_project_interface()
+
+        # Handle project generation
+        if generate_button:
+            if not requirements or len(requirements.strip()) < 10:
+                st.error("Please provide detailed requirements (at least 10 characters)")
+            elif not project_name:
+                st.error("Please enter a project name")
+            else:
+                st.session_state.generation_in_progress = True
+                st.rerun()
+
+        # Progress section
+        if st.session_state.generation_in_progress:
+            render_progress_section()
+
+            # Execute project generation
+            try:
+                lang_enum = ProgrammingLanguage(language)
+
+                session = st.session_state.orchestrator.generate_project(
+                    requirements=requirements,
+                    project_name=project_name,
+                    project_template=template_name,
+                    language=lang_enum,
+                    max_iterations=max_iterations,
+                    runtime_credentials=st.session_state.runtime_credentials,
+                    progress_callback=progress_callback,
+                )
+
+                st.session_state.current_project_session = session
+                st.session_state.generation_in_progress = False
+
+                st.rerun()
+
+            except Exception as e:
+                st.error(f"An error occurred: {str(e)}")
+                logger.error(f"Project generation error: {str(e)}", exc_info=True)
+                st.session_state.generation_in_progress = False
+
+        # Display project results if available
+        if st.session_state.current_project_session and not st.session_state.generation_in_progress:
+            render_project_results_section(st.session_state.current_project_session)
 
     # Sidebar
     render_history_sidebar()

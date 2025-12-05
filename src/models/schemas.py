@@ -80,6 +80,16 @@ class CodeArtifact(BaseModel):
     dependencies: List[str] = Field(default_factory=list)
 
 
+class FileArtifact(BaseModel):
+    """Single file in a multi-file project."""
+
+    filename: str  # e.g., "src/main.py", "src/Main.java"
+    code: str
+    language: str
+    size: int = 0
+    filepath: Optional[str] = None  # Full path relative to project root
+
+
 class IterationLog(BaseModel):
     """Log entry for a single iteration."""
 
@@ -148,3 +158,16 @@ class AgentResponse(BaseModel):
     message: str
     data: Optional[Dict[str, Any]] = None
     error: Optional[str] = None
+
+
+class ProjectSession(GenerationSession):
+    """Extended session for multi-file projects."""
+
+    project_template: str = ""  # e.g., "fastapi", "spring_boot"
+    project_name: str = ""
+    files: List[FileArtifact] = Field(default_factory=list)  # All generated files
+    file_tree: Dict[str, Any] = Field(default_factory=dict)  # Directory structure
+    root_dir: str = ""  # outputs/sessions/<id>/
+    has_dockerfile: bool = False
+    has_ci_config: bool = False
+    all_dependencies: List[str] = Field(default_factory=list)  # Merged from all files
