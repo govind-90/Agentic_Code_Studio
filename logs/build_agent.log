@@ -726,3 +726,1096 @@
 2025-12-05 13:59:43 | build_agent | [32mINFO[0m | ✓ Syntax valid: generated_script_20251205_135943.py
 2025-12-05 13:59:43 | build_agent | [32mINFO[0m | Installing project dependencies: ['setuptools']
 2025-12-05 13:59:46 | build_agent | [32mINFO[0m | Python project build completed successfully
+2025-12-05 14:07:45 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 14:09:27 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-05 14:10:55 | build_agent | [32mINFO[0m | Building multi-file java project with 1 files
+2025-12-05 14:10:55 | build_agent | [32mINFO[0m | Creating Maven project in C:\Users\Govind\AppData\Local\Temp\tmp6k4aa_7c
+2025-12-05 14:10:55 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmp6k4aa_7c\src\main\java\com\example\auth\AuthApplication.java
+2025-12-05 14:10:55 | build_agent | [32mINFO[0m | Created pom.xml
+2025-12-05 14:11:00 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 14:11:00 | build_agent | [31mERROR[0m | Stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ generated-project ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ generated-project ---
+[INFO] skip non existing resourceDirectory C:\Users\Govind\AppData\Local\Temp\tmp6k4aa_7c\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ generated-project ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug target 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 11
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp6k4aa_7c/src/main/java/com/example/auth/AuthApplication.java:[3,32] package org.springframework.boot does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp6k4aa_7c/src/main/java/com/example/auth/AuthApplication.java:[4,46] package org.springframework.boot.autoconfigure does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp6k4aa_7c/src/main/java/com/example/auth/AuthApplication.java:[6,2] cannot find symbol
+  symbol: class SpringBootApplication
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp6k4aa_7c/src/main/java/com/example/auth/AuthApplication.java:[10,9] cannot find symbol
+  symbol:   variable SpringApplication
+  location: class com.example.auth.AuthApplication
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.794 s
+[INFO] Finished at: 2025-12-05T14:10:59Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project generated-project: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp6k4aa_7c/src/main/java/com/example/auth/AuthApplication.java:[3,32] package org.springframework.boot does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp6k4aa_7c/src/main/java/com/example/auth/AuthApplication.java:[4,46] package org.springframework.boot.autoconfigure does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp6k4aa_7c/src/main/java/com/example/auth/AuthApplication.java:[6,2] cannot find symbol
+[ERROR]   symbol: class SpringBootApplication
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp6k4aa_7c/src/main/java/com/example/auth/AuthApplication.java:[10,9] cannot find symbol
+[ERROR]   symbol:   variable SpringApplication
+[ERROR]   location: class com.example.auth.AuthApplication
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-12-05 14:11:00 | build_agent | [31mERROR[0m | Stderr: 
+2025-12-05 14:12:28 | build_agent | [32mINFO[0m | Building multi-file java project with 1 files
+2025-12-05 14:12:28 | build_agent | [32mINFO[0m | Creating Maven project in C:\Users\Govind\AppData\Local\Temp\tmp1w1aot74
+2025-12-05 14:12:28 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmp1w1aot74\src\main\java\com\example\auth\AuthApplication.java
+2025-12-05 14:12:28 | build_agent | [32mINFO[0m | Created pom.xml
+2025-12-05 14:12:32 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-05 14:12:32 | build_agent | [31mERROR[0m | Stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ generated-project ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ generated-project ---
+[INFO] skip non existing resourceDirectory C:\Users\Govind\AppData\Local\Temp\tmp1w1aot74\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ generated-project ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug target 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 11
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp1w1aot74/src/main/java/com/example/auth/AuthApplication.java:[3,32] package org.springframework.boot does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp1w1aot74/src/main/java/com/example/auth/AuthApplication.java:[4,46] package org.springframework.boot.autoconfigure does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp1w1aot74/src/main/java/com/example/auth/AuthApplication.java:[6,2] cannot find symbol
+  symbol: class SpringBootApplication
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp1w1aot74/src/main/java/com/example/auth/AuthApplication.java:[10,9] cannot find symbol
+  symbol:   variable SpringApplication
+  location: class com.example.auth.AuthApplication
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.498 s
+[INFO] Finished at: 2025-12-05T14:12:32Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project generated-project: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp1w1aot74/src/main/java/com/example/auth/AuthApplication.java:[3,32] package org.springframework.boot does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp1w1aot74/src/main/java/com/example/auth/AuthApplication.java:[4,46] package org.springframework.boot.autoconfigure does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp1w1aot74/src/main/java/com/example/auth/AuthApplication.java:[6,2] cannot find symbol
+[ERROR]   symbol: class SpringBootApplication
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmp1w1aot74/src/main/java/com/example/auth/AuthApplication.java:[10,9] cannot find symbol
+[ERROR]   symbol:   variable SpringApplication
+[ERROR]   location: class com.example.auth.AuthApplication
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-12-05 14:12:32 | build_agent | [31mERROR[0m | Stderr: 
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Building multi-file java project with 19 files
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Creating Maven project in C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\Main.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\Main.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\AuthApplication.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\entity\User.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\repository\Main.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\dto\RegisterRequest.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\dto\LoginRequest.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\dto\AuthResponse.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\security\JwtUtil.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\security\UserDetailsServiceImpl.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\security\JwtRequestFilter.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\security\SecurityConfig.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\security\JwtAuthenticationEntryPoint.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\service\AuthService.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\controller\UserController.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\service\Main.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\com\example\auth\controller\Main.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\Main.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpqxytj7_b\src\main\java\Main.java
+2025-12-05 14:13:14 | build_agent | [32mINFO[0m | Created pom.xml
+2025-12-05 14:13:21 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-08 07:33:26 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | Building multi-file python project with 13 files
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | Validating 13 Python files
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: requirements.txt
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: config.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: database.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: models.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: schemas.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: auth.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: crud.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: routers/user.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: routers/todo.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: main.py
+2025-12-08 07:34:01 | build_agent | [32mINFO[0m | ✓ Syntax valid: test_main.py
+2025-12-08 07:34:01 | build_agent | [31mERROR[0m | Dockerfile:2 - invalid syntax
+2025-12-08 07:34:01 | build_agent | [31mERROR[0m | .github/workflows/ci.yml:1 - invalid syntax
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | Building multi-file python project with 16 files
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | Validating 16 Python files
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: requirements.txt
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/config.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/database.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/models.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/schemas.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/security.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/crud.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/dependencies.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/routers/auth.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/routers/todos.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/main.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: tests/conftest.py
+2025-12-08 07:34:35 | build_agent | [32mINFO[0m | ✓ Syntax valid: tests/test_todos.py
+2025-12-08 07:34:35 | build_agent | [31mERROR[0m | Dockerfile:2 - invalid syntax
+2025-12-08 07:34:35 | build_agent | [31mERROR[0m | docker-compose.yml:3 - invalid syntax
+2025-12-08 07:34:35 | build_agent | [31mERROR[0m | .github/workflows/ci.yml:1 - invalid syntax
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | Building multi-file python project with 16 files
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | Validating 16 Python files
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: requirements.txt
+2025-12-08 07:35:13 | build_agent | [31mERROR[0m | Dockerfile:2 - invalid syntax
+2025-12-08 07:35:13 | build_agent | [31mERROR[0m | docker-compose.yml:3 - invalid syntax
+2025-12-08 07:35:13 | build_agent | [31mERROR[0m | .github/workflows/ci.yml:1 - invalid syntax
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/config.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/database.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/models.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/schemas.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/auth.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/crud.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/routers/user.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/routers/todo.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/main.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: tests/conftest.py
+2025-12-08 07:35:13 | build_agent | [32mINFO[0m | ✓ Syntax valid: tests/test_todo.py
+2025-12-08 07:35:13 | build_agent | [31mERROR[0m | tests/test_user.py:64 - invalid syntax
+2025-12-08 07:35:14 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Building multi-file java project with 18 files
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Creating Maven project in C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\AuthApplication.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\entity\User.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\repository\Main.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\dto\RegisterRequest.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\dto\LoginRequest.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\dto\AuthResponse.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\util\JwtUtil.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\security\UserDetailsServiceImpl.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\security\JwtRequestFilter.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\security\SecurityConfig.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\service\AuthService.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\controller\UserController.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\service\Main.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\java\com\example\auth\controller\Main.java
+2025-12-08 07:35:58 | build_agent | [32mINFO[0m | Created pom.xml
+2025-12-08 07:36:05 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-08 07:36:05 | build_agent | [31mERROR[0m | Stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ generated-project ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ generated-project ---
+[INFO] skip non existing resourceDirectory C:\Users\Govind\AppData\Local\Temp\tmpivzy0_8x\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ generated-project ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 14 source files with javac [debug target 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 11
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[13,8] interface UserRepository is public, should be declared in a file named UserRepository.java
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/AuthResponse.java:[3,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/AuthResponse.java:[4,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/AuthResponse.java:[9,2] cannot find symbol
+  symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/AuthResponse.java:[10,2] cannot find symbol
+  symbol: class AllArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[9,29] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[10,52] package org.springframework.beans.factory.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[11,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[12,50] package org.springframework.boot.test.mock.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[13,46] package org.springframework.context.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[14,32] package org.springframework.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[15,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[16,57] package org.springframework.security.test.context.support does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[17,44] package org.springframework.test.web.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[19,26] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[19,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[20,26] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[20,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[21,59] package org.springframework.test.web.servlet.request does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[21,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[22,59] package org.springframework.test.web.servlet.request does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[22,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[23,58] package org.springframework.test.web.servlet.result does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[23,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[24,58] package org.springframework.test.web.servlet.result does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[24,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[28,2] cannot find symbol
+  symbol: class WebMvcTest
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[29,2] cannot find symbol
+  symbol: class Import
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[33,13] cannot find symbol
+  symbol:   class MockMvc
+  location: class com.example.auth.controller.UserControllerTest
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[9,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[10,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[11,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[12,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[13,41] package org.springframework.security.core does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[14,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[15,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[16,52] package org.springframework.security.crypto.password does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[17,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[22,2] cannot find symbol
+  symbol: class Service
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[3,23] package io.jsonwebtoken does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[4,23] package io.jsonwebtoken does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[5,23] package io.jsonwebtoken does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[6,26] package io.jsonwebtoken.io does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[7,32] package io.jsonwebtoken.security does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[8,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[9,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[10,52] package org.springframework.beans.factory.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[11,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[12,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[23,2] cannot find symbol
+  symbol: class Component
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[4,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[5,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[6,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[7,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[16,48] cannot find symbol
+  symbol: class UserDetailsService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[15,2] cannot find symbol
+  symbol: class Service
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[4,47] package org.springframework.data.jpa.repository does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[5,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[13,41] cannot find symbol
+  symbol: class JpaRepository
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[12,2] cannot find symbol
+  symbol: class Repository
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[4,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[6,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[11,2] cannot find symbol
+  symbol: class Entity
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[12,2] cannot find symbol
+  symbol: class Table
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[13,2] cannot find symbol
+  symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[14,2] cannot find symbol
+  symbol: class NoArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[15,2] cannot find symbol
+  symbol: class AllArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[25,12] cannot find symbol
+  symbol:   class UserDetails
+  location: class com.example.auth.security.UserDetailsServiceImpl
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[25,64] cannot find symbol
+  symbol:   class UsernameNotFoundException
+  location: class com.example.auth.security.UserDetailsServiceImpl
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[26,26] cannot find symbol
+  symbol:   class Logger
+  location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[43,33] cannot find symbol
+  symbol:   class UserDetails
+  location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[63,48] cannot find symbol
+  symbol:   class UserDetails
+  location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[80,54] cannot find symbol
+  symbol:   class Claims
+  location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[85,13] cannot find symbol
+  symbol:   class Claims
+  location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[25,26] cannot find symbol
+  symbol:   class Logger
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[28,19] cannot find symbol
+  symbol:   class PasswordEncoder
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[29,19] cannot find symbol
+  symbol:   class AuthenticationManager
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[30,19] cannot find symbol
+  symbol:   class UserDetailsService
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[33,55] cannot find symbol
+  symbol:   class PasswordEncoder
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[34,24] cannot find symbol
+  symbol:   class AuthenticationManager
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[34,69] cannot find symbol
+  symbol:   class UserDetailsService
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[3,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[4,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[5,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[6,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[11,2] cannot find symbol
+  symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/LoginRequest.java:[3,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/LoginRequest.java:[4,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/LoginRequest.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/LoginRequest.java:[10,2] cannot find symbol
+  symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[70,64] cannot find symbol
+  symbol:   class AuthenticationException
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[3,1] package jakarta.persistence does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[4,23] package jakarta.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[5,23] package jakarta.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[6,28] package jakarta.servlet.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[7,28] package jakarta.servlet.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[8,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[9,49] package org.springframework.security.core.context does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[10,53] package org.springframework.security.core.userdetails does not exist
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.811 s
+[INFO] Finished at: 2025-12-08T07:36:05Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project generated-project: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[13,8] interface UserRepository is public, should be declared in a file named UserRepository.java
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/AuthResponse.java:[3,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/AuthResponse.java:[4,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/AuthResponse.java:[9,2] cannot find symbol
+[ERROR]   symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/AuthResponse.java:[10,2] cannot find symbol
+[ERROR]   symbol: class AllArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[9,29] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[10,52] package org.springframework.beans.factory.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[11,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[12,50] package org.springframework.boot.test.mock.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[13,46] package org.springframework.context.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[14,32] package org.springframework.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[15,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[16,57] package org.springframework.security.test.context.support does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[17,44] package org.springframework.test.web.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[19,26] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[19,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[20,26] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[20,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[21,59] package org.springframework.test.web.servlet.request does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[21,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[22,59] package org.springframework.test.web.servlet.request does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[22,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[23,58] package org.springframework.test.web.servlet.result does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[23,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[24,58] package org.springframework.test.web.servlet.result does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[24,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[28,2] cannot find symbol
+[ERROR]   symbol: class WebMvcTest
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[29,2] cannot find symbol
+[ERROR]   symbol: class Import
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/controller/Main.java:[33,13] cannot find symbol
+[ERROR]   symbol:   class MockMvc
+[ERROR]   location: class com.example.auth.controller.UserControllerTest
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[9,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[10,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[11,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[12,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[13,41] package org.springframework.security.core does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[14,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[15,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[16,52] package org.springframework.security.crypto.password does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[17,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[22,2] cannot find symbol
+[ERROR]   symbol: class Service
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[3,23] package io.jsonwebtoken does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[4,23] package io.jsonwebtoken does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[5,23] package io.jsonwebtoken does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[6,26] package io.jsonwebtoken.io does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[7,32] package io.jsonwebtoken.security does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[8,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[9,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[10,52] package org.springframework.beans.factory.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[11,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[12,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[23,2] cannot find symbol
+[ERROR]   symbol: class Component
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[4,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[5,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[6,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[7,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[16,48] cannot find symbol
+[ERROR]   symbol: class UserDetailsService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[15,2] cannot find symbol
+[ERROR]   symbol: class Service
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[4,47] package org.springframework.data.jpa.repository does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[5,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[13,41] cannot find symbol
+[ERROR]   symbol: class JpaRepository
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/repository/Main.java:[12,2] cannot find symbol
+[ERROR]   symbol: class Repository
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[4,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[6,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[11,2] cannot find symbol
+[ERROR]   symbol: class Entity
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[12,2] cannot find symbol
+[ERROR]   symbol: class Table
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[13,2] cannot find symbol
+[ERROR]   symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[14,2] cannot find symbol
+[ERROR]   symbol: class NoArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[15,2] cannot find symbol
+[ERROR]   symbol: class AllArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[25,12] cannot find symbol
+[ERROR]   symbol:   class UserDetails
+[ERROR]   location: class com.example.auth.security.UserDetailsServiceImpl
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[25,64] cannot find symbol
+[ERROR]   symbol:   class UsernameNotFoundException
+[ERROR]   location: class com.example.auth.security.UserDetailsServiceImpl
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[26,26] cannot find symbol
+[ERROR]   symbol:   class Logger
+[ERROR]   location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[43,33] cannot find symbol
+[ERROR]   symbol:   class UserDetails
+[ERROR]   location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[63,48] cannot find symbol
+[ERROR]   symbol:   class UserDetails
+[ERROR]   location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[80,54] cannot find symbol
+[ERROR]   symbol:   class Claims
+[ERROR]   location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/util/JwtUtil.java:[85,13] cannot find symbol
+[ERROR]   symbol:   class Claims
+[ERROR]   location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[25,26] cannot find symbol
+[ERROR]   symbol:   class Logger
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[28,19] cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[29,19] cannot find symbol
+[ERROR]   symbol:   class AuthenticationManager
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[30,19] cannot find symbol
+[ERROR]   symbol:   class UserDetailsService
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[33,55] cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[34,24] cannot find symbol
+[ERROR]   symbol:   class AuthenticationManager
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[34,69] cannot find symbol
+[ERROR]   symbol:   class UserDetailsService
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[3,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[4,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[5,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[6,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/RegisterRequest.java:[11,2] cannot find symbol
+[ERROR]   symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/LoginRequest.java:[3,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/LoginRequest.java:[4,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/LoginRequest.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/dto/LoginRequest.java:[10,2] cannot find symbol
+[ERROR]   symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/service/AuthService.java:[70,64] cannot find symbol
+[ERROR]   symbol:   class AuthenticationException
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/entity/User.java:[3,1] package jakarta.persistence does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[4,23] package jakarta.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[5,23] package jakarta.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[6,28] package jakarta.servlet.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[7,28] package jakarta.servlet.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[8,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[9,49] package org.springframework.security.core.context does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpivzy0_8x/src/main/java/com/example/auth/security/JwtRequestFilter.java:[10,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-12-08 07:36:05 | build_agent | [31mERROR[0m | Stderr: 
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Building multi-file java project with 14 files
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Creating Maven project in C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\AuthApplication.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\dto\RegisterRequest.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\dto\LoginRequest.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\dto\AuthResponse.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\entity\User.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\repository\Main.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\util\JwtUtil.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\security\UserDetailsServiceImpl.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\security\JwtRequestFilter.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\security\SecurityConfig.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\service\AuthService.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\controller\UserController.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\service\AuthServiceTest.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\java\com\example\auth\controller\UserControllerTest.java
+2025-12-08 07:37:11 | build_agent | [32mINFO[0m | Created pom.xml
+2025-12-08 07:37:19 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-08 07:37:19 | build_agent | [31mERROR[0m | Stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5.pom
+Progress (1): 847 B
+Progress (1): 1.8 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5.pom (1.8 kB at 1.0 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt-root/0.11.5/jjwt-root-0.11.5.pom
+Progress (1): 758 B
+Progress (1): 2.0 kB
+Progress (1): 4.5 kB
+Progress (1): 6.9 kB
+Progress (1): 10 kB 
+Progress (1): 11 kB
+Progress (1): 14 kB
+Progress (1): 18 kB
+Progress (1): 20 kB
+Progress (1): 25 kB
+Progress (1): 29 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt-root/0.11.5/jjwt-root-0.11.5.pom (29 kB at 483 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5.jar
+Progress (1): 0.9/77 kB
+Progress (1): 2.3/77 kB
+Progress (1): 3.6/77 kB
+Progress (1): 5.0/77 kB
+Progress (1): 6.4/77 kB
+Progress (1): 7.7/77 kB
+Progress (1): 9.1/77 kB
+Progress (1): 10/77 kB 
+Progress (1): 12/77 kB
+Progress (1): 13/77 kB
+Progress (1): 15/77 kB
+Progress (1): 16/77 kB
+Progress (1): 17/77 kB
+Progress (1): 19/77 kB
+Progress (1): 20/77 kB
+Progress (1): 20/77 kB
+Progress (1): 22/77 kB
+Progress (1): 23/77 kB
+Progress (1): 25/77 kB
+Progress (1): 26/77 kB
+Progress (1): 27/77 kB
+Progress (1): 29/77 kB
+Progress (1): 30/77 kB
+Progress (1): 31/77 kB
+Progress (1): 33/77 kB
+Progress (1): 34/77 kB
+Progress (1): 35/77 kB
+Progress (1): 37/77 kB
+Progress (1): 38/77 kB
+Progress (1): 40/77 kB
+Progress (1): 41/77 kB
+Progress (1): 42/77 kB
+Progress (1): 47/77 kB
+Progress (1): 51/77 kB
+Progress (1): 55/77 kB
+Progress (1): 59/77 kB
+Progress (1): 63/77 kB
+Progress (1): 68/77 kB
+Progress (1): 72/77 kB
+Progress (1): 76/77 kB
+Progress (1): 77 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5.jar (77 kB at 698 kB/s)
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ generated-project ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ generated-project ---
+[INFO] skip non existing resourceDirectory C:\Users\Govind\AppData\Local\Temp\tmpwwb42ghn\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ generated-project ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 14 source files with javac [debug target 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 11
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[10,8] interface UserRepository is public, should be declared in a file named UserRepository.java
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/AuthApplication.java:[3,32] package org.springframework.boot does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/AuthApplication.java:[4,46] package org.springframework.boot.autoconfigure does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/AuthApplication.java:[6,2] cannot find symbol
+  symbol: class SpringBootApplication
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[9,29] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[10,29] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[11,39] package org.junit.jupiter.api.extension does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[12,19] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[13,19] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[14,33] package org.mockito.junit.jupiter does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[15,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[16,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[17,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[18,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[19,52] package org.springframework.security.crypto.password does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[23,36] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[24,26] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[24,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[25,26] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[27,2] cannot find symbol
+  symbol: class ExtendWith
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[4,47] package org.springframework.data.jpa.repository does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[5,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[10,41] cannot find symbol
+  symbol: class JpaRepository
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[9,2] cannot find symbol
+  symbol: class Repository
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[4,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[7,2] cannot find symbol
+  symbol: class Entity
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[8,2] cannot find symbol
+  symbol: class Table
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[9,2] cannot find symbol
+  symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[10,2] cannot find symbol
+  symbol: class NoArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[34,13] cannot find symbol
+  symbol:   class PasswordEncoder
+  location: class com.example.auth.service.AuthServiceTest
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[37,13] cannot find symbol
+  symbol:   class AuthenticationManager
+  location: class com.example.auth.service.AuthServiceTest
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[4,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[5,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[6,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[7,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[12,48] cannot find symbol
+  symbol: class UserDetailsService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[11,2] cannot find symbol
+  symbol: class Service
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[8,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[9,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[10,52] package org.springframework.beans.factory.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[11,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[12,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[20,2] cannot find symbol
+  symbol: class Component
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[10,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[11,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[12,41] package org.springframework.security.core does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[13,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[14,52] package org.springframework.security.crypto.password does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[15,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[16,50] package org.springframework.transaction.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[20,2] cannot find symbol
+  symbol: class Service
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[3,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[4,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[5,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[6,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[8,2] cannot find symbol
+  symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/LoginRequest.java:[3,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/LoginRequest.java:[4,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/LoginRequest.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/LoginRequest.java:[7,2] cannot find symbol
+  symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[24,19] cannot find symbol
+  symbol:   class PasswordEncoder
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[25,19] cannot find symbol
+  symbol:   class AuthenticationManager
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[29,55] cannot find symbol
+  symbol:   class PasswordEncoder
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[30,24] cannot find symbol
+  symbol:   class AuthenticationManager
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[3,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[4,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[7,2] cannot find symbol
+  symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[8,2] cannot find symbol
+  symbol: class AllArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[9,2] cannot find symbol
+  symbol: class NoArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[59,64] cannot find symbol
+  symbol:   class AuthenticationException
+  location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[23,26] cannot find symbol
+  symbol:   class Logger
+  location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[72,33] cannot find symbol
+  symbol:   class UserDetails
+  location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[89,48] cannot find symbol
+  symbol:   class UserDetails
+  location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[21,12] cannot find symbol
+  symbol:   class UserDetails
+  location: class com.example.auth.security.UserDetailsServiceImpl
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[21,64] cannot find symbol
+  symbol:   class UsernameNotFoundException
+  location: class com.example.auth.security.UserDetailsServiceImpl
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[3,1] package jakarta.persistence does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[4,23] package jakarta.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[5,23] package jakarta.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[6,28] package jakarta.servlet.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[7,28] package jakarta.servlet.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[8,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[9,49] package org.springframework.security.core.context does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[10,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[11,55] package org.springframework.security.web.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[12,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[13,38] package org.springframework.web.filter does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[18,39] cannot find symbol
+  symbol: class OncePerRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[17,2] cannot find symbol
+  symbol: class Component
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[29,37] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class com.example.auth.security.JwtRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[29,65] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class com.example.auth.security.JwtRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[29,95] cannot find symbol
+  symbol:   class FilterChain
+  location: class com.example.auth.security.JwtRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[30,20] cannot find symbol
+  symbol:   class ServletException
+  location: class com.example.auth.security.JwtRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[9,29] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[10,52] package org.springframework.beans.factory.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[11,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[12,50] package org.springframework.boot.test.mock.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[13,46] package org.springframework.context.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[14,32] package org.springframework.http does not exist
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.338 s
+[INFO] Finished at: 2025-12-08T07:37:19Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project generated-project: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[10,8] interface UserRepository is public, should be declared in a file named UserRepository.java
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/AuthApplication.java:[3,32] package org.springframework.boot does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/AuthApplication.java:[4,46] package org.springframework.boot.autoconfigure does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/AuthApplication.java:[6,2] cannot find symbol
+[ERROR]   symbol: class SpringBootApplication
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[9,29] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[10,29] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[11,39] package org.junit.jupiter.api.extension does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[12,19] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[13,19] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[14,33] package org.mockito.junit.jupiter does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[15,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[16,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[17,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[18,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[19,52] package org.springframework.security.crypto.password does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[23,36] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[24,26] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[24,1] static import only from classes and interfaces
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[25,26] package org.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[27,2] cannot find symbol
+[ERROR]   symbol: class ExtendWith
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[4,47] package org.springframework.data.jpa.repository does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[5,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[10,41] cannot find symbol
+[ERROR]   symbol: class JpaRepository
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/repository/Main.java:[9,2] cannot find symbol
+[ERROR]   symbol: class Repository
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[4,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[7,2] cannot find symbol
+[ERROR]   symbol: class Entity
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[8,2] cannot find symbol
+[ERROR]   symbol: class Table
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[9,2] cannot find symbol
+[ERROR]   symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[10,2] cannot find symbol
+[ERROR]   symbol: class NoArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[34,13] cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+[ERROR]   location: class com.example.auth.service.AuthServiceTest
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthServiceTest.java:[37,13] cannot find symbol
+[ERROR]   symbol:   class AuthenticationManager
+[ERROR]   location: class com.example.auth.service.AuthServiceTest
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[4,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[5,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[6,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[7,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[12,48] cannot find symbol
+[ERROR]   symbol: class UserDetailsService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[11,2] cannot find symbol
+[ERROR]   symbol: class Service
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[8,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[9,17] package org.slf4j does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[10,52] package org.springframework.beans.factory.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[11,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[12,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[20,2] cannot find symbol
+[ERROR]   symbol: class Component
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[10,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[11,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[12,41] package org.springframework.security.core does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[13,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[14,52] package org.springframework.security.crypto.password does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[15,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[16,50] package org.springframework.transaction.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[20,2] cannot find symbol
+[ERROR]   symbol: class Service
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[3,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[4,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[5,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[6,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/RegisterRequest.java:[8,2] cannot find symbol
+[ERROR]   symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/LoginRequest.java:[3,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/LoginRequest.java:[4,38] package jakarta.validation.constraints does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/LoginRequest.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/LoginRequest.java:[7,2] cannot find symbol
+[ERROR]   symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[24,19] cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[25,19] cannot find symbol
+[ERROR]   symbol:   class AuthenticationManager
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[29,55] cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[30,24] cannot find symbol
+[ERROR]   symbol:   class AuthenticationManager
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[3,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[4,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[5,14] package lombok does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[7,2] cannot find symbol
+[ERROR]   symbol: class Data
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[8,2] cannot find symbol
+[ERROR]   symbol: class AllArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/dto/AuthResponse.java:[9,2] cannot find symbol
+[ERROR]   symbol: class NoArgsConstructor
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/service/AuthService.java:[59,64] cannot find symbol
+[ERROR]   symbol:   class AuthenticationException
+[ERROR]   location: class com.example.auth.service.AuthService
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[23,26] cannot find symbol
+[ERROR]   symbol:   class Logger
+[ERROR]   location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[72,33] cannot find symbol
+[ERROR]   symbol:   class UserDetails
+[ERROR]   location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/util/JwtUtil.java:[89,48] cannot find symbol
+[ERROR]   symbol:   class UserDetails
+[ERROR]   location: class com.example.auth.util.JwtUtil
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[21,12] cannot find symbol
+[ERROR]   symbol:   class UserDetails
+[ERROR]   location: class com.example.auth.security.UserDetailsServiceImpl
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/UserDetailsServiceImpl.java:[21,64] cannot find symbol
+[ERROR]   symbol:   class UsernameNotFoundException
+[ERROR]   location: class com.example.auth.security.UserDetailsServiceImpl
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/entity/User.java:[3,1] package jakarta.persistence does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[4,23] package jakarta.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[5,23] package jakarta.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[6,28] package jakarta.servlet.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[7,28] package jakarta.servlet.http does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[8,51] package org.springframework.security.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[9,49] package org.springframework.security.core.context does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[10,53] package org.springframework.security.core.userdetails does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[11,55] package org.springframework.security.web.authentication does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[12,38] package org.springframework.stereotype does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[13,38] package org.springframework.web.filter does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[18,39] cannot find symbol
+[ERROR]   symbol: class OncePerRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[17,2] cannot find symbol
+[ERROR]   symbol: class Component
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[29,37] cannot find symbol
+[ERROR]   symbol:   class HttpServletRequest
+[ERROR]   location: class com.example.auth.security.JwtRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[29,65] cannot find symbol
+[ERROR]   symbol:   class HttpServletResponse
+[ERROR]   location: class com.example.auth.security.JwtRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[29,95] cannot find symbol
+[ERROR]   symbol:   class FilterChain
+[ERROR]   location: class com.example.auth.security.JwtRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/security/JwtRequestFilter.java:[30,20] cannot find symbol
+[ERROR]   symbol:   class ServletException
+[ERROR]   location: class com.example.auth.security.JwtRequestFilter
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[9,29] package org.junit.jupiter.api does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[10,52] package org.springframework.beans.factory.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[11,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[12,50] package org.springframework.boot.test.mock.mockito does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[13,46] package org.springframework.context.annotation does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpwwb42ghn/src/main/java/com/example/auth/controller/UserControllerTest.java:[14,32] package org.springframework.http does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-12-08 07:37:19 | build_agent | [31mERROR[0m | Stderr: 
+2025-12-08 07:38:02 | build_agent | [32mINFO[0m | Building multi-file java project with 1 files
+2025-12-08 07:38:02 | build_agent | [32mINFO[0m | Creating Maven project in C:\Users\Govind\AppData\Local\Temp\tmpeqa__9w3
+2025-12-08 07:38:02 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpeqa__9w3\src\main\java\com\example\auth\AuthApplication.java
+2025-12-08 07:38:02 | build_agent | [32mINFO[0m | Created pom.xml
+2025-12-08 07:38:07 | build_agent | [31mERROR[0m | Maven compilation failed
+2025-12-08 07:38:07 | build_agent | [31mERROR[0m | Stdout: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ generated-project ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ generated-project ---
+[INFO] skip non existing resourceDirectory C:\Users\Govind\AppData\Local\Temp\tmpeqa__9w3\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ generated-project ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug target 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 11
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpeqa__9w3/src/main/java/com/example/auth/AuthApplication.java:[3,32] package org.springframework.boot does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpeqa__9w3/src/main/java/com/example/auth/AuthApplication.java:[4,46] package org.springframework.boot.autoconfigure does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpeqa__9w3/src/main/java/com/example/auth/AuthApplication.java:[6,2] cannot find symbol
+  symbol: class SpringBootApplication
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpeqa__9w3/src/main/java/com/example/auth/AuthApplication.java:[10,9] cannot find symbol
+  symbol:   variable SpringApplication
+  location: class com.example.auth.AuthApplication
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.577 s
+[INFO] Finished at: 2025-12-08T07:38:06Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project generated-project: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpeqa__9w3/src/main/java/com/example/auth/AuthApplication.java:[3,32] package org.springframework.boot does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpeqa__9w3/src/main/java/com/example/auth/AuthApplication.java:[4,46] package org.springframework.boot.autoconfigure does not exist
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpeqa__9w3/src/main/java/com/example/auth/AuthApplication.java:[6,2] cannot find symbol
+[ERROR]   symbol: class SpringBootApplication
+[ERROR] /C:/Users/Govind/AppData/Local/Temp/tmpeqa__9w3/src/main/java/com/example/auth/AuthApplication.java:[10,9] cannot find symbol
+[ERROR]   symbol:   variable SpringApplication
+[ERROR]   location: class com.example.auth.AuthApplication
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-12-08 07:38:07 | build_agent | [31mERROR[0m | Stderr: 
+2025-12-08 07:38:07 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-08 07:39:30 | build_agent | [32mINFO[0m | Building multi-file python project with 1 files
+2025-12-08 07:39:30 | build_agent | [32mINFO[0m | Validating 1 Python files
+2025-12-08 07:39:30 | build_agent | [32mINFO[0m | ✓ Syntax valid: generated_script_20251208_073930.py
+2025-12-08 07:39:30 | build_agent | [32mINFO[0m | Installing project dependencies: ['pandas', 'numpy', 'ml_workflow_package', 'scikit-learn']
+2025-12-08 07:40:41 | build_agent | [32mINFO[0m | Building multi-file python project with 1 files
+2025-12-08 07:40:41 | build_agent | [32mINFO[0m | Validating 1 Python files
+2025-12-08 07:40:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: generated_script_20251208_074041.py
+2025-12-08 07:40:41 | build_agent | [32mINFO[0m | Installing project dependencies: ['pandas', 'scikit-learn', 'ml_workflow_package']
+2025-12-08 07:42:02 | build_agent | [32mINFO[0m | Building multi-file python project with 1 files
+2025-12-08 07:42:02 | build_agent | [32mINFO[0m | Validating 1 Python files
+2025-12-08 07:42:02 | build_agent | [32mINFO[0m | ✓ Syntax valid: generated_script_20251208_074202.py
+2025-12-08 07:42:02 | build_agent | [32mINFO[0m | Installing project dependencies: ['pandas', 'numpy', 'ml_workflow_package']
+2025-12-08 07:43:11 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | Building multi-file python project with 14 files
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | Validating 14 Python files
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: requirements.txt
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/config.py
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/database.py
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/models.py
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/schemas.py
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/auth.py
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/crud.py
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/routers/auth.py
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/routers/todos.py
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: app/main.py
+2025-12-08 07:43:41 | build_agent | [31mERROR[0m | Dockerfile:2 - invalid syntax
+2025-12-08 07:43:41 | build_agent | [31mERROR[0m | docker-compose.yml:3 - invalid syntax
+2025-12-08 07:43:41 | build_agent | [32mINFO[0m | ✓ Syntax valid: tests/test_todos.py
+2025-12-08 07:43:41 | build_agent | [31mERROR[0m | .github/workflows/ci.yml:1 - invalid syntax
+2025-12-08 07:47:54 | build_agent | [32mINFO[0m | Building multi-file python project with 1 files
+2025-12-08 07:47:54 | build_agent | [32mINFO[0m | Validating 1 Python files
+2025-12-08 07:47:54 | build_agent | [32mINFO[0m | ✓ Syntax valid: generated_script_20251208_074754.py
+2025-12-08 07:47:54 | build_agent | [32mINFO[0m | Python project build completed successfully
+2025-12-08 07:47:54 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-08 07:48:40 | build_agent | [32mINFO[0m | Building multi-file java project with 1 files
+2025-12-08 07:48:40 | build_agent | [32mINFO[0m | Creating Maven project in C:\Users\Govind\AppData\Local\Temp\tmpa27qacie
+2025-12-08 07:48:40 | build_agent | [32mINFO[0m | Created C:\Users\Govind\AppData\Local\Temp\tmpa27qacie\src\main\java\com\example\auth\AuthApplication.java
+2025-12-08 07:48:40 | build_agent | [32mINFO[0m | Created pom.xml
+2025-12-08 07:48:46 | build_agent | [32mINFO[0m | Java project compiled successfully
+2025-12-08 07:48:46 | build_agent | [32mINFO[0m | Build Agent initialized
+2025-12-08 07:49:59 | build_agent | [32mINFO[0m | Building multi-file python project with 1 files
+2025-12-08 07:49:59 | build_agent | [32mINFO[0m | Validating 1 Python files
+2025-12-08 07:49:59 | build_agent | [31mERROR[0m | generated_script_20251208_074959.py:3 - invalid syntax
+2025-12-08 07:51:10 | build_agent | [32mINFO[0m | Building multi-file python project with 1 files
+2025-12-08 07:51:10 | build_agent | [32mINFO[0m | Validating 1 Python files
+2025-12-08 07:51:10 | build_agent | [32mINFO[0m | ✓ Syntax valid: generated_script_20251208_075110.py
+2025-12-08 07:51:10 | build_agent | [32mINFO[0m | Installing project dependencies: ['setuptools']
+2025-12-08 07:51:13 | build_agent | [32mINFO[0m | Python project build completed successfully

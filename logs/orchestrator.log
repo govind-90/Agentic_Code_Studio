@@ -1244,3 +1244,248 @@
 2025-12-05 13:59:46 | orchestrator | [32mINFO[0m | ✅ All tests passed
 2025-12-05 13:59:46 | orchestrator | [32mINFO[0m | ✅ Project generation successful in 1 iteration(s)
 2025-12-05 13:59:46 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\00607453
+2025-12-05 14:07:45 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-05 14:07:45 | orchestrator | [32mINFO[0m | Starting project generation (ID: e6e5c150, Template: fastapi)
+2025-12-05 14:07:45 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-05 14:07:45 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\todo_app
+2025-12-05 14:07:45 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-05 14:07:45 | orchestrator | [32mINFO[0m | Iteration 1/3
+2025-12-05 14:07:45 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-05 14:07:45 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-05 14:08:23 | orchestrator | [32mINFO[0m | Generated 10 files with 15 dependencies
+2025-12-05 14:08:23 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-05 14:08:23 | orchestrator | [33mWARNING[0m | Validation failed, analyzing errors...
+2025-12-05 14:08:23 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-05 14:08:23 | orchestrator | [32mINFO[0m | Iteration 2/3
+2025-12-05 14:08:23 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-05 14:08:23 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-05 14:08:50 | orchestrator | [32mINFO[0m | Generated 14 files with 11 dependencies
+2025-12-05 14:08:50 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-05 14:08:50 | orchestrator | [33mWARNING[0m | Validation failed, analyzing errors...
+2025-12-05 14:08:50 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-05 14:08:50 | orchestrator | [32mINFO[0m | Iteration 3/3
+2025-12-05 14:08:50 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-05 14:08:50 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Generated 14 files with 19 dependencies
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-05 14:09:27 | orchestrator | [33mWARNING[0m | Validation failed, analyzing errors...
+2025-12-05 14:09:27 | orchestrator | [33mWARNING[0m | Failed to generate project after 3 iterations
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\e6e5c150
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Starting project generation (ID: f9dc8e22, Template: spring_boot)
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\auth_service
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Iteration 1/3
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-05 14:09:27 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-05 14:10:55 | orchestrator | [32mINFO[0m | Generated 1 files with 0 dependencies
+2025-12-05 14:10:55 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-05 14:10:55 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-05 14:10:55 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-05 14:11:00 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-05 14:11:00 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-05 14:11:00 | orchestrator | [32mINFO[0m | Iteration 2/3
+2025-12-05 14:11:00 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-05 14:11:00 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-05 14:12:28 | orchestrator | [32mINFO[0m | Generated 1 files with 0 dependencies
+2025-12-05 14:12:28 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-05 14:12:28 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-05 14:12:28 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-05 14:12:32 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-05 14:12:32 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-05 14:12:32 | orchestrator | [32mINFO[0m | Iteration 3/3
+2025-12-05 14:12:32 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-05 14:12:32 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-05 14:13:14 | orchestrator | [32mINFO[0m | Generated 19 files with 1 dependencies
+2025-12-05 14:13:14 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-05 14:13:14 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-05 14:13:14 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:33:26 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 07:33:26 | orchestrator | [32mINFO[0m | Starting project generation (ID: 241124c5, Template: fastapi)
+2025-12-08 07:33:26 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 07:33:26 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\todo_app
+2025-12-08 07:33:26 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:33:26 | orchestrator | [32mINFO[0m | Iteration 1/3
+2025-12-08 07:33:26 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:33:26 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:34:01 | orchestrator | [32mINFO[0m | Generated 13 files with 22 dependencies
+2025-12-08 07:34:01 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:34:01 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:34:01 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:34:01 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:34:01 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:34:01 | orchestrator | [32mINFO[0m | Iteration 2/3
+2025-12-08 07:34:01 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:34:01 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:34:35 | orchestrator | [32mINFO[0m | Generated 16 files with 14 dependencies
+2025-12-08 07:34:35 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:34:35 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:34:35 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:34:35 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:34:35 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:34:35 | orchestrator | [32mINFO[0m | Iteration 3/3
+2025-12-08 07:34:35 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:34:35 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:35:13 | orchestrator | [32mINFO[0m | Generated 16 files with 16 dependencies
+2025-12-08 07:35:13 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:35:13 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:35:13 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:35:13 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:35:13 | orchestrator | [33mWARNING[0m | Failed to generate project after 3 iterations
+2025-12-08 07:35:13 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\241124c5
+2025-12-08 07:35:14 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 07:35:14 | orchestrator | [32mINFO[0m | Starting project generation (ID: aa087f6d, Template: spring_boot)
+2025-12-08 07:35:14 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 07:35:14 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\auth_service
+2025-12-08 07:35:14 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:35:14 | orchestrator | [32mINFO[0m | Iteration 1/3
+2025-12-08 07:35:14 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:35:14 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:35:58 | orchestrator | [32mINFO[0m | Generated 18 files with 1 dependencies
+2025-12-08 07:35:58 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:35:58 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:35:58 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:36:05 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:36:05 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:36:05 | orchestrator | [32mINFO[0m | Iteration 2/3
+2025-12-08 07:36:05 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:36:05 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:37:11 | orchestrator | [32mINFO[0m | Generated 14 files with 2 dependencies
+2025-12-08 07:37:11 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:37:11 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:37:11 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:37:19 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:37:19 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:37:19 | orchestrator | [32mINFO[0m | Iteration 3/3
+2025-12-08 07:37:19 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:37:19 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:38:02 | orchestrator | [32mINFO[0m | Generated 1 files with 0 dependencies
+2025-12-08 07:38:02 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:38:02 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:38:02 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:38:07 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:38:07 | orchestrator | [33mWARNING[0m | Failed to generate project after 3 iterations
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\aa087f6d
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | Starting project generation (ID: 596ba9ae, Template: python_package)
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\ml_pipeline
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | Iteration 1/3
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:38:07 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:39:30 | orchestrator | [32mINFO[0m | Generated 1 files with 4 dependencies
+2025-12-08 07:39:30 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:39:30 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:39:30 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:39:32 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:39:32 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:39:32 | orchestrator | [32mINFO[0m | Iteration 2/3
+2025-12-08 07:39:32 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:39:32 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:40:41 | orchestrator | [32mINFO[0m | Generated 1 files with 3 dependencies
+2025-12-08 07:40:41 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:40:41 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:40:41 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:40:44 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:40:44 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:40:44 | orchestrator | [32mINFO[0m | Iteration 3/3
+2025-12-08 07:40:44 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:40:44 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:42:02 | orchestrator | [32mINFO[0m | Generated 1 files with 3 dependencies
+2025-12-08 07:42:02 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:42:02 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:42:02 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:42:04 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:42:04 | orchestrator | [33mWARNING[0m | Failed to generate project after 3 iterations
+2025-12-08 07:42:04 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\596ba9ae
+2025-12-08 07:43:11 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 07:43:11 | orchestrator | [32mINFO[0m | Starting project generation (ID: 0d85d077, Template: fastapi)
+2025-12-08 07:43:11 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 07:43:11 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\todo_app
+2025-12-08 07:43:11 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:43:11 | orchestrator | [32mINFO[0m | Iteration 1/3
+2025-12-08 07:43:11 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:43:11 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:43:41 | orchestrator | [32mINFO[0m | Generated 14 files with 15 dependencies
+2025-12-08 07:43:41 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:43:41 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:43:41 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:43:41 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:43:41 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:43:41 | orchestrator | [32mINFO[0m | Iteration 2/3
+2025-12-08 07:43:41 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:43:41 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Generated 1 files with 0 dependencies
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Project build successful
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Step 5: Project Testing
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | ✅ All tests passed
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | ✅ Project generation successful in 2 iteration(s)
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\0d85d077
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Starting project generation (ID: 165fca67, Template: spring_boot)
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\auth_service
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Iteration 1/3
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:47:54 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:48:40 | orchestrator | [32mINFO[0m | Generated 1 files with 0 dependencies
+2025-12-08 07:48:40 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:48:40 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:48:40 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Project build successful
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Step 5: Project Testing
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | ✅ All tests passed
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | ✅ Project generation successful in 1 iteration(s)
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\165fca67
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Starting project generation (ID: 6311a16d, Template: python_package)
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\ml_pipeline
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Iteration 1/3
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:48:46 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:49:59 | orchestrator | [32mINFO[0m | Generated 1 files with 0 dependencies
+2025-12-08 07:49:59 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:49:59 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:49:59 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:49:59 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 07:49:59 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 07:49:59 | orchestrator | [32mINFO[0m | Iteration 2/3
+2025-12-08 07:49:59 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 07:49:59 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 07:51:10 | orchestrator | [32mINFO[0m | Generated 1 files with 1 dependencies
+2025-12-08 07:51:10 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 07:51:10 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 07:51:10 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 07:51:13 | orchestrator | [32mINFO[0m | Project build successful
+2025-12-08 07:51:13 | orchestrator | [32mINFO[0m | Step 5: Project Testing
+2025-12-08 07:51:13 | orchestrator | [32mINFO[0m | ✅ All tests passed
+2025-12-08 07:51:13 | orchestrator | [32mINFO[0m | ✅ Project generation successful in 2 iteration(s)
+2025-12-08 07:51:13 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\6311a16d

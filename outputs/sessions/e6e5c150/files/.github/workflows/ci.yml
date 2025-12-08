@@ -1,0 +1,47 @@
+name: Python FastAPI CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests with pytest
+      # We need to ensure the test database setup works correctly
+      run: |
+        pytest test_api.py
+      env:
+        # Set environment variables for testing if needed, though test_api.py uses in-memory DB
+        SECRET_KEY: ${{ secrets.JWT_SECRET_KEY || 'TEST_SECRET' }}
+
+    - name: Build Docker image (Optional)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: false # Set to true if pushing to a registry like Docker Hub
+        tags: ${{ github.repository }}:latest
+        # secrets: |
+        #   JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }}
+        
+    - name: Linting (Optional: Add flake8 or black check here)
+      run: echo "Linting step skipped for brevity"
+```

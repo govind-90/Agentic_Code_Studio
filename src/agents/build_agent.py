@@ -384,6 +384,51 @@ class BuildAgent:
                 "artifactId": "jackson-databind",
                 "version": "2.16.0",
             },
+            "org.springframework": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-web",
+                "version": "3.1.5",
+            },
+            "org.springframework.security": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-security",
+                "version": "3.1.5",
+            },
+            "org.springframework.data.jpa": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-data-jpa",
+                "version": "3.1.5",
+            },
+            "org.springframework.web": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-web",
+                "version": "3.1.5",
+            },
+            "jakarta.persistence": {
+                "groupId": "jakarta.persistence",
+                "artifactId": "jakarta.persistence-api",
+                "version": "3.1.0",
+            },
+            "lombok": {
+                "groupId": "org.projectlombok",
+                "artifactId": "lombok",
+                "version": "1.18.26",
+            },
+            "org.junit": {
+                "groupId": "org.junit.jupiter",
+                "artifactId": "junit-jupiter-api",
+                "version": "5.10.0",
+            },
+            "org.mockito": {
+                "groupId": "org.mockito",
+                "artifactId": "mockito-core",
+                "version": "5.5.0",
+            },
+            "org.springframework.boot": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-web",
+                "version": "3.1.5",
+            },
             "org.slf4j": {
                 "groupId": "org.slf4j",
                 "artifactId": "slf4j-simple",
@@ -462,7 +507,14 @@ class BuildAgent:
         self, main_class: str, dependencies: list, package_name: str = None
     ) -> str:
         """Generate Maven pom.xml."""
-        # Basic pom.xml template
+        # Add detection for Spring Boot related dependencies
+        spring_present = any(
+            (isinstance(d, dict) and str(d.get("groupId", "")).startswith("org.springframework"))
+            or (isinstance(d, str) and str(d).startswith("org.springframework"))
+            for d in (dependencies or [])
+        )
+
+        # Basic pom.xml header
         pom = f"""<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -473,7 +525,20 @@ class BuildAgent:
     <groupId>com.agenticcode</groupId>
     <artifactId>generated-project</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+"""
+
+        # If Spring Boot deps detected, add parent
+        if spring_present:
+            pom += """
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+"""
+
+        pom += """
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -508,6 +573,19 @@ class BuildAgent:
     
     <build>
         <plugins>
+"""
+
+        # Add Spring Boot Maven plugin if spring detected
+        if spring_present:
+            pom += """
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+"""
+
+        # Always include compiler and exec plugin
+        pom += f"""
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -518,14 +596,13 @@ class BuildAgent:
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>{}</mainClass>
+                    <mainClass>{main_class}</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-</project>""".format(
-            main_class
-        )
+</project>
+"""
 
         return pom
 
@@ -609,7 +686,8 @@ class BuildAgent:
             # Find main class (class with main method)
             main_class = None
             main_class_file = None
-            java_files = [f for f in files if f.language == "java"]
+            # Filter to only .java files
+            java_files = [f for f in files if f.filename.endswith(".java")]
 
             for file in java_files:
                 if "public static void main" in file.code:
@@ -660,7 +738,6 @@ class BuildAgent:
             # Merge all dependencies
             pom_deps = []
             seen_coords = set()
-
             for dep in dependencies or []:
                 if isinstance(dep, dict):
                     coord = (
@@ -684,6 +761,19 @@ class BuildAgent:
                                 }
                             )
                             seen_coords.add(coord)
+
+            # Auto-detect dependencies from file imports across all Java files
+            for file in java_files:
+                try:
+                    detected = self._detect_java_dependencies(file.code)
+                    for dd in detected:
+                        coord = (dd.get("groupId"), dd.get("artifactId"), dd.get("version"))
+                        if coord not in seen_coords:
+                            pom_deps.append(dd)
+                            seen_coords.add(coord)
+                except Exception:
+                    # Non-fatal: continue if detection fails for a file
+                    continue
 
             # Create pom.xml
             if main_class:

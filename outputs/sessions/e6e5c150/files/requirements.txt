@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]
+pydantic
+pydantic-settings
+python-jose[cryptography]
+passlib[bcrypt]
+aiosqlite
+pytest
+httpx
+alembic # Although not strictly required for this simple setup, good practice for migrations

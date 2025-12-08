@@ -1402,3 +1402,608 @@ Detailed Results:
 2025-12-05 13:59:46 | __main__ | [32mINFO[0m |   Python ML Pipeline: ✅ PASSED
 2025-12-05 13:59:46 | __main__ | [32mINFO[0m | 
 ================================================================================
+2025-12-05 14:07:45 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-05 14:07:45 | __main__ | [32mINFO[0m | Timestamp: 2025-12-05T14:07:45.609689
+2025-12-05 14:07:45 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 14:07:45 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-05 14:07:45 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 14:07:45 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\models.py
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\schemas.py
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\database.py
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\crud.py
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\config.py
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .github/workflows/ci.yml
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 14:07:45 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-05 14:08:23 | src.agents.project_validator | [32mINFO[0m | Validating python project with 10 files
+2025-12-05 14:08:23 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in tests
+2025-12-05 14:08:23 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 14:08:50 | src.agents.project_validator | [32mINFO[0m | Validating python project with 14 files
+2025-12-05 14:08:50 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in app/routers
+2025-12-05 14:08:50 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in tests
+2025-12-05 14:08:50 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in app
+2025-12-05 14:08:50 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 14:09:27 | src.agents.project_validator | [32mINFO[0m | Validating python project with 14 files
+2025-12-05 14:09:27 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in routers
+2025-12-05 14:09:27 | src.agents.project_validator | [33mWARNING[0m | Project validation found 1 errors
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | 
+FastAPI Project Generation Results:
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |   Iterations: 3
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |   Files Generated: 14
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |   Dependencies: 19
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |   Duration: 102.04s
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - requirements.txt (230 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - config.py (377 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - database.py (1338 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - models.py (1035 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - schemas.py (881 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - auth.py (2699 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - crud.py (2104 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - routers/auth.py (1776 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - routers/todos.py (2698 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - main.py (1471 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - test_api.py (5286 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - Dockerfile (504 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - docker-compose.yml (497 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - .github/workflows/ci.yml (1321 bytes)
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - pytest
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - httpx
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - pydantic_settings
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - sqlalchemy
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - config
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - database
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - pydantic
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - fastapi
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - jose
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - passlib
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - models
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - schemas
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - auth
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - crud
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - contextlib
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - routers
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - main
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - sqlalchemy[asyncio]
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     - aiosqlite
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 14:09:27 | __main__ | [33mWARNING[0m |     Error: Circular imports detected: config.py <-> database.py
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | 
+  Iteration 2:
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 14:09:27 | __main__ | [33mWARNING[0m |     Error: Circular imports detected: app/config.py <-> app/database.py
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | 
+  Iteration 3:
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-05 14:09:27 | __main__ | [33mWARNING[0m |     Error: Circular imports detected: config.py <-> database.py
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-05 14:09:27 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-05 14:09:27 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'auth_service' with template 'spring_boot'
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\java\com\example
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\controller
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\service
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\model
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\repository
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\security
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\config
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\resources
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\resources\application.yml
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\test\java\com\example
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\controller
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\service
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pom.xml
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created config file: docker-compose.yml
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-05 14:09:27 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 17 files.
+2025-12-05 14:10:55 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-05 14:10:55 | src.agents.project_validator | [33mWARNING[0m | Note: Java files should ideally be in src/main/java/ directory for Maven compatibility. However, proceeding with validation.
+2025-12-05 14:10:55 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-05 14:12:28 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-05 14:12:28 | src.agents.project_validator | [33mWARNING[0m | Note: Java files should ideally be in src/main/java/ directory for Maven compatibility. However, proceeding with validation.
+2025-12-05 14:12:28 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-05 14:13:14 | src.agents.project_validator | [32mINFO[0m | Validating java project with 19 files
+2025-12-05 14:13:14 | src.agents.project_validator | [33mWARNING[0m | Note: Java files should ideally be in src/main/java/ directory for Maven compatibility. However, proceeding with validation.
+2025-12-05 14:13:14 | src.agents.project_validator | [33mWARNING[0m | Java file pom.xml (Maven Dependencies - Required for project setup) has no package declaration
+2025-12-05 14:13:14 | src.agents.project_validator | [33mWARNING[0m | Java file src/main/resources/application.yml has no package declaration
+2025-12-05 14:13:14 | src.agents.project_validator | [33mWARNING[0m | Java file Dockerfile has no package declaration
+2025-12-05 14:13:14 | src.agents.project_validator | [33mWARNING[0m | Java file docker-compose.yml has no package declaration
+2025-12-05 14:13:14 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:33:26 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-08 07:33:26 | __main__ | [32mINFO[0m | Timestamp: 2025-12-08T07:33:26.792978
+2025-12-08 07:33:26 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:33:26 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-08 07:33:26 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-08 07:33:26 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\models.py
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\schemas.py
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\database.py
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\crud.py
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\config.py
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .github/workflows/ci.yml
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-08 07:33:26 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-08 07:34:01 | src.agents.project_validator | [32mINFO[0m | Validating python project with 13 files
+2025-12-08 07:34:01 | src.agents.project_validator | [33mWARNING[0m | Potential circular imports detected: config.py <-> database.py
+2025-12-08 07:34:01 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in routers
+2025-12-08 07:34:01 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:34:35 | src.agents.project_validator | [32mINFO[0m | Validating python project with 16 files
+2025-12-08 07:34:35 | src.agents.project_validator | [33mWARNING[0m | Potential circular imports detected: app/config.py <-> app/database.py
+2025-12-08 07:34:35 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in app
+2025-12-08 07:34:35 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in app/routers
+2025-12-08 07:34:35 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in tests
+2025-12-08 07:34:35 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:35:13 | src.agents.project_validator | [32mINFO[0m | Validating python project with 16 files
+2025-12-08 07:35:13 | src.agents.project_validator | [33mWARNING[0m | Potential circular imports detected: app/config.py <-> app/database.py
+2025-12-08 07:35:13 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in app
+2025-12-08 07:35:13 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in app/routers
+2025-12-08 07:35:13 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in tests
+2025-12-08 07:35:13 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m | 
+FastAPI Project Generation Results:
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |   Iterations: 3
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |   Files Generated: 16
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |   Dependencies: 16
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |   Duration: 107.15s
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - requirements.txt (163 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - Dockerfile (445 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - docker-compose.yml (784 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - .github/workflows/ci.yml (882 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/config.py (507 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/database.py (1264 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/models.py (828 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/schemas.py (770 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/auth.py (2560 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/crud.py (2446 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/routers/user.py (1900 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/routers/todo.py (2574 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app/main.py (1310 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - tests/conftest.py (3067 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - tests/test_todo.py (3512 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - tests/test_user.py (2268 bytes)
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - asyncio
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - pytest
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - pydantic_settings
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - sqlalchemy
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - app
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - pydantic
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - fastapi
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - jose
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - passlib
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - contextlib
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - httpx
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - uvicorn
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - python-jose[cryptography]
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - passlib[bcrypt]
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - pytest-asyncio
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     - asyncpg
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-08 07:35:13 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:35:14 | __main__ | [33mWARNING[0m |     Error: Dockerfile:2 - invalid syntax
+.github/workflows/ci.yml:1 - invalid syntax
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m | 
+  Iteration 2:
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:35:14 | __main__ | [33mWARNING[0m |     Error: Dockerfile:2 - invalid syntax
+docker-compose.yml:3 - invalid syntax
+.github/workflows/ci.yml:1 - invalid syntax
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m | 
+  Iteration 3:
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:35:14 | __main__ | [33mWARNING[0m |     Error: Dockerfile:2 - invalid syntax
+docker-compose.yml:3 - invalid syntax
+.github/workflows/ci.yml:1 - invalid syntax
+tests/test_user.py:64 - invalid syntax
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-08 07:35:14 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-08 07:35:14 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'auth_service' with template 'spring_boot'
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\java\com\example
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\controller
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\service
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\model
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\repository
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\security
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\config
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\resources
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\resources\application.yml
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\test\java\com\example
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\controller
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\service
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pom.xml
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created config file: docker-compose.yml
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-08 07:35:14 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 17 files.
+2025-12-08 07:35:58 | src.agents.project_validator | [32mINFO[0m | Validating java project with 18 files
+2025-12-08 07:35:58 | src.agents.project_validator | [33mWARNING[0m | Note: Java files should ideally be in src/main/java/ directory for Maven compatibility. However, proceeding with validation.
+2025-12-08 07:35:58 | src.agents.project_validator | [33mWARNING[0m | Java file pom.xml has no package declaration
+2025-12-08 07:35:58 | src.agents.project_validator | [33mWARNING[0m | Java file src/main/resources/application.yml has no package declaration
+2025-12-08 07:35:58 | src.agents.project_validator | [33mWARNING[0m | Java file Dockerfile has no package declaration
+2025-12-08 07:35:58 | src.agents.project_validator | [33mWARNING[0m | Java file docker-compose.yml has no package declaration
+2025-12-08 07:35:58 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:37:11 | src.agents.project_validator | [32mINFO[0m | Validating java project with 14 files
+2025-12-08 07:37:11 | src.agents.project_validator | [33mWARNING[0m | Note: Java files should ideally be in src/main/java/ directory for Maven compatibility. However, proceeding with validation.
+2025-12-08 07:37:11 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:38:02 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-08 07:38:02 | src.agents.project_validator | [33mWARNING[0m | Note: Java files should ideally be in src/main/java/ directory for Maven compatibility. However, proceeding with validation.
+2025-12-08 07:38:02 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m | 
+Spring Boot Project Generation Results:
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |   Iterations: 3
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |   Duration: 172.97s
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     - AuthApplication.java (315 bytes)
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:38:07 | __main__ | [33mWARNING[0m |     Error: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] ----
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m | 
+  Iteration 2:
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:38:07 | __main__ | [33mWARNING[0m |     Error: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] ----
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m | 
+  Iteration 3:
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:38:07 | __main__ | [33mWARNING[0m |     Error: [INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.agenticcode:generated-project >------------------
+[INFO] Building generated-project 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] ----
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m | TEST 3: Python ML Pipeline Package Generation
+2025-12-08 07:38:07 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-08 07:38:07 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'ml_pipeline' with template 'python_package'
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\utils.py
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\__init__.py
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\__init__.py
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created directory: docs
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created file: docs\index.md
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created config file: setup.py
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pyproject.toml
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-08 07:38:07 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-08 07:39:30 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-08 07:39:30 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:39:30 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['pandas', 'numpy', 'ml_workflow_package', 'scikit-learn']
+2025-12-08 07:39:30 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['pandas', 'numpy', 'ml_workflow_package', 'scikit-learn']
+2025-12-08 07:39:32 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: ERROR: Could not find a version that satisfies the requirement ml_workflow_package (from versions: none)
+ERROR: No matching distribution found for ml_workflow_package
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe -m pip install --upgrade pip
+
+2025-12-08 07:40:41 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-08 07:40:41 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:40:41 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['pandas', 'scikit-learn', 'ml_workflow_package']
+2025-12-08 07:40:41 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['pandas', 'scikit-learn', 'ml_workflow_package']
+2025-12-08 07:40:44 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: ERROR: Could not find a version that satisfies the requirement ml_workflow_package (from versions: none)
+ERROR: No matching distribution found for ml_workflow_package
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe -m pip install --upgrade pip
+
+2025-12-08 07:42:02 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-08 07:42:02 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:42:02 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['pandas', 'numpy', 'ml_workflow_package']
+2025-12-08 07:42:02 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['pandas', 'numpy', 'ml_workflow_package']
+2025-12-08 07:42:04 | src.tools.code_executor | [31mERROR[0m | Dependency installation failed: ERROR: Could not find a version that satisfies the requirement ml_workflow_package (from versions: none)
+ERROR: No matching distribution found for ml_workflow_package
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: C:\Users\Govind\Projects\agentic-code-studio\.venv\Scripts\python.exe -m pip install --upgrade pip
+
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+ML Pipeline Package Generation Results:
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |   Status: ❌ FAILED
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |   Iterations: 3
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |   Dependencies: 3
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |   Duration: 237.74s
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     - generated_script_20251208_074202.py (2583 bytes)
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     - pandas
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     - numpy
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     - ml_workflow_package
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:42:04 | __main__ | [33mWARNING[0m |     Error: Failed to install dependencies: ERROR: Could not find a version that satisfies the requirement ml_workflow_package (from versions: none)
+ERROR: No matching distribution found for ml_workflow_package
+
+
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+  Iteration 2:
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:42:04 | __main__ | [33mWARNING[0m |     Error: Failed to install dependencies: ERROR: Could not find a version that satisfies the requirement ml_workflow_package (from versions: none)
+ERROR: No matching distribution found for ml_workflow_package
+
+
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+  Iteration 3:
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:42:04 | __main__ | [33mWARNING[0m |     Error: Failed to install dependencies: ERROR: Could not find a version that satisfies the requirement ml_workflow_package (from versions: none)
+ERROR: No matching distribution found for ml_workflow_package
+
+
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | INTEGRATION TEST SUMMARY
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+Total Tests: 3
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | Passed: 0
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | Failed: 3
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | Success Rate: 0.0%
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+Detailed Results:
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |   FastAPI TODO API: FAILED
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |   Spring Boot Auth Microservice: FAILED
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m |   Python ML Pipeline: FAILED
+2025-12-08 07:42:04 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:43:11 | __main__ | [32mINFO[0m | Starting Phase 3 Integration Tests
+2025-12-08 07:43:11 | __main__ | [32mINFO[0m | Timestamp: 2025-12-08T07:43:11.157674
+2025-12-08 07:43:11 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:43:11 | __main__ | [32mINFO[0m | TEST 1: FastAPI TODO API Generation
+2025-12-08 07:43:11 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-08 07:43:11 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'todo_app' with template 'fastapi'
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\models.py
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\schemas.py
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\database.py
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\crud.py
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\config.py
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .github/workflows/ci.yml
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-08 07:43:11 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-08 07:43:41 | src.agents.project_validator | [32mINFO[0m | Validating python project with 14 files
+2025-12-08 07:43:41 | src.agents.project_validator | [33mWARNING[0m | Potential circular imports detected: app/config.py <-> app/database.py
+2025-12-08 07:43:41 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in tests
+2025-12-08 07:43:41 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in app/routers
+2025-12-08 07:43:41 | src.agents.project_validator | [33mWARNING[0m | Missing __init__.py in app
+2025-12-08 07:43:41 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:47:54 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-08 07:47:54 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m | 
+FastAPI Project Generation Results:
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |   Status: ✅ SUCCESS
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |   Iterations: 2
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |   Duration: 283.25s
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |     - generated_script_20251208_074754.py (2622 bytes)
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:47:54 | __main__ | [33mWARNING[0m |     Error: Dockerfile:2 - invalid syntax
+docker-compose.yml:3 - invalid syntax
+.github/workflows/ci.yml:1 - invalid syntax
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m | 
+  Iteration 2:
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |     Build: AgentStatus.SUCCESS
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m |     Test: AgentStatus.SUCCESS
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m | TEST 2: Spring Boot Auth Microservice Generation
+2025-12-08 07:47:54 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-08 07:47:54 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'auth_service' with template 'spring_boot'
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\java\com\example
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\controller
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\service
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\model
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\repository
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\security
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\java\com\example\config
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\main\resources
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main\resources\application.yml
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src\test\java\com\example
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\controller
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\test\java\com\example\service
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pom.xml
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created config file: Dockerfile
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created config file: docker-compose.yml
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-08 07:47:54 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 17 files.
+2025-12-08 07:48:40 | src.agents.project_validator | [32mINFO[0m | Validating java project with 1 files
+2025-12-08 07:48:40 | src.agents.project_validator | [33mWARNING[0m | Note: Java files should ideally be in src/main/java/ directory for Maven compatibility. However, proceeding with validation.
+2025-12-08 07:48:40 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m | 
+Spring Boot Project Generation Results:
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |   Status: ✅ SUCCESS
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |   Iterations: 1
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |   Dependencies: 0
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |   Duration: 51.75s
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |     - src/main/java/com/example/auth/AuthApplication.java (316 bytes)
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |     Build: AgentStatus.SUCCESS
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m |     Test: AgentStatus.SUCCESS
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m | TEST 3: Python ML Pipeline Package Generation
+2025-12-08 07:48:46 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Project Scaffold Agent initialized
+2025-12-08 07:48:46 | src.agents.project_validator | [32mINFO[0m | Project Validator Agent initialized
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Scaffolding project 'ml_pipeline' with template 'python_package'
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created directory: src
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\main.py
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\utils.py
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created file: src\__init__.py
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created directory: tests
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\test_main.py
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\conftest.py
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created file: tests\__init__.py
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created directory: docs
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created file: docs\index.md
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created config file: setup.py
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created config file: pyproject.toml
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created config file: requirements.txt
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created config file: .gitignore
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Created config file: README.md
+2025-12-08 07:48:46 | src.agents.project_scaffold | [32mINFO[0m | Project scaffolded successfully. Created 15 files.
+2025-12-08 07:49:59 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-08 07:49:59 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:51:10 | src.agents.project_validator | [32mINFO[0m | Validating python project with 1 files
+2025-12-08 07:51:10 | src.agents.project_validator | [32mINFO[0m | Project validation passed
+2025-12-08 07:51:10 | src.tools.code_executor | [32mINFO[0m | Installing dependencies: ['setuptools']
+2025-12-08 07:51:10 | src.tools.code_executor | [32mINFO[0m | Final pip packages to install: ['setuptools']
+2025-12-08 07:51:13 | src.tools.code_executor | [32mINFO[0m | Dependencies installed successfully
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+ML Pipeline Package Generation Results:
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |   Status: ✅ SUCCESS
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |   Iterations: 2
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |   Files Generated: 1
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |   Dependencies: 1
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |   Duration: 146.87s
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+  Generated Files:
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |     - generated_script_20251208_075110.py (1052 bytes)
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+  Dependencies:
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |     - setuptools
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+  Iteration 1:
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |     Build: AgentStatus.FAILED
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |     Test: AgentStatus.PENDING
+2025-12-08 07:51:13 | __main__ | [33mWARNING[0m |     Error: generated_script_20251208_074959.py:3 - invalid syntax
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+  Iteration 2:
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |     Generation: AgentStatus.SUCCESS
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |     Build: AgentStatus.SUCCESS
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |     Test: AgentStatus.SUCCESS
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+================================================================================
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | INTEGRATION TEST SUMMARY
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | ================================================================================
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+Total Tests: 3
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | Passed: 3
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | Failed: 0
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | Success Rate: 100.0%
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+Detailed Results:
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |   FastAPI TODO API: PASSED
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |   Spring Boot Auth Microservice: PASSED
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m |   Python ML Pipeline: PASSED
+2025-12-08 07:51:13 | __main__ | [32mINFO[0m | 
+================================================================================

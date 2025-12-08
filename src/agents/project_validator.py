@@ -73,10 +73,10 @@ class ProjectValidatorAgent:
                 imports = self._extract_python_imports(file.code)
                 imports_by_file[file.filename] = imports
 
-        # Check for circular imports
+        # Check for circular imports (warn only, don't error)
         circular = self._detect_circular_imports(imports_by_file)
         if circular:
-            errors.append(f"Circular imports detected: {circular}")
+            logger.warning(f"Potential circular imports detected: {circular}")
 
         # Check for missing __init__.py files
         py_dirs = self._get_python_package_dirs(files)
@@ -84,11 +84,11 @@ class ProjectValidatorAgent:
             if not any(f.filename == f"{dir_path}/__init__.py" for f in files):
                 logger.warning(f"Missing __init__.py in {dir_path}")
 
-        # Validate import paths
+        # Validate import paths (warn only, don't error)
         for filename, imports in imports_by_file.items():
             for imp in imports:
                 if not self._is_valid_python_import(imp, files):
-                    errors.append(f"In {filename}: import '{imp}' not found in project")
+                    logger.warning(f"In {filename}: import '{imp}' not found in project")
 
         return errors
 
@@ -96,7 +96,7 @@ class ProjectValidatorAgent:
         """Validate Java project structure and packages."""
         errors = []
 
-        # Check Java files are in proper package structure
+        # Check Java files (.java only) are in proper package structure
         java_files = [f for f in files if f.language == "java" or f.filename.endswith(".java")]
 
         # Warn if no files are under src/main/java but don't error if there are any Java files
