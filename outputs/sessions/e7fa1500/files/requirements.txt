@@ -1,0 +1,10 @@
+# This file lists the necessary Python dependencies.
+# --------------------------------------------------
+# fastapi
+# uvicorn[standard]
+# sqlalchemy
+# pydantic
+# python-jose[cryptography]
+# passlib[bcrypt]
+# python-multipart
+# --------------------------------------------------

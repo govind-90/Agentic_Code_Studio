@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: fastapi_todo_app
+    # Map container port 8000 to host port 8000
+    ports:
+      - "8000:8000"
+    # Mount volume for persistent SQLite data storage
+    volumes:
+      - todo_data:/app/todo_app.db
+    # Environment variables (crucial for JWT security)
+    environment:
+      SECRET_KEY: "a-very-secure-secret-key-for-jwt-in-docker-environment"
+    # Restart policy
+    restart: always
+
+volumes:
+  todo_data:
+    driver: local
+```

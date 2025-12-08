@@ -20,7 +20,7 @@ class BuildAgent:
     def __init__(self):
         """Initialize the build agent."""
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-flash-latest",
+            model="gemini-pro-latest",
             google_api_key=settings.google_api_key,
             temperature=settings.agent_temperature,
             convert_system_message_to_human=True,
@@ -399,6 +399,16 @@ class BuildAgent:
                 "artifactId": "spring-boot-starter-data-jpa",
                 "version": "3.1.5",
             },
+            "com.mysql": {
+                "groupId": "org.mariadb.jdbc",
+                "artifactId": "mariadb-java-client",
+                "version": "3.1.4",
+            },
+            "mysql": {
+                "groupId": "org.mariadb.jdbc",
+                "artifactId": "mariadb-java-client",
+                "version": "3.1.4",
+            },
             "org.springframework.web": {
                 "groupId": "org.springframework.boot",
                 "artifactId": "spring-boot-starter-web",
@@ -616,7 +626,7 @@ class BuildAgent:
         suggested_fixes = []
 
         # 1. Validate syntax of all Python files
-        python_files = [f for f in files if f.language == "python"]
+        python_files = [f for f in files if f.language == "python" and f.filename.endswith('.py')]
         logger.info(f"Validating {len(python_files)} Python files")
 
         for file in python_files:

@@ -1,6 +1,7 @@
 """Orchestrator agent that coordinates all other agents."""
 
 import time
+import json
 from datetime import datetime
 from typing import Callable, Dict, Optional
 
@@ -99,11 +100,29 @@ class OrchestratorAgent:
                 session.iterations.append(iteration_log)
                 continue
 
-            iteration_log.code_gen_status = AgentStatus.SUCCESS
-            iteration_log.generated_code = code_result["code"]
+            # Normalize code output (LLM may return a list of files instead of a single code blob)
+            files = code_result.get("files") or []
+            generated_code = code_result.get("code")
+            filename = code_result.get("filename")
+            dependencies = code_result.get("dependencies", [])
 
-            generated_code = code_result["code"]
-            dependencies = code_result["dependencies"]
+            if not generated_code and files:
+                first_file = files[0]
+                generated_code = first_file.get("code")
+                filename = filename or first_file.get("filename")
+
+            if not generated_code:
+                iteration_log.code_gen_status = AgentStatus.FAILED
+                iteration_log.error_type = ErrorType.LOGIC
+                iteration_log.error_message = "Code generator did not return code."
+                session.iterations.append(iteration_log)
+                continue
+
+            if not filename:
+                filename = f"generated_code.{ 'py' if language == ProgrammingLanguage.PYTHON else 'java' }"
+
+            iteration_log.code_gen_status = AgentStatus.SUCCESS
+            iteration_log.generated_code = generated_code
 
             logger.info(f"Code generated successfully with {len(dependencies)} dependencies")
 
@@ -196,7 +215,7 @@ class OrchestratorAgent:
             session.final_code = CodeArtifact(
                 language=language,
                 code=generated_code,
-                filename=code_result["filename"],
+                filename=filename,
                 # Ensure dependencies are strings for UI and serialization
                 dependencies=[
                     (d if isinstance(d, str) else f"{d.get('groupId')}:{d.get('artifactId')}:{d.get('version')}" if isinstance(d, dict) else str(d))
@@ -260,8 +279,17 @@ class OrchestratorAgent:
             if not metadata_file.exists():
                 return None
 
-            session_data = metadata_file.read_text()
-            return GenerationSession.model_validate_json(session_data)
+            raw = metadata_file.read_text()
+            data = json.loads(raw)
+
+            # Normalize legacy/unknown error_type values to avoid validation failures
+            allowed_error_types = {et.value for et in ErrorType}
+            for iteration in data.get("iterations", []):
+                et = iteration.get("error_type")
+                if et and et not in allowed_error_types:
+                    iteration["error_type"] = ErrorType.LOGIC.value
+
+            return GenerationSession.model_validate(data)
 
         except Exception as e:
             logger.error(f"Failed to load session: {str(e)}")
@@ -283,7 +311,16 @@ class OrchestratorAgent:
                 if session_dir.is_dir():
                     metadata_file = session_dir / "metadata.json"
                     if metadata_file.exists():
-                        session = GenerationSession.model_validate_json(metadata_file.read_text())
+                        raw = metadata_file.read_text()
+                        data = json.loads(raw)
+
+                        allowed_error_types = {et.value for et in ErrorType}
+                        for iteration in data.get("iterations", []):
+                            et = iteration.get("error_type")
+                            if et and et not in allowed_error_types:
+                                iteration["error_type"] = ErrorType.LOGIC.value
+
+                        session = GenerationSession.model_validate(data)
                         sessions.append(
                             {
                                 "session_id": session.session_id,
@@ -416,11 +453,23 @@ class OrchestratorAgent:
                 continue
 
             # Convert generated code to FileArtifact objects
+            # Detect file language based on extension, not just the project language
+            def get_file_language(filename):
+                """Infer file language from filename extension."""
+                if filename.endswith(('.py', 'requirements.txt')):
+                    return 'python'
+                elif filename.endswith(('.java', 'pom.xml')):
+                    return 'java'
+                elif filename.endswith(('.yml', '.yaml', 'Dockerfile', 'docker-compose.yml')):
+                    return 'yaml'  # or treat as non-code
+                else:
+                    return language.value  # fallback to project language
+            
             files_to_validate = [
                 FileArtifact(
                     filename=f.get("filename", f"file_{i}.{language.value}"),
                     code=f.get("code", ""),
-                    language=language.value,
+                    language=get_file_language(f.get("filename", f"file_{i}.{language.value}")),
                     size=len(f.get("code", "")),
                     filepath=f"{session.root_dir}/{f.get('filename', f'file_{i}.{language.value}')}",
                 )
@@ -449,7 +498,7 @@ class OrchestratorAgent:
             if not validation_result.get("success"):
                 logger.warning("Validation failed, analyzing errors...")
                 iteration_log.build_status = AgentStatus.FAILED
-                iteration_log.error_type = "VALIDATION_ERROR"
+                iteration_log.error_type = "logic"
                 iteration_log.error_message = "\n".join(
                     validation_result.get("errors", [])
                 )

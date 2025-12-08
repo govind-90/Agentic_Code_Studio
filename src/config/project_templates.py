@@ -132,10 +132,11 @@ pytest
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!-- Use MariaDB JDBC driver as a compatible, widely-available replacement -->
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.1.4</version>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
@@ -311,9 +312,23 @@ def get_template(template_name: str) -> Dict:
     return PROJECT_TEMPLATES.get(template_name)
 
 
-def list_templates() -> List[str]:
-    """List all available template names."""
-    return list(PROJECT_TEMPLATES.keys())
+def list_templates() -> List[Dict]:
+    """List all available templates as metadata dicts.
+
+    Returns a list of dicts with keys: `key`, `name`, `description`, and `language`.
+    This is suitable for UI display and future metadata extensions.
+    """
+    templates = []
+    for key, tpl in PROJECT_TEMPLATES.items():
+        templates.append(
+            {
+                "key": key,
+                "name": tpl.get("name", key),
+                "description": tpl.get("description", ""),
+                "language": tpl.get("language"),
+            }
+        )
+    return templates
 
 
 def get_template_by_language(language: str) -> List[str]:

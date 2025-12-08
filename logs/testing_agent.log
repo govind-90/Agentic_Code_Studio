@@ -173,3 +173,62 @@
 2025-12-08 07:51:13 | testing_agent | [32mINFO[0m | Testing python project with 1 files
 2025-12-08 07:51:13 | testing_agent | [32mINFO[0m | Wrote generated_script_20251208_075110.py
 2025-12-08 07:51:13 | testing_agent | [32mINFO[0m | No test files found, validating imports
+2025-12-08 08:00:41 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 08:23:12 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 08:23:19 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 08:23:40 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 08:34:13 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 08:45:26 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 08:58:43 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 09:04:15 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | Testing python project with 9 files
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | Wrote requirements.txt
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | Wrote database.py
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | Wrote models.py
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | Wrote schemas.py
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | Wrote auth.py
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | Wrote todo_crud.py
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | Wrote main.py
+2025-12-08 09:05:34 | testing_agent | [32mINFO[0m | No test files found, validating imports
+2025-12-08 09:07:18 | testing_agent | [32mINFO[0m | Testing python project with 11 files
+2025-12-08 09:07:18 | testing_agent | [32mINFO[0m | Wrote requirements.txt
+2025-12-08 09:07:18 | testing_agent | [32mINFO[0m | Wrote app/config.py
+2025-12-08 09:07:19 | testing_agent | [32mINFO[0m | Wrote app/database.py
+2025-12-08 09:07:19 | testing_agent | [32mINFO[0m | Wrote app/models.py
+2025-12-08 09:07:19 | testing_agent | [32mINFO[0m | Wrote app/schemas.py
+2025-12-08 09:07:19 | testing_agent | [32mINFO[0m | Wrote app/auth.py
+2025-12-08 09:07:19 | testing_agent | [32mINFO[0m | Wrote app/routers/auth.py
+2025-12-08 09:07:19 | testing_agent | [32mINFO[0m | Wrote app/routers/todos.py
+2025-12-08 09:07:19 | testing_agent | [32mINFO[0m | Wrote main.py
+2025-12-08 09:07:19 | testing_agent | [32mINFO[0m | No test files found, validating imports
+2025-12-08 09:07:43 | testing_agent | [32mINFO[0m | Testing python project with 4 files
+2025-12-08 09:07:43 | testing_agent | [32mINFO[0m | Wrote requirements.txt
+2025-12-08 09:07:43 | testing_agent | [32mINFO[0m | Wrote main.py
+2025-12-08 09:07:43 | testing_agent | [32mINFO[0m | No test files found, validating imports
+2025-12-08 09:56:28 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | Testing python project with 8 files
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | Wrote requirements.txt
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | Wrote database.py
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | Wrote models.py
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | Wrote schemas.py
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | Wrote auth.py
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | Wrote main.py
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | No test files found, validating imports (lenient mode)
+2025-12-08 09:57:34 | testing_agent | [33mWARNING[0m | Import validation skipped due to missing dependencies (expected)
+2025-12-08 09:57:34 | testing_agent | [32mINFO[0m | Skipped import test due to missing dependencies: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "main.py", line 4, in <module>
+    from fastapi import FastAPI, Depends, HTTPException, status, APIRouter
+ModuleNotFoun
+2025-12-08 10:14:53 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 10:15:44 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-08 10:15:46 | testing_agent | [31mERROR[0m | Code execution failed
+2025-12-08 10:15:46 | testing_agent | [31mERROR[0m | Execution result: {'success': False, 'stdout': '', 'stderr': '2025-12-08 10:15:46,058 - INFO - Generating 100 customer records...\n2025-12-08 10:15:46,344 - INFO - Successfully generated data and saved to customer_data.csv\n2025-12-08 10:15:46,469 - ERROR - Database connection failed: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "postgres"\n\n2025-12-08 10:15:46,469 - ERROR - Please ensure PostgreSQL is running, the database exists, and connection details are correct.\n2025-12-08 10:15:46,469 - ERROR - A database error occurred: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "postgres"\n\n2025-12-08 10:15:46,470 - INFO - Cleaned up temporary file: customer_data.csv\nTraceback (most recent call last):\n  File "C:\\Users\\Govind\\AppData\\Local\\Temp\\tmpw8aivbbw.py", line 183, in main\n    conn = get_db_connection()\n           ^^^^^^^^^^^^^^^^^^^\n  File "C:\\Users\\Govind\\AppData\\Local\\Temp\\tmpw8aivbbw.py", line 69, in get_db_connection\n    conn = psycopg2.connect(\n           ^^^^^^^^^^^^^^^^^\n  File "C:\\Users\\Govind\\Projects\\agentic-code-studio\\.venv\\Lib\\site-packages\\psycopg2\\__init__.py", line 135, in connect\n    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npsycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "postgres"\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "C:\\Users\\Govind\\AppData\\Local\\Temp\\tmpw8aivbbw.py", line 231, in <module>\n    main()\n  File "C:\\Users\\Govind\\AppData\\Local\\Temp\\tmpw8aivbbw.py", line 210, in main\n    if e.pgcode == errorcodes.UNDEFINED_DATABASE:\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: module \'psycopg2.errorcodes\' has no attribute \'UNDEFINED_DATABASE\'. Did you mean: \'UNDEFINED_TABLE\'?\n', 'returncode': 1}
+2025-12-08 10:16:04 | testing_agent | [32mINFO[0m | Testing python code
+2025-12-08 10:16:04 | testing_agent | [32mINFO[0m | Code executed successfully, validating output
+2025-12-08 10:33:54 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 10:47:31 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 10:49:13 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 10:49:14 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 10:51:39 | testing_agent | [32mINFO[0m | Testing Agent initialized
+2025-12-08 10:51:39 | testing_agent | [32mINFO[0m | Testing Agent initialized

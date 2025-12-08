@@ -1,0 +1,101 @@
+customer_id,name,email,age,city
+1,Customer_1,customer1@example.com,50,Chicago
+2,Customer_2,customer2@example.com,60,Chicago
+3,Customer_3,customer3@example.com,82,Houston
+4,Customer_4,customer4@example.com,82,Houston
+5,Customer_5,customer5@example.com,60,Phoenix
+6,Customer_6,customer6@example.com,49,San Antonio
+7,Customer_7,customer7@example.com,64,Chicago
+8,Customer_8,customer8@example.com,83,San Antonio
+9,Customer_9,customer9@example.com,35,San Diego
+10,Customer_10,customer10@example.com,73,Chicago
+11,Customer_11,customer11@example.com,75,Philadelphia
+12,Customer_12,customer12@example.com,31,San Diego
+13,Customer_13,customer13@example.com,57,Houston
+14,Customer_14,customer14@example.com,77,Los Angeles
+15,Customer_15,customer15@example.com,67,Philadelphia
+16,Customer_16,customer16@example.com,84,San Diego
+17,Customer_17,customer17@example.com,36,Chicago
+18,Customer_18,customer18@example.com,20,New York
+19,Customer_19,customer19@example.com,73,San Antonio
+20,Customer_20,customer20@example.com,21,Los Angeles
+21,Customer_21,customer21@example.com,47,New York
+22,Customer_22,customer22@example.com,21,New York
+23,Customer_23,customer23@example.com,78,Houston
+24,Customer_24,customer24@example.com,53,Houston
+25,Customer_25,customer25@example.com,15,Phoenix
+26,Customer_26,customer26@example.com,40,Phoenix
+27,Customer_27,customer27@example.com,63,San Antonio
+28,Customer_28,customer28@example.com,49,Phoenix
+29,Customer_29,customer29@example.com,71,Phoenix
+30,Customer_30,customer30@example.com,65,Los Angeles
+31,Customer_31,customer31@example.com,62,Chicago
+32,Customer_32,customer32@example.com,58,Chicago
+33,Customer_33,customer33@example.com,23,Chicago
+34,Customer_34,customer34@example.com,46,Chicago
+35,Customer_35,customer35@example.com,18,San Diego
+36,Customer_36,customer36@example.com,19,Philadelphia
+37,Customer_37,customer37@example.com,66,Houston
+38,Customer_38,customer38@example.com,34,San Diego
+39,Customer_39,customer39@example.com,23,San Antonio
+40,Customer_40,customer40@example.com,20,Los Angeles
+41,Customer_41,customer41@example.com,48,Philadelphia
+42,Customer_42,customer42@example.com,62,New York
+43,Customer_43,customer43@example.com,33,Chicago
+44,Customer_44,customer44@example.com,14,Houston
+45,Customer_45,customer45@example.com,51,Los Angeles
+46,Customer_46,customer46@example.com,49,Philadelphia
+47,Customer_47,customer47@example.com,69,Houston
+48,Customer_48,customer48@example.com,68,San Diego
+49,Customer_49,customer49@example.com,71,Phoenix
+50,Customer_50,customer50@example.com,10,San Diego
+51,Customer_51,customer51@example.com,62,San Diego
+52,Customer_52,customer52@example.com,29,Philadelphia
+53,Customer_53,customer53@example.com,84,Phoenix
+54,Customer_54,customer54@example.com,25,San Antonio
+55,Customer_55,customer55@example.com,10,New York
+56,Customer_56,customer56@example.com,74,Los Angeles
+57,Customer_57,customer57@example.com,22,Houston
+58,Customer_58,customer58@example.com,58,San Antonio
+59,Customer_59,customer59@example.com,25,Phoenix
+60,Customer_60,customer60@example.com,83,Phoenix
+61,Customer_61,customer61@example.com,50,Los Angeles
+62,Customer_62,customer62@example.com,16,New York
+63,Customer_63,customer63@example.com,17,Houston
+64,Customer_64,customer64@example.com,68,San Antonio
+65,Customer_65,customer65@example.com,29,New York
+66,Customer_66,customer66@example.com,83,New York
+67,Customer_67,customer67@example.com,68,Houston
+68,Customer_68,customer68@example.com,47,San Diego
+69,Customer_69,customer69@example.com,64,New York
+70,Customer_70,customer70@example.com,31,Phoenix
+71,Customer_71,customer71@example.com,70,Houston
+72,Customer_72,customer72@example.com,52,New York
+73,Customer_73,customer73@example.com,55,San Diego
+74,Customer_74,customer74@example.com,38,New York
+75,Customer_75,customer75@example.com,38,Chicago
+76,Customer_76,customer76@example.com,81,San Diego
+77,Customer_77,customer77@example.com,64,Houston
+78,Customer_78,customer78@example.com,82,San Diego
+79,Customer_79,customer79@example.com,55,Phoenix
+80,Customer_80,customer80@example.com,27,Phoenix
+81,Customer_81,customer81@example.com,31,Philadelphia
+82,Customer_82,customer82@example.com,38,New York
+83,Customer_83,customer83@example.com,44,San Diego
+84,Customer_84,customer84@example.com,14,Phoenix
+85,Customer_85,customer85@example.com,35,Houston
+86,Customer_86,customer86@example.com,15,Los Angeles
+87,Customer_87,customer87@example.com,19,San Diego
+88,Customer_88,customer88@example.com,38,Houston
+89,Customer_89,customer89@example.com,44,Chicago
+90,Customer_90,customer90@example.com,17,Houston
+91,Customer_91,customer91@example.com,75,Los Angeles
+92,Customer_92,customer92@example.com,54,New York
+93,Customer_93,customer93@example.com,26,Chicago
+94,Customer_94,customer94@example.com,61,San Diego
+95,Customer_95,customer95@example.com,68,Chicago
+96,Customer_96,customer96@example.com,84,Chicago
+97,Customer_97,customer97@example.com,24,San Antonio
+98,Customer_98,customer98@example.com,26,New York
+99,Customer_99,customer99@example.com,85,Philadelphia
+100,Customer_100,customer100@example.com,61,Chicago

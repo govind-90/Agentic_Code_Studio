@@ -195,12 +195,16 @@ def render_project_interface():
         )
 
         templates = list_templates()
+        # Create a mapping from display name to template key
+        template_name_to_key = {t["name"]: t["key"] for t in templates}
         template_options = [t["name"] for t in templates]
-        template_name = st.selectbox(
+        selected_template_name = st.selectbox(
             "Project Template",
             options=template_options,
             key="template_select",
         )
+        # Map the selected display name back to the template key
+        template_name = template_name_to_key.get(selected_template_name, selected_template_name)
 
     with col3:
         language = st.selectbox(

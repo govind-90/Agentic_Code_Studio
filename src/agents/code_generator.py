@@ -16,7 +16,7 @@ class CodeGeneratorAgent:
     def __init__(self):
         """Initialize the code generator agent."""
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-flash-latest",
+            model="gemini-pro-latest",
             google_api_key=settings.google_api_key,
             temperature=settings.agent_temperature,
             convert_system_message_to_human=True,

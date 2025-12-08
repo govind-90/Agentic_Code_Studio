@@ -1489,3 +1489,776 @@
 2025-12-08 07:51:13 | orchestrator | [32mINFO[0m | ✅ All tests passed
 2025-12-08 07:51:13 | orchestrator | [32mINFO[0m | ✅ Project generation successful in 2 iteration(s)
 2025-12-08 07:51:13 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\6311a16d
+2025-12-08 08:00:41 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 08:00:41 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:01:23 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:01:26 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:01:28 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:01:38 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:01:52 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:02:51 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:03:19 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:23:12 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 08:23:12 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:23:19 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 08:23:19 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:23:40 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 08:23:40 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:24:07 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:25:53 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:26:05 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:26:14 | orchestrator | [32mINFO[0m | Starting project generation (ID: 5eded4be, Template: FastAPI REST API)
+2025-12-08 08:26:14 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 08:26:14 | orchestrator | [31mERROR[0m | Project scaffolding failed
+2025-12-08 08:26:14 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:26:29 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:34:13 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 08:34:13 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:34:30 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:34:39 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:34:39 | orchestrator | [32mINFO[0m | Starting project generation (ID: c4de88aa, Template: FastAPI REST API)
+2025-12-08 08:34:39 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 08:34:39 | orchestrator | [31mERROR[0m | Project scaffolding failed
+2025-12-08 08:34:39 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:45:26 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 08:45:26 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:45:29 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:45:35 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:45:35 | orchestrator | [32mINFO[0m | Starting project generation (ID: 5fa84da2, Template: FastAPI REST API)
+2025-12-08 08:45:35 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 08:45:35 | orchestrator | [31mERROR[0m | Project scaffolding failed
+2025-12-08 08:45:35 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:58:43 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 08:58:44 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:58:52 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:58:57 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 08:58:57 | orchestrator | [32mINFO[0m | Starting project generation (ID: bcb25c01, Template: fastapi)
+2025-12-08 08:58:57 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 08:58:57 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\my_project
+2025-12-08 08:58:57 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 08:58:57 | orchestrator | [32mINFO[0m | Iteration 1/5
+2025-12-08 08:58:57 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 08:58:57 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 08:59:21 | orchestrator | [32mINFO[0m | Generated 10 files with 12 dependencies
+2025-12-08 08:59:21 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 08:59:21 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 08:59:21 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 08:59:21 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 08:59:21 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 08:59:21 | orchestrator | [32mINFO[0m | Iteration 2/5
+2025-12-08 08:59:21 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 08:59:21 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 08:59:44 | orchestrator | [32mINFO[0m | Generated 9 files with 15 dependencies
+2025-12-08 08:59:44 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 08:59:44 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 08:59:44 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 08:59:44 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 08:59:44 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 08:59:44 | orchestrator | [32mINFO[0m | Iteration 3/5
+2025-12-08 08:59:44 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 08:59:44 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:00:23 | orchestrator | [32mINFO[0m | Generated 11 files with 16 dependencies
+2025-12-08 09:00:23 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:00:23 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:00:23 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:00:23 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 09:00:23 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 09:00:23 | orchestrator | [32mINFO[0m | Iteration 4/5
+2025-12-08 09:00:23 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 09:00:23 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:00:47 | orchestrator | [32mINFO[0m | Generated 10 files with 6 dependencies
+2025-12-08 09:00:47 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:00:47 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:00:47 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:00:47 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 09:00:47 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 09:00:47 | orchestrator | [32mINFO[0m | Iteration 5/5
+2025-12-08 09:00:47 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 09:00:47 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:01:09 | orchestrator | [32mINFO[0m | Generated 10 files with 9 dependencies
+2025-12-08 09:01:09 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:01:09 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:01:09 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:01:09 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 09:01:09 | orchestrator | [33mWARNING[0m | Failed to generate project after 5 iterations
+2025-12-08 09:01:10 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\bcb25c01
+2025-12-08 09:01:10 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:04:15 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 09:04:15 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:04:28 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:04:35 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:04:41 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:04:42 | orchestrator | [32mINFO[0m | Starting project generation (ID: e7fa1500, Template: fastapi)
+2025-12-08 09:04:42 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 09:04:43 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\p1
+2025-12-08 09:04:43 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 09:04:43 | orchestrator | [32mINFO[0m | Iteration 1/5
+2025-12-08 09:04:43 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 09:04:43 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:05:07 | orchestrator | [32mINFO[0m | Generated 9 files with 9 dependencies
+2025-12-08 09:05:07 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:05:07 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:05:07 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:05:34 | orchestrator | [32mINFO[0m | Project build successful
+2025-12-08 09:05:34 | orchestrator | [32mINFO[0m | Step 5: Project Testing
+2025-12-08 09:05:34 | orchestrator | [33mWARNING[0m | Tests failed
+2025-12-08 09:05:34 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 09:05:34 | orchestrator | [32mINFO[0m | Iteration 2/5
+2025-12-08 09:05:34 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 09:05:34 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:06:12 | orchestrator | [32mINFO[0m | Generated 10 files with 9 dependencies
+2025-12-08 09:06:12 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:06:12 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:06:12 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:06:15 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 09:06:15 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 09:06:15 | orchestrator | [32mINFO[0m | Iteration 3/5
+2025-12-08 09:06:15 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 09:06:15 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:06:39 | orchestrator | [32mINFO[0m | Generated 10 files with 6 dependencies
+2025-12-08 09:06:39 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:06:39 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:06:39 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:06:41 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 09:06:41 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 09:06:41 | orchestrator | [32mINFO[0m | Iteration 4/5
+2025-12-08 09:06:41 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 09:06:41 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:07:06 | orchestrator | [32mINFO[0m | Generated 11 files with 10 dependencies
+2025-12-08 09:07:06 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:07:06 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:07:06 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:07:18 | orchestrator | [32mINFO[0m | Project build successful
+2025-12-08 09:07:18 | orchestrator | [32mINFO[0m | Step 5: Project Testing
+2025-12-08 09:07:19 | orchestrator | [33mWARNING[0m | Tests failed
+2025-12-08 09:07:19 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 09:07:19 | orchestrator | [32mINFO[0m | Iteration 5/5
+2025-12-08 09:07:19 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 09:07:19 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:07:40 | orchestrator | [32mINFO[0m | Generated 4 files with 8 dependencies
+2025-12-08 09:07:40 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:07:40 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:07:40 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:07:43 | orchestrator | [32mINFO[0m | Project build successful
+2025-12-08 09:07:43 | orchestrator | [32mINFO[0m | Step 5: Project Testing
+2025-12-08 09:07:44 | orchestrator | [33mWARNING[0m | Tests failed
+2025-12-08 09:07:44 | orchestrator | [33mWARNING[0m | Failed to generate project after 5 iterations
+2025-12-08 09:07:44 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\e7fa1500
+2025-12-08 09:07:44 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:56:28 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 09:56:28 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:56:31 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:56:49 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:56:50 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:56:50 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 09:56:52 | orchestrator | [32mINFO[0m | Starting project generation (ID: 48d6749d, Template: fastapi)
+2025-12-08 09:56:52 | orchestrator | [32mINFO[0m | Step 1: Scaffold Project
+2025-12-08 09:56:52 | orchestrator | [32mINFO[0m | Project scaffolded successfully at C:\Users\Govind\Projects\agentic-code-studio\outputs\generated_code\my_project
+2025-12-08 09:56:52 | orchestrator | [32mINFO[0m | 
+============================================================
+2025-12-08 09:56:52 | orchestrator | [32mINFO[0m | Iteration 1/7
+2025-12-08 09:56:52 | orchestrator | [32mINFO[0m | ============================================================
+2025-12-08 09:56:52 | orchestrator | [32mINFO[0m | Step 2: Multi-file Code Generation
+2025-12-08 09:57:31 | orchestrator | [32mINFO[0m | Generated 8 files with 8 dependencies
+2025-12-08 09:57:31 | orchestrator | [32mINFO[0m | Step 3: Project Validation
+2025-12-08 09:57:31 | orchestrator | [32mINFO[0m | Project validation successful
+2025-12-08 09:57:31 | orchestrator | [32mINFO[0m | Step 4: Project Build
+2025-12-08 09:57:34 | orchestrator | [32mINFO[0m | Project build successful
+2025-12-08 09:57:34 | orchestrator | [32mINFO[0m | Step 5: Project Testing
+2025-12-08 09:57:34 | orchestrator | [32mINFO[0m | ✅ All tests passed
+2025-12-08 09:57:34 | orchestrator | [32mINFO[0m | ✅ Project generation successful in 1 iteration(s)
+2025-12-08 09:57:34 | orchestrator | [32mINFO[0m | Project session saved to outputs\sessions\48d6749d
+2025-12-08 09:57:34 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:10:03 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:10:09 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:10:10 | orchestrator | [32mINFO[0m | Starting code generation session 9981409c
+2025-12-08 10:10:10 | orchestrator | [32mINFO[0m | === Iteration 1/5 ===
+2025-12-08 10:10:10 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:10:25 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:14:53 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 10:14:54 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:15:02 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:15:07 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:15:07 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:15:07 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:15:08 | orchestrator | [32mINFO[0m | Starting code generation session 593fe245
+2025-12-08 10:15:08 | orchestrator | [32mINFO[0m | === Iteration 1/7 ===
+2025-12-08 10:15:08 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:15:32 | orchestrator | [32mINFO[0m | Code generated successfully with 2 dependencies
+2025-12-08 10:15:32 | orchestrator | [32mINFO[0m | Step 2: Build & Compile
+2025-12-08 10:15:44 | orchestrator | [32mINFO[0m | Build successful
+2025-12-08 10:15:44 | orchestrator | [32mINFO[0m | Step 3: Testing & Validation
+2025-12-08 10:15:46 | orchestrator | [33mWARNING[0m | Tests failed, analyzing issues...
+2025-12-08 10:15:46 | orchestrator | [32mINFO[0m | === Iteration 2/7 ===
+2025-12-08 10:15:46 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:16:01 | orchestrator | [32mINFO[0m | Code generated successfully with 1 dependencies
+2025-12-08 10:16:01 | orchestrator | [32mINFO[0m | Step 2: Build & Compile
+2025-12-08 10:16:04 | orchestrator | [32mINFO[0m | Build successful
+2025-12-08 10:16:04 | orchestrator | [32mINFO[0m | Step 3: Testing & Validation
+2025-12-08 10:16:18 | orchestrator | [33mWARNING[0m | Tests failed, analyzing issues...
+2025-12-08 10:16:18 | orchestrator | [32mINFO[0m | === Iteration 3/7 ===
+2025-12-08 10:16:18 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:16:53 | orchestrator | [32mINFO[0m | Code generated successfully with 2 dependencies
+2025-12-08 10:16:53 | orchestrator | [32mINFO[0m | Step 2: Build & Compile
+2025-12-08 10:16:53 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 10:16:53 | orchestrator | [32mINFO[0m | Missing credentials detected: ['API Key (found placeholder in code)']
+2025-12-08 10:16:53 | orchestrator | [32mINFO[0m | === Iteration 4/7 ===
+2025-12-08 10:16:53 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:17:09 | orchestrator | [32mINFO[0m | Code generated successfully with 2 dependencies
+2025-12-08 10:17:09 | orchestrator | [32mINFO[0m | Step 2: Build & Compile
+2025-12-08 10:17:09 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 10:17:09 | orchestrator | [32mINFO[0m | Missing credentials detected: ['API Key (found placeholder in code)']
+2025-12-08 10:17:09 | orchestrator | [32mINFO[0m | === Iteration 5/7 ===
+2025-12-08 10:17:09 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:17:31 | orchestrator | [32mINFO[0m | Code generated successfully with 2 dependencies
+2025-12-08 10:17:31 | orchestrator | [32mINFO[0m | Step 2: Build & Compile
+2025-12-08 10:17:31 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 10:17:31 | orchestrator | [32mINFO[0m | Missing credentials detected: ['API Key (found placeholder in code)']
+2025-12-08 10:17:31 | orchestrator | [32mINFO[0m | === Iteration 6/7 ===
+2025-12-08 10:17:31 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:17:51 | orchestrator | [32mINFO[0m | Code generated successfully with 2 dependencies
+2025-12-08 10:17:51 | orchestrator | [32mINFO[0m | Step 2: Build & Compile
+2025-12-08 10:17:51 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 10:17:51 | orchestrator | [32mINFO[0m | Missing credentials detected: ['API Key (found placeholder in code)']
+2025-12-08 10:17:51 | orchestrator | [32mINFO[0m | === Iteration 7/7 ===
+2025-12-08 10:17:51 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:18:15 | orchestrator | [32mINFO[0m | Code generated successfully with 3 dependencies
+2025-12-08 10:18:15 | orchestrator | [32mINFO[0m | Step 2: Build & Compile
+2025-12-08 10:18:15 | orchestrator | [33mWARNING[0m | Build failed, analyzing errors...
+2025-12-08 10:18:15 | orchestrator | [32mINFO[0m | Missing credentials detected: ['API Key (found placeholder in code)']
+2025-12-08 10:18:15 | orchestrator | [33mWARNING[0m | Failed to generate working code after 7 iterations
+2025-12-08 10:18:15 | orchestrator | [32mINFO[0m | Session saved to outputs\sessions\593fe245
+2025-12-08 10:18:15 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:33:54 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 10:33:55 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:34:05 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:34:10 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:34:10 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:34:10 | orchestrator | [31mERROR[0m | Failed to list sessions: 3 validation errors for GenerationSession
+iterations.0.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.1.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+iterations.2.error_type
+  Input should be 'syntax', 'build', 'runtime', 'logic' or 'missing_credentials' [type=enum, input_value='VALIDATION_ERROR', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/enum
+2025-12-08 10:40:07 | orchestrator | [32mINFO[0m | Starting code generation session 30c6eb37
+2025-12-08 10:40:07 | orchestrator | [32mINFO[0m | === Iteration 1/7 ===
+2025-12-08 10:40:07 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:41:12 | orchestrator | [32mINFO[0m | === Iteration 2/7 ===
+2025-12-08 10:41:12 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:42:16 | orchestrator | [32mINFO[0m | === Iteration 3/7 ===
+2025-12-08 10:42:16 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:43:20 | orchestrator | [32mINFO[0m | === Iteration 4/7 ===
+2025-12-08 10:43:20 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:44:24 | orchestrator | [32mINFO[0m | === Iteration 5/7 ===
+2025-12-08 10:44:24 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:45:28 | orchestrator | [32mINFO[0m | === Iteration 6/7 ===
+2025-12-08 10:45:28 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:46:32 | orchestrator | [32mINFO[0m | === Iteration 7/7 ===
+2025-12-08 10:47:31 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 10:47:31 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:47:39 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:47:52 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:47:52 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:47:52 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:47:54 | orchestrator | [32mINFO[0m | Starting code generation session 5bf34a09
+2025-12-08 10:47:54 | orchestrator | [32mINFO[0m | === Iteration 1/7 ===
+2025-12-08 10:47:54 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:48:56 | orchestrator | [32mINFO[0m | === Iteration 2/7 ===
+2025-12-08 10:49:13 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 10:49:14 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:49:14 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 10:49:14 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:49:21 | orchestrator | [32mINFO[0m | Starting code generation session 4b87c094
+2025-12-08 10:49:21 | orchestrator | [32mINFO[0m | === Iteration 1/7 ===
+2025-12-08 10:49:21 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:50:24 | orchestrator | [32mINFO[0m | === Iteration 2/7 ===
+2025-12-08 10:51:39 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 10:51:39 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:51:39 | orchestrator | [32mINFO[0m | Orchestrator Agent initialized
+2025-12-08 10:51:39 | orchestrator | [31mERROR[0m | Failed to list sessions: 'charmap' codec can't decode byte 0x9d in position 4461: character maps to <undefined>
+2025-12-08 10:51:51 | orchestrator | [32mINFO[0m | Starting code generation session 289b5d9b
+2025-12-08 10:51:51 | orchestrator | [32mINFO[0m | === Iteration 1/7 ===
+2025-12-08 10:51:51 | orchestrator | [32mINFO[0m | Step 1: Code Generation
+2025-12-08 10:52:55 | orchestrator | [32mINFO[0m | === Iteration 2/7 ===
