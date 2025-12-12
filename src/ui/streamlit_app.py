@@ -84,21 +84,18 @@ def initialize_session_state():
         st.session_state.generation_mode = "single_file"
     
     # Initialize log handler for real-time display
-    # TEMPORARILY DISABLED - uncomment when debugging UI loading issues
     if "log_handler" not in st.session_state:
-        st.session_state.log_handler = None  # Disabled for now
-        # try:
-        #     from src.utils.streamlit_log_handler import get_streamlit_log_handler
-        #     from src.utils.logger import attach_streamlit_handler
-        #     
-        #     st.session_state.log_handler = get_streamlit_log_handler()
-        #     attach_streamlit_handler()  # Attach to all loggers
-        #     logger.info("Streamlit log handler initialized successfully")
-        # except Exception as e:
-        #     import traceback
-        #     print(f"Failed to initialize log handler: {e}")
-        #     print(traceback.format_exc())
-        #     st.session_state.log_handler = None
+        st.session_state.log_handler = None
+        try:
+            from src.utils.streamlit_log_handler import get_streamlit_log_handler
+            from src.utils.logger import attach_streamlit_handler
+            
+            st.session_state.log_handler = get_streamlit_log_handler()
+            attach_streamlit_handler()
+            logger.info("Real-time log display enabled")
+        except Exception:
+            # Silent fail - app works without logging
+            st.session_state.log_handler = None
 
 
 def render_header():
@@ -146,23 +143,18 @@ def render_main_interface():
             disabled=st.session_state.generation_in_progress,
         )
 
-    # Log controls - TEMPORARILY DISABLED
-    # if not st.session_state.generation_in_progress:
-    #     st.markdown("---")
-    #     col_log1, col_log2 = st.columns(2)
-    #     with col_log1:
-    #         if st.button("🗑️ Clear All Logs", use_container_width=True):
-    #             if hasattr(st.session_state, 'log_handler') and st.session_state.log_handler:
-    #                 st.session_state.log_handler.clear_logs()
-    #                 st.success("Logs cleared!")
-    #                 st.rerun()
-    #     with col_log2:
-    #         if hasattr(st.session_state, 'log_handler') and st.session_state.log_handler:
-    #             try:
-    #                 log_count = st.session_state.log_handler.get_log_count()
-    #                 st.metric("Logs Captured", log_count)
-    #             except Exception:
-    #                 st.metric("Logs Captured", 0)
+    # Log controls (only when not generating)
+    if not st.session_state.generation_in_progress and st.session_state.log_handler:
+        st.markdown("---")
+        col_log1, col_log2 = st.columns(2)
+        with col_log1:
+            if st.button("🗑️ Clear Logs", use_container_width=True):
+                st.session_state.log_handler.clear_logs()
+                st.success("✓ Logs cleared")
+                st.rerun()
+        with col_log2:
+            log_count = st.session_state.log_handler.get_log_count()
+            st.metric("Captured Logs", log_count)
 
     # Runtime credentials section
     with st.expander("⚙️ Runtime Credentials (Optional)", expanded=False):
@@ -286,45 +278,43 @@ def render_progress_section():
         st.session_state.progress_bar = progress_bar
         st.session_state.status_text = status_text
         
-        # Real-time log display - TEMPORARILY DISABLED
-        # with st.expander("📋 Execution Logs", expanded=True):
-        #     log_container = st.empty()
-        #     st.session_state.log_container = log_container
-        #     
-        #     # Initial log display
-        #     try:
-        #         if hasattr(st.session_state, 'log_handler') and st.session_state.log_handler:
-        #             logs = st.session_state.log_handler.get_formatted_logs(100)
-        #             if logs:
-        #                 log_container.code(logs, language="log", height=400)
-        #             else:
-        #                 log_container.info("📝 Logs will appear here during execution...")
-        #         else:
-        #             log_container.info("📝 Logs will appear here during execution...")
-        #     except Exception:
-        #         log_container.info("📝 Logs will appear here during execution...")
+        # Real-time log display
+        if st.session_state.log_handler:
+            with st.expander("📋 Execution Logs", expanded=True):
+                log_container = st.empty()
+                st.session_state.log_container = log_container
+                
+                # Show existing logs or placeholder
+                logs = st.session_state.log_handler.get_formatted_logs(100)
+                if logs:
+                    log_container.code(logs, language="log", height=400)
+                else:
+                    log_container.info("📝 Logs will appear here during execution...")
 
 
 def progress_callback(message: str, iteration: int):
-    """Callback function for progress updates."""
+    """Callback function for progress updates with real-time log display."""
     try:
-        if hasattr(st.session_state, "progress_bar") and hasattr(st.session_state, "status_text"):
+        # Update progress bar and status
+        if hasattr(st.session_state, "progress_bar"):
             max_iter = st.session_state.get("max_iterations_input", settings.max_iterations)
-            progress = min(iteration / max_iter, 1.0)  # Clamp to max 1.0
+            progress = min(iteration / max_iter, 1.0)
             st.session_state.progress_bar.progress(progress)
-            st.session_state.status_text.text(message)
             
-            # Update log display in real-time
-            if hasattr(st.session_state, 'log_container') and hasattr(st.session_state, 'log_handler'):
-                if st.session_state.log_handler:
-                    try:
-                        logs = st.session_state.log_handler.get_formatted_logs(100)
-                        if logs:
-                            st.session_state.log_container.code(logs, language="log", height=400)
-                    except Exception:
-                        pass  # Silent fail - don't break UI
+        if hasattr(st.session_state, "status_text"):
+            st.session_state.status_text.text(message)
+        
+        # Update logs (non-blocking)
+        if (hasattr(st.session_state, 'log_container') and 
+            hasattr(st.session_state, 'log_handler') and 
+            st.session_state.log_handler):
+            
+            logs = st.session_state.log_handler.get_formatted_logs(100)
+            if logs:
+                st.session_state.log_container.code(logs, language="log", height=400)
+                
     except Exception:
-        pass  # Silent fail - don't break UI
+        pass  # Silent fail to prevent UI disruption
 
 
 def render_results_section(session):
@@ -605,25 +595,48 @@ def render_history_sidebar():
     st.sidebar.title("📚 Session History")
 
     sessions = st.session_state.orchestrator.list_sessions()
+    
+    logger.info(f"Sidebar: Found {len(sessions)} sessions to display")
 
     if not sessions:
         st.sidebar.info("No previous sessions found")
         return
 
-    for session_info in sessions[:10]:  # Show last 10
-        with st.sidebar.expander(f"📄 {session_info['session_id']}", expanded=False):
-            st.write(f"**Language:** {session_info['language'].upper()}")
-            st.write(f"**Status:** {'✅' if session_info['success'] else '❌'}")
-            st.write(f"**Created:** {session_info['created_at'].strftime('%Y-%m-%d %H:%M')}")
-            st.caption(f"*{session_info['requirements'][:80]}...*")
+    # Create dropdown options with session info
+    session_options = {}
+    for session_info in sessions:
+        status_icon = '✅' if session_info['success'] else '❌'
+        created = session_info['created_at'].strftime('%Y-%m-%d %H:%M')
+        label = f"{status_icon} {session_info['session_id']} | {session_info['language'].upper()} | {created}"
+        session_options[label] = session_info
 
-            if st.button(f"Load", key=f"load_{session_info['session_id']}"):
-                loaded_session = st.session_state.orchestrator.load_session(
-                    session_info["session_id"]
-                )
-                if loaded_session:
-                    st.session_state.current_session = loaded_session
-                    st.rerun()
+    # Session selector dropdown
+    selected_label = st.sidebar.selectbox(
+        "Select a session to view:",
+        options=[""] + list(session_options.keys()),
+        index=0,
+        help=f"Total sessions: {len(sessions)}"
+    )
+
+    # Show selected session details
+    if selected_label and selected_label in session_options:
+        session_info = session_options[selected_label]
+        
+        st.sidebar.markdown("---")
+        st.sidebar.markdown("**Session Details:**")
+        st.sidebar.write(f"**ID:** {session_info['session_id']}")
+        st.sidebar.write(f"**Language:** {session_info['language'].upper()}")
+        st.sidebar.write(f"**Status:** {'✅ Success' if session_info['success'] else '❌ Failed'}")
+        st.sidebar.write(f"**Created:** {session_info['created_at'].strftime('%Y-%m-%d %H:%M')}")
+        st.sidebar.caption(f"**Requirements:**\n{session_info['requirements']}")
+        
+        if st.sidebar.button("📂 Load Session", key="load_session_btn", use_container_width=True):
+            loaded_session = st.session_state.orchestrator.load_session(
+                session_info["session_id"]
+            )
+            if loaded_session:
+                st.session_state.current_session = loaded_session
+                st.rerun()
 
 
 def render_settings_sidebar():
@@ -701,19 +714,14 @@ def main():
         if st.session_state.current_session and not st.session_state.generation_in_progress:
             render_results_section(st.session_state.current_session)
             
-            # Show execution logs after completion - TEMPORARILY DISABLED
-            # with st.expander("📋 Execution Logs", expanded=False):
-            #     try:
-            #         if hasattr(st.session_state, 'log_handler') and st.session_state.log_handler:
-            #             logs = st.session_state.log_handler.get_formatted_logs()
-            #             if logs:
-            #                 st.code(logs, language="log", height=400)
-            #             else:
-            #                 st.info("No logs available")
-            #         else:
-            #             st.info("Logs not available")
-            #     except Exception as e:
-            #         st.warning(f"Could not load logs: {str(e)}")
+            # Show execution logs after completion
+            if st.session_state.log_handler:
+                with st.expander("📋 Full Execution Logs", expanded=False):
+                    logs = st.session_state.log_handler.get_formatted_logs()
+                    if logs:
+                        st.code(logs, language="log", height=500)
+                    else:
+                        st.info("No logs captured during execution")
 
     # Project mode
     else:

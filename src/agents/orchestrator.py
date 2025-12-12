@@ -260,20 +260,25 @@ class OrchestratorAgent:
 
             session_dir = Path(settings.session_storage_path) / session.session_id
             session_dir.mkdir(parents=True, exist_ok=True)
+            
+            logger.info(f"Saving session {session.session_id} to {session_dir}")
 
             # Save metadata
             metadata_file = session_dir / "metadata.json"
-            metadata_file.write_text(session.model_dump_json(indent=2), encoding="utf-8")
+            metadata = session.model_dump_json(indent=2)
+            metadata_file.write_text(metadata, encoding="utf-8")
+            logger.info(f"✓ Saved metadata: {metadata_file}")
 
             # Save final code if successful
             if session.final_code:
                 code_file = session_dir / session.final_code.filename
                 code_file.write_text(session.final_code.code, encoding="utf-8")
+                logger.info(f"✓ Saved code: {code_file}")
 
-            logger.info(f"Session saved to {session_dir}")
+            logger.info(f"✅ Session {session.session_id} saved successfully")
 
         except Exception as e:
-            logger.error(f"Failed to save session: {str(e)}")
+            logger.error(f"❌ Failed to save session: {str(e)}", exc_info=True)
 
     @staticmethod
     def load_session(session_id: str) -> Optional[GenerationSession]:
@@ -310,15 +315,24 @@ class OrchestratorAgent:
             from pathlib import Path
 
             session_root = Path(settings.session_storage_path)
+            
+            logger.info(f"Looking for sessions in: {session_root.absolute()}")
 
             if not session_root.exists():
+                logger.warning(f"Session directory does not exist: {session_root.absolute()}")
                 return []
 
             sessions = []
+            session_count = 0
             for session_dir in session_root.iterdir():
-                if session_dir.is_dir():
-                    metadata_file = session_dir / "metadata.json"
-                    if metadata_file.exists():
+                session_count += 1
+                if not session_dir.is_dir():
+                    logger.debug(f"Skipping non-directory: {session_dir.name}")
+                    continue
+                    
+                metadata_file = session_dir / "metadata.json"
+                if metadata_file.exists():
+                    try:
                         raw = metadata_file.read_text(encoding='utf-8')
                         data = json.loads(raw)
 
@@ -342,13 +356,21 @@ class OrchestratorAgent:
                                 "created_at": session.created_at,
                             }
                         )
+                        logger.debug(f"✓ Loaded session {session.session_id}")
+                    except Exception as e:
+                        logger.error(f"✗ Failed to load session from {session_dir.name}: {e}", exc_info=True)
+                        continue
+                else:
+                    logger.debug(f"No metadata.json in {session_dir.name}")
 
+            logger.info(f"Found {session_count} items in session directory, loaded {len(sessions)} valid sessions")
+            
             # Sort by creation time, newest first
             sessions.sort(key=lambda x: x["created_at"], reverse=True)
             return sessions
 
         except Exception as e:
-            logger.error(f"Failed to list sessions: {str(e)}")
+            logger.error(f"Failed to list sessions: {str(e)}", exc_info=True)
             return []
 
     def generate_project(
@@ -610,12 +632,14 @@ class OrchestratorAgent:
 
             session_dir = Path(settings.session_storage_path) / session.session_id
             session_dir.mkdir(parents=True, exist_ok=True)
+            
+            logger.info(f"Saving project session {session.session_id} to {session_dir}")
 
             # Save metadata
             metadata_file = session_dir / "metadata.json"
-            metadata_file.write_text(
-                session.model_dump_json(indent=2), encoding="utf-8"
-            )
+            metadata = session.model_dump_json(indent=2)
+            metadata_file.write_text(metadata, encoding="utf-8")
+            logger.info(f"✓ Saved project metadata: {metadata_file}")
 
             # Save all files
             files_dir = session_dir / "files"
@@ -625,8 +649,9 @@ class OrchestratorAgent:
                 file_path = files_dir / file.filename
                 file_path.parent.mkdir(parents=True, exist_ok=True)
                 file_path.write_text(file.code, encoding="utf-8")
-
-            logger.info(f"Project session saved to {session_dir}")
+            
+            logger.info(f"✓ Saved {len(session.files)} project files")
+            logger.info(f"✅ Project session {session.session_id} saved successfully")
 
         except Exception as e:
-            logger.error(f"Failed to save project session: {str(e)}")
+            logger.error(f"❌ Failed to save project session: {str(e)}", exc_info=True)

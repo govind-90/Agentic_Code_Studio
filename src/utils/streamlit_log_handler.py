@@ -4,14 +4,13 @@ import logging
 import threading
 from collections import deque
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 
 class StreamlitLogHandler(logging.Handler):
     """
     Thread-safe log handler that captures logs for Streamlit display.
-    
-    Stores logs in a deque with automatic size management.
+    Non-blocking and optimized for UI performance.
     """
     
     def __init__(self, max_logs: int = 200):
@@ -23,12 +22,12 @@ class StreamlitLogHandler(logging.Handler):
         """
         super().__init__()
         self.logs = deque(maxlen=max_logs)
-        self.lock = threading.Lock()
+        self.lock = threading.RLock()  # Reentrant lock for safety
         self._enabled = True
     
     def emit(self, record: logging.LogRecord):
         """
-        Emit a log record.
+        Emit a log record (non-blocking).
         
         Args:
             record: Log record to emit
@@ -37,23 +36,25 @@ class StreamlitLogHandler(logging.Handler):
             return
             
         try:
-            log_entry = {
-                'timestamp': datetime.fromtimestamp(record.created),
-                'level': record.levelname,
-                'message': self.format(record),
-                'name': record.name,
-                'raw': record
-            }
+            # Format message immediately
+            message = self.format(record)
             
+            # Quick lock to append
             with self.lock:
-                self.logs.append(log_entry)
+                self.logs.append({
+                    'timestamp': datetime.fromtimestamp(record.created),
+                    'level': record.levelname,
+                    'message': message,
+                    'name': record.name
+                })
                 
         except Exception:
-            self.handleError(record)
+            # Don't call handleError to avoid recursion
+            pass
     
-    def get_logs(self, n: Optional[int] = None) -> list:
+    def get_logs(self, n: Optional[int] = None) -> List[dict]:
         """
-        Get the last n logs.
+        Get the last n logs (non-blocking).
         
         Args:
             n: Number of logs to retrieve (None = all)
@@ -61,14 +62,17 @@ class StreamlitLogHandler(logging.Handler):
         Returns:
             List of log entries
         """
-        with self.lock:
-            if n is None:
-                return list(self.logs)
-            return list(self.logs)[-n:]
+        try:
+            with self.lock:
+                if n is None:
+                    return list(self.logs)
+                return list(self.logs)[-n:] if len(self.logs) > 0 else []
+        except Exception:
+            return []
     
     def get_formatted_logs(self, n: Optional[int] = None) -> str:
         """
-        Get formatted log messages as a single string.
+        Get formatted log messages as a single string (non-blocking).
         
         Args:
             n: Number of logs to retrieve (None = all)
@@ -76,63 +80,76 @@ class StreamlitLogHandler(logging.Handler):
         Returns:
             Formatted log string
         """
-        logs = self.get_logs(n)
-        return "\n".join(log['message'] for log in logs)
+        try:
+            logs = self.get_logs(n)
+            if not logs:
+                return ""
+            return "\n".join(log['message'] for log in logs)
+        except Exception:
+            return ""
     
     def clear_logs(self):
         """Clear all stored logs."""
-        with self.lock:
-            self.logs.clear()
-    
-    def enable(self):
-        """Enable log capture."""
-        self._enabled = True
-    
-    def disable(self):
-        """Disable log capture."""
-        self._enabled = False
+        try:
+            with self.lock:
+                self.logs.clear()
+        except Exception:
+            pass
     
     def get_log_count(self) -> int:
         """Get the current number of stored logs."""
-        with self.lock:
-            return len(self.logs)
+        try:
+            with self.lock:
+                return len(self.logs)
+        except Exception:
+            return 0
 
 
-# Global instance for sharing across modules
-streamlit_log_handler: Optional[StreamlitLogHandler] = None
+# Global instance
+_handler: Optional[StreamlitLogHandler] = None
+_handler_lock = threading.Lock()
 
 
 def get_streamlit_log_handler() -> StreamlitLogHandler:
     """
-    Get or create the global Streamlit log handler.
+    Get or create the global Streamlit log handler (thread-safe singleton).
     
     Returns:
         StreamlitLogHandler instance
     """
-    global streamlit_log_handler
+    global _handler
     
-    if streamlit_log_handler is None:
-        streamlit_log_handler = StreamlitLogHandler()
+    with _handler_lock:
+        if _handler is None:
+            _handler = StreamlitLogHandler()
+            
+            # Set formatter
+            formatter = logging.Formatter(
+                "%(asctime)s | %(name)-20s | %(levelname)-8s | %(message)s",
+                datefmt="%H:%M:%S"
+            )
+            _handler.setFormatter(formatter)
         
-        # Set formatter
-        formatter = logging.Formatter(
-            "%(asctime)s | %(name)s | %(levelname)s | %(message)s",
-            datefmt="%H:%M:%S"
-        )
-        streamlit_log_handler.setFormatter(formatter)
-    
-    return streamlit_log_handler
+        return _handler
 
 
-def attach_to_logger(logger: logging.Logger):
+def attach_to_logger(logger: logging.Logger) -> bool:
     """
     Attach the Streamlit log handler to a logger.
     
     Args:
         logger: Logger to attach to
+        
+    Returns:
+        True if attached, False if already attached
     """
-    handler = get_streamlit_log_handler()
-    
-    # Check if already attached
-    if handler not in logger.handlers:
-        logger.addHandler(handler)
+    try:
+        handler = get_streamlit_log_handler()
+        
+        # Check if already attached
+        if handler not in logger.handlers:
+            logger.addHandler(handler)
+            return True
+        return False
+    except Exception:
+        return False
