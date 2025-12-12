@@ -125,6 +125,10 @@ class OrchestratorAgent:
             iteration_log.generated_code = generated_code
 
             logger.info(f"Code generated successfully with {len(dependencies)} dependencies")
+            
+            # Update UI with code generation completion
+            if progress_callback:
+                progress_callback(f"Iteration {iteration}: Code generated ✓", iteration)
 
             # STEP 2: Build & Compile
             if progress_callback:
@@ -169,6 +173,10 @@ class OrchestratorAgent:
 
             iteration_log.build_status = AgentStatus.SUCCESS
             logger.info("Build successful")
+            
+            # Update UI with build completion
+            if progress_callback:
+                progress_callback(f"Iteration {iteration}: Build successful ✓", iteration)
 
             # STEP 3: Testing
             if progress_callback:
@@ -279,7 +287,7 @@ class OrchestratorAgent:
             if not metadata_file.exists():
                 return None
 
-            raw = metadata_file.read_text()
+            raw = metadata_file.read_text(encoding='utf-8')
             data = json.loads(raw)
 
             # Normalize legacy/unknown error_type values to avoid validation failures
@@ -311,7 +319,7 @@ class OrchestratorAgent:
                 if session_dir.is_dir():
                     metadata_file = session_dir / "metadata.json"
                     if metadata_file.exists():
-                        raw = metadata_file.read_text()
+                        raw = metadata_file.read_text(encoding='utf-8')
                         data = json.loads(raw)
 
                         allowed_error_types = {et.value for et in ErrorType}
@@ -437,10 +445,18 @@ class OrchestratorAgent:
             logger.info("Step 2: Multi-file Code Generation")
             iteration_log.code_gen_status = AgentStatus.RUNNING
 
-            code_result = self.code_generator.generate_code(
+            # Get template structure for multi-file generation
+            from src.config.project_templates import get_template
+            template = get_template(project_template)
+            template_structure = template.get("structure", {}) if template else {}
+
+            # Use project-specific generation method
+            code_result = self.code_generator.generate_project_code(
                 requirements=requirements,
                 language=language,
-                error_context=iteration_log.error_message if iteration > 1 else None,
+                project_template=project_template,
+                template_structure=template_structure,
+                error_context=iteration_log.error_message if iteration > 1 else "",
             )
 
             generated_files = code_result.get("files", [])

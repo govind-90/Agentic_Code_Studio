@@ -6,7 +6,7 @@ import subprocess
 from typing import Dict
 
 from langchain_google_genai import ChatGoogleGenerativeAI
-
+from langchain_groq import ChatGroq
 from src.config.prompts import BUILD_AGENT_HUMAN_TEMPLATE, BUILD_AGENT_SYSTEM_PROMPT
 from src.config.settings import settings
 from src.models.schemas import BuildResult, FileArtifact, ProgrammingLanguage
@@ -17,16 +17,27 @@ from src.utils.logger import build_logger as logger
 class BuildAgent:
     """Agent responsible for building and validating code."""
 
+    # def __init__(self):
+    #     """Initialize the build agent."""
+    #     self.llm = ChatGoogleGenerativeAI(
+    #         model=settings.llm_model_name,
+    #         google_api_key=settings.google_api_key,
+    #         temperature=settings.agent_temperature,
+    #         convert_system_message_to_human=True,
+    #     )
+
+    #     logger.info("Build Agent initialized")
+
     def __init__(self):
         """Initialize the build agent."""
-        self.llm = ChatGoogleGenerativeAI(
-            model="gemini-pro-latest",
-            google_api_key=settings.google_api_key,
+        self.llm = ChatGroq(
+            model=settings.llm_model_name_groq,
+            groq_api_key=settings.groq_api_key,
             temperature=settings.agent_temperature,
-            convert_system_message_to_human=True,
         )
 
         logger.info("Build Agent initialized")
+
 
     def analyze_and_build(
         self, code: str, language: ProgrammingLanguage, dependencies: list
@@ -114,9 +125,36 @@ class BuildAgent:
 
         # 2. Install dependencies
         if dependencies:
-            logger.info(f"Installing Python dependencies: {dependencies}")
+            # Filter out project-internal modules and comments
+            project_internals = {"src", "app", "tests", "test", "config", "utils", "models", 
+                                "schemas", "database", "api", "core", "services", "controllers", 
+                                "views", "main", "lib", "common"}
+            
+            # Filter out Python standard library modules
+            stdlib_modules = {
+                "logging", "typing", "json", "math", "itertools", "collections", "datetime", "re", "sys", "os",
+                "unittest", "pathlib", "io", "subprocess", "tempfile", "shutil", "copy", "pickle",
+                "threading", "multiprocessing", "argparse", "configparser", "email", "urllib", "http",
+                "socket", "ssl", "asyncio", "hashlib", "hmac", "secrets", "uuid", "enum", "dataclasses",
+                "abc", "time", "csv", "functools", "random", "string", "textwrap", "difflib", "warnings",
+                "sqlite3", "dbm", "shelve"
+            }
+            
+            filtered_deps = [
+                d for d in dependencies 
+                if d and str(d).strip() 
+                and not str(d).strip().startswith("#")  # Filter comments
+                and str(d).strip().lower() not in project_internals
+                and str(d).strip().lower() not in stdlib_modules  # Filter stdlib
+            ]
+            
+            if len(filtered_deps) < len(dependencies):
+                removed = [d for d in dependencies if d not in filtered_deps]
+                logger.warning(f"Filtered out project-internal modules: {removed}")
+            
+            logger.info(f"Installing Python dependencies: {filtered_deps}")
             install_result = install_python_dependencies.invoke(
-                {"dependencies": dependencies}
+                {"dependencies": filtered_deps}
             )
 
             if not install_result.get("success"):
@@ -160,12 +198,22 @@ class BuildAgent:
             package_match = re.search(r"package\s+([\w.]+);", code)
             package_name = package_match.group(1) if package_match else None
 
-            class_match = re.search(r"public\s+class\s+(\w+)", code)
+            # Match public class, handling annotations (e.g., @RestController\npublic class...)
+            class_match = re.search(r"public\s+class\s+(\w+)", code, re.MULTILINE)
             if not class_match:
+                # Log first 500 chars of code for debugging
+                logger.error(f"No public class found. Code preview: {code[:500]}")
                 return BuildResult(
                     status="error",
-                    errors=["Could not find public class declaration"],
-                    suggested_fixes=["Ensure code has 'public class ClassName'"],
+                    errors=[
+                        "Could not find public class declaration",
+                        "The generated code may be incomplete or invalid Java"
+                    ],
+                    suggested_fixes=[
+                        "Ensure code has 'public class ClassName'",
+                        "Check that code is valid Java (not pseudocode or incomplete)",
+                        "For Spring Boot single-file: Simplify the request or use multi-file generation"
+                    ],
                 )
 
             class_name = class_match.group(1)
@@ -213,6 +261,46 @@ class BuildAgent:
                     coord = f"{dd['groupId']}:{dd['artifactId']}:{dd['version']}"
                     if coord not in result_deps:
                         result_deps.append(coord)
+
+            # Check if this is a Spring Boot class and add essential starters
+            has_spring = any(
+                d.get("groupId", "").startswith("org.springframework") 
+                for d in pom_deps
+            )
+            
+            if has_spring:
+                # Add essential Spring Boot starters if not already present
+                essential_starters = [
+                    ("org.springframework.boot", "spring-boot-starter-web", "3.1.5"),  # Always include web for REST APIs
+                    ("org.springframework.boot", "spring-boot-starter-data-jpa", "3.1.5"),
+                    ("org.springframework.boot", "spring-boot-starter-validation", "3.1.5"),
+                ]
+                
+                # Check if security is used in the code
+                if "Security" in code or "security" in code.lower():
+                    essential_starters.append(
+                        ("org.springframework.boot", "spring-boot-starter-security", "3.1.5")
+                    )
+                
+                # Check if JWT is used
+                if "jwt" in code.lower() or "Jwt" in code or "jsonwebtoken" in code.lower():
+                    essential_starters.extend([
+                        ("io.jsonwebtoken", "jjwt-api", "0.11.5"),
+                        ("io.jsonwebtoken", "jjwt-impl", "0.11.5"),
+                        ("io.jsonwebtoken", "jjwt-jackson", "0.11.5"),
+                    ])
+                
+                for group, artifact, version in essential_starters:
+                    dep_dict = {"groupId": group, "artifactId": artifact, "version": version}
+                    coord = (group, artifact, version)
+                    existing_keys = {
+                        (d.get("groupId"), d.get("artifactId"), d.get("version"))
+                        for d in pom_deps
+                    }
+                    if coord not in existing_keys:
+                        pom_deps.append(dep_dict)
+                        result_deps.append(f"{group}:{artifact}:{version}")
+                        logger.info(f"Added essential Spring Boot starter: {artifact}")
 
             logger.info(f"Detected dependencies (pom): {pom_deps}")
             logger.info(f"Dependencies (result): {result_deps}")
@@ -295,14 +383,21 @@ class BuildAgent:
             )
 
             if compile_result.returncode != 0:
-                # Parse Java compilation errors
+                # Parse Java compilation errors from both stdout and stderr
                 logger.error(f"Maven compilation failed with return code {compile_result.returncode}")
                 logger.error(f"Maven stdout: {compile_result.stdout}")
                 logger.error(f"Maven stderr: {compile_result.stderr}")
                 
-                parsed_errors = self._parse_java_errors(compile_result.stderr)
+                # Maven outputs errors to both stdout and stderr, check both
+                error_output = compile_result.stderr + "\n" + compile_result.stdout
+                parsed_errors = self._parse_java_errors(error_output)
                 errors.extend(parsed_errors["errors"])
                 suggested_fixes.extend(parsed_errors["fixes"])
+                
+                # Also include relevant Maven output for better context
+                if "[ERROR]" in compile_result.stdout:
+                    maven_errors = [line for line in compile_result.stdout.split('\n') if '[ERROR]' in line]
+                    errors.extend(maven_errors[:5])  # First 5 Maven error lines
 
                 logger.error("Maven compilation failed")
 
@@ -394,6 +489,21 @@ class BuildAgent:
                 "artifactId": "spring-boot-starter-security",
                 "version": "3.1.5",
             },
+            "org.springframework.security.authentication": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-security",
+                "version": "3.1.5",
+            },
+            "org.springframework.security.config": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-security",
+                "version": "3.1.5",
+            },
+            "org.springframework.security.crypto": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-security",
+                "version": "3.1.5",
+            },
             "org.springframework.data.jpa": {
                 "groupId": "org.springframework.boot",
                 "artifactId": "spring-boot-starter-data-jpa",
@@ -414,15 +524,45 @@ class BuildAgent:
                 "artifactId": "spring-boot-starter-web",
                 "version": "3.1.5",
             },
+            "org.springframework.http": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-web",
+                "version": "3.1.5",
+            },
             "jakarta.persistence": {
-                "groupId": "jakarta.persistence",
-                "artifactId": "jakarta.persistence-api",
-                "version": "3.1.0",
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-data-jpa",
+                "version": "3.1.5",
+            },
+            "jakarta.validation": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-validation",
+                "version": "3.1.5",
+            },
+            "javax.validation": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-validation",
+                "version": "3.1.5",
+            },
+            "jakarta.": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-web",
+                "version": "3.1.5",
+            },
+            "org.springframework.boot.actuate": {
+                "groupId": "org.springframework.boot",
+                "artifactId": "spring-boot-starter-actuator",
+                "version": "3.1.5",
             },
             "lombok": {
                 "groupId": "org.projectlombok",
                 "artifactId": "lombok",
                 "version": "1.18.26",
+            },
+            "io.jsonwebtoken": {
+                "groupId": "io.jsonwebtoken",
+                "artifactId": "jjwt-api",
+                "version": "0.11.5",
             },
             "org.junit": {
                 "groupId": "org.junit.jupiter",
@@ -444,11 +584,44 @@ class BuildAgent:
                 "artifactId": "slf4j-simple",
                 "version": "2.0.9",
             },
+            "io.swagger.v3.oas": {
+                "groupId": "org.springdoc",
+                "artifactId": "springdoc-openapi-starter-webmvc-ui",
+                "version": "2.2.0",
+            },
+            "org.springdoc": {
+                "groupId": "org.springdoc",
+                "artifactId": "springdoc-openapi-starter-webmvc-ui",
+                "version": "2.2.0",
+            },
+            "jakarta.enterprise.context": {
+                "groupId": "jakarta.enterprise",
+                "artifactId": "jakarta.enterprise.cdi-api",
+                "version": "4.0.1",
+            },
+            "jakarta.enterprise.inject": {
+                "groupId": "jakarta.enterprise",
+                "artifactId": "jakarta.enterprise.cdi-api",
+                "version": "4.0.1",
+            },
+            "jakarta.inject": {
+                "groupId": "jakarta.inject",
+                "artifactId": "jakarta.inject-api",
+                "version": "2.0.1",
+            },
+            "org.apache.commons.dbcp2": {
+                "groupId": "org.apache.commons",
+                "artifactId": "commons-dbcp2",
+                "version": "2.11.0",
+            },
         }
 
         for imp in imports:
-            # Skip standard Java imports
-            if imp.startswith("java.") or imp.startswith("javax."):
+            # Skip standard Java imports (but not jakarta.* - those need external deps)
+            if imp.startswith("java."):
+                continue
+            # Skip javax.sql and javax.naming (JDK built-ins)
+            if imp.startswith("javax.sql") or imp.startswith("javax.naming"):
                 continue
 
             # Check against known dependencies
@@ -649,9 +822,45 @@ class BuildAgent:
 
         # 2. Install all dependencies
         if dependencies:
-            logger.info(f"Installing project dependencies: {dependencies}")
+            # Filter out project-internal modules and comments (defensive filtering for old sessions)
+            project_internals = {"src", "app", "tests", "test", "config", "utils", "models", 
+                                "schemas", "database", "api", "core", "services", "controllers", 
+                                "views", "main", "lib", "common"}
+            
+            # Filter out Python standard library modules
+            stdlib_modules = {
+                "logging", "typing", "json", "math", "itertools", "collections", "datetime", "re", "sys", "os",
+                "unittest", "pathlib", "io", "subprocess", "tempfile", "shutil", "copy", "pickle",
+                "threading", "multiprocessing", "argparse", "configparser", "email", "urllib", "http",
+                "socket", "ssl", "asyncio", "hashlib", "hmac", "secrets", "uuid", "enum", "dataclasses",
+                "abc", "time", "csv", "functools", "random", "string", "textwrap", "difflib", "warnings",
+                "sqlite3", "dbm", "shelve"
+            }
+            
+            filtered_deps = [
+                d for d in dependencies 
+                if d and str(d).strip()
+                and not str(d).strip().startswith("#")  # Filter comments
+                and str(d).strip().lower() not in project_internals
+                and str(d).strip().lower() not in stdlib_modules  # Filter stdlib
+            ]
+            
+            if len(filtered_deps) < len(dependencies):
+                removed = [d for d in dependencies if d not in filtered_deps]
+                logger.warning(f"Filtered out project-internal modules: {removed}")
+            
+            if not filtered_deps:
+                logger.info("No external dependencies to install after filtering")
+                return BuildResult(
+                    status="success",
+                    dependencies=[],
+                    build_instructions="All files validated, no external dependencies needed",
+                    suggested_fixes=[],
+                )
+            
+            logger.info(f"Installing project dependencies: {filtered_deps}")
             install_result = install_python_dependencies.invoke(
-                {"dependencies": dependencies}
+                {"dependencies": filtered_deps}
             )
 
             if not install_result.get("success"):
@@ -720,30 +929,45 @@ class BuildAgent:
                 )
 
             # Create source directory structure
-            src_dir = temp_dir / "src" / "main" / "java"
+            src_main_dir = temp_dir / "src" / "main" / "java"
+            src_test_dir = temp_dir / "src" / "test" / "java"
 
             for file in java_files:
+                # Determine if this is a test file
+                is_test_file = "Test" in file.filename or "/test/" in file.filename or "\\test\\" in file.filename
                 import re
+
+                # Choose correct base directory (main or test)
+                base_src_dir = src_test_dir if is_test_file else src_main_dir
 
                 # Extract package if present
                 package_match = re.search(r"package\s+([\w.]+);", file.code)
                 if package_match:
                     package_name = package_match.group(1)
                     package_path = package_name.replace(".", "/")
-                    file_src_dir = src_dir / package_path
+                    file_src_dir = base_src_dir / package_path
                 else:
-                    file_src_dir = src_dir
+                    file_src_dir = base_src_dir
 
                 file_src_dir.mkdir(parents=True, exist_ok=True)
 
-                # Extract class name
-                class_match = re.search(r"public\s+class\s+(\w+)", file.code)
-                class_name = class_match.group(1) if class_match else "Main"
+                # Use the filename from the file object if available (respects LLM-generated names)
+                # Otherwise extract the public type name (class, interface, enum, record)
+                if file.filename and not file.filename.startswith("file_"):
+                    # Use the original filename (strip path if present)
+                    java_filename = file.filename.split('/')[-1]
+                    if not java_filename.endswith('.java'):
+                        java_filename += '.java'
+                else:
+                    # Fallback: extract public type name (class, interface, enum, record)
+                    type_match = re.search(r"public\s+(?:class|interface|enum|record)\s+(\w+)", file.code)
+                    type_name = type_match.group(1) if type_match else "Main"
+                    java_filename = f"{type_name}.java"
 
                 # Write file with UTF-8 encoding
-                output_file = file_src_dir / f"{class_name}.java"
+                output_file = file_src_dir / java_filename
                 output_file.write_text(file.code, encoding="utf-8")
-                logger.info(f"Created {output_file}")
+                logger.info(f"Created {output_file} ({'test' if is_test_file else 'main'})")
 
             # Merge all dependencies
             pom_deps = []
@@ -784,6 +1008,66 @@ class BuildAgent:
                 except Exception:
                     # Non-fatal: continue if detection fails for a file
                     continue
+
+            # Check if this is a Spring Boot project and add essential starters
+            has_spring = any(
+                d.get("groupId", "").startswith("org.springframework") 
+                for d in pom_deps
+            )
+            
+            # Check if there are test files
+            has_tests = any("Test" in f.filename for f in java_files)
+            
+            # Check if there are security-related files
+            has_security = any(
+                "security" in f.filename.lower() or "Security" in f.code
+                for f in java_files
+            )
+            
+            # Check if JWT is used
+            has_jwt = any(
+                "jwt" in f.filename.lower() or "Jwt" in f.code or "jsonwebtoken" in f.code.lower()
+                for f in java_files
+            )
+            
+            if has_spring:
+                # Add essential Spring Boot starters if not already present
+                essential_starters = [
+                    ("org.springframework.boot", "spring-boot-starter-web", "3.1.5"),  # Always include web for REST APIs
+                    ("org.springframework.boot", "spring-boot-starter-data-jpa", "3.1.5"),
+                    ("org.springframework.boot", "spring-boot-starter-validation", "3.1.5"),
+                ]
+                
+                # Add security if security files detected
+                if has_security:
+                    essential_starters.append(
+                        ("org.springframework.boot", "spring-boot-starter-security", "3.1.5")
+                    )
+                
+                # Add JWT dependencies if JWT is used
+                if has_jwt:
+                    essential_starters.extend([
+                        ("io.jsonwebtoken", "jjwt-api", "0.11.5"),
+                        ("io.jsonwebtoken", "jjwt-impl", "0.11.5"),
+                        ("io.jsonwebtoken", "jjwt-jackson", "0.11.5"),
+                    ])
+                
+                # Add test dependencies if test files exist
+                if has_tests:
+                    essential_starters.append(
+                        ("org.springframework.boot", "spring-boot-starter-test", "3.1.5")
+                    )
+                
+                for group, artifact, version in essential_starters:
+                    coord = (group, artifact, version)
+                    if coord not in seen_coords:
+                        pom_deps.append({
+                            "groupId": group,
+                            "artifactId": artifact,
+                            "version": version
+                        })
+                        seen_coords.add(coord)
+                        logger.info(f"Added essential Spring Boot starter: {artifact}")
 
             # Create pom.xml
             if main_class:
@@ -840,11 +1124,20 @@ class BuildAgent:
                 logger.error(f"Stdout: {compile_result.stdout}")
                 logger.error(f"Stderr: {compile_result.stderr}")
 
-                parsed_errors = self._parse_java_errors(
-                    compile_result.stderr + compile_result.stdout
-                )
+                combined_output = compile_result.stderr + "\n" + compile_result.stdout
+                parsed_errors = self._parse_java_errors(combined_output)
                 errors.extend(parsed_errors["errors"])
                 suggested_fixes.extend(parsed_errors["fixes"])
+                
+                # Extract Maven-specific error messages
+                if "[ERROR]" in compile_result.stdout:
+                    maven_errors = [line.strip() for line in compile_result.stdout.split('\n') if '[ERROR]' in line]
+                    errors.extend(maven_errors[:10])  # Include up to 10 Maven error lines
+                
+                # If no errors extracted, include last part of output
+                if not errors:
+                    errors.append("Build failed - see logs for details")
+                    errors.append(compile_result.stdout[-1000:] if compile_result.stdout else "No output")
 
                 shutil.rmtree(temp_dir, ignore_errors=True)
 

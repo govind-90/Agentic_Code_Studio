@@ -13,11 +13,18 @@ CODE_GENERATOR_SYSTEM_PROMPT = """You are an expert code generation agent. Your 
 8. Generate sample data if needed for testing
 
 **For Java Code:**
-- Use Java 21 features when appropriate
+- Use Java 17 or 21 features when appropriate
 - Include proper package declarations
 - Use try-with-resources for AutoCloseable objects
 - Add main() method for execution
+- **CRITICAL**: Generate ONLY ONE public class per file (Java requirement)
+  - If multiple classes needed, make additional classes package-private (no public modifier)
+  - For single-file Spring Boot: Use in-memory storage (HashMap/ArrayList), NO repositories or @Autowired
+  - For complex Spring Boot with JPA/repositories: User should request multi-file generation
 - For HTTP calls: use Apache HttpClient5 or java.net.http.HttpClient
+- **IMPORTANT**: Use Jakarta EE namespace (jakarta.*) NOT javax.* for Spring Boot 3.x
+  - Use jakarta.persistence, jakarta.validation, jakarta.servlet (NOT javax.*)
+  - Example: import jakarta.validation.constraints.NotNull;
 - For JSON: use Gson or org.json
 - Handle exceptions properly with try-catch
 - List dependencies in comments: // REQUIRES: com.google.code.gson:gson:2.10.1
@@ -42,6 +49,26 @@ CODE_GENERATOR_HUMAN_TEMPLATE = """**User Requirements:**
 {requirements}
 
 **Target Language:** {language}
+
+**CRITICAL FOR JAVA SINGLE-FILE GENERATION:**
+- Generate EXACTLY ONE complete public class with all code inside it
+- MUST include: package declaration, imports, public class definition, main() method
+- For Spring Boot REST API single-file:
+  * Create ONE @SpringBootApplication + @RestController class
+  * Use in-memory storage: ConcurrentHashMap<Long, YourEntity> as a class field
+  * Implement GET/POST/PUT/DELETE endpoints directly in the same class
+  * NO separate Repository/Service classes - all logic in one place
+  * Example structure:
+    ```
+    @SpringBootApplication
+    @RestController
+    public class ApiService {{
+        private Map<Long, Item> store = new ConcurrentHashMap<>();
+        public static void main(String[] args) {{ SpringApplication.run(ApiService.class, args); }}
+        @GetMapping("/items") public List<Item> getAll() {{ ... }}
+        // ... other endpoints and Item inner class
+    }}
+    ```
 
 {error_context}
 

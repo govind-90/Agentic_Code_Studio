@@ -17,12 +17,17 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    # Google Gemini Configuration
-    google_api_key: str = Field(..., description="Google Gemini API key")
+    # Google Gemini Configuration (optional - only if using Gemini)
+    google_api_key: str = Field(default="", description="Google Gemini API key (optional)")
+    llm_model_name: str = Field(default="gemini-pro-latest", description="LLM model name to use for all agents")
+
+    # Groq Configuration
+    groq_api_key: str = Field(..., description="Groq API key")
+    llm_model_name_groq: str = Field(default="llama-3.1-8b-instant", description="Groq LLM model name to use for all agents")
 
     # Agent Configuration
-    max_iterations: int = Field(default=5, ge=1, le=10)
-    execution_timeout: int = Field(default=30, ge=10, le=300)
+    max_iterations: int = Field(default=3, ge=1, le=10)
+    execution_timeout: int = Field(default=60, ge=10, le=300)
     agent_temperature: float = Field(default=0.1, ge=0.0, le=1.0)
 
     # PostgreSQL Configuration
@@ -49,14 +54,14 @@ class Settings(BaseSettings):
     streamlit_server_port: int = Field(default=8501)
     streamlit_server_address: str = Field(default="localhost")
 
-    @field_validator("google_api_key")
+    @field_validator("groq_api_key")
     @classmethod
-    def validate_api_key(cls, v: str) -> str:
-        """Validate API key is not empty or placeholder."""
-        if not v or v == "your_gemini_api_key_here":
+    def validate_groq_api_key(cls, v: str) -> str:
+        """Validate Groq API key is not empty or placeholder."""
+        if not v or v == "your_groq_api_key_here":
             raise ValueError(
-                "GOOGLE_API_KEY must be set in .env file. "
-                "Get your key from https://aistudio.google.com/app/apikey"
+                "GROQ_API_KEY must be set in .env file. "
+                "Get your key from https://console.groq.com/keys"
             )
         return v
 

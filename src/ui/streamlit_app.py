@@ -82,6 +82,23 @@ def initialize_session_state():
 
     if "generation_mode" not in st.session_state:
         st.session_state.generation_mode = "single_file"
+    
+    # Initialize log handler for real-time display
+    # TEMPORARILY DISABLED - uncomment when debugging UI loading issues
+    if "log_handler" not in st.session_state:
+        st.session_state.log_handler = None  # Disabled for now
+        # try:
+        #     from src.utils.streamlit_log_handler import get_streamlit_log_handler
+        #     from src.utils.logger import attach_streamlit_handler
+        #     
+        #     st.session_state.log_handler = get_streamlit_log_handler()
+        #     attach_streamlit_handler()  # Attach to all loggers
+        #     logger.info("Streamlit log handler initialized successfully")
+        # except Exception as e:
+        #     import traceback
+        #     print(f"Failed to initialize log handler: {e}")
+        #     print(traceback.format_exc())
+        #     st.session_state.log_handler = None
 
 
 def render_header():
@@ -128,6 +145,24 @@ def render_main_interface():
             use_container_width=True,
             disabled=st.session_state.generation_in_progress,
         )
+
+    # Log controls - TEMPORARILY DISABLED
+    # if not st.session_state.generation_in_progress:
+    #     st.markdown("---")
+    #     col_log1, col_log2 = st.columns(2)
+    #     with col_log1:
+    #         if st.button("🗑️ Clear All Logs", use_container_width=True):
+    #             if hasattr(st.session_state, 'log_handler') and st.session_state.log_handler:
+    #                 st.session_state.log_handler.clear_logs()
+    #                 st.success("Logs cleared!")
+    #                 st.rerun()
+    #     with col_log2:
+    #         if hasattr(st.session_state, 'log_handler') and st.session_state.log_handler:
+    #             try:
+    #                 log_count = st.session_state.log_handler.get_log_count()
+    #                 st.metric("Logs Captured", log_count)
+    #             except Exception:
+    #                 st.metric("Logs Captured", 0)
 
     # Runtime credentials section
     with st.expander("⚙️ Runtime Credentials (Optional)", expanded=False):
@@ -250,15 +285,46 @@ def render_progress_section():
         # Store in session state for callback access
         st.session_state.progress_bar = progress_bar
         st.session_state.status_text = status_text
+        
+        # Real-time log display - TEMPORARILY DISABLED
+        # with st.expander("📋 Execution Logs", expanded=True):
+        #     log_container = st.empty()
+        #     st.session_state.log_container = log_container
+        #     
+        #     # Initial log display
+        #     try:
+        #         if hasattr(st.session_state, 'log_handler') and st.session_state.log_handler:
+        #             logs = st.session_state.log_handler.get_formatted_logs(100)
+        #             if logs:
+        #                 log_container.code(logs, language="log", height=400)
+        #             else:
+        #                 log_container.info("📝 Logs will appear here during execution...")
+        #         else:
+        #             log_container.info("📝 Logs will appear here during execution...")
+        #     except Exception:
+        #         log_container.info("📝 Logs will appear here during execution...")
 
 
 def progress_callback(message: str, iteration: int):
     """Callback function for progress updates."""
-    if hasattr(st.session_state, "progress_bar") and hasattr(st.session_state, "status_text"):
-        max_iter = st.session_state.get("max_iterations_input", settings.max_iterations)
-        progress = iteration / max_iter
-        st.session_state.progress_bar.progress(progress)
-        st.session_state.status_text.text(message)
+    try:
+        if hasattr(st.session_state, "progress_bar") and hasattr(st.session_state, "status_text"):
+            max_iter = st.session_state.get("max_iterations_input", settings.max_iterations)
+            progress = min(iteration / max_iter, 1.0)  # Clamp to max 1.0
+            st.session_state.progress_bar.progress(progress)
+            st.session_state.status_text.text(message)
+            
+            # Update log display in real-time
+            if hasattr(st.session_state, 'log_container') and hasattr(st.session_state, 'log_handler'):
+                if st.session_state.log_handler:
+                    try:
+                        logs = st.session_state.log_handler.get_formatted_logs(100)
+                        if logs:
+                            st.session_state.log_container.code(logs, language="log", height=400)
+                    except Exception:
+                        pass  # Silent fail - don't break UI
+    except Exception:
+        pass  # Silent fail - don't break UI
 
 
 def render_results_section(session):
@@ -296,7 +362,13 @@ def render_results_section(session):
         st.code(session.final_code.code, language=session.language.value)
 
         # Download options
-        col1, col2 = st.columns(2)
+        # Check if this is a multi-file project (ProjectSession) or single file
+        is_project = hasattr(session, 'project_name')
+        
+        if is_project:
+            col1, col2 = st.columns(2)
+        else:
+            col1 = st.container()
 
         with col1:
             st.download_button(
@@ -306,15 +378,16 @@ def render_results_section(session):
                 mime="text/plain",
             )
 
-        with col2:
-            # Create ZIP with code and dependencies
-            zip_buffer = create_project_zip(session)
-            st.download_button(
-                label="📦 Download Project ZIP",
-                data=zip_buffer,
-                file_name=f"generated_project_{session.session_id}.zip",
-                mime="application/zip",
-            )
+        if is_project:
+            with col2:
+                # Create ZIP with code and dependencies
+                zip_buffer = create_project_zip(session)
+                st.download_button(
+                    label="📦 Download Project ZIP",
+                    data=zip_buffer,
+                    file_name=f"generated_project_{session.session_id}.zip",
+                    mime="application/zip",
+                )
 
         # Dependencies
         if session.final_code.dependencies:
@@ -388,30 +461,48 @@ def create_project_zip(session) -> bytes:
         if hasattr(session, "files") and session.files:
             for file in session.files:
                 zip_file.writestr(file.filename, file.code)
+        elif hasattr(session, "final_code") and session.final_code:
+            # Single file case
+            zip_file.writestr(session.final_code.filename, session.final_code.code)
 
         # Add README
-        readme_content = f"""# {session.project_name}
+        project_name = getattr(session, 'project_name', f'generated_code_{session.session_id}')
+        project_template = getattr(session, 'project_template', 'N/A')
+        files_count = len(session.files) if hasattr(session, 'files') else 1
+        all_deps = getattr(session, 'all_dependencies', None) or (session.final_code.dependencies if hasattr(session, 'final_code') and session.final_code else [])
+        
+        # Format dependencies for display
+        formatted_deps_display = []
+        if all_deps:
+            for dep in all_deps:
+                if isinstance(dep, dict):
+                    # Maven dependency
+                    formatted_deps_display.append(f"{dep.get('groupId', '')}:{dep.get('artifactId', '')}:{dep.get('version', '')}")
+                else:
+                    formatted_deps_display.append(str(dep))
+        
+        readme_content = f"""# {project_name}
 
 ## Description
 {session.requirements}
 
 ## Project Details
-- **Template:** {session.project_template}
+- **Template:** {project_template}
 - **Language:** {session.language.value.upper()}
 - **Session ID:** {session.session_id}
 - **Generated:** {session.created_at.strftime('%Y-%m-%d %H:%M:%S')}
 
 ## Files
-{len(session.files) if hasattr(session, 'files') else 0} files generated
+{files_count} file(s) generated
 
 ## Dependencies
-{', '.join(session.all_dependencies) if hasattr(session, 'all_dependencies') and session.all_dependencies else 'None'}
+{', '.join(formatted_deps_display) if formatted_deps_display else 'None'}
 
 ## Getting Started
 
 ### Installation
 ```bash
-cd {session.project_name}
+cd {project_name}
 pip install -r requirements.txt  # For Python
 # or
 mvn clean install  # For Java
@@ -423,9 +514,12 @@ Check individual README files in the project structure for specific instructions
         zip_file.writestr("README.md", readme_content)
 
         # Add requirements.txt for Python projects
-        if session.language == ProgrammingLanguage.PYTHON and hasattr(session, "all_dependencies") and session.all_dependencies:
-            requirements_txt = "\n".join(session.all_dependencies)
-            zip_file.writestr("requirements.txt", requirements_txt)
+        if session.language == ProgrammingLanguage.PYTHON and all_deps:
+            # Extract only string dependencies (filter out dicts in case of mixed data)
+            python_deps = [str(dep) for dep in all_deps if not isinstance(dep, dict)]
+            if python_deps:
+                requirements_txt = "\n".join(python_deps)
+                zip_file.writestr("requirements.txt", requirements_txt)
 
     zip_buffer.seek(0)
     return zip_buffer.getvalue()
@@ -470,7 +564,25 @@ def render_project_results_section(session):
 
     # Dependencies
     if hasattr(session, "all_dependencies") and session.all_dependencies:
-        st.info(f"**Dependencies:** {', '.join(session.all_dependencies)}")
+        try:
+            # Handle both string (Python) and dict (Java Maven) dependencies
+            formatted_deps = []
+            for dep in session.all_dependencies:
+                if isinstance(dep, dict):
+                    # Maven dependency format: groupId:artifactId:version
+                    group_id = dep.get('groupId', '')
+                    artifact_id = dep.get('artifactId', '')
+                    version = dep.get('version', '')
+                    if artifact_id:  # Only show if we have at least artifactId
+                        formatted_deps.append(f"{group_id}:{artifact_id}:{version}")
+                else:
+                    formatted_deps.append(str(dep))
+            
+            if formatted_deps:
+                st.info(f"**Dependencies:** {', '.join(formatted_deps)}")
+        except Exception as e:
+            logger.error(f"Error formatting dependencies: {e}")
+            st.warning("Dependencies available but could not be displayed")
 
     # Download project
     st.markdown("---")
@@ -583,10 +695,25 @@ def main():
                 st.error(f"An error occurred: {str(e)}")
                 logger.error(f"Generation error: {str(e)}", exc_info=True)
                 st.session_state.generation_in_progress = False
+                st.rerun()
 
         # Display results if available
         if st.session_state.current_session and not st.session_state.generation_in_progress:
             render_results_section(st.session_state.current_session)
+            
+            # Show execution logs after completion - TEMPORARILY DISABLED
+            # with st.expander("📋 Execution Logs", expanded=False):
+            #     try:
+            #         if hasattr(st.session_state, 'log_handler') and st.session_state.log_handler:
+            #             logs = st.session_state.log_handler.get_formatted_logs()
+            #             if logs:
+            #                 st.code(logs, language="log", height=400)
+            #             else:
+            #                 st.info("No logs available")
+            #         else:
+            #             st.info("Logs not available")
+            #     except Exception as e:
+            #         st.warning(f"Could not load logs: {str(e)}")
 
     # Project mode
     else:
@@ -629,6 +756,7 @@ def main():
                 st.error(f"An error occurred: {str(e)}")
                 logger.error(f"Project generation error: {str(e)}", exc_info=True)
                 st.session_state.generation_in_progress = False
+                st.rerun()
 
         # Display project results if available
         if st.session_state.current_project_session and not st.session_state.generation_in_progress:

@@ -80,3 +80,18 @@ code_gen_logger = setup_logger("code_generator", "logs/code_generator.log")
 build_logger = setup_logger("build_agent", "logs/build_agent.log")
 test_logger = setup_logger("testing_agent", "logs/testing_agent.log")
 ui_logger = setup_logger("ui", "logs/ui.log")
+
+
+def attach_streamlit_handler():
+    """Attach Streamlit log handler to all loggers for UI display."""
+    try:
+        from src.utils.streamlit_log_handler import attach_to_logger
+        
+        attach_to_logger(orchestrator_logger)
+        attach_to_logger(code_gen_logger)
+        attach_to_logger(build_logger)
+        attach_to_logger(test_logger)
+        attach_to_logger(ui_logger)
+        
+    except ImportError:
+        pass  # Streamlit handler not available

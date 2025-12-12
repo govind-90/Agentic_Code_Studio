@@ -87,8 +87,8 @@ pytest
         "entrypoint": "src.main:app",
     },
     "spring_boot": {
-        "name": "Spring Boot Microservice",
-        "description": "Spring Boot microservice with MySQL, JWT auth, and Docker Compose",
+        "name": "Spring Boot REST API",
+        "description": "Spring Boot REST API with JPA and basic CRUD operations",
         "language": "java",
         "structure": {
             "src/main/java/com/example": {
@@ -96,7 +96,6 @@ pytest
                 "service": "# Business logic",
                 "model": "# JPA entities",
                 "repository": "# Data access",
-                "security": "# JWT and auth",
                 "config": "# Configuration classes",
             },
             "src/main/resources": {

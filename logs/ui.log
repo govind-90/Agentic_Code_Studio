@@ -1,9 +1,0 @@
-2025-12-08 10:10:25 | ui | [31mERROR[0m | Generation error: 'code'
-Traceback (most recent call last):
-  File "C:\Users\Govind\Projects\agentic-code-studio\src\ui\streamlit_app.py", line 569, in main
-    session = st.session_state.orchestrator.generate_code(
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Govind\Projects\agentic-code-studio\src\agents\orchestrator.py", line 103, in generate_code
-    iteration_log.generated_code = code_result["code"]
-                                   ~~~~~~~~~~~^^^^^^^^
-KeyError: 'code'

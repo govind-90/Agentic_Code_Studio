@@ -343,11 +343,28 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
         # Sanitize dependency list: remove None, empty strings, obvious descriptions, and stdlib names
         sanitized = []
         removed = []
+        
+        # Project-internal module names that should never be installed
+        project_internals = {"src", "app", "tests", "test", "config", "utils", "models", 
+                            "schemas", "database", "api", "core", "services", "controllers", 
+                            "views", "main", "lib", "common"}
+        
         for d in dependencies:
             if not d:
                 removed.append(d)
                 continue
             s = str(d).strip()
+            
+            # Skip comment lines (starting with #)
+            if s.startswith("#"):
+                removed.append(f"{s} (comment)")
+                continue
+            
+            # Filter out project-internal modules
+            if s.lower() in project_internals:
+                removed.append(f"{s} (project-internal)")
+                continue
+                
             # Skip obvious descriptions that contain parentheses or 'Standard'
             if ("(" in s and ")" in s) or "Standard" in s:
                 removed.append(s)
@@ -360,6 +377,8 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
 
         if removed:
             logger.warning(f"Removed invalid dependency entries before install: {removed}")
+        
+        logger.info(f"After initial sanitization: {sanitized}")
 
         if not sanitized:
             logger.info("No valid Python dependencies to install after sanitization")
@@ -402,9 +421,19 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
         seen = set()
         final_packages = []
         for p in pip_packages:
-            # Skip obvious stdlib modules that shouldn't be installed
-            stdlib_ignore = {"logging", "typing", "json", "math", "itertools", "collections", "datetime", "re", "sys", "os"}
-            if p in stdlib_ignore:
+            # Skip Python standard library modules that shouldn't be installed
+            stdlib_ignore = {
+                "logging", "typing", "json", "math", "itertools", "collections", "datetime", "re", "sys", "os",
+                "unittest", "pathlib", "io", "subprocess", "tempfile", "shutil", "copy", "pickle",
+                "threading", "multiprocessing", "argparse", "configparser", "email", "urllib", "http",
+                "socket", "ssl", "asyncio", "hashlib", "hmac", "secrets", "uuid", "enum", "dataclasses",
+                "abc", "time", "csv", "functools", "random", "string", "textwrap", "difflib", "warnings",
+                "sqlite3", "dbm", "shelve"
+            }
+            # Skip project-internal modules
+            project_modules = {"src", "app", "tests", "test", "config", "utils", "models", "schemas", "database", "api", "core", "services", "controllers", "views", "main"}
+            
+            if p in stdlib_ignore or p in project_modules:
                 continue
             if p not in seen:
                 final_packages.append(p)
@@ -412,12 +441,26 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
 
         logger.info(f"Final pip packages to install: {final_packages}")
 
-        result = subprocess.run(
-            [sys.executable, "-m", "pip", "install"] + final_packages,
-            capture_output=True,
-            text=True,
-            timeout=300,  # 5 minutes for installations
-        )
+        # Change to a safe directory to avoid pip trying to install from cwd
+        # if there's a setup.py or pyproject.toml present
+        import os
+        import tempfile
+        original_cwd = os.getcwd()
+        safe_dir = tempfile.gettempdir()
+        
+        try:
+            os.chdir(safe_dir)
+            logger.info(f"Changed to safe directory for pip install: {safe_dir}")
+            
+            result = subprocess.run(
+                [sys.executable, "-m", "pip", "install"] + final_packages,
+                capture_output=True,
+                text=True,
+                timeout=300,  # 5 minutes for installations
+            )
+        finally:
+            os.chdir(original_cwd)
+            logger.info(f"Restored original directory: {original_cwd}")
 
         success = result.returncode == 0
 
@@ -437,12 +480,17 @@ def install_python_dependencies(dependencies: list) -> Dict[str, any]:
                 logger.error(f"ensurepip failed: {e}")
 
             # Retry pip install once
-            retry = subprocess.run(
-                [sys.executable, "-m", "pip", "install"] + final_packages,
-                capture_output=True,
-                text=True,
-                timeout=300,
-            )
+            try:
+                os.chdir(safe_dir)
+                retry = subprocess.run(
+                    [sys.executable, "-m", "pip", "install"] + final_packages,
+                    capture_output=True,
+                    text=True,
+                    timeout=300,
+                )
+            finally:
+                os.chdir(original_cwd)
+                
             success = retry.returncode == 0
             if success:
                 logger.info("Dependencies installed successfully after ensurepip")
