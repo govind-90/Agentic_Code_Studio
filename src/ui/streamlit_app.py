@@ -21,7 +21,7 @@ from src.utils.logger import ui_logger as logger
 # Page configuration
 st.set_page_config(
     page_title="Agentic Code Studio",
-    page_icon="🤖",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -100,7 +100,7 @@ def initialize_session_state():
 
 def render_header():
     """Render application header."""
-    st.markdown('<h1 class="main-header">🤖 Agentic Code Studio</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header"> Agentic Code Studio</h1>', unsafe_allow_html=True)
     st.markdown("**Multi-Agent AI System for Autonomous Code Generation**")
     st.markdown("---")
 
