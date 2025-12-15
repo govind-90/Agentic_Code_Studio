@@ -76,6 +76,16 @@ def initialize_session_state():
 
     if "runtime_credentials" not in st.session_state:
         st.session_state.runtime_credentials = {}
+        
+        # Auto-inject database credentials from settings if available
+        if settings.db_name:  # Only inject if database is configured
+            st.session_state.runtime_credentials.update({
+                "DB_HOST": settings.db_host,
+                "DB_PORT": str(settings.db_port),
+                "DB_USER": settings.db_user,
+                "DB_PASSWORD": settings.db_password,
+                "DB_NAME": settings.db_name,
+            })
 
     if "generation_in_progress" not in st.session_state:
         st.session_state.generation_in_progress = False

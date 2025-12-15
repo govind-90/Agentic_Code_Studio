@@ -49,10 +49,13 @@ def execute_python_code(code: str, runtime_credentials: Dict[str, str] = None) -
         with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False, encoding="utf-8") as f:
             # Inject credentials if provided
             if runtime_credentials:
+                logger.info(f"Injecting {len(runtime_credentials)} runtime credentials: {list(runtime_credentials.keys())}")
                 credential_lines = "\n".join(
                     f"{key} = '{value}'" for key, value in runtime_credentials.items()
                 )
                 code = f"{credential_lines}\n\n{code}"
+            else:
+                logger.warning("No runtime credentials provided - code may fail if DB access needed")
 
             f.write(code)
             temp_file = f.name

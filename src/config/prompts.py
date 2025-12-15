@@ -8,7 +8,11 @@ CODE_GENERATOR_SYSTEM_PROMPT = """You are an expert code generation agent. Your 
 3. Add proper error handling and logging
 4. Write clear comments explaining complex logic
 5. Follow best practices for the target language (Python/Java)
-6. For database operations, include connection handling and table creation
+6. **CRITICAL FOR DATABASE OPERATIONS:**
+   - ALWAYS create tables BEFORE any INSERT operations
+   - Use CREATE TABLE IF NOT EXISTS to avoid errors
+   - Execute table creation in a separate step before data operations
+   - Order: 1) Connect → 2) Create Table → 3) Insert Data → 4) Update/Modify
 7. For API calls, include proper error handling and timeouts
 8. Generate sample data if needed for testing
 
@@ -36,6 +40,89 @@ CODE_GENERATOR_SYSTEM_PROMPT = """You are an expert code generation agent. Your 
 - Add if __name__ == "__main__": block
 - List dependencies in comments: # REQUIRES: requests, pandas
 
+**CRITICAL FOR DATABASE CONNECTIONS:**
+- Database credentials DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME are pre-defined variables
+- CRITICAL: DO NOT define these variables yourself - they are already available
+- CRITICAL: DO NOT use os.environ.get(), os.getenv(), or any placeholder values
+- NEVER EVER use: 'your_username', 'your_password', 'username', 'password', 'myuser', 'localhost', 'mydb'
+- Just use the variable names directly: DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME
+- For PostgreSQL in Python - MUST set autocommit AFTER connection:
+  ```python
+  import psycopg2
+  
+  # These variables are ALREADY DEFINED - do not redefine them!
+  # DB_HOST = 'localhost'
+  # DB_PORT = '5432'  
+  # DB_USER = 'postgres'
+  # DB_PASSWORD = 'devpass'
+  # DB_NAME = 'customer_db'
+  
+  # Connect to database using the pre-defined variables
+  conn = psycopg2.connect(
+      host=DB_HOST,          # Use variable directly
+      port=int(DB_PORT),     # Use variable directly
+      user=DB_USER,          # Use variable directly
+      password=DB_PASSWORD,  # Use variable directly
+      dbname=DB_NAME         # Use variable directly
+  )
+  
+  # CRITICAL: Set autocommit to True (NOT a connection parameter!)
+  conn.autocommit = True
+  
+  cur = conn.cursor()
+  
+  # STEP 1: Create table FIRST (before any data operations)
+  cur.execute('''
+      CREATE TABLE IF NOT EXISTS customers (
+          customer_id INT PRIMARY KEY,
+          name VARCHAR(100),
+          email VARCHAR(100),
+          age INT,
+          city VARCHAR(100)
+      )
+  ''')
+  print("Table created successfully")
+  
+  # STEP 2: Then insert data or perform other operations
+  cur.execute("INSERT INTO customers VALUES (...)")
+  ```
+- These variables will be automatically available at runtime - just use them directly!
+- CRITICAL: Always set conn.autocommit = True after creating connection to avoid transaction rollback issues
+- CRITICAL: Always CREATE TABLE before INSERT operations - never assume table exists
+
+**CRITICAL FOR FILE OPERATIONS:**
+- When reading CSV files, check if user mentions a specific filename in requirements
+- If requirements mention 'customer_data.csv', use that exact name
+- ALWAYS use absolute paths with os.path.abspath() or Path().absolute()
+- For CSV reading, use csv.DictReader or pandas.read_csv() - DO NOT use csv.reader() with manual unpacking
+- **CRITICAL FOR DATABASE + CSV**: Read CSV header FIRST to get exact column names, then create table with matching columns
+- Example for CSV in current directory:
+  ```python
+  import os
+  import csv
+  import pandas as pd
+  
+  csv_path = os.path.abspath('customer_data.csv')
+  if not os.path.exists(csv_path):
+      print(f"Error: CSV file not found at {csv_path}")
+      exit(1)
+  
+  # Read CSV to get column names
+  df = pd.read_csv(csv_path)
+  print(f"CSV columns: {list(df.columns)}")
+  
+  # Create table with EXACT column names from CSV
+  # Example: If CSV has [customer_id, name, email, age, city]
+  # Use those EXACT names in CREATE TABLE
+  
+  # Read CSV using DictReader (handles varying column counts automatically)
+  with open(csv_path, 'r', encoding='utf-8') as f:
+      reader = csv.DictReader(f)
+      for row in reader:
+          # row is a dict with keys matching CSV headers
+          # Access columns: row['customer_id'], row['name'], etc.
+  ```
+
 **Output Format:**
 - Return ONLY the code, no explanations before or after
 - For multi-file projects, clearly separate files with comments like: # FILE: filename.py
@@ -49,6 +136,16 @@ CODE_GENERATOR_HUMAN_TEMPLATE = """**User Requirements:**
 {requirements}
 
 **Target Language:** {language}
+
+**IMPORTANT - DATABASE CREDENTIALS ARE PRE-DEFINED:**
+The following variables are ALREADY AVAILABLE in your code - DO NOT define them:
+- DB_HOST (already set to 'localhost')
+- DB_PORT (already set to '5432')
+- DB_USER (already set to 'postgres')
+- DB_PASSWORD (already set to 'devpass')
+- DB_NAME (already set to 'customer_db')
+
+USE THEM DIRECTLY - no os.environ.get(), no placeholders, no hardcoded values!
 
 **CRITICAL FOR JAVA SINGLE-FILE GENERATION:**
 - Generate EXACTLY ONE complete public class with all code inside it

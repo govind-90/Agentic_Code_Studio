@@ -34,8 +34,8 @@ class Settings(BaseSettings):
     db_host: str = Field(default="localhost")
     db_port: int = Field(default=5432)
     db_user: str = Field(default="postgres")
-    db_password: str = Field(default="postgres")
-    db_name: str = Field(default="testdb")
+    db_password: str = Field(default="devpass")
+    db_name: str = Field(default="customer_db")
 
     # Logging Configuration
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = Field(default="INFO")
