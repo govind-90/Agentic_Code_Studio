@@ -84,6 +84,10 @@ class CodeGeneratorAgent:
             # Extract code from markdown blocks if present
             generated_code = self._extract_code_from_markdown(generated_code, language)
 
+            # Clean up unnecessary imports for Java
+            if language == ProgrammingLanguage.JAVA:
+                generated_code = self._remove_unnecessary_imports(generated_code)
+
             # Extract dependencies
             dependencies = self._extract_dependencies(generated_code, language)
 
@@ -230,6 +234,11 @@ class CodeGeneratorAgent:
                 "argparse",
                 "configparser",
                 "email",
+                "smtplib",
+                "poplib",
+                "imaplib",
+                "mailbox",
+                "mimetypes",
                 "urllib",
                 "http",
                 "socket",
@@ -245,6 +254,51 @@ class CodeGeneratorAgent:
                 "sqlite3",
                 "dbm",
                 "shelve",
+                "ftplib",
+                "xmlrpc",
+                "json",
+                "base64",
+                "binascii",
+                "struct",
+                "codecs",
+                "string",
+                "textwrap",
+                "difflib",
+                "pprint",
+                "reprlib",
+                "types",
+                "weakref",
+                "array",
+                "heapq",
+                "bisect",
+                "queue",
+                "sched",
+                "calendar",
+                "zlib",
+                "gzip",
+                "bz2",
+                "lzma",
+                "zipfile",
+                "tarfile",
+                "glob",
+                "fnmatch",
+                "linecache",
+                "shlex",
+                "warnings",
+                "contextlib",
+                "inspect",
+                "traceback",
+                "gc",
+                "atexit",
+                "site",
+                "urllib3",
+                "urllib2",
+                "xmlrpc",
+                "ipaddress",
+                "locale",
+                "gettext",
+                "codecs",
+                "platform",
             }
             
             # Common project-internal package names to exclude
@@ -430,6 +484,105 @@ class CodeGeneratorAgent:
         if conversion_count > 0:
             logger.info(f"Converted {conversion_count} javax.* imports to jakarta.*")
         
+        return code
+
+    def _remove_unnecessary_imports(self, code: str) -> str:
+        """
+        Remove unnecessary Jakarta/javax imports that aren't actually used in the code.
+        
+        Specifically removes jakarta.persistence imports when there are no JPA annotations.
+        """
+        import re
+        
+        # Check if code uses any JPA annotations
+        has_jpa_annotations = bool(re.search(
+            r"@(Entity|Table|Column|Id|GeneratedValue|ManyToOne|OneToMany|OneToOne|ManyToMany|JoinColumn|Transient|Temporal|Enumerated|ElementCollection|Embedded|EmbeddedId|PrePersist|PostPersist|PreUpdate|PostUpdate|PreRemove|PostRemove)",
+            code
+        ))
+        
+        # If no JPA annotations, remove jakarta.persistence import
+        if not has_jpa_annotations:
+            code = re.sub(r'^\s*import\s+jakarta\.persistence\s*;?\s*\n', '', code, flags=re.MULTILINE)
+            code = re.sub(r'^\s*import\s+javax\.persistence\s*;?\s*\n', '', code, flags=re.MULTILINE)
+            logger.debug("Removed unnecessary jakarta.persistence import (no JPA annotations detected)")
+        
+        # Check if code uses any validation annotations
+        has_validation_annotations = bool(re.search(
+            r"@(NotNull|NotBlank|NotEmpty|Size|Min|Max|Positive|Email|Pattern)",
+            code
+        ))
+        
+        # If no validation annotations, remove jakarta.validation import
+        if not has_validation_annotations:
+            code = re.sub(r'^\s*import\s+jakarta\.validation\s*;?\s*\n', '', code, flags=re.MULTILINE)
+            code = re.sub(r'^\s*import\s+javax\.validation\s*;?\s*\n', '', code, flags=re.MULTILINE)
+            logger.debug("Removed unnecessary jakarta.validation import (no validation annotations detected)")
+        
+        # Convert old HttpClient v4 imports to v5 if present
+        code = self._convert_httpclient_v4_to_v5(code)
+        
+        return code
+
+    def _convert_httpclient_v4_to_v5(self, code: str) -> str:
+        """
+        Convert old Apache HttpClient v4 imports/code to v5 format.
+        This handles cases where LLM generates v4 code even when v5 is requested.
+        """
+        import re
+        
+        # Check if it has old v4 imports
+        has_v4_imports = bool(re.search(r'import\s+org\.apache\.http[^;]*;', code))
+        
+        if not has_v4_imports:
+            return code  # No v4 imports, nothing to do
+        
+        logger.info("Converting old HttpClient v4 imports to v5")
+        
+        # Import conversions: old v4 to new v5
+        import_conversions = {
+            r'import\s+org\.apache\.http\.client\.methods\.HttpGet;': 
+                'import org.apache.hc.client5.http.impl.classic.HttpClients;\nimport org.apache.hc.core5.http.io.support.ClassicRequestBuilder;',
+            r'import\s+org\.apache\.http\.client\.methods\.HttpPost;': 
+                'import org.apache.hc.client5.http.impl.classic.HttpClients;\nimport org.apache.hc.core5.http.io.support.ClassicRequestBuilder;',
+            r'import\s+org\.apache\.http\.impl\.client\.CloseableHttpClient;': 
+                'import org.apache.hc.client5.http.classic.HttpClient;',
+            r'import\s+org\.apache\.http\.impl\.client\.HttpClients;': 
+                'import org.apache.hc.client5.http.impl.classic.HttpClients;',
+            r'import\s+org\.apache\.http\.impl\.client\.HttpClientBuilder;': 
+                'import org.apache.hc.client5.http.impl.classic.HttpClients;',
+            r'import\s+org\.apache\.http\.client\.HttpResponse;': 
+                'import org.apache.hc.core5.http.ClassicHttpResponse;',
+            r'import\s+org\.apache\.http\.util\.EntityUtils;': 
+                'import org.apache.hc.core5.http.io.entity.EntityUtils;',
+            r'import\s+org\.apache\.http\.entity\.StringEntity;': 
+                'import org.apache.hc.core5.http.io.entity.StringEntity;',
+            r'import\s+org\.apache\.http\.client\.ResponseHandler;': 
+                '',  # Not needed in v5
+        }
+        
+        for old_import, new_import in import_conversions.items():
+            code = re.sub(old_import, new_import, code)
+        
+        # Remove any remaining old v4 imports
+        code = re.sub(r'import\s+org\.apache\.http[^;]*;', '', code)
+        
+        # Clean up duplicate imports
+        lines = code.split('\n')
+        seen_imports = set()
+        cleaned_lines = []
+        for line in lines:
+            if line.strip().startswith('import '):
+                if line not in seen_imports:
+                    seen_imports.add(line)
+                    cleaned_lines.append(line)
+            else:
+                cleaned_lines.append(line)
+        code = '\n'.join(cleaned_lines)
+        
+        # Remove excess blank lines
+        code = re.sub(r'\n\s*\n\s*\n+', '\n\n', code)
+        
+        logger.info("HttpClient v4 to v5 conversion completed")
         return code
 
     def generate_project_code(

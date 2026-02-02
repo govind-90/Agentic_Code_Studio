@@ -137,7 +137,12 @@ class BuildAgent:
                 "threading", "multiprocessing", "argparse", "configparser", "email", "urllib", "http",
                 "socket", "ssl", "asyncio", "hashlib", "hmac", "secrets", "uuid", "enum", "dataclasses",
                 "abc", "time", "csv", "functools", "random", "string", "textwrap", "difflib", "warnings",
-                "sqlite3", "dbm", "shelve"
+                "sqlite3", "dbm", "shelve", "smtplib", "poplib", "imaplib", "mailbox", "mimetypes",
+                "ftplib", "xmlrpc", "base64", "binascii", "struct", "codecs", "reprlib", "types",
+                "weakref", "array", "heapq", "bisect", "queue", "sched", "calendar", "zlib", "gzip",
+                "bz2", "lzma", "zipfile", "tarfile", "glob", "fnmatch", "linecache", "shlex",
+                "contextlib", "inspect", "traceback", "gc", "atexit", "site", "ipaddress", "locale",
+                "gettext", "platform"
             }
             
             filtered_deps = [
@@ -460,9 +465,14 @@ class BuildAgent:
                 "version": "2.10.1",
             },
             "org.apache.http": {
-                "groupId": "org.apache.httpcomponents",
-                "artifactId": "httpclient",
-                "version": "4.5.14",
+                "groupId": "org.apache.httpcomponents.client5",
+                "artifactId": "httpclient5",
+                "version": "5.3",
+            },
+            "org.apache.hc": {
+                "groupId": "org.apache.httpcomponents.client5",
+                "artifactId": "httpclient5",
+                "version": "5.3",
             },
             "org.apache.commons.lang3": {
                 "groupId": "org.apache.commons",
@@ -624,6 +634,17 @@ class BuildAgent:
             if imp.startswith("javax.sql") or imp.startswith("javax.naming"):
                 continue
 
+            # SPECIAL HANDLING for jakarta.persistence - only add if actually used
+            if imp.startswith("jakarta.persistence"):
+                # Check if code actually uses JPA annotations (@Entity, @Table, @Column, @Id, etc.)
+                has_jpa_annotations = bool(re.search(
+                    r"@(Entity|Table|Column|Id|GeneratedValue|ManyToOne|OneToMany|OneToOne|ManyToMany|JoinColumn|Transient|Temporal|Enumerated|ElementCollection|Embedded|EmbeddedId|PrePersist|PostPersist|PreUpdate|PostUpdate|PreRemove|PostRemove)",
+                    code
+                ))
+                if not has_jpa_annotations:
+                    # Skip jakarta.persistence import if no JPA annotations are used
+                    continue
+            
             # Check against known dependencies
             for prefix, dep_info in dependency_map.items():
                 if imp.startswith(prefix):
@@ -723,8 +744,8 @@ class BuildAgent:
 
         pom += """
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
@@ -772,7 +793,12 @@ class BuildAgent:
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -834,7 +860,12 @@ class BuildAgent:
                 "threading", "multiprocessing", "argparse", "configparser", "email", "urllib", "http",
                 "socket", "ssl", "asyncio", "hashlib", "hmac", "secrets", "uuid", "enum", "dataclasses",
                 "abc", "time", "csv", "functools", "random", "string", "textwrap", "difflib", "warnings",
-                "sqlite3", "dbm", "shelve"
+                "sqlite3", "dbm", "shelve", "smtplib", "poplib", "imaplib", "mailbox", "mimetypes",
+                "ftplib", "xmlrpc", "base64", "binascii", "struct", "codecs", "reprlib", "types",
+                "weakref", "array", "heapq", "bisect", "queue", "sched", "calendar", "zlib", "gzip",
+                "bz2", "lzma", "zipfile", "tarfile", "glob", "fnmatch", "linecache", "shlex",
+                "contextlib", "inspect", "traceback", "gc", "atexit", "site", "ipaddress", "locale",
+                "gettext", "platform"
             }
             
             filtered_deps = [
@@ -898,9 +929,13 @@ class BuildAgent:
         suggested_fixes = []
 
         try:
-            # Create temp Maven project
-            temp_dir = Path(tempfile.mkdtemp())
-            logger.info(f"Creating Maven project in {temp_dir}")
+            # Use provided root_dir if available, otherwise create temp directory
+            if root_dir:
+                temp_dir = Path(root_dir)
+                logger.info(f"Building in provided project directory: {temp_dir}")
+            else:
+                temp_dir = Path(tempfile.mkdtemp())
+                logger.info(f"Creating temporary Maven project in {temp_dir}")
 
             # Find main class (class with main method)
             main_class = None
@@ -1069,14 +1104,14 @@ class BuildAgent:
                         seen_coords.add(coord)
                         logger.info(f"Added essential Spring Boot starter: {artifact}")
 
-            # Create pom.xml
+            # Create pom.xml - for scaffolded projects, always update with detected dependencies
             if main_class:
                 pom_content = self._generate_pom_xml(main_class, pom_deps)
             else:
                 pom_content = self._generate_pom_xml("com.agenticcode.Main", pom_deps)
 
             (temp_dir / "pom.xml").write_text(pom_content, encoding="utf-8")
-            logger.info("Created pom.xml")
+            logger.info("Created/updated pom.xml with detected dependencies")
 
             # Find Maven
             mvn_path = shutil.which("mvn")
@@ -1139,7 +1174,9 @@ class BuildAgent:
                     errors.append("Build failed - see logs for details")
                     errors.append(compile_result.stdout[-1000:] if compile_result.stdout else "No output")
 
-                shutil.rmtree(temp_dir, ignore_errors=True)
+                # Only remove temp_dir if it was auto-created, not if it was provided
+                if not root_dir:
+                    shutil.rmtree(temp_dir, ignore_errors=True)
 
                 return BuildResult(
                     status="error",
@@ -1150,7 +1187,9 @@ class BuildAgent:
                 )
 
             logger.info("Java project compiled successfully")
-            shutil.rmtree(temp_dir, ignore_errors=True)
+            # Only remove temp_dir if it was auto-created, not if it was provided
+            if not root_dir:
+                shutil.rmtree(temp_dir, ignore_errors=True)
 
             return BuildResult(
                 status="success",

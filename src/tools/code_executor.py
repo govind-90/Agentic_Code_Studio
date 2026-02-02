@@ -111,7 +111,7 @@ def execute_python_code(code: str, runtime_credentials: Dict[str, str] = None) -
 
 @tool
 def execute_java_code(
-    code: str, classname: str, runtime_credentials: Dict[str, str] = None
+    code: str, classname: str, runtime_credentials: Dict[str, str] = None, dependencies: list = None
 ) -> Dict[str, any]:
     """
     Compile and execute Java code using Maven for proper dependency management.
@@ -120,6 +120,7 @@ def execute_java_code(
         code: Java code to execute
         classname: Main class name
         runtime_credentials: Optional credentials to inject
+        dependencies: Optional list of dependencies detected during code generation
 
     Returns:
         Execution result with stdout, stderr, and status
@@ -163,8 +164,11 @@ def execute_java_code(
 
         # Create pom.xml
         main_class_path = f"{package_name}.{classname}" if package_name else classname
-        pom_content = _generate_execution_pom(main_class_path)
+        logger.info(f"Generating pom.xml for main class: {main_class_path}")
+        logger.info(f"Dependencies passed to executor: {dependencies}")
+        pom_content = _generate_execution_pom(main_class_path, dependencies or [])
         (temp_dir / "pom.xml").write_text(pom_content, encoding="utf-8")
+        logger.info(f"Created pom.xml at {temp_dir}/pom.xml")
 
         logger.info(f"Compiling Java code with Maven: {classname}")
 
@@ -215,21 +219,33 @@ def execute_java_code(
             }
 
         logger.info("Java compilation succeeded, executing...")
+        logger.info(f"Main class path: {main_class_path}")
 
-        # Execute with Maven
+        # Execute with Maven using exec:java
         exec_cmd = f'"{mvn_path}" exec:java -Dexec.mainClass="{main_class_path}"'
-        exec_result = subprocess.run(
-            exec_cmd,
-            cwd=temp_dir,
-            capture_output=True,
-            text=True,
-            timeout=settings.execution_timeout,
-            shell=True,
-        )
+        logger.info(f"Executing command: {exec_cmd}")
+        try:
+            exec_result = subprocess.run(
+                exec_cmd,
+                cwd=temp_dir,
+                capture_output=True,
+                text=True,
+                timeout=settings.execution_timeout,
+                shell=True,
+                input="",  # Provide empty input to prevent hanging on stdin
+            )
+        except subprocess.TimeoutExpired as e:
+            logger.error(f"Java execution timed out after {settings.execution_timeout} seconds")
+            return {
+                "success": False,
+                "error": f"Execution timed out after {settings.execution_timeout} seconds",
+                "stdout": e.stdout if hasattr(e, 'stdout') else "",
+                "stderr": e.stderr if hasattr(e, 'stderr') else "",
+            }
         
         logger.info(f"Maven exec result: returncode={exec_result.returncode}")
-        logger.info(f"Exec stdout: {exec_result.stdout}")
-        logger.info(f"Exec stderr: {exec_result.stderr}")
+        logger.info(f"Exec stdout: {exec_result.stdout[:500] if exec_result.stdout else ''}")  # Log first 500 chars
+        logger.info(f"Exec stderr: {exec_result.stderr[:500] if exec_result.stderr else ''}")  # Log first 500 chars
         
         # Clean up
         import shutil
@@ -237,7 +253,18 @@ def execute_java_code(
         shutil.rmtree(temp_dir, ignore_errors=True)
 
         success = exec_result.returncode == 0
-        logger.info(f"Java execution {'succeeded' if success else 'failed'}")
+        logger.info(f"Java execution {'succeeded' if success else 'failed'} (returncode: {exec_result.returncode})")
+        
+        # If execution failed, construct better error message
+        if not success:
+            error_msg = exec_result.stderr or exec_result.stdout or f"Execution failed with return code {exec_result.returncode}"
+            return {
+                "success": False,
+                "error": error_msg,
+                "stdout": exec_result.stdout,
+                "stderr": exec_result.stderr,
+                "returncode": exec_result.returncode,
+            }
 
         return {
             "success": success,
@@ -246,16 +273,18 @@ def execute_java_code(
             "returncode": exec_result.returncode,
         }
 
-    except subprocess.TimeoutExpired:
-        logger.error("Java execution timed out")
-        import shutil
-
-        shutil.rmtree(temp_dir, ignore_errors=True)
+    except subprocess.TimeoutExpired as e:
+        logger.error(f"Java execution timed out after {settings.execution_timeout} seconds")
+        try:
+            import shutil
+            shutil.rmtree(temp_dir, ignore_errors=True)
+        except:
+            pass
         return {
             "success": False,
-            "error": f"Execution timed out after {settings.execution_timeout} seconds",
-            "stdout": "",
-            "stderr": "",
+            "error": f"Execution timed out after {settings.execution_timeout} seconds. The program may be waiting for input or in an infinite loop.",
+            "stdout": e.stdout if hasattr(e, 'stdout') else "",
+            "stderr": e.stderr if hasattr(e, 'stderr') else "",
         }
     except FileNotFoundError:
         return {
@@ -269,8 +298,50 @@ def execute_java_code(
         return {"success": False, "error": str(e), "stdout": "", "stderr": ""}
 
 
-def _generate_execution_pom(main_class: str) -> str:
-    """Generate minimal pom.xml for Java execution."""
+def _generate_execution_pom(main_class: str, dependencies: list = None) -> str:
+    """Generate pom.xml for Java execution with dynamic dependencies."""
+    # Normalize dependencies to list of dicts
+    pom_deps = []
+    seen = set()
+    
+    logger.info(f"_generate_execution_pom called with {len(dependencies or [])} dependencies")
+    
+    if dependencies:
+        for dep in dependencies:
+            logger.info(f"Processing dependency: {dep} (type: {type(dep).__name__})")
+        for dep in dependencies:
+            if isinstance(dep, dict):
+                # Already a dict with groupId, artifactId, version
+                coord = (dep.get("groupId"), dep.get("artifactId"), dep.get("version"))
+                if coord not in seen:
+                    pom_deps.append(dep)
+                    seen.add(coord)
+            elif isinstance(dep, str) and ":" in dep:
+                # String format: "groupId:artifactId:version"
+                parts = dep.split(":")
+                if len(parts) == 3:
+                    coord = tuple(parts)
+                    if coord not in seen:
+                        pom_deps.append({
+                            "groupId": parts[0],
+                            "artifactId": parts[1],
+                            "version": parts[2]
+                        })
+                        seen.add(coord)
+    
+    # Build dependencies XML
+    deps_xml = ""
+    for dep in pom_deps:
+        deps_xml += f"""        <dependency>
+            <groupId>{dep['groupId']}</groupId>
+            <artifactId>{dep['artifactId']}</artifactId>
+            <version>{dep['version']}</version>
+        </dependency>
+"""
+    
+    dep_names = [f"{d['groupId']}:{d['artifactId']}" for d in pom_deps]
+    logger.info(f"Generated pom with {len(pom_deps)} dependencies: {dep_names}")
+    
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -289,29 +360,19 @@ def _generate_execution_pom(main_class: str) -> str:
     </properties>
     
     <dependencies>
-        <dependency>
-            <groupId>org.apache.httpcomponents.client5</groupId>
-            <artifactId>httpclient5</artifactId>
-            <version>5.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20231013</version>
-        </dependency>
-    </dependencies>
+{deps_xml}    </dependencies>
     
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.12.1</version>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

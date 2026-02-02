@@ -6,6 +6,7 @@ from typing import Literal
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+#2797923
 
 class Settings(BaseSettings):
     """Main application settings."""

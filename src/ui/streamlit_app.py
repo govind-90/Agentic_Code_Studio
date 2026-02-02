@@ -110,14 +110,16 @@ def initialize_session_state():
 
 def render_header():
     """Render application header."""
-    st.markdown('<h1 class="main-header"> Agentic Code Studio</h1>', unsafe_allow_html=True)
-    st.markdown("**Multi-Agent AI System for Autonomous Code Generation**")
+    st.markdown('''
+    <h1 style="text-align: center;" class="main-header">Agentic Code Studio</h1>
+    <p style="text-align: center;">Multi-Agent AI System for Autonomous Code Generation</p>
+    ''', unsafe_allow_html=True)
     st.markdown("---")
 
 
 def render_main_interface():
     """Render the main code generation interface."""
-    st.subheader("📝 Code Generation Request")
+    st.subheader("Code Generation Request")
 
     col1, col2 = st.columns([2, 1])
 
@@ -147,7 +149,7 @@ def render_main_interface():
 
         st.markdown("---")
         generate_button = st.button(
-            "🚀 Generate Code",
+            "Generate Code",
             type="primary",
             use_container_width=True,
             disabled=st.session_state.generation_in_progress,
@@ -192,7 +194,7 @@ def render_main_interface():
                 st.text(f"✓ {key}")
 
     # Database configuration
-    with st.expander("🗄️ Database Configuration", expanded=False):
+    with st.expander("Database Configuration", expanded=False):
         st.info("Configure PostgreSQL connection for generated code.")
         col1, col2 = st.columns(2)
         with col1:
@@ -202,7 +204,7 @@ def render_main_interface():
             st.text_input("Port", value=str(settings.db_port), disabled=True)
             st.text_input("User", value=settings.db_user, disabled=True)
 
-        st.caption("💡 Make sure PostgreSQL is running locally with these settings")
+        st.caption("Make sure PostgreSQL is running locally with these settings")
 
     return generate_button, requirements, language, max_iterations
 
@@ -261,7 +263,7 @@ def render_project_interface():
 
         st.markdown("---")
         generate_project_button = st.button(
-            "🚀 Generate Project",
+            "Generate Project",
             type="primary",
             use_container_width=True,
             disabled=st.session_state.generation_in_progress,
@@ -604,9 +606,12 @@ def render_history_sidebar():
     """Render session history in sidebar."""
     st.sidebar.title("📚 Session History")
 
-    sessions = st.session_state.orchestrator.list_sessions()
+    all_sessions = st.session_state.orchestrator.list_sessions()
     
-    logger.info(f"Sidebar: Found {len(sessions)} sessions to display")
+    # Keep only last 10 sessions (sorted by creation time, newest first)
+    sessions = all_sessions[:10] if len(all_sessions) > 10 else all_sessions
+    
+    logger.info(f"Sidebar: Found {len(all_sessions)} total sessions, displaying last 10")
 
     if not sessions:
         st.sidebar.info("No previous sessions found")
@@ -636,11 +641,11 @@ def render_history_sidebar():
         st.sidebar.markdown("**Session Details:**")
         st.sidebar.write(f"**ID:** {session_info['session_id']}")
         st.sidebar.write(f"**Language:** {session_info['language'].upper()}")
-        st.sidebar.write(f"**Status:** {'✅ Success' if session_info['success'] else '❌ Failed'}")
+        st.sidebar.write(f"**Status:** {'Success' if session_info['success'] else '❌ Failed'}")
         st.sidebar.write(f"**Created:** {session_info['created_at'].strftime('%Y-%m-%d %H:%M')}")
         st.sidebar.caption(f"**Requirements:**\n{session_info['requirements']}")
         
-        if st.sidebar.button("📂 Load Session", key="load_session_btn", use_container_width=True):
+        if st.sidebar.button("Load Session", key="load_session_btn", use_container_width=True):
             loaded_session = st.session_state.orchestrator.load_session(
                 session_info["session_id"]
             )
@@ -652,7 +657,7 @@ def render_history_sidebar():
 def render_settings_sidebar():
     """Render application settings in sidebar."""
     st.sidebar.markdown("---")
-    st.sidebar.title("⚙️ Settings")
+    st.sidebar.title("Settings")
 
     st.sidebar.write(f"**Max Iterations:** {settings.max_iterations}")
     st.sidebar.write(f"**Execution Timeout:** {settings.execution_timeout}s")
@@ -786,7 +791,7 @@ def main():
 
     # Footer
     st.sidebar.markdown("---")
-    st.sidebar.caption("🤖 Powered by Google Gemini & LangChain")
+    st.sidebar.caption("Powered by Google Gemini & LangChain")
 
 
 if __name__ == "__main__":

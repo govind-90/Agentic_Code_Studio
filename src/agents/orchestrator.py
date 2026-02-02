@@ -190,6 +190,7 @@ class OrchestratorAgent:
                 code=generated_code,
                 language=language,
                 runtime_credentials=session.runtime_credentials,
+                dependencies=dependencies,
             )
 
             iteration_log.test_result = test_result
@@ -333,7 +334,10 @@ class OrchestratorAgent:
                 metadata_file = session_dir / "metadata.json"
                 if metadata_file.exists():
                     try:
-                        raw = metadata_file.read_text(encoding='utf-8')
+                        raw = metadata_file.read_text(encoding='utf-8').strip()
+                        if not raw:  # Skip empty files
+                            logger.debug(f"Skipping empty metadata.json in {session_dir.name}")
+                            continue
                         data = json.loads(raw)
 
                         allowed_error_types = {et.value for et in ErrorType}

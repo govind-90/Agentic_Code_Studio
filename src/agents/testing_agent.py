@@ -44,6 +44,7 @@ class TestingAgent:
         code: str,
         language: ProgrammingLanguage,
         runtime_credentials: Dict[str, str] = None,
+        dependencies: list = None,
     ) -> TestResult:
         """
         Execute code and validate against requirements.
@@ -53,6 +54,7 @@ class TestingAgent:
             code: Code to test
             language: Programming language
             runtime_credentials: Optional runtime credentials
+            dependencies: Optional list of dependencies detected during code generation
 
         Returns:
             TestResult with execution details
@@ -110,17 +112,33 @@ class TestingAgent:
                 classname = class_match.group(1)
                 logger.info(f"Executing Java class: {classname}")
 
-                exec_result = execute_java_code.invoke(
-                    {
-                        "code": code,
-                        "classname": classname,
-                        "runtime_credentials": runtime_credentials or {},
+                try:
+                    exec_result = execute_java_code.invoke(
+                        {
+                            "code": code,
+                            "classname": classname,
+                            "runtime_credentials": runtime_credentials or {},
+                            "dependencies": dependencies or [],
+                        }
+                    )
+                    logger.info(f"Java execution returned: {exec_result}")
+                except Exception as e:
+                    logger.error(f"Java execution exception: {e}", exc_info=True)
+                    exec_result = {
+                        "success": False,
+                        "error": str(e),
+                        "stdout": "",
+                        "stderr": str(e),
                     }
-                )
 
             execution_time = time.time() - start_time
 
             # Analyze results
+            logger.info(f"Execution completed in {execution_time:.2f}s")
+            logger.info(f"Exec result type: {type(exec_result)}")
+            logger.info(f"Exec result keys: {exec_result.keys() if isinstance(exec_result, dict) else 'N/A'}")
+            logger.info(f"Full exec_result: {exec_result}")
+            
             if not exec_result.get("success"):
                 logger.error(f"Code execution failed")
                 logger.error(f"Execution result: {exec_result}")
@@ -151,7 +169,15 @@ class TestingAgent:
 
     def _create_failure_result(self, exec_result: Dict, execution_time: float) -> TestResult:
         """Create TestResult for failed execution."""
+        logger.error(f"Creating failure result from exec_result: {exec_result}")
+        
         error_msg = exec_result.get("error") or exec_result.get("stderr") or "Unknown error"
+        stdout_msg = exec_result.get("stdout", "")
+        stderr_msg = exec_result.get("stderr", "")
+        
+        logger.error(f"Error message: {error_msg}")
+        logger.error(f"Stdout: {stdout_msg[:500] if stdout_msg else 'empty'}")
+        logger.error(f"Stderr: {stderr_msg[:500] if stderr_msg else 'empty'}")
 
         return TestResult(
             status="fail",
@@ -163,7 +189,7 @@ class TestingAgent:
                     error=error_msg,
                 )
             ],
-            execution_logs=f"STDOUT:\n{exec_result.get('stdout', '')}\n\nSTDERR:\n{error_msg}",
+            execution_logs=f"STDOUT:\n{stdout_msg}\n\nSTDERR:\n{stderr_msg}",
             performance=PerformanceMetrics(execution_time_seconds=execution_time),
             issues_found=[error_msg],
             recommendations=["Review error logs and fix runtime issues"],
